@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Powered Inbox — Tech Velocity Project</title>
+  <meta name="description" content="End-to-end AI powered inbox for law firms — intelligent email triage, categorization, priority detection and auto-routing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav.scrolled{padding:10px 48px;}
+    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
+    .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+    .container{max-width:1040px;margin:0 auto;}
+    section{padding:80px 24px;position:relative;z-index:1;}
+    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(1.5rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:40px;text-align:center;}
+    .btn-primary{background:var(--accent);color:#000;padding:14px 28px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
+    .btn-secondary{background:transparent;color:var(--text);padding:14px 28px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .breadcrumb{padding:100px 24px 0;position:relative;z-index:1;}
+    .breadcrumb-inner{display:flex;align-items:center;gap:8px;font-size:0.82rem;color:var(--muted);}
+    .breadcrumb-inner a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .breadcrumb-inner a:hover{color:var(--accent);}
+    .breadcrumb-inner span{opacity:0.4;}
+    .project-hero{padding:40px 24px 80px;position:relative;overflow:hidden;}
+    .hero-glow{position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:400px;background:radial-gradient(ellipse,rgba(0,200,150,0.1) 0%,transparent 70%);pointer-events:none;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,0.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 20%,transparent 70%);}
+    .hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:6px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:20px;animation:fadeInDown 0.6s ease both;}
+    .hero-badge::before{content:'●';font-size:0.55rem;animation:pulse 2s infinite;}
+    .hero-left h1{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero-left h1 em{font-style:normal;color:var(--accent);}
+    .hero-left p{font-size:0.97rem;color:var(--muted);line-height:1.8;margin-bottom:32px;animation:fadeInUp 0.7s 0.2s ease both;}
+    .hero-metrics{display:flex;gap:32px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--border);animation:fadeInUp 0.7s 0.3s ease both;}
+    .hero-metric-val{font-family:var(--font-head);font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1;}
+    .hero-metric-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+    .hero-right{position:relative;animation:fadeInUp 0.7s 0.2s ease both;}
+    .hero-img-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 32px 80px rgba(0,0,0,0.5);}
+    .hero-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+    .hero-tag-strip{position:absolute;bottom:-16px;left:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:8px;flex-wrap:wrap;}
+    .htag{font-size:0.72rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:4px 10px;border-radius:100px;}
+    .overview-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .overview-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;}
+    .overview-text h2{font-family:var(--font-head);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-0.3px;}
+    .overview-text p{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:16px;}
+    .overview-details{display:flex;flex-direction:column;gap:16px;}
+    .detail-row{display:flex;flex-direction:column;gap:4px;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:12px;}
+    .detail-row label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);}
+    .detail-row span{font-size:0.9rem;color:var(--text);font-weight:500;}
+    .gallery-section{background:var(--bg);}
+    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .gallery-item{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);cursor:pointer;aspect-ratio:4/3;background:var(--bg3);}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;}
+    .gallery-item:hover img{transform:scale(1.06);filter:brightness(0.7);}
+    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,15,0.9) 0%,transparent 60%);padding:20px;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.3s;}
+    .gallery-item:hover .gallery-overlay{opacity:1;}
+    .gallery-overlay h3{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:4px;}
+    .gallery-overlay p{font-size:0.78rem;color:var(--muted);}
+    .gallery-expand{position:absolute;top:14px;right:14px;width:32px;height:32px;background:rgba(0,200,150,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;font-size:0.9rem;}
+    .gallery-item:hover .gallery-expand{opacity:1;}
+    .video-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .video-wrap{max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 60px rgba(0,0,0,0.5);aspect-ratio:16/9;background:var(--bg3);}
+    .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;}
+
+    /* FEATURES — hover-effects grid */
+    .features-section{background:var(--bg);}
+    .hover-features-grid{display:grid;grid-template-columns:repeat(2,1fr);position:relative;z-index:1;max-width:900px;margin:0 auto;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+    .hover-feature{display:flex;flex-direction:column;padding:36px 40px;position:relative;border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:default;transition:all 0.2s;background:var(--card);}
+    .hover-feature:nth-child(2n){border-right:none;}
+    .hover-feature:nth-last-child(-n+2){border-bottom:none;}
+    .hover-feature-bg-top{opacity:0;transition:opacity 0.25s;position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,200,150,0.06),transparent);pointer-events:none;}
+    .hover-feature-bg-bottom{opacity:0;transition:opacity 0.25s;position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,200,150,0.06),transparent);pointer-events:none;}
+    .hover-feature:hover .hover-feature-bg-top,.hover-feature:hover .hover-feature-bg-bottom{opacity:1;}
+    .hover-feature-icon{margin-bottom:18px;position:relative;z-index:1;font-size:1.5rem;line-height:1;}
+    .hover-feature-title-row{position:relative;z-index:1;margin-bottom:10px;display:flex;align-items:center;}
+    .hover-feature-bar{position:absolute;left:-40px;top:50%;transform:translateY(-50%);height:24px;width:3px;border-radius:0 3px 3px 0;background:rgba(255,255,255,0.1);transition:all 0.2s;}
+    .hover-feature:hover .hover-feature-bar{height:32px;background:var(--accent);}
+    .hover-feature-title{font-family:var(--font-head);font-size:0.98rem;font-weight:700;color:var(--text);transition:transform 0.2s;display:inline-block;}
+    .hover-feature:hover .hover-feature-title{transform:translateX(4px);}
+    .hover-feature p{font-size:0.85rem;color:var(--muted);line-height:1.7;position:relative;z-index:1;}
+
+    /* TECH TABS — Feature108 pattern */
+    .tech-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .tabs-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+    .tab-btn{display:flex;align-items:center;gap:8px;padding:11px 24px;border-radius:12px;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:var(--font-head);font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+    .tab-btn svg{width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .tab-btn:hover{border-color:rgba(0,200,150,0.3);color:var(--text);}
+    .tab-btn.active{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.4);color:var(--text);}
+    .tabs-content-wrap{border-radius:20px;background:rgba(0,200,150,0.04);border:1px solid rgba(0,200,150,0.12);padding:48px 52px;}
+    .tab-panel{display:none;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    .tab-panel.active{display:grid;}
+    .tab-badge{display:inline-block;background:var(--card);border:1px solid var(--border);color:var(--accent);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:100px;margin-bottom:18px;}
+    .tab-title{font-family:var(--font-head);font-size:clamp(1.4rem,2.4vw,2.1rem);font-weight:800;line-height:1.15;letter-spacing:-0.3px;margin-bottom:16px;}
+    .tab-desc{font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:28px;}
+    .tab-cta{background:var(--accent);color:#000;padding:12px 26px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.25s;border:none;cursor:pointer;}
+    .tab-cta:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,200,150,0.3);}
+    .tab-img{border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+    .tab-img img{width:100%;height:240px;object-fit:cover;display:block;}
+
+    /* CTA BAND */
+    .cta-band{background:var(--bg);padding:80px 24px;text-align:center;position:relative;overflow:hidden;}
+    .cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(0,200,150,0.07) 0%,transparent 70%);pointer-events:none;}
+    .cta-band h2{font-family:var(--font-head);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;margin-bottom:16px;letter-spacing:-0.3px;position:relative;z-index:1;}
+    .cta-band p{color:var(--muted);font-size:0.97rem;max-width:480px;margin:0 auto 36px;line-height:1.7;position:relative;z-index:1;}
+    .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 24px 40px;position:relative;z-index:1;}
+    .footer-inner{display:flex;flex-direction:column;align-items:center;max-width:640px;margin:0 auto;}
+    .footer-logo-circle{width:80px;height:80px;border-radius:50%;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
+    .footer-logo-circle img{height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.9;}
+    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:32px;}
+    .footer-nav a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .footer-nav a:hover{color:var(--accent);}
+    .footer-socials{display:flex;gap:12px;margin-bottom:32px;}
+    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--muted);}
+    .footer-social-btn:hover{border-color:rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:var(--accent);}
+    .footer-social-btn svg{width:16px;height:16px;fill:currentColor;}
+    .footer-subscribe{width:100%;max-width:420px;display:flex;gap:8px;margin-bottom:36px;}
+    .footer-subscribe input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 18px;color:var(--text);font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:var(--font-body);}
+    .footer-subscribe input::placeholder{color:var(--muted);}
+    .footer-subscribe input:focus{border-color:rgba(0,200,150,0.4);}
+    .footer-subscribe button{background:var(--accent);color:#000;border:none;border-radius:100px;padding:10px 22px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:background 0.2s;white-space:nowrap;font-family:var(--font-body);}
+    .footer-subscribe button:hover{background:#33ddb0;}
+    .footer-copy{font-size:0.8rem;color:var(--muted);text-align:center;line-height:1.6;}
+    .footer-copy a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .footer-copy a:hover{color:var(--text);}
+
+    /* CHATBOT */
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
+    #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+    #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;}
+    #close-chatbot:hover{color:var(--text);}
+    #chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
+    #chat-input-container{display:flex;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg2);gap:8px;}
+    #chat-input{flex-grow:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font-body);outline:none;}
+    #chat-input:focus{border-color:var(--accent);}
+    #chat-send-button{background:var(--accent);color:#000;border:none;border-radius:20px;padding:10px 16px;cursor:pointer;font-size:14px;font-weight:700;transition:background 0.2s;}
+    #chat-send-button:hover{background:#33ddb0;}
+    #chatbot-button{background:var(--accent);color:#000;border:none;border-radius:50%;width:56px;height:56px;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform 0.2s;}
+    #chatbot-button:hover{transform:scale(1.1);}
+    .msg{padding:10px 14px;border-radius:12px;max-width:80%;font-size:0.88rem;line-height:1.5;}
+    .msg.user{background:rgba(0,200,150,0.15);border:1px solid rgba(0,200,150,0.2);margin-left:auto;color:var(--text);}
+    .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
+    .popup-trigger-btn{position:fixed;bottom:20px;right:20px;z-index:499;background:var(--accent);color:#000;border:none;border-radius:50px;padding:12px 18px;font-family:var(--font-head);font-weight:700;font-size:0.82rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 8px 32px rgba(0,200,150,0.35);transition:all 0.25s;}
+    .popup-trigger-btn:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(0,200,150,0.45);}
+    .img-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:20px;}
+    .img-modal.active{display:flex;}
+    .img-modal-inner{position:relative;max-width:90%;max-height:90%;}
+    .img-modal-inner img{max-width:100%;max-height:90vh;border-radius:12px;display:block;border:1px solid var(--border);}
+    .img-modal-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;line-height:1;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
+
+    @media(max-width:900px){
+      nav{padding:16px 24px;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      .hero-layout,.overview-inner,.tab-panel.active{grid-template-columns:1fr;}
+      .tabs-content-wrap{padding:32px 28px;}
+    }
+    @media(max-width:640px){
+      section{padding:60px 20px;}
+      .gallery-grid{grid-template-columns:1fr;}
+      .hover-features-grid{grid-template-columns:1fr;}
+      .hover-feature{border-right:none;border-bottom:1px solid var(--border);}
+      .hover-feature:last-child{border-bottom:none;}
+      .tabs-content-wrap{padding:24px 20px;}
+      .hero-metrics{gap:20px;}
+      .footer-subscribe{flex-direction:column;}
+      .footer-subscribe input,.footer-subscribe button{width:100%;}
+    }
+  </style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="index.html"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="portfolio.html" class="active">Projects</a></li>
+    <li><a href="techvelocity.html#testimonials">Results</a></li>
+    <li><a href="contact.html" class="nav-cta">Free AI Audit →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="breadcrumb">
+  <div class="container">
+    <div class="breadcrumb-inner">
+      <a href="inbox.html">Home</a><span>›</span>
+      <a href="portfolio.html">Projects</a><span>›</span>
+      <span style="color:var(--text);">AI-Powered Inbox</span>
+    </div>
+  </div>
+</div>
+
+<section class="project-hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="container">
+    <div class="hero-layout">
+      <div class="hero-left">
+        <div class="hero-badge">Automation &amp; Workflow</div>
+        <h1>End-to-End<br><em>AI Powered Inbox</em></h1>
+        <p>A centralized interface for managing AI-powered email triage — providing real-time insights, intelligent categorization, and smart routing for efficient workflow handling in legal and business environments.</p>
+        <div class="hero-metrics">
+          <div><div class="hero-metric-val">90%+</div><div class="hero-metric-label">Time Reduction</div></div>
+          <div><div class="hero-metric-val">3x</div><div class="hero-metric-label">Faster Response</div></div>
+          <div><div class="hero-metric-val">95%</div><div class="hero-metric-label">Accuracy Rate</div></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-img-wrap">
+          <img src="img/proj.jpg" alt="AI Inbox Dashboard" onerror="this.src='https://images.unsplash.com/photo-1596526131083-e8c633c948d2?w=800&q=80'">
+        </div>
+        <div class="hero-tag-strip">
+          <span class="htag">Browser Automation</span>
+          <span class="htag">GCP</span>
+          <span class="htag">Gemini AI</span>
+          <span class="htag">LangGraph</span>
+          <span class="htag">FastAPI</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="overview-section">
+  <div class="container">
+    <div class="overview-inner">
+      <div class="overview-text reveal">
+        <span class="section-tag">Project Overview</span>
+        <h2>Intelligent Email Management for Professional Firms</h2>
+        <p>Built with React.js and TypeScript for a responsive UI, integrated with Python and advanced AI frameworks for backend processing. The dashboard visualizes automated email classification, priority detection, and auto-routing — achieving 75% time savings and 95% accuracy.</p>
+        <p>The system was developed for a law firm drowning in email volume — manually sorting, prioritizing, and routing hundreds of messages daily. Our custom AI model learned their workflows, clients, and urgency patterns to handle the entire triage process automatically.</p>
+      </div>
+      <div class="overview-details reveal">
+        <div class="detail-row"><label>Industry</label><span>Legal / Professional Services</span></div>
+        <div class="detail-row"><label>Project Type</label><span>Automation &amp; AI Workflow</span></div>
+        <div class="detail-row"><label>Deployment</label><span>Google Cloud Platform (GCP)</span></div>
+        <div class="detail-row"><label>Timeline</label><span>4 weeks from discovery to go-live</span></div>
+        <div class="detail-row"><label>Status</label><span style="color:var(--accent);">✓ Live &amp; Operational</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-section">
+  <div class="container">
+    <span class="section-tag" style="display:block;text-align:center;">Screenshots</span>
+    <h2 class="section-title">Project Gallery</h2>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item" data-img="img/inbox.png">
+        <img src="img/inbox.png" alt="Smart Categorization" onerror="this.src='https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80'">
+        <div class="gallery-overlay"><h3>Smart Categorization</h3><p>AI-powered email classification system</p></div>
+        <div class="gallery-expand">🔍</div>
+      </div>
+      <div class="gallery-item" data-img="img/inbox1.png">
+        <img src="img/inbox1.png" alt="Analytics Dashboard" onerror="this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'">
+        <div class="gallery-overlay"><h3>Analytics Dashboard</h3><p>Real-time performance metrics and insights</p></div>
+        <div class="gallery-expand">🔍</div>
+      </div>
+      <div class="gallery-item" data-img="img/inbox2.png">
+        <img src="img/inbox2.png" alt="Priority Routing" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80'">
+        <div class="gallery-overlay"><h3>Priority Routing</h3><p>Intelligent message distribution system</p></div>
+        <div class="gallery-expand">🔍</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="video-section">
+  <div class="container">
+    <span class="section-tag" style="display:block;text-align:center;">Demo</span>
+    <h2 class="section-title">See It In Action</h2>
+    <div class="video-wrap reveal">
+      <video autoplay muted loop controls>
+        <source src="img/projims.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FEATURES — hover-effects grid -->
+<section class="features-section">
+  <div class="container">
+    <span class="section-tag" style="display:block;text-align:center;">Capabilities</span>
+    <h2 class="section-title">Key Features &amp; Functionality</h2>
+    <div class="hover-features-grid reveal">
+      <div class="hover-feature">
+        <div class="hover-feature-bg-top"></div>
+        <div class="hover-feature-icon">🎯</div>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Smart Classification</span></div>
+        <p>Categorises emails — legal matters, client inquiries, deadlines — with 95% NLP accuracy. Interactive charts track categorisation trends and model learning improvements over time.</p>
+      </div>
+      <div class="hover-feature">
+        <div class="hover-feature-bg-top"></div>
+        <div class="hover-feature-icon">⚡</div>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Priority Detection</span></div>
+        <p>Flags urgent emails with red-alert indicators so nothing time-sensitive is missed. Real-time urgency scoring based on content analysis and sender relationship context.</p>
+      </div>
+      <div class="hover-feature">
+        <div class="hover-feature-bg-bottom"></div>
+        <div class="hover-feature-icon">🔄</div>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Auto-Routing</span></div>
+        <p>Distributes emails to team members based on expertise, workload, and availability. Offers drag-and-drop or fully automated assignment with resource optimisation metrics.</p>
+      </div>
+      <div class="hover-feature">
+        <div class="hover-feature-bg-bottom"></div>
+        <div class="hover-feature-icon">📊</div>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Real-Time Analytics</span></div>
+        <p>Live dashboards on email volume, response times, and team performance. Drill-down views give managers full visibility into bottlenecks and resolution rates across the firm.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL STACK — Feature108 tabs pattern -->
+<section class="tech-section">
+  <div class="container">
+    <span class="section-tag" style="display:block;text-align:center;">Architecture</span>
+    <h2 class="section-title">Technical Stack</h2>
+    <div class="tabs-list">
+      <button class="tab-btn active" onclick="switchTab(this,'inbox-frontend')">
+        <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Frontend
+      </button>
+      <button class="tab-btn" onclick="switchTab(this,'inbox-backend')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+        Backend &amp; AI
+      </button>
+      <button class="tab-btn" onclick="switchTab(this,'inbox-infra')">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        Infrastructure
+      </button>
+    </div>
+    <div class="tabs-content-wrap reveal">
+      <div id="inbox-frontend" class="tab-panel active">
+        <div>
+          <span class="tab-badge">Modern Tactics</span>
+          <h3 class="tab-title">A responsive UI that updates in real time.</h3>
+          <p class="tab-desc">React.js and TypeScript power a dashboard that reflects the email pipeline live — giving legal teams instant visibility into classifications and routing decisions with zero page refreshes. Material-UI ensures design consistency across every surface.</p>
+          <a href="contact.html" class="tab-cta">Discuss Your Stack →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&q=80" alt="Frontend development">
+        </div>
+      </div>
+      <div id="inbox-backend" class="tab-panel">
+        <div>
+          <span class="tab-badge">AI-Powered</span>
+          <h3 class="tab-title">ML models that learn your firm's workflow.</h3>
+          <p class="tab-desc">FastAPI orchestrates the classification pipeline with high-performance Python APIs. PyTorch models are fine-tuned on firm-specific data. LangGraph manages multi-step agent state, while HuggingFace provides the NLP backbone for all extraction tasks.</p>
+          <a href="contact.html" class="tab-cta">Explore AI Options →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&q=80" alt="AI model training">
+        </div>
+      </div>
+      <div id="inbox-infra" class="tab-panel">
+        <div>
+          <span class="tab-badge">Cloud Native</span>
+          <h3 class="tab-title">Scales to any email volume, any team size.</h3>
+          <p class="tab-desc">Deployed on Google Cloud Platform with containerised workloads that scale horizontally under load. The entire stack runs with 24/7 automated monitoring and alerting — so your team focuses on work, not infrastructure.</p>
+          <a href="contact.html" class="tab-cta">View Architecture →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&q=80" alt="Cloud infrastructure">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band">
+  <div class="container">
+    <span class="section-tag">Build Your Solution</span>
+    <h2>Ready to Transform<br>Your Workflow?</h2>
+    <p>Let's discuss how a custom AI system like this can eliminate manual email overhead from your business.</p>
+    <div class="cta-buttons">
+      <a href="contact.html" class="btn-primary">🚀 Get Your Free AI Audit</a>
+      <a href="portfolio.html" class="btn-secondary">← Back to Projects</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo-circle">
+      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo">
+    </div>
+    <nav class="footer-nav">
+      <a href="techvelocity.html">Home</a>
+      <a href="techvelocity.html#about">Our Story</a>
+      <a href="techvelocity.html#features">Solutions</a>
+      <a href="techvelocity.html#how-it-works">How It Works</a>
+      <a href="portfolio.html">Projects</a>
+      <a href="techvelocity.html#demo">Contact</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms-and-conditions.html">Terms</a>
+    </nav>
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook" class="footer-social-btn"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X" class="footer-social-btn"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram" class="footer-social-btn"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+      <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn" class="footer-social-btn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+    </div>
+    <div class="footer-subscribe">
+      <input type="email" placeholder="Enter your email" id="footerEmail">
+      <button onclick="handleSubscribe()">Subscribe</button>
+    </div>
+    <div class="footer-copy">
+      <p>© 2025 Tech Velocity, LLC. All rights reserved.</p>
+      <p style="margin-top:6px;"><a href="tel:+18335330225">+1 833-533-0225</a> · <a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></p>
+    </div>
+  </div>
+</footer>
+
+<button class="popup-trigger-btn" onclick="window.location.href='techvelocity.html#demo'">🤖 Free AI Audit</button>
+
+<div id="chatbot-container">
+  <div id="chat-window">
+    <div id="chat-header"><span>💬 Chat with Tech Velocity</span><button id="close-chatbot">&times;</button></div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button id="chat-send-button">Send</button>
+    </div>
+  </div>
+  <button id="chatbot-button">💬</button>
+</div>
+
+<div class="img-modal" id="imgModal">
+  <div class="img-modal-inner">
+    <button class="img-modal-close" id="imgModalClose">&times;</button>
+    <img src="" alt="" id="imgModalImg">
+  </div>
+</div>
+
+<script>
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const l = document.querySelector('.nav-links');
+    l.style.cssText = l.style.display === 'flex' ? '' :
+      'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
+  }
+
+  // TABS (Feature108 pattern)
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+
+  // SCROLL REVEAL
+  const ro = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
+  }), { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  setTimeout(() => document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')), 100);
+
+  // GALLERY MODAL
+  const modal = document.getElementById('imgModal');
+  const modalImg = document.getElementById('imgModalImg');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      modalImg.src = item.dataset.img;
+      modalImg.alt = item.querySelector('img').alt;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+  document.getElementById('imgModalClose').addEventListener('click', () => {
+    modal.classList.remove('active'); document.body.style.overflow = '';
+  });
+  modal.addEventListener('click', e => {
+    if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
+  });
+
+  // FOOTER SUBSCRIBE
+  function handleSubscribe() {
+    const inp = document.getElementById('footerEmail');
+    if (!inp.value.includes('@')) { inp.focus(); return; }
+    inp.value = ''; inp.placeholder = "✅ You're subscribed!";
+    setTimeout(() => { inp.placeholder = 'Enter your email'; }, 3000);
+  }
+
+  // CHATBOT
+  const chatBtn = document.getElementById('chatbot-button');
+  const chatWin = document.getElementById('chat-window');
+  const chatMsgs = document.getElementById('chat-messages');
+  const chatIn = document.getElementById('chat-input');
+  const sessionId = Date.now().toString();
+
+  function addMsg(text, who) {
+    const m = document.createElement('div');
+    m.className = 'msg ' + who;
+    m.textContent = text;
+    chatMsgs.appendChild(m);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    return m;
+  }
+
+  chatBtn.addEventListener('click', () => {
+    const open = chatWin.style.display === 'flex';
+    chatWin.style.display = open ? 'none' : 'flex';
+    if (!open && !chatWin.dataset.greeted) { addMsg('Hi! How can we help you today?', 'bot'); chatWin.dataset.greeted = '1'; }
+  });
+  document.getElementById('close-chatbot').addEventListener('click', () => { chatWin.style.display = 'none'; });
+  document.getElementById('chat-send-button').addEventListener('click', sendMsg);
+  chatIn.addEventListener('keypress', e => { if (e.key === 'Enter') sendMsg(); });
+
+  async function sendMsg() {
+    const msg = chatIn.value.trim();
+    if (!msg) return;
+    addMsg(msg, 'user');
+    chatIn.value = '';
+    const ph = addMsg('...', 'bot');
+    let dots = 1;
+    const iv = setInterval(() => { dots = (dots % 3) + 1; ph.textContent = '.'.repeat(dots); }, 400);
+    try {
+      const r = await fetch('https://chat.pnonat.com/chat', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, session_id: sessionId })
+      });
+      const data = await r.json();
+      clearInterval(iv);
+      ph.textContent = (data && data.response) ? data.response : "Sorry, I didn't understand that.";
+    } catch(err) {
+      clearInterval(iv);
+      ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
+    }
+  }
+</script>
+</body>
+</html>

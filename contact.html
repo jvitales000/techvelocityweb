@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Tech Velocity</title>
+  <meta name="description" content="Get in touch with Tech Velocity. Let's discuss how AI can transform your business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav.scrolled{padding:10px 48px;}
+    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--text);}
+    .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
+    .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+
+    /* HERO */
+    .hero{position:relative;min-height:55vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;overflow:hidden;}
+    .hero-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.13) 0%,transparent 70%);pointer-events:none;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px;animation:fadeInDown 0.6s ease both;}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1 em{font-style:normal;color:var(--accent);}
+    .hero p.sub{font-size:1.05rem;color:var(--muted);max-width:540px;margin:0 auto 36px;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;line-height:1.75;}
+    .hero-contacts{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;animation:fadeInUp 0.7s 0.3s ease both;}
+    .hero-contact-item{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:12px 22px;text-decoration:none;color:var(--muted);font-size:0.9rem;font-weight:500;transition:all 0.25s;}
+    .hero-contact-item:hover{border-color:rgba(0,200,150,0.35);color:var(--text);background:rgba(0,200,150,0.06);}
+    .hero-contact-item span{font-size:1.1rem;}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    /* SECTIONS */
+    section{padding:80px 24px;position:relative;z-index:1;}
+    .container{max-width:1040px;margin:0 auto;}
+    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
+
+    /* CONTACT MAIN */
+    .contact-section{background:var(--bg2);}
+    .contact-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:64px;align-items:start;}
+
+    /* CONTACT INFO SIDE */
+    .contact-info h2{font-family:var(--font-head);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:12px;}
+    .contact-info p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:36px;}
+    .contact-methods{display:flex;flex-direction:column;gap:16px;margin-bottom:40px;}
+    .contact-method{display:flex;align-items:center;gap:16px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px;text-decoration:none;transition:all 0.25s;}
+    .contact-method:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.04);transform:translateX(4px);}
+    .method-icon{width:44px;height:44px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;}
+    .method-text strong{display:block;font-family:var(--font-head);font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:3px;}
+    .method-text span{color:var(--text);font-size:0.95rem;font-weight:500;}
+    .social-row{display:flex;gap:12px;align-items:center;}
+    .social-row p{color:var(--muted);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;}
+    .social-link{width:40px;height:40px;background:var(--card);border:1px solid var(--border);border-radius:10px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;text-decoration:none;}
+    .social-link:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.06);}
+    .what-to-expect{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-top:28px;}
+    .what-to-expect h4{font-family:var(--font-head);font-size:0.92rem;font-weight:700;margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+    .expect-list{display:flex;flex-direction:column;gap:10px;}
+    .expect-item{display:flex;align-items:flex-start;gap:10px;font-size:0.85rem;color:var(--muted);}
+    .expect-item::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+
+    /* FORM SIDE */
+    .contact-form-wrap{background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:40px 36px;}
+    .contact-form-wrap h3{font-family:var(--font-head);font-size:1.2rem;font-weight:800;letter-spacing:-0.2px;margin-bottom:6px;}
+    .contact-form-wrap p.form-sub{color:var(--muted);font-size:0.85rem;margin-bottom:28px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .form-group{margin-bottom:16px;}
+    .form-group label{display:block;font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:var(--font-body);font-size:0.9rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,150,0.1);}
+    .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(122,154,181,0.5);}
+    .form-group select option{background:#0c1218;}
+    .form-group textarea{resize:none;height:100px;}
+    .submit-btn{width:100%;background:var(--accent);color:#000;padding:16px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
+    .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
+    .form-privacy{font-size:0.73rem;color:var(--muted);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .form-privacy a{color:var(--muted);text-decoration:underline;}
+    .recaptcha-notice{font-size:0.72rem;color:rgba(122,154,181,0.6);text-align:center;margin-top:10px;line-height:1.5;}
+    .recaptcha-notice a{color:rgba(122,154,181,0.6);}
+
+    /* SUCCESS STATE */
+    .form-success{display:none;text-align:center;padding:40px 20px;}
+    .form-success.visible{display:block;}
+    .success-icon{width:72px;height:72px;background:rgba(0,230,118,0.1);border:2px solid rgba(0,230,118,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 20px;}
+    .form-success h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;margin-bottom:10px;}
+    .form-success p{color:var(--muted);font-size:0.92rem;line-height:1.7;}
+
+    /* TOAST */
+    .toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--green);color:#000;padding:14px 24px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.9rem;z-index:10000;opacity:0;transition:all 0.4s ease;display:flex;align-items:center;gap:10px;white-space:nowrap;}
+    .toast.show{transform:translateX(-50%) translateY(0);opacity:1;}
+
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 48px;}
+    .footer-brand p{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-top:14px;max-width:240px;}
+    .footer-logo{height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.85;}
+    .footer-col h4{font-family:var(--font-head);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.87rem;transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--text);}
+    .footer-bottom{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);}
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-1{transition-delay:0.15s;}
+
+    /* CHATBOT */
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
+    #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+    #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;}
+    #chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
+    #chat-input-container{display:flex;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg2);gap:8px;}
+    #chat-input{flex-grow:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font-body);outline:none;}
+    #chat-input:focus{border-color:var(--accent);}
+    #chat-send-button{background:var(--accent);color:#000;border:none;border-radius:20px;padding:10px 16px;cursor:pointer;font-size:14px;font-weight:700;}
+    #chatbot-button{background:var(--accent);color:#000;border:none;border-radius:50%;width:56px;height:56px;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform 0.2s;}
+    #chatbot-button:hover{transform:scale(1.1);}
+    .msg{padding:10px 14px;border-radius:12px;max-width:80%;font-size:0.88rem;line-height:1.5;}
+    .msg.user{background:rgba(0,200,150,0.15);border:1px solid rgba(0,200,150,0.2);margin-left:auto;color:var(--text);}
+    .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
+
+    /* MOBILE */
+    @media(max-width:900px){
+      nav{padding:16px 24px;}
+      .nav-links{display:none;}
+      .hamburger{display:flex;}
+      .contact-grid{grid-template-columns:1fr;gap:40px;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .form-row{grid-template-columns:1fr;}
+    }
+    @media(max-width:600px){
+      .footer-grid{grid-template-columns:1fr;}
+      section{padding:60px 20px;}
+      .contact-form-wrap{padding:28px 20px;}
+      .hero-contacts{flex-direction:column;align-items:center;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="index.html"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Free AI Audit →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="badge">📬 Get In Touch</div>
+  <h1>Let's Build Your<br><em>AI Future</em></h1>
+  <p class="sub">Ready to transform your business with AI? Get in touch with our team today — we respond within 1 business day.</p>
+  <div class="hero-contacts">
+    <a href="mailto:hello@techvelocity.ai" class="hero-contact-item"><span>📧</span> hello@techvelocity.ai</a>
+    <a href="tel:+18335330225" class="hero-contact-item"><span>📞</span> +1 833-533-0225</a>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- LEFT: Info -->
+      <div class="contact-info reveal">
+        <span class="section-tag">Contact Us</span>
+        <h2>Let's Talk <em style="color:var(--accent);font-style:normal;">AI</em></h2>
+        <p>Whether you're ready to build or just exploring the possibilities — we're here. No pressure, no pitch. Just an honest conversation about what AI could do for your business.</p>
+
+        <div class="contact-methods">
+          <a href="mailto:hello@techvelocity.ai" class="contact-method">
+            <div class="method-icon">📧</div>
+            <div class="method-text">
+              <strong>Email Us</strong>
+              <span>hello@techvelocity.ai</span>
+            </div>
+          </a>
+          <a href="tel:+18335330225" class="contact-method">
+            <div class="method-icon">📞</div>
+            <div class="method-text">
+              <strong>Call Us</strong>
+              <span>+1 833-533-0225</span>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" class="contact-method">
+            <div class="method-icon">💼</div>
+            <div class="method-text">
+              <strong>LinkedIn</strong>
+              <span>@techvelocityai</span>
+            </div>
+          </a>
+        </div>
+
+        <div style="margin-bottom:14px;">
+          <p style="color:var(--muted);font-size:0.82rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;">Follow Us</p>
+          <div class="social-row">
+            <a href="https://www.facebook.com/techvelocityai" target="_blank" class="social-link" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" fill="#1877F2" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/techvelocityai/" target="_blank" class="social-link" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="20" height="20"><defs><linearGradient id="igc" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igc)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" class="social-link" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="#0A66C2" width="20" height="20"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.x.com/techvelocityai" target="_blank" class="social-link" aria-label="X">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="what-to-expect">
+          <h4>⚡ What to Expect</h4>
+          <div class="expect-list">
+            <div class="expect-item">Response within 1 business day — guaranteed</div>
+            <div class="expect-item">45-minute free discovery call, no obligation</div>
+            <div class="expect-item">Custom AI roadmap built around your business</div>
+            <div class="expect-item">No hard close, no pressure — just clarity</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Form -->
+      <div class="reveal reveal-delay-1">
+        <div class="contact-form-wrap">
+          <div id="formWrap">
+            <h3>Book Your Free AI Audit</h3>
+            <p class="form-sub">Fill in the details below and we'll be in touch within 1 business day.</p>
+            <form id="contactForm" onsubmit="handleSubmit(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label>First Name *</label>
+                  <input type="text" name="firstName" placeholder="Juan" required>
+                </div>
+                <div class="form-group">
+                  <label>Last Name *</label>
+                  <input type="text" name="lastName" placeholder="Dela Cruz" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Business Email *</label>
+                <input type="email" name="email" placeholder="juan@company.com" required>
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp</label>
+                <input type="tel" name="phone" placeholder="+1 (555) 000-0000">
+              </div>
+              <div class="form-group">
+                <label>Company Name *</label>
+                <input type="text" name="company" placeholder="Your Company" required>
+              </div>
+              <div class="form-group">
+                <label>Industry *</label>
+                <select name="industry" required>
+                  <option value="" disabled selected>Select your industry</option>
+                  <option>Legal Services</option>
+                  <option>Healthcare / Clinical</option>
+                  <option>Insurance / Financial Services</option>
+                  <option>Engineering / Construction</option>
+                  <option>Manufacturing</option>
+                  <option>Professional Services</option>
+                  <option>Real Estate</option>
+                  <option>Retail / eCommerce</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>What's your biggest challenge?</label>
+                <textarea name="needs" placeholder="Tell us about your biggest operational challenge or what you'd like AI to help with..."></textarea>
+              </div>
+              <button type="submit" class="submit-btn" id="submitBtn">🚀 Submit &amp; Book My Audit</button>
+              <p class="form-privacy">🔒 100% confidential · No spam · We respond within 1 business day</p>
+              <p class="recaptcha-notice">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</p>
+            </form>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✅</div>
+            <h3>You're In! 🎉</h3>
+            <p>Your details have been received.<br><br>
+            <strong style="color:var(--accent)">Expect a message within 1 business day</strong> to schedule your free AI audit call.<br><br>
+            Check your email for a confirmation from our team.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="footer-logo">
+      <p>The AI solutions partner for ambitious SMEs. We build proprietary, private, and secure custom AI models that fit your business.</p>
+      <div style="display:flex;gap:14px;margin-top:16px;align-items:center;">
+        <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><defs><linearGradient id="igfoot" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igfoot)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="solutions.html">AI Customer Assistance</a></li>
+        <li><a href="solutions.html">Workflow Automation</a></li>
+        <li><a href="solutions.html">Business Intelligence</a></li>
+        <li><a href="solutions.html">AI Sales Training</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="our-story.html">Our Story</a></li>
+        <li><a href="how-it-works.html">How It Works</a></li>
+        <li><a href="index.html#testimonials">Client Results</a></li>
+        <li><a href="index.html#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
+        <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
+        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions.html">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>Building Your AI Future, Today.</span>
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Submitted! We'll be in touch within 1 business day.</div>
+
+<!-- CHATBOT -->
+<div id="chatbot-container">
+  <div id="chat-window">
+    <div id="chat-header">
+      <span>💬 Chat with Tech Velocity</span>
+      <button id="close-chatbot">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button id="chat-send-button">Send</button>
+    </div>
+  </div>
+  <button id="chatbot-button">💬</button>
+</div>
+
+<script>
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwaOTckx4cHlJJrXz8JkhOoRCHlo2cmfzz1LVF7HWQJH5IIgZQQFKI5IhuduquwtzKP/exec';
+
+  // NAV SCROLL
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // MOBILE MENU
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (!links) return;
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+    }
+  }
+
+  // SCROLL REVEAL
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); revealObs.unobserve(en.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+  // TOAST
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4500);
+  }
+
+  // FORM SUBMIT
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+
+    const data = {};
+    new FormData(e.target).forEach((v, k) => data[k] = v);
+    data.formSource = 'contact_page';
+    data.timestamp = new Date().toLocaleString('en-US', { timeZone: 'Asia/Manila' });
+
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    } catch(err) { console.warn('Sheet error:', err); }
+
+    // Show success state
+    document.getElementById('formWrap').style.display = 'none';
+    const succ = document.getElementById('formSuccess');
+    succ.style.display = 'block';
+    succ.classList.add('visible');
+    showToast();
+
+    btn.disabled = false;
+    btn.innerHTML = '🚀 Submit &amp; Book My Audit';
+  }
+
+  // CHATBOT
+  const chatBtn = document.getElementById('chatbot-button');
+  const chatWin = document.getElementById('chat-window');
+  const closeChat = document.getElementById('close-chatbot');
+  const chatMsgs = document.getElementById('chat-messages');
+  const chatIn = document.getElementById('chat-input');
+  const chatSend = document.getElementById('chat-send-button');
+  let sessionId = Date.now().toString();
+
+  chatBtn.addEventListener('click', () => {
+    const showing = chatWin.style.display === 'flex';
+    chatWin.style.display = showing ? 'none' : 'flex';
+    if (!showing && !chatWin.dataset.greeted) { addMsg('How can we help you today?', 'bot'); chatWin.dataset.greeted = '1'; }
+  });
+  closeChat.addEventListener('click', () => { chatWin.style.display = 'none'; });
+  chatSend.addEventListener('click', sendMsg);
+  chatIn.addEventListener('keypress', e => { if (e.key === 'Enter') sendMsg(); });
+
+  function addMsg(text, sender) {
+    const el = document.createElement('div');
+    el.className = 'msg ' + sender;
+    el.textContent = text;
+    chatMsgs.appendChild(el);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    return el;
+  }
+
+  async function sendMsg() {
+    const msg = chatIn.value.trim();
+    if (!msg) return;
+    addMsg(msg, 'user');
+    chatIn.value = '';
+    const ph = addMsg('...', 'bot');
+    let dots = 1;
+    const iv = setInterval(() => { dots = (dots % 3) + 1; ph.textContent = '.'.repeat(dots); }, 400);
+    try {
+      const r = await fetch('https://chat.pnonat.com/chat', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, session_id: sessionId })
+      });
+      const data = await r.json();
+      clearInterval(iv);
+      ph.textContent = (data && data.response) ? data.response : "Sorry, I didn't understand that.";
+    } catch(err) {
+      clearInterval(iv);
+      ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
+    }
+  }
+</script>
+</body>
+</html>

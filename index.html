@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Velocity — Your AI Solutions Partner</title>
+  <meta name="description" content="Tech Velocity builds proprietary, private and secure custom AI models for SMEs. Automate workflows, boost productivity, and grow revenue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
+  <script src="https://wochamber.chambermaster.com/Content/Script/Member.js" type="text/javascript"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav.scrolled{padding:10px 48px;}
+    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .nav-links{display:flex;gap:36px;list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--text);}
+    .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
+    .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+    /* HERO */
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
+    .hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.15) 0%,transparent 70%);pointer-events:none;}
+    .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:28px;animation:fadeInDown 0.6s ease both;}
+    .badge::before{content:'●';font-size:0.6rem;animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2rem,3.8vw,3.6rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;max-width:720px;margin-bottom:24px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1 em{font-style:normal;color:var(--accent);}
+    .hero p.sub{font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto 40px;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.7s 0.3s ease both;}
+    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
+    .btn-primary:hover::after{opacity:1;}
+    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);animation:fadeInUp 0.7s 0.4s ease both;flex-wrap:wrap;justify-content:center;}
+    .stat{text-align:center;}
+    .stat-num{font-family:var(--font-head);font-size:1.7rem;font-weight:800;color:var(--text);}
+    .stat-num span{color:var(--accent);}
+    .stat-label{font-size:0.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+    @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+    /* INTEGRATIONS */
+    .integrations-strip{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:24px 48px;text-align:center;overflow:hidden;}
+    .integrations-strip p{font-size:0.75rem;color:var(--muted);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px;}
+    .logos-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;}
+    .logo-pill{display:flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.9rem;padding:8px 16px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;}
+    .logo-pill:hover{color:var(--text);border-color:rgba(255,255,255,0.15);}
+    /* SECTION BASE */
+    section{padding:80px 24px;position:relative;z-index:1;}
+    .container{max-width:1040px;margin:0 auto;}
+    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
+    .section-sub{color:var(--muted);font-size:0.97rem;max-width:540px;margin-bottom:56px;line-height:1.7;}
+    /* PROBLEM */
+    .problem-section{background:var(--bg2);}
+    .problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px;}
+    .problem-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color 0.3s;}
+    .problem-card:hover{border-color:rgba(0,200,150,0.2);}
+    .problem-card .icon{font-size:1.6rem;margin-bottom:14px;}
+    .problem-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
+    .problem-card p{color:var(--muted);font-size:0.88rem;line-height:1.6;}
+    .problem-vs{display:flex;background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
+    .vs-col{flex:1;padding:36px;}
+    .vs-col.bad{background:rgba(255,60,60,0.04);}
+    .vs-col.good{background:rgba(0,230,118,0.04);}
+    .vs-col h4{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:20px;}
+    .vs-divider{width:1px;background:var(--border);}
+    .vs-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:12px;font-size:0.88rem;color:var(--muted);}
+    .vs-item .dot{font-size:0.55rem;margin-top:6px;flex-shrink:0;}
+    .vs-col.bad .dot{color:#ff4444;}
+    .vs-col.good .dot{color:var(--green);}
+    /* PIPELINE */
+    .system-section{background:var(--bg);}
+    .pipeline{display:flex;gap:0;position:relative;}
+    .pipeline-step{flex:1;background:var(--card);border:1px solid var(--border);border-right:none;padding:28px 22px;position:relative;transition:background 0.3s,border-color 0.3s;}
+    .pipeline-step:first-child{border-radius:14px 0 0 14px;}
+    .pipeline-step:last-child{border-radius:0 14px 14px 0;border-right:1px solid var(--border);}
+    .pipeline-step:hover{background:rgba(0,200,150,0.05);border-color:rgba(0,200,150,0.2);z-index:1;}
+    .pipeline-step:not(:last-child)::after{content:'›';position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--bg);border:1px solid var(--border);border-radius:50%;color:var(--accent);z-index:2;line-height:24px;text-align:center;font-size:1rem;}
+    .step-num{font-size:0.68rem;font-weight:700;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
+    .step-icon{font-size:1.5rem;margin-bottom:10px;}
+    .step-title{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:8px;}
+    .step-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;margin-bottom:14px;}
+    .step-tag{font-size:0.72rem;color:var(--accent);font-weight:600;background:rgba(0,200,150,0.08);padding:3px 9px;border-radius:100px;display:inline-block;}
+    /* FEATURES */
+    .features-section{background:var(--bg2);}
+    .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .feature-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:all 0.3s;position:relative;overflow:hidden;}
+    .feature-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);opacity:0;transition:opacity 0.3s;}
+    .feature-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
+    .feature-card:hover::before{opacity:1;}
+    .feature-icon-box{width:52px;height:52px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;}
+    .feature-card h3{font-family:var(--font-head);font-size:1.08rem;font-weight:700;margin-bottom:10px;}
+    .feature-card p{color:var(--muted);font-size:0.9rem;line-height:1.65;margin-bottom:20px;}
+    .feature-tags{display:flex;gap:8px;flex-wrap:wrap;}
+    .tag{font-size:0.72rem;color:var(--accent);background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.15);padding:3px 10px;border-radius:100px;font-weight:600;}
+    /* CASE STUDY */
+    .case-section{background:var(--bg);}
+    .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;}
+    .case-results{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+    .result-box{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 20px;transition:border-color 0.3s;display:flex;flex-direction:column;justify-content:center;}
+    .result-box:hover{border-color:rgba(0,200,150,0.25);}
+    .result-num{font-family:var(--font-head);font-size:2.6rem;font-weight:800;color:var(--accent);letter-spacing:-2px;line-height:1;}
+    .result-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:8px;font-weight:600;}
+    .case-visual{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;min-width:0;}
+    .funnel{display:flex;flex-direction:column;gap:14px;margin-top:16px;}
+    .funnel-step{display:flex;align-items:center;gap:10px;min-width:0;}
+    .funnel-label{font-size:0.76rem;color:var(--muted);width:90px;flex-shrink:0;font-weight:500;}
+    .funnel-bar-wrap{flex:1;height:12px;background:rgba(255,255,255,0.06);border-radius:100px;overflow:hidden;min-width:0;}
+    .funnel-bar{height:100%;background:linear-gradient(90deg,var(--accent),#00e8a8);border-radius:100px;}
+    .funnel-pct{font-size:0.78rem;font-weight:800;color:var(--text);width:34px;text-align:right;flex-shrink:0;font-family:var(--font-head);}
+    /* CTA BAND */
+    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
+    .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 36px;}
+
+    /* TYPEWRITER */
+    .tw-wrap{display:inline-flex;align-items:flex-start;justify-content:center;gap:0;margin-bottom:16px;line-height:1.15;}
+    .tw-text{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;overflow:hidden;white-space:nowrap;width:0;opacity:0;transition:none;}
+    .tw-text.tw-animate{animation:twReveal var(--tw-dur,2.2s) cubic-bezier(0.16,1,0.3,1) var(--tw-delay,0.3s) forwards;}
+    .tw-cursor{display:inline-block;width:3px;border-radius:2px;background:var(--accent);margin-left:3px;flex-shrink:0;height:clamp(1.6rem,3vw,2.4rem);align-self:center;animation:twBlink 0.8s ease-in-out infinite;}
+    @keyframes twReveal{0%{width:0;opacity:1;}100%{width:100%;opacity:1;}}
+    @keyframes twBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+    .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+    /* TESTIMONIALS */
+    /* TESTIMONIALS - SCROLLING COLUMNS */
+    .testimonials-section{background:var(--bg2);}
+    .testi-columns-wrap{display:flex;gap:20px;justify-content:center;max-height:740px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,black 20%,black 80%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,black 20%,black 80%,transparent);}
+    .testi-col{display:flex;flex-direction:column;gap:16px;flex:0 0 300px;}
+    .testi-col-inner{display:flex;flex-direction:column;gap:16px;animation:scrollUp 15s linear infinite;}
+    .testi-col:nth-child(2) .testi-col-inner{animation-duration:19s;}
+    .testi-col:nth-child(3) .testi-col-inner{animation-duration:17s;}
+    @keyframes scrollUp{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
+    .testi-col-inner:hover{animation-play-state:paused;}
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:border-color 0.3s;}
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);}
+    .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
+    .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
+    .testimonial-author{display:flex;align-items:center;gap:10px;}
+    .author-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex-shrink:0;}
+    .author-avatar-initials{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.75rem;color:#000;flex-shrink:0;}
+    .author-name{font-family:var(--font-head);font-weight:700;font-size:0.88rem;}
+    .author-role{color:var(--muted);font-size:0.76rem;margin-top:2px;}
+    /* PRICING */
+    .pricing-section{background:var(--bg);}
+    .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
+    .price-card{background:var(--card);border:1px solid var(--border);border-radius:18px;padding:32px 28px;position:relative;transition:all 0.3s;}
+    .price-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-3px);}
+    .price-card.popular{border-color:rgba(0,200,150,0.4);background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,140,130,0.04));transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,0.3),0 0 0 1px rgba(0,200,150,0.3);}
+    .popular-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-family:var(--font-head);font-size:0.72rem;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap;}
+    .price-tier{font-family:var(--font-head);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:12px;}
+    .price-amount{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:4px;}
+    .price-period{font-size:0.8rem;color:var(--muted);margin-bottom:14px;}
+    .price-desc{font-size:0.86rem;color:var(--muted);line-height:1.6;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+    .price-features{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px;}
+    .price-features li{display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--muted);}
+    .check{color:var(--green);font-weight:700;flex-shrink:0;}
+    .x{color:#ff4444;font-weight:700;flex-shrink:0;}
+    .price-cta{display:block;text-align:center;padding:14px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;}
+    .price-cta.solid{background:var(--accent);color:#000;}
+    .price-cta.solid:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,200,150,0.35);}
+    .price-cta.outline{border:1px solid rgba(0,200,150,0.25);color:var(--text);}
+    .price-cta.outline:hover{background:rgba(0,200,150,0.08);border-color:rgba(0,200,150,0.4);}
+    /* FAQ — PREMIUM REDESIGN */
+    .faq-section{background:var(--bg);position:relative;overflow:hidden;}
+    .faq-section::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,150,0.07) 0%,transparent 70%);pointer-events:none;}
+    .faq-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;}
+    .faq-left{position:sticky;top:100px;}
+    .faq-left .section-tag{margin-bottom:16px;display:inline-block;}
+    .faq-left h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;}
+    .faq-left p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:32px;}
+    .faq-categories{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+    .faq-cat{padding:6px 14px;border-radius:100px;border:1px solid var(--border);font-size:0.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent;}
+    .faq-cat:hover{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.4);color:var(--accent);}
+    .faq-contact-card{background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,200,150,0.02));border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;}
+    .faq-contact-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(0,200,150,0.08);pointer-events:none;}
+    .faq-contact-card h4{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
+    .faq-contact-card p{font-size:0.83rem;color:var(--muted);line-height:1.6;margin-bottom:18px;}
+    .faq-contact-card a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;font-weight:700;font-size:0.85rem;padding:10px 20px;border-radius:100px;text-decoration:none;transition:background 0.2s;}
+    .faq-contact-card a:hover{background:#33ddb0;}
+    .faq-right{padding-top:2px;}
+    .faq-list{display:flex;flex-direction:column;}
+    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-q{width:100%;background:none;border:none;padding:22px 0;text-align:left;display:grid;grid-template-columns:44px 1fr 28px;align-items:center;gap:12px;cursor:pointer;transition:all 0.2s;}
+    .faq-num{font-family:var(--font-head);font-size:0.7rem;font-weight:800;color:var(--accent);opacity:0.4;letter-spacing:1px;transition:opacity 0.2s;}
+    .faq-q-text{font-family:var(--font-head);font-size:0.98rem;font-weight:600;color:var(--text);transition:color 0.2s;line-height:1.4;}
+    .faq-item.open .faq-q-text,.faq-q:hover .faq-q-text{color:var(--accent);}
+    .faq-item.open .faq-num,.faq-q:hover .faq-num{opacity:1;}
+    .faq-icon{width:28px;height:28px;border-radius:50%;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.3s;color:var(--muted);}
+    .faq-icon svg{width:12px;height:12px;transition:transform 0.35s cubic-bezier(0.16,1,0.3,1);}
+    .faq-item.open .faq-icon{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.4);color:var(--accent);}
+    .faq-item.open .faq-icon svg{transform:rotate(45deg);}
+    .faq-a{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.16,1,0.3,1);}
+    .faq-a-inner{padding:0 0 22px 56px;color:var(--muted);font-size:0.92rem;line-height:1.8;}
+    .chevron{display:none;}
+    /* DEMO FORM */
+    .demo-section{background:var(--bg);}
+    .demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
+    .demo-info h2{font-family:var(--font-head);font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-0.6px;line-height:1.2;margin-bottom:14px;}
+    .demo-info p{color:var(--muted);font-size:0.93rem;line-height:1.7;margin-bottom:32px;}
+    .demo-bullets{display:flex;flex-direction:column;gap:14px;}
+    .demo-bullet{display:flex;align-items:flex-start;gap:14px;}
+    .bullet-icon{width:36px;height:36px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .bullet-text strong{display:block;font-family:var(--font-head);font-size:0.92rem;font-weight:700;margin-bottom:3px;}
+    .bullet-text span{color:var(--muted);font-size:0.83rem;}
+    .demo-form-wrap{background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:36px 32px;}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .form-group{margin-bottom:16px;}
+    .form-group label{display:block;font-size:0.78rem;font-weight:600;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:0.5px;}
+    .form-group input,.form-group select,.form-group textarea{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:12px 16px;color:var(--text);font-family:var(--font-body);font-size:0.9rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,150,0.1);}
+    .form-group input::placeholder{color:rgba(122,154,181,0.5);}
+    .form-group select option{background:#0c1218;}
+    .form-group textarea{resize:none;height:90px;}
+    .form-privacy{font-size:0.74rem;color:var(--muted);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
+    /* FOOTER — STACKED CIRCULAR */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 24px 40px;position:relative;z-index:1;}
+    .footer-inner{display:flex;flex-direction:column;align-items:center;max-width:640px;margin:0 auto;}
+    .footer-logo-circle{width:80px;height:80px;border-radius:50%;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
+    .footer-logo-circle img{height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.9;}
+    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:32px;}
+    .footer-nav a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .footer-nav a:hover{color:var(--accent);}
+    .footer-socials{display:flex;gap:12px;margin-bottom:32px;}
+    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--muted);}
+    .footer-social-btn:hover{border-color:rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:var(--accent);}
+    .footer-social-btn svg{width:16px;height:16px;fill:currentColor;}
+    .footer-subscribe{width:100%;max-width:420px;display:flex;gap:8px;margin-bottom:36px;}
+    .footer-subscribe input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 18px;color:var(--text);font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:var(--font-body);}
+    .footer-subscribe input::placeholder{color:var(--muted);}
+    .footer-subscribe input:focus{border-color:rgba(0,200,150,0.4);}
+    .footer-subscribe button{background:var(--accent);color:#000;border:none;border-radius:100px;padding:10px 22px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:background 0.2s;white-space:nowrap;font-family:var(--font-body);}
+    .footer-subscribe button:hover{background:#33ddb0;}
+    .footer-copy{font-size:0.8rem;color:var(--muted);text-align:center;line-height:1.6;}
+    .footer-copy a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
+    .footer-copy a:hover{color:var(--text);}
+    /* SCROLL REVEAL */
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    /* Fallback: if JS hasn't run, show everything */
+    @media (prefers-reduced-motion: reduce) { .reveal{opacity:1;transform:none;} }
+    .reveal-delay-1{transition-delay:0.1s;}
+    .reveal-delay-2{transition-delay:0.2s;}
+    .reveal-delay-3{transition-delay:0.3s;}
+    /* TOAST */
+    .toast{position:fixed;bottom:32px;right:32px;background:var(--green);color:#000;padding:16px 24px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.9rem;z-index:10000;transform:translateY(100px);opacity:0;transition:all 0.4s ease;display:flex;align-items:center;gap:10px;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    /* FLOATING BTN */
+    .popup-trigger-btn{position:fixed;bottom:20px;right:20px;z-index:500;background:var(--accent);color:#000;border:none;border-radius:50px;padding:12px 18px;font-family:var(--font-head);font-weight:700;font-size:0.82rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 8px 32px rgba(0,200,150,0.35);transition:all 0.25s;animation:floatPulse 3s ease-in-out infinite;}
+    .popup-trigger-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 48px rgba(0,200,150,0.45);}
+    @keyframes floatPulse{0%,100%{box-shadow:0 8px 32px rgba(0,200,150,0.35);}50%{box-shadow:0 8px 48px rgba(0,200,150,0.55);}}
+    /* POPUP */
+    .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.35s ease,visibility 0.35s ease;}
+    .popup-overlay.active{opacity:1;visibility:visible;}
+    .popup-box{background:var(--bg2);border:1px solid rgba(0,200,150,0.2);border-radius:20px;width:100%;max-width:520px;position:relative;overflow:hidden;transform:scale(0.9) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 40px 120px rgba(0,0,0,0.6),0 0 0 1px rgba(0,200,150,0.1);}
+    .popup-overlay.active .popup-box{transform:scale(1) translateY(0);}
+    .popup-progress{height:3px;background:var(--border);overflow:hidden;}
+    .popup-progress-bar{height:100%;background:linear-gradient(90deg,var(--accent),#00e8a8);width:65%;border-radius:0 2px 2px 0;}
+    .popup-progress-label{padding:6px 32px 0;font-size:0.72rem;color:var(--muted);display:flex;justify-content:space-between;margin-bottom:-4px;}
+    .popup-header{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,100,120,0.08));padding:32px 32px 24px;border-bottom:1px solid var(--border);position:relative;}
+    .popup-header::before{content:'';position:absolute;top:-40px;right:-40px;width:160px;height:160px;background:radial-gradient(circle,rgba(0,200,150,0.12),transparent);border-radius:50%;}
+    .popup-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;line-height:1;}
+    .popup-close:hover{background:rgba(255,255,255,0.1);color:var(--text);}
+    .popup-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);color:var(--accent);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:100px;margin-bottom:12px;}
+    .popup-header h2{font-family:var(--font-head);font-size:1.3rem;font-weight:800;letter-spacing:-0.2px;line-height:1.25;margin-bottom:8px;}
+    .popup-header h2 span{color:var(--accent);}
+    .popup-header p{color:var(--muted);font-size:0.86rem;font-weight:300;}
+    .popup-body{padding:28px 32px 32px;}
+    .popup-form .form-group{margin-bottom:14px;}
+    .popup-form .form-group label{display:block;font-size:0.78rem;font-weight:500;color:var(--muted);margin-bottom:5px;}
+    .popup-form input,.popup-form select{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:11px 14px;color:var(--text);font-family:var(--font-body);font-size:0.88rem;transition:border-color 0.2s,box-shadow 0.2s;outline:none;}
+    .popup-form input:focus,.popup-form select:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,200,150,0.08);}
+    .popup-form input::placeholder{color:rgba(122,154,181,0.5);}
+    .popup-form select option{background:#0c1218;}
+    .popup-form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .popup-submit{width:100%;margin-top:6px;font-size:1rem;padding:15px;}
+    .popup-privacy{text-align:center;font-size:0.74rem;color:var(--muted);margin-top:10px;display:flex;align-items:center;justify-content:center;gap:6px;}
+    .popup-success{display:none;text-align:center;padding:48px 32px;}
+    .popup-success.visible{display:block;}
+    .success-icon{width:72px;height:72px;background:rgba(0,230,118,0.12);border:2px solid rgba(0,230,118,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 20px;}
+    .popup-success h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;margin-bottom:8px;}
+    .popup-success p{color:var(--muted);font-size:0.9rem;}
+    /* CHATBOT */
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
+    #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+    #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
+    #close-chatbot:hover{color:var(--text);}
+    #chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
+    #chat-input-container{display:flex;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg2);gap:8px;}
+    #chat-input{flex-grow:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font-body);outline:none;}
+    #chat-input:focus{border-color:var(--accent);}
+    #chat-send-button{background:var(--accent);color:#000;border:none;border-radius:20px;padding:10px 16px;cursor:pointer;font-size:14px;font-weight:700;transition:background 0.2s;}
+    #chat-send-button:hover{background:#33ddb0;}
+    #chatbot-button{background:var(--accent);color:#000;border:none;border-radius:50%;width:56px;height:56px;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform 0.2s,box-shadow 0.2s;}
+    #chatbot-button:hover{transform:scale(1.1);}
+    .msg{padding:10px 14px;border-radius:12px;max-width:80%;font-size:0.88rem;line-height:1.5;}
+    .msg.user{background:rgba(0,200,150,0.15);border:1px solid rgba(0,200,150,0.2);margin-left:auto;color:var(--text);}
+    .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
+    /* MOBILE */
+    @media(max-width:900px){
+      nav{padding:16px 24px;}
+      .nav-links,nav>.btn-primary{display:none;}
+      .hamburger{display:flex;}
+      .problem-grid{grid-template-columns:1fr;}
+      .features-grid{grid-template-columns:1fr 1fr;}
+      .pricing-grid{grid-template-columns:1fr;}
+      .price-card.popular{transform:none;}
+      .testi-col:nth-child(2){display:flex;}.testi-col:nth-child(3){display:none;}
+    }
+    @media(max-width:640px){
+      .testi-col:nth-child(2){display:none;}
+      .case-grid{grid-template-columns:1fr;}
+      .demo-wrap{grid-template-columns:1fr;}
+      .faq-layout{grid-template-columns:1fr;}
+      .faq-left{position:static;}
+      .footer-subscribe{flex-direction:column;}
+      .footer-subscribe input,.footer-subscribe button{width:100%;}
+      .pipeline{flex-direction:column;}
+      .pipeline-step{border-radius:12px!important;border-right:1px solid var(--border)!important;}
+      .pipeline-step:not(:last-child)::after{content:'↓';right:50%;bottom:-12px;top:auto;transform:translateX(50%);}
+      .problem-vs{flex-direction:column;}
+      .vs-divider{width:100%;height:1px;}
+    }
+    @media(max-width:600px){
+      .features-grid{grid-template-columns:1fr;}
+      .form-row{grid-template-columns:1fr;}
+      
+      section{padding:60px 20px;}
+    }
+  </style>
+</head>
+<body>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#features">Solutions</a></li>
+    <li><a href="#how-it-works">How It Works</a></li>
+    <li><a href="#testimonials">Results</a></li>
+    <li><a href="#demo" class="nav-cta">Free AI Audit →</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="badge">🤖 Your AI Solutions Partner</div>
+  <h1>Building Your AI Future,<br><em>Today.</em></h1>
+  <p class="sub">Tech Velocity builds proprietary, private, and secure custom AI models — trained on your data, your processes, and your goals. AI built for <em>you</em>.</p>
+  <div class="hero-ctas">
+    <a href="#demo" class="btn-primary">🚀 Get Your Free AI Audit</a>
+    <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">20<span>+</span></div><div class="stat-label">Years Enterprise Experience</div></div>
+    <div class="stat"><div class="stat-num">60<span>%</span></div><div class="stat-label">Faster Onboarding</div></div>
+    <div class="stat"><div class="stat-num">80<span>%</span></div><div class="stat-label">Less Manual Work</div></div>
+    <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Custom Built for You</div></div>
+  </div>
+</section>
+
+
+
+<!-- PROBLEM SECTION -->
+<section class="problem-section" id="about">
+  <div class="container">
+    <span class="section-tag">The Problem</span>
+    <h2 class="section-title">AI Is Transforming Business —<br>But Not Yours. Yet.</h2>
+    <p class="section-sub">Most SMEs are losing ground every day to larger competitors with dedicated AI teams. Generic tools don't cut it — your business needs AI built exactly for <em>you</em>.</p>
+    <div class="problem-grid">
+      <div class="problem-card"><div class="icon">⏰</div><h3>Hours Lost to Repetitive Work</h3><p>Your best people spend most of the day on tasks AI could automate in seconds — data entry, email triage, reporting, routing. That's revenue-generating capacity going to waste every single day.</p></div>
+      <div class="problem-card"><div class="icon">🤖</div><h3>Generic AI Gives Generic Results</h3><p>ChatGPT doesn't know your workflows, your compliance needs, or your clients. Public AI tools guess. A custom model trained on your data delivers precision and consistency every time — without babysitting.</p></div>
+      <div class="problem-card"><div class="icon">📉</div><h3>Slow Decisions Cost You Deals</h3><p>Without real-time AI-powered insights, your team makes decisions on stale data. By the time reports are ready, the window has closed and the competitor moved first. Speed is a competitive moat.</p></div>
+      <div class="problem-card"><div class="icon">🔒</div><h3>Data Privacy &amp; Control Risks</h3><p>Sending sensitive business data through public AI APIs creates compliance and IP risks. A proprietary AI model keeps your data private, secure, and fully under your control — with zero data leakage.</p></div>
+    </div>
+    <div class="problem-vs">
+      <div class="vs-col bad">
+        <h4>❌ Without Tech Velocity</h4>
+        <div class="vs-item"><span class="dot">●</span>Hours of manual repetitive work daily</div>
+        <div class="vs-item"><span class="dot">●</span>Generic AI that doesn't know your business</div>
+        <div class="vs-item"><span class="dot">●</span>Decisions made on stale, scattered data</div>
+        <div class="vs-item"><span class="dot">●</span>Customer support that can't scale</div>
+        <div class="vs-item"><span class="dot">●</span>Sensitive data exposed to public AI tools</div>
+        <div class="vs-item"><span class="dot">●</span>Falling further behind competitors</div>
+      </div>
+      <div class="vs-divider"></div>
+      <div class="vs-col good">
+        <h4>✅ With Tech Velocity</h4>
+        <div class="vs-item"><span class="dot">●</span>AI handles repetitive tasks 24/7 automatically</div>
+        <div class="vs-item"><span class="dot">●</span>Custom model trained on your exact data &amp; goals</div>
+        <div class="vs-item"><span class="dot">●</span>Live dashboards &amp; intelligent decision support</div>
+        <div class="vs-item"><span class="dot">●</span>AI-powered support that scales effortlessly</div>
+        <div class="vs-item"><span class="dot">●</span>Proprietary model — 100% private &amp; secure</div>
+        <div class="vs-item"><span class="dot">●</span>Enterprise-grade AI at SME-friendly pricing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="system-section" id="how-it-works">
+  <div class="container">
+    <span class="section-tag">The Process</span>
+    <h2 class="section-title">Your Custom AI in<br>3 Simple Steps</h2>
+    <p class="section-sub">A transparent, collaborative process that delivers a working, production-ready AI model — not a deck, not a proposal. Real results, fast.</p>
+    <div class="pipeline reveal">
+      <div class="pipeline-step">
+        <div class="step-num">Step 01</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">Collaborative workshops to map your goals, challenges, and high-impact automation opportunities. We audit your data sources and identify exactly what to build first.</div>
+        <div class="step-tag">🆓 Free Audit</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Step 02</div>
+        <div class="step-icon">🏗️</div>
+        <div class="step-title">Build</div>
+        <div class="step-desc">We design and train a custom AI model on your real business data — built around your exact workflows, compliance requirements, and performance goals.</div>
+        <div class="step-tag">⚙️ Custom Model</div>
+      </div>
+      <div class="pipeline-step">
+        <div class="step-num">Step 03</div>
+        <div class="step-icon">🚀</div>
+        <div class="step-title">Deploy</div>
+        <div class="step-desc">Seamless integration into your existing systems. We monitor performance, tune the model, and deliver measurable value from day one — then continue improving.</div>
+        <div class="step-tag">📈 Live &amp; Scaling</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES / SOLUTIONS -->
+<section class="features-section" id="features">
+  <div class="container">
+    <span class="section-tag">Solutions</span>
+    <h2 class="section-title">What Our Custom AI<br>Can Do For Your Business</h2>
+    <p class="section-sub">Enterprise-grade AI capabilities built specifically for SMEs — proprietary, private, and designed around your unique workflows and industry.</p>
+    <div class="features-grid">
+      <div class="feature-card reveal">
+        <div class="feature-icon-box">🤖</div>
+        <h3>AI Customer Assistance</h3>
+        <p>Deploy intelligent AI assistants trained on your products, policies, and FAQs — providing instant, accurate responses 24/7 with zero wait times and no human needed.</p>
+        <div class="feature-tags"><span class="tag">24/7 Support</span><span class="tag">Custom Training</span></div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon-box">⚙️</div>
+        <h3>Workflow Automation</h3>
+        <p>Eliminate repetitive manual processes. From email triage and document routing to data entry, scheduling, and reporting — AI handles the work so your team can focus on growth.</p>
+        <div class="feature-tags"><span class="tag">Email Triage</span><span class="tag">Data Entry</span><span class="tag">Routing</span></div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon-box">📊</div>
+        <h3>Business Intelligence</h3>
+        <p>AI-powered dashboards that surface real-time insights, surface hidden opportunities, and give your team the intelligence to make faster, smarter decisions every single day.</p>
+        <div class="feature-tags"><span class="tag">Live Dashboards</span><span class="tag">Predictive AI</span></div>
+      </div>
+      <div class="feature-card reveal">
+        <div class="feature-icon-box">🎯</div>
+        <h3>AI Sales Training</h3>
+        <p>Multimodal AI training with lifelike role-play scenarios and voice conversations. Reduce onboarding time by 60% and increase win rates by 35%. Reps learn faster, perform better.</p>
+        <div class="feature-tags"><span class="tag">Role-Play AI</span><span class="tag">Voice Simulation</span></div>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon-box">📧</div>
+        <h3>AI-Powered Inbox</h3>
+        <p>End-to-end intelligent email triage, categorization, and routing — built for legal, insurance, and professional service firms. Every message handled consistently, instantly, accurately.</p>
+        <div class="feature-tags"><span class="tag">Legal</span><span class="tag">Triage</span><span class="tag">Routing</span></div>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon-box">🔬</div>
+        <h3>Industry-Specific AI</h3>
+        <p>From clinical assessments and engineering code compliance to insurance underwriting — we build bespoke AI models for the most demanding, high-stakes industry workflows.</p>
+        <div class="feature-tags"><span class="tag">Healthcare</span><span class="tag">Legal</span><span class="tag">Engineering</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section class="case-section">
+  <div class="container">
+    <span class="section-tag">Real Results</span>
+    <h2 class="section-title">What a Custom AI Model<br>Actually Delivers</h2>
+    <div class="case-grid">
+      <div>
+        <h3 style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;margin-bottom:12px;">AI Sales Training Platform · Professional Services Firm</h3>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">A professional services firm was spending 12+ weeks onboarding new sales reps using static materials and shadowing — with inconsistent results and high early churn. Tech Velocity built a custom multimodal AI training system with lifelike role-play and voice simulation. Results after 90 days:</p>
+        <div class="case-results">
+          <div class="result-box"><div class="result-num">60%</div><div class="result-label">Faster Onboarding</div></div>
+          <div class="result-box"><div class="result-num">35%</div><div class="result-label">Higher Win Rates</div></div>
+          <div class="result-box"><div class="result-num">90%</div><div class="result-label">Reps Fully Certified</div></div>
+          <div class="result-box"><div class="result-num">24/7</div><div class="result-label">Training Available</div></div>
+        </div>
+      </div>
+      <div class="case-visual">
+        <h4 style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:28px;letter-spacing:-0.3px;white-space:nowrap;">Onboarding Performance Lift</h4>
+        <div class="funnel">
+          <div class="funnel-step"><div class="funnel-label">Reps Enrolled</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%"></div></div><div class="funnel-pct">100%</div></div>
+          <div class="funnel-step"><div class="funnel-label">Module Complete</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:95%"></div></div><div class="funnel-pct">95%</div></div>
+          <div class="funnel-step"><div class="funnel-label">Role-Play Passed</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:88%"></div></div><div class="funnel-pct">88%</div></div>
+          <div class="funnel-step"><div class="funnel-label">AI Certified</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:90%"></div></div><div class="funnel-pct">90%</div></div>
+          <div class="funnel-step"><div class="funnel-label">First Deal Won</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:71%"></div></div><div class="funnel-pct">71%</div></div>
+          <div class="funnel-step"><div class="funnel-label">Hit Quota</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:62%"></div></div><div class="funnel-pct">62%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND 1 -->
+<div class="cta-band" data-tw-cta="1">
+  <div class="tw-wrap">
+    <span class="tw-text" style="--tw-dur:2s;--tw-delay:0.2s;">Ready to Build Your Custom AI Model?</span>
+    <span class="tw-cursor"></span>
+  </div>
+  <p>Join forward-thinking SMEs that stopped waiting for AI to come to them — and built it around their business instead.</p>
+  <div class="btn-row">
+    <a href="#demo" class="btn-primary">🚀 Book Your Free AI Audit</a>
+    <a href="#pricing" class="btn-secondary">View Pricing →</a>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section" id="testimonials">
+  <div class="container">
+    <span class="section-tag">Client Results</span>
+    <h2 class="section-title">What Our Clients Say</h2>
+    <p class="section-sub">Business owners who stopped settling for generic AI — and built something built exactly for their business.</p>
+
+    <div class="testi-columns-wrap">
+
+      <!-- Column 1 -->
+      <div class="testi-col">
+        <div class="testi-col-inner" id="col1">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong — our model understands our engineering database better than most of our staff."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates — our staff finally has breathing room to focus on patient care."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
+            </div>
+          </div>
+        
+          <!-- duplicate for infinite loop -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong — our model understands our engineering database better than most of our staff."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates — our staff finally has breathing room to focus on patient care."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 2 -->
+      <div class="testi-col">
+        <div class="testi-col-inner" id="col2">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate — we recovered $40K in missed commissions in the first month."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes — I understood exactly what the model was doing and why. That trust is rare."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a purpose-built AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
+            </div>
+          </div>
+        
+          <!-- duplicate for infinite loop -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate — we recovered $40K in missed commissions in the first month."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes — I understood exactly what the model was doing and why. That trust is rare."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a purpose-built AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="testi-col">
+        <div class="testi-col-inner" id="col3">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"They didn't just hand us software — they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
+            </div>
+          </div>
+        
+          <!-- duplicate for infinite loop -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"They didn't just hand us software — they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
+            <div class="testimonial-author">
+              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <span class="section-tag">Pricing</span>
+    <h2 class="section-title">Simple Pricing.<br>Custom AI.</h2>
+    <p class="section-sub">Every plan includes discovery, build, deployment, and post-launch support. No hidden fees. No lock-in.</p>
+    <div class="pricing-grid">
+      <div class="price-card reveal">
+        <div class="price-tier">Starter</div>
+        <div class="price-amount">$2,999</div>
+        <div class="price-period">one-time build · single AI system</div>
+        <div class="price-desc">Perfect for SMEs deploying their first custom AI — one focused system, fast delivery, real results from day one.</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span>1 custom AI model build</li>
+          <li><span class="check">✓</span>Trained on your business data</li>
+          <li><span class="check">✓</span>Up to 2 integrations</li>
+          <li><span class="check">✓</span>2-week delivery SLA</li>
+          <li><span class="check">✓</span>30-day post-launch support</li>
+          <li><span class="x">✗</span>Advanced workflow automation</li>
+          <li><span class="x">✗</span>Custom AI dashboard UI</li>
+        </ul>
+        <a href="#demo" class="price-cta outline">Get Started →</a>
+      </div>
+      <div class="price-card popular reveal reveal-delay-1">
+        <div class="popular-badge">⚡ Most Popular</div>
+        <div class="price-tier">Growth</div>
+        <div class="price-amount">$7,999</div>
+        <div class="price-period">one-time build · full AI system</div>
+        <div class="price-desc">For businesses ready to deploy a full AI stack — multiple intelligent systems working together, seamlessly integrated into your workflows.</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span>Up to 3 custom AI models</li>
+          <li><span class="check">✓</span>Full workflow automation</li>
+          <li><span class="check">✓</span>Custom AI dashboard UI</li>
+          <li><span class="check">✓</span>Unlimited integrations</li>
+          <li><span class="check">✓</span>Dedicated AI engineer</li>
+          <li><span class="check">✓</span>60-day post-launch support</li>
+          <li><span class="check">✓</span>Performance monitoring</li>
+        </ul>
+        <a href="#demo" class="price-cta solid">Book Free Audit →</a>
+      </div>
+      <div class="price-card reveal reveal-delay-2">
+        <div class="price-tier">Enterprise</div>
+        <div class="price-amount" style="font-size:1.9rem;letter-spacing:-1px;">Custom</div>
+        <div class="price-period">bespoke engagement · full partnership</div>
+        <div class="price-desc">For large organizations requiring proprietary hosted models, custom data pipelines, compliance integrations, and an ongoing AI partnership.</div>
+        <ul class="price-features">
+          <li><span class="check">✓</span>Unlimited custom AI models</li>
+          <li><span class="check">✓</span>Proprietary model hosting</li>
+          <li><span class="check">✓</span>Private data pipeline</li>
+          <li><span class="check">✓</span>AI quality assurance suite</li>
+          <li><span class="check">✓</span>Dedicated AI team</li>
+          <li><span class="check">✓</span>Ongoing model retraining</li>
+          <li><span class="check">✓</span>Priority SLA + on-site workshops</li>
+        </ul>
+        <a href="#demo" class="price-cta outline">Talk to Our Team →</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:0.82rem;margin-top:28px;">All plans include a free discovery audit · No lock-in contracts · SME-friendly pricing</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+
+      <!-- LEFT: sticky context panel -->
+      <div class="faq-left">
+        <span class="section-tag">FAQ</span>
+        <h2>Questions We Hear<br>All the Time</h2>
+        <p>Plain answers — no jargon, no runaround. Everything you need to know before working with us.</p>
+        <div class="faq-categories">
+          <span class="faq-cat">Getting Started</span>
+          <span class="faq-cat">Technology</span>
+          <span class="faq-cat">Timeline</span>
+          <span class="faq-cat">Security</span>
+          <span class="faq-cat">Industries</span>
+          <span class="faq-cat">Support</span>
+        </div>
+        <div class="faq-contact-card">
+          <h4>Still have questions?</h4>
+          <p>Book a free 45-minute discovery call — we'll answer everything and map out exactly what AI can do for your business.</p>
+          <a href="#demo">Book Free Audit →</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: accordion list -->
+      <div class="faq-right">
+      <div class="faq-list" style="border-top:1px solid var(--border)">
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">01</span>
+            <span class="faq-q-text">Do I need technical knowledge to work with you?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Not at all. You describe your business challenges and goals in plain language — we handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can explain how your business works, we can build the AI for it.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">02</span>
+            <span class="faq-q-text">What makes a custom AI model better than ChatGPT?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Public AI tools like ChatGPT are trained on generic internet data — they don't know your products, your clients, your compliance requirements, or your internal processes. A custom model trained on your specific data gives precise, consistent outputs that align with your exact standards. It's the difference between a generalist and a specialist who knows your business inside-out.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">03</span>
+            <span class="faq-q-text">How long does it take to build and deploy?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Starter systems are typically live within 2 weeks. Growth packages run 3–5 weeks depending on scope and integrations. Enterprise timelines are scoped during discovery. We always agree on a firm delivery date before work begins — and we hold to it.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">04</span>
+            <span class="faq-q-text">Is my business data safe and private?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely. We sign NDAs before any discovery work begins and never use your data to train models for other clients. All proprietary models are hosted in isolated environments. We build with data privacy by design — your data stays yours, always.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">05</span>
+            <span class="faq-q-text">What industries do you serve?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">We work across healthcare, legal, insurance, financial services, engineering, manufacturing, real estate, and professional services. Our approach is industry-agnostic — if your business has data and repeatable processes, we can build AI around it. We've delivered for solo consultancies and multi-hundred-person organizations alike.</div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">06</span>
+            <span class="faq-q-text">What happens after the AI is deployed?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Every deployment includes a monitoring period where we track performance, catch edge cases, and tune the model. Support windows range from 30–60 days depending on your plan. As your business grows, we offer ongoing retraining and model updates to keep your AI performing at its best.</div></div>
+        </div>
+
+      </div><!-- /faq-list -->
+      </div><!-- /faq-right -->
+    </div>
+  </div>
+</section>
+<section class="demo-section" id="demo">
+  <div class="container">
+    <div class="demo-wrap">
+      <div class="demo-info">
+        <span class="section-tag">Free Consultation</span>
+        <h2>Get Your Free<br>AI Discovery Audit</h2>
+        <p>In 45 minutes, we'll map exactly where a custom AI model can save you time, cut costs, and unlock growth — with zero obligation to continue.</p>
+        <div class="demo-bullets">
+          <div class="demo-bullet"><div class="bullet-icon">🔍</div><div class="bullet-text"><strong>Business Process Analysis</strong><span>We study your workflows and identify the highest-ROI automation opportunities</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon">🗺️</div><div class="bullet-text"><strong>Custom AI Roadmap</strong><span>A prioritized plan showing what to build, in what order, and why</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon">💰</div><div class="bullet-text"><strong>ROI Estimate</strong><span>Projected time saved, cost reduction, and revenue impact based on your numbers</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon">🆓</div><div class="bullet-text"><strong>Completely Free</strong><span>No pitch, no hard close. Just strategic clarity you can act on immediately.</span></div></div>
+        </div>
+      </div>
+      <div class="demo-form-wrap">
+        <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:800;letter-spacing:-0.2px;margin-bottom:6px;">Book Your Free AI Audit</h3>
+        <p style="color:var(--muted);font-size:0.83rem;margin-bottom:22px;">We respond within 1 business day — guaranteed.</p>
+        <form id="mainForm" onsubmit="handleMainSubmit(event)">
+          <div class="form-row">
+            <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Juan" required></div>
+            <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Dela Cruz" required></div>
+          </div>
+          <div class="form-group"><label>Business Email *</label><input type="email" name="email" placeholder="juan@company.com" required></div>
+          <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000"></div>
+          <div class="form-group"><label>Company Name</label><input type="text" name="company" placeholder="Your Company"></div>
+          <div class="form-group">
+            <label>Industry *</label>
+            <select name="industry" required>
+              <option value="" disabled selected>Select your industry</option>
+              <option>Legal Services</option>
+              <option>Healthcare / Clinical</option>
+              <option>Insurance / Financial Services</option>
+              <option>Engineering / Construction</option>
+              <option>Manufacturing</option>
+              <option>Professional Services</option>
+              <option>Real Estate</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group"><label>What's your biggest business challenge?</label><textarea name="needs" placeholder="e.g. We spend too much time on manual email processing, our team can't keep up with customer support volume..."></textarea></div>
+          <button type="submit" class="btn-primary" id="mainSubmitBtn" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">🚀 Book My Free AI Audit</button>
+          <p class="form-privacy">🔒 100% confidential · No spam ever · We respond within 1 business day</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="cta-band" data-tw-cta="2">
+  <div class="tw-wrap">
+    <span class="tw-text" style="--tw-dur:1.8s;--tw-delay:0.2s;">Your Competitors Are Already Using AI.</span>
+    <span class="tw-cursor"></span>
+  </div>
+  <p>Every day without a custom AI model is a day you're operating slower, spending more, and leaving revenue on the table.</p>
+  <div class="btn-row"><a href="contact.html" class="btn-primary">🚀 Build My AI Model Today</a></div>
+  <p style="margin-top:16px;font-size:0.78rem;color:var(--muted);">Starting at $2,999 · Free discovery audit · 2-week delivery</p>
+</div>
+
+<!-- AFFILIATIONS -->
+<section id="affiliations" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;position:relative;z-index:1;">
+  <div style="max-width:1040px;margin:0 auto;text-align:center;">
+    <span style="display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:14px;">Proud Member</span>
+    <h2 style="font-family:'Syne',sans-serif;font-size:clamp(1.5rem,2.6vw,2.1rem);font-weight:800;letter-spacing:-0.3px;margin-bottom:12px;">Affiliations</h2>
+    <p style="color:var(--muted);font-size:0.92rem;max-width:480px;margin:0 auto 48px;">Trusted partnerships and community memberships that keep Tech Velocity connected, accountable, and growing.</p>
+
+    <div style="display:flex;gap:28px;align-items:stretch;justify-content:center;flex-wrap:wrap;">
+
+      <!-- Chamber of Commerce Widget -->
+      <div style="flex:1 1 0;max-width:480px;min-width:260px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:all 0.3s;" onmouseenter="this.style.borderColor='rgba(0,200,150,0.3)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);"></div>
+        <div id="mni-membership-639064017815707172" style="width:100%;"></div>
+        <style>
+          #mni-membership-639064017815707172{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:18px;width:100%;}
+          #mni-membership-639064017815707172 .mn-widget-member-logo{max-width:200px!important;height:auto!important;margin:0 auto;filter:brightness(0) invert(1) drop-shadow(0 4px 12px rgba(0,200,150,0.2));transition:transform 0.3s,filter 0.3s;animation:tvFloat 3s ease-in-out infinite;}
+          #mni-membership-639064017815707172 .mn-widget-member-name{color:var(--text)!important;font-family:'Syne',sans-serif!important;font-size:1rem!important;font-weight:700!important;margin:0!important;letter-spacing:0.3px;}
+          @keyframes tvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+        </style>
+        <script type="text/javascript">
+          (function initChamber() {
+            if (typeof MNI !== 'undefined' && MNI.Widgets && MNI.Widgets.Member) {
+              new MNI.Widgets.Member("mni-membership-639064017815707172", {
+                member: 31693,
+                styleTemplate: "#@id{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}#@id .mn-widget-member-name{font-weight:700;font-size:18px}#@id .mn-widget-member-logo{max-width:100%;display:block}"
+              }).create();
+            } else {
+              window.addEventListener('load', function () {
+                if (typeof MNI !== 'undefined' && MNI.Widgets && MNI.Widgets.Member) {
+                  new MNI.Widgets.Member("mni-membership-639064017815707172", {
+                    member: 31693,
+                    styleTemplate: "#@id{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}#@id .mn-widget-member-name{font-weight:700;font-size:18px}#@id .mn-widget-member-logo{max-width:100%;display:block}"
+                  }).create();
+                }
+              });
+            }
+          })();
+        </script>
+      </div>
+
+      <!-- BNI Video Badge -->
+      <div style="flex:1.2 1 0;max-width:560px;min-width:260px;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;position:relative;transition:all 0.3s;min-height:320px;" onmouseenter="this.style.borderColor='rgba(0,200,150,0.3)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);z-index:2;"></div>
+        <a href="https://www.bni.com/" target="_blank" rel="noopener" style="display:block;width:100%;height:100%;min-height:320px;">
+          <video autoplay muted loop playsinline style="width:100%;height:100%;min-height:320px;object-fit:cover;display:block;transition:transform 0.4s;" onmouseenter="this.style.transform='scale(1.03)'" onmouseleave="this.style.transform='scale(1)'">
+            <source src="/video/motion-brand.mp4" type="video/mp4">
+          </video>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER — STACKED CIRCULAR -->
+<footer>
+  <div class="footer-inner">
+
+    <!-- Circular logo badge -->
+    <div class="footer-logo-circle">
+      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo">
+    </div>
+
+    <!-- Nav links -->
+    <nav class="footer-nav">
+      <a href="#home">Home</a>
+      <a href="#about">Our Story</a>
+      <a href="#features">Solutions</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#testimonials">Results</a>
+      <a href="#demo">Contact</a>
+      <a href="privacy-policy.html">Privacy</a>
+      <a href="terms-and-conditions.html">Terms</a>
+    </nav>
+
+    <!-- Social buttons — rounded outline style matching component -->
+    <div class="footer-socials">
+      <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X / Twitter" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn" class="footer-social-btn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+
+    <!-- Email subscribe form — rounded pill style matching component -->
+    <div class="footer-subscribe">
+      <input type="email" placeholder="Enter your email" id="footerEmail">
+      <button onclick="handleFooterSubscribe()">Subscribe</button>
+    </div>
+
+    <!-- Copyright -->
+    <div class="footer-copy">
+      <p>© 2025 Tech Velocity, LLC. All rights reserved.</p>
+      <p style="margin-top:6px;"><a href="tel:+18335330225">+1 833-533-0225</a> · <a href="/cdn-cgi/l/email-protection#8fe7eae3e3e0cffbeaece7f9eae3e0ece6fbf6a1eee6"><span class="__cf_email__" data-cfemail="a0c8c5cccccfe0d4c5c3c8d6c5cccfc3c9d4d98ec1c9">[email&#160;protected]</span></a></p>
+    </div>
+
+  </div>
+</footer>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Submitted! We'll be in touch within 1 business day.</div>
+
+<!-- FLOATING BUTTON -->
+<button class="popup-trigger-btn" id="floatBtn" onclick="openPopup('float_button')">🤖 Free AI Audit</button>
+
+<!-- POPUP OVERLAY -->
+<div class="popup-overlay" id="popupOverlay" onclick="handleOverlayClick(event)">
+  <div class="popup-box" id="popupBox">
+    <div class="popup-progress"><div class="popup-progress-bar"></div></div>
+    <div class="popup-progress-label">
+      <span>🔥 <strong style="color:var(--accent)">5 audit slots</strong> remaining this month</span>
+      <span>72% filled</span>
+    </div>
+    <div class="popup-header">
+      <button class="popup-close" onclick="closePopup()">✕</button>
+      <div class="popup-eyebrow">⚡ Free Strategy Session</div>
+      <h2>Get Your Free <span>AI Opportunity Audit</span></h2>
+      <p>We'll map exactly where a custom AI model can transform your business in 45 minutes. No pitch — just clarity.</p>
+    </div>
+    <div class="popup-body" id="popupFormWrap">
+      <form class="popup-form" id="popupForm" onsubmit="handlePopupSubmit(event)">
+        <input type="hidden" name="formSource" id="popupFormSource" value="popup">
+        <div class="popup-form-row">
+          <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Juan" required></div>
+          <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Dela Cruz" required></div>
+        </div>
+        <div class="form-group"><label>Business Email *</label><input type="email" name="email" placeholder="juan@company.com" required></div>
+        <div class="form-group"><label>Phone / WhatsApp *</label><input type="tel" name="phone" placeholder="+1 (555) 000-0000" required></div>
+        <div class="form-group"><label>Company Name</label><input type="text" name="company" placeholder="Your Company"></div>
+        <div class="form-group">
+          <label>Industry *</label>
+          <select name="industry" required>
+            <option value="" disabled selected>Select your industry</option>
+            <option>Legal Services</option>
+            <option>Healthcare / Clinical</option>
+            <option>Insurance / Financial Services</option>
+            <option>Engineering / Construction</option>
+            <option>Manufacturing</option>
+            <option>Professional Services</option>
+            <option>Real Estate</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Team Size</label>
+          <select name="monthlyLeads">
+            <option value="" disabled selected>How big is your team?</option>
+            <option>Solo / Freelancer</option>
+            <option>2–10 people</option>
+            <option>10–50 people</option>
+            <option>50–200 people</option>
+            <option>200+ people</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select name="source">
+            <option value="" disabled selected>Select a source</option>
+            <option>Facebook / Instagram</option>
+            <option>Google Search</option>
+            <option>LinkedIn</option>
+            <option>Referral / Word of Mouth</option>
+            <option>YouTube</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary popup-submit" id="popupSubmitBtn">🤖 Claim My Free AI Audit</button>
+        <div class="popup-privacy">🔒 100% confidential · No spam ever · We respond within 1 day</div>
+      </form>
+    </div>
+    <div class="popup-success" id="popupSuccess">
+      <div class="success-icon">✅</div>
+      <h3>You're In! 🎉</h3>
+      <p>Your details have been received.<br><br>
+      <strong style="color:var(--accent)">Expect a message within 1 business day</strong> to schedule your free AI audit call.<br><br>
+      Check your email for a confirmation.</p>
+      <button onclick="closePopup()" class="btn-primary" style="margin-top:24px;padding:12px 28px;">Close Window</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHATBOT -->
+<div id="chatbot-container">
+  <div id="chat-window">
+    <div id="chat-header">
+      <span>💬 Chat with Tech Velocity</span>
+      <button id="close-chatbot">&times;</button>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-container">
+      <input type="text" id="chat-input" placeholder="Type your message...">
+      <button id="chat-send-button">Send</button>
+    </div>
+  </div>
+  <button id="chatbot-button">💬</button>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // ── GOOGLE SHEETS CONFIG ──
+  const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwaOTckx4cHlJJrXz8JkhOoRCHlo2cmfzz1LVF7HWQJH5IIgZQQFKI5IhuduquwtzKP/exec';
+
+  function collectFormData(form, source) {
+    const d = {};
+    new FormData(form).forEach((v, k) => d[k] = v);
+    d.formSource = source || d.formSource || 'main_form';
+    d.timestamp = new Date().toLocaleString('en-US', {timeZone:'Asia/Manila'});
+    return d;
+  }
+
+  async function submitToSheets(data) {
+    try {
+      await fetch(SHEET_URL, {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'text/plain' }
+      });
+    } catch(e) { console.warn('Sheet submit error:', e); }
+  }
+
+  function showToast() {
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+  }
+
+  // ── MAIN FORM ──
+  async function handleMainSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('mainSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    const data = collectFormData(e.target, 'main_form');
+    await submitToSheets(data);
+    e.target.reset();
+    btn.disabled = false;
+    btn.innerHTML = '🚀 Book My Free AI Audit';
+    showToast();
+  }
+
+  // ── POPUP ──
+  let popupShown = false;
+  let popupSource = '';
+
+  function openPopup(source) {
+    popupSource = source || 'manual';
+    document.getElementById('popupFormSource').value = popupSource;
+    document.getElementById('popupOverlay').classList.add('active');
+    document.body.style.overflow = 'hidden';
+    popupShown = true;
+  }
+
+  function closePopup() {
+    document.getElementById('popupOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+    // Reset popup form state
+    setTimeout(() => {
+      document.getElementById('popupSuccess').classList.remove('visible');
+      document.getElementById('popupSuccess').style.display = 'none';
+      document.getElementById('popupFormWrap').style.display = 'block';
+      document.getElementById('popupForm').reset();
+    }, 350);
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('popupOverlay')) closePopup();
+  }
+
+  async function handlePopupSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('popupSubmitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+    const data = collectFormData(e.target, popupSource);
+    await submitToSheets(data);
+    btn.disabled = false;
+    btn.innerHTML = '🤖 Claim My Free AI Audit';
+    document.getElementById('popupFormWrap').style.display = 'none';
+    const succ = document.getElementById('popupSuccess');
+    succ.style.display = 'block';
+    succ.classList.add('visible');
+    showToast();
+  }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
+
+  // ── POPUP TRIGGERS ──
+  // 1. Exit intent
+  let exitFired = false;
+  document.addEventListener('mouseleave', e => {
+    if (!exitFired && !popupShown && e.clientY <= 5) {
+      exitFired = true;
+      openPopup('exit_intent');
+    }
+  });
+
+  // 2. Scroll depth (45% + 3s dwell)
+  let scrollFired = false;
+  let dwellTimer = null;
+  window.addEventListener('scroll', () => {
+    if (scrollFired || popupShown) return;
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
+    if (pct > 0.45) {
+      if (!dwellTimer) dwellTimer = setTimeout(() => {
+        if (!popupShown) { scrollFired = true; openPopup('scroll_depth'); }
+      }, 3000);
+    } else {
+      clearTimeout(dwellTimer); dwellTimer = null;
+    }
+  });
+
+  // 3. Time on page (45s)
+  setTimeout(() => {
+    if (!popupShown) openPopup('time_on_page');
+  }, 45000);
+
+  // ── NAV SCROLL ──
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); revealObserver.unobserve(en.target); } });
+  }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+  // Fallback: ensure all reveals are visible after 100ms in case observer doesn't fire
+  setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); }, 100);
+
+  // ── FAQ ACCORDION ──
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  }
+
+  // ── MOBILE MENU ──
+  function handleFooterSubscribe() {
+    const input = document.getElementById('footerEmail');
+    if (!input || !input.value.includes('@')) { if(input) input.focus(); return; }
+    input.value = '';
+    input.placeholder = '✅ You\'re subscribed!';
+    setTimeout(() => { input.placeholder = 'Enter your email'; }, 3000);
+  }
+
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (!links) return;
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+    }
+  }
+
+  // ── COUNTER ANIMATION ──
+  function animateCounter(el, target, suffix) {
+    const duration = 1800;
+    const start = performance.now();
+    const isDecimal = target % 1 !== 0;
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const val = eased * target;
+      el.querySelector('.stat-num').innerHTML = (isDecimal ? val.toFixed(1) : Math.floor(val)) + '<span>' + suffix + '</span>';
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const statsObserver = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        const stats = en.target.querySelectorAll('.stat');
+        const data = [{num:20,suf:'+'},{num:60,suf:'%'},{num:80,suf:'%'},{num:100,suf:'%'}];
+        stats.forEach((s, i) => { if (data[i]) animateCounter(s, data[i].num, data[i].suf); });
+        statsObserver.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  const heroStats = document.querySelector('.hero-stats');
+  if (heroStats) statsObserver.observe(heroStats);
+
+  // ── CHATBOT ──
+  const chatBtn = document.getElementById('chatbot-button');
+  const chatWin = document.getElementById('chat-window');
+  const closeChat = document.getElementById('close-chatbot');
+  const chatMsgs = document.getElementById('chat-messages');
+  const chatIn = document.getElementById('chat-input');
+  const chatSend = document.getElementById('chat-send-button');
+  let sessionId = Date.now().toString();
+
+  chatBtn.addEventListener('click', () => {
+    const showing = chatWin.style.display === 'flex';
+    chatWin.style.display = showing ? 'none' : 'flex';
+    if (!showing && !chatWin.dataset.greeted) {
+      addMsg('How can we help you today?', 'bot');
+      chatWin.dataset.greeted = '1';
+    }
+  });
+  closeChat.addEventListener('click', () => { chatWin.style.display = 'none'; });
+  chatSend.addEventListener('click', sendMsg);
+  chatIn.addEventListener('keypress', e => { if (e.key === 'Enter') sendMsg(); });
+
+  function addMsg(text, sender) {
+    const el = document.createElement('div');
+    el.className = 'msg ' + sender;
+    el.textContent = text;
+    chatMsgs.appendChild(el);
+    chatMsgs.scrollTop = chatMsgs.scrollHeight;
+    return el;
+  }
+
+  async function sendMsg() {
+    const msg = chatIn.value.trim();
+    if (!msg) return;
+    addMsg(msg, 'user');
+    chatIn.value = '';
+    const ph = addMsg('...', 'bot');
+    let dots = 1;
+    const iv = setInterval(() => { dots = (dots % 3) + 1; ph.textContent = '.'.repeat(dots); }, 400);
+    try {
+      const r = await fetch('https://chat.pnonat.com/chat', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: msg, session_id: sessionId })
+      });
+      const data = await r.json();
+      clearInterval(iv);
+      ph.textContent = (data && data.response) ? data.response : "Sorry, I didn't understand that.";
+    } catch(err) {
+      clearInterval(iv);
+      ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
+    }
+  }
+
+  // TYPEWRITER — trigger on scroll into view (mirrors useInView + TypewriterEffectSmooth)
+  const twObs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) {
+        const tw = en.target.querySelector('.tw-text');
+        if (tw && !tw.classList.contains('tw-animate')) {
+          tw.classList.add('tw-animate');
+        }
+        twObs.unobserve(en.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+  document.querySelectorAll('[data-tw-cta]').forEach(el => twObs.observe(el));
+  // Fallback: show all typewriter text after 500ms
+  setTimeout(() => {
+    document.querySelectorAll('.tw-text').forEach(el => {
+      el.classList.add('tw-animate');
+    });
+  }, 500);
+</script>
+</body>
+</html>
