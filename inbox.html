@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI-Powered Inbox — Tech Velocity Project</title>
   <meta name="description" content="End-to-end AI powered inbox for law firms — intelligent email triage, categorization, priority detection and auto-routing.">
@@ -13,19 +14,36 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;}
+    html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
+    html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
+    html.light .logo-img,html.light .footer-logo{filter:none;}
+    html.light .hamburger span{background:var(--text);}html.light .mobile-nav{background:var(--bg);}
+    html.light .hero-glow{background:radial-gradient(ellipse at center,rgba(0,152,112,0.1) 0%,transparent 70%);}
+    html.light .hero-grid{background-image:linear-gradient(rgba(0,152,112,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,152,112,0.07) 1px,transparent 1px);}
+    html.light .btn-secondary{border-color:rgba(12,24,48,0.15);color:var(--text);}
+    html.light .feature-card:hover{box-shadow:0 16px 48px rgba(0,0,0,0.09);}
+    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
+    html.light #chat-messages{background:var(--bg2);}html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+    html.light #chat-input{background:var(--bg2);color:var(--text);}html.light #chat-input-container{background:var(--bg3);}
+    body,nav,.feature-card,.faq-item{transition:background-color 0.25s ease,border-color 0.25s ease,color 0.15s ease;}
+    .hero h1,.hero p.sub,.badge,.hero-ctas{will-change:opacity,transform;}
+    .reveal{will-change:opacity,transform;}
+    @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
     nav.scrolled{padding:10px 48px;}
-    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .logo-img{height:50px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
     .container{max-width:1040px;margin:0 auto;}
     section{padding:80px 24px;position:relative;z-index:1;}
@@ -150,7 +168,10 @@
     .footer-copy a:hover{color:var(--text);}
 
     /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
     #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
     #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
     #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;}
@@ -175,7 +196,7 @@
     .img-modal-close{position:absolute;top:-44px;right:0;background:none;border:none;color:white;font-size:2rem;cursor:pointer;line-height:1;width:40px;height:40px;display:flex;align-items:center;justify-content:center;}
 
     @media(max-width:900px){
-      nav{padding:16px 24px;}
+      nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
       .hamburger{display:flex;}
       .hero-layout,.overview-inner,.tab-panel.active{grid-template-columns:1fr;}
@@ -225,8 +246,8 @@
     <div class="hero-layout">
       <div class="hero-left">
         <div class="hero-badge">Automation &amp; Workflow</div>
-        <h1>End-to-End<br><em>AI Powered Inbox</em></h1>
-        <p>A centralized interface for managing AI-powered email triage — providing real-time insights, intelligent categorization, and smart routing for efficient workflow handling in legal and business environments.</p>
+        <h1>Stop Spending Hours<br><em>Sorting Your Inbox.</em></h1>
+        <p>We built this for a law firm drowning in email. What used to take a paralegal 3 hours every day now runs automatically — with 95% accuracy and zero missed priorities. Every email is classified, ranked, and routed before your team even opens their laptop.</p>
         <div class="hero-metrics">
           <div><div class="hero-metric-val">90%+</div><div class="hero-metric-label">Time Reduction</div></div>
           <div><div class="hero-metric-val">3x</div><div class="hero-metric-label">Faster Response</div></div>
@@ -254,9 +275,9 @@
     <div class="overview-inner">
       <div class="overview-text reveal">
         <span class="section-tag">Project Overview</span>
-        <h2>Intelligent Email Management for Professional Firms</h2>
-        <p>Built with React.js and TypeScript for a responsive UI, integrated with Python and advanced AI frameworks for backend processing. The dashboard visualizes automated email classification, priority detection, and auto-routing — achieving 75% time savings and 95% accuracy.</p>
-        <p>The system was developed for a law firm drowning in email volume — manually sorting, prioritizing, and routing hundreds of messages daily. Our custom AI model learned their workflows, clients, and urgency patterns to handle the entire triage process automatically.</p>
+        <h2>Your Inbox Managed. Your Team Focused.</h2>
+        <p>Professional firms — especially legal and insurance — live in their inboxes. Hundreds of messages a day, each one requiring judgment about priority, owner, and urgency. We built an AI that handles all of that automatically, learning your specific clients, cases, and urgency signals.</p>
+        <p>The result: 90%+ reduction in manual email handling time, 3x faster client response rates, and a team that finally focuses on billable work instead of inbox management.</p>
       </div>
       <div class="overview-details reveal">
         <div class="detail-row"><label>Industry</label><span>Legal / Professional Services</span></div>
@@ -400,10 +421,10 @@
 <div class="cta-band">
   <div class="container">
     <span class="section-tag">Build Your Solution</span>
-    <h2>Ready to Transform<br>Your Workflow?</h2>
-    <p>Let's discuss how a custom AI system like this can eliminate manual email overhead from your business.</p>
+    <h2>What Would You Do with<br>3 Extra Hours Every Day?</h2>
+    <p>That's what this system gives back. Book a free audit and we'll show you exactly how it would work for your firm — with your email volume, your team structure, and your workflow.</p>
     <div class="cta-buttons">
-      <a href="contact.html" class="btn-primary">🚀 Get Your Free AI Audit</a>
+      <a href="contact.html" class="btn-primary">🚀 Claim My Free AI Audit</a>
       <a href="portfolio.html" class="btn-secondary">← Back to Projects</a>
     </div>
   </div>
@@ -452,6 +473,7 @@
       <button id="chat-send-button">Send</button>
     </div>
   </div>
+  <button id="floatingThemeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
   <button id="chatbot-button">💬</button>
 </div>
 
@@ -471,8 +493,7 @@
   // MOBILE MENU
   function toggleMenu() {
     const l = document.querySelector('.nav-links');
-    l.style.cssText = l.style.display === 'flex' ? '' :
-      'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;';
+    const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
   }
 
   // TABS (Feature108 pattern)
@@ -563,6 +584,9 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+  // ── THEME TOGGLE ──
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Velocity — Your AI Solutions Partner</title>
   <meta name="description" content="Tech Velocity builds proprietary, private and secure custom AI models for SMEs. Automate workflows, boost productivity, and grow revenue.">
@@ -14,20 +15,58 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
+    html.light body{background:var(--bg);color:var(--text);}
+    html.light body::before{opacity:0.05;}
+    html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
+    html.light .logo-img,html.light .nav-logo img,html.light .footer-logo,html.light .footer-logo-circle img,html.light .membership-badge img{filter:none;}
+    html.light .hamburger span{background:var(--text);}
+    html.light .mobile-nav{background:var(--bg);}
+    html.light .hero-glow{background:radial-gradient(ellipse at center,rgba(0,152,112,0.1) 0%,transparent 70%);}
+    html.light .hero-grid{background-image:linear-gradient(rgba(0,152,112,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,152,112,0.07) 1px,transparent 1px);}
+    html.light .btn-secondary{border-color:rgba(12,24,48,0.15);color:var(--text);}
+    html.light .btn-secondary:hover{border-color:rgba(0,152,112,0.35);background:rgba(0,152,112,0.06);}
+    html.light .vs-col.bad{background:rgba(200,48,48,0.04);}
+    html.light .vs-col.good{background:rgba(0,160,90,0.04);}
+    html.light .pipeline-step:not(:last-child)::after{background:var(--bg);}
+    html.light .feature-card:hover,html.light .home-card:hover{box-shadow:0 16px 48px rgba(0,0,0,0.09);}
+    html.light .price-card.popular{box-shadow:0 24px 64px rgba(0,0,0,0.07),0 0 0 1px rgba(0,152,112,0.3);}
+    html.light .popup-box{background:var(--bg);}
+    html.light .popup-form select option,html.light .form-group select option{background:var(--bg);}
+    html.light .popup-header{background:linear-gradient(135deg,rgba(0,152,112,0.08),rgba(0,80,100,0.05));}
+    html.light #chat-messages{background:var(--bg2);}
+    html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+    html.light .membership-badge{box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+    html.light .faq-q:hover{background:rgba(0,0,0,0.02);}
+    html.light .logo-pill:hover{color:var(--text);border-color:rgba(12,24,48,0.2);}
+    html.light .footer-subscribe input{background:var(--card);color:var(--text);}
+    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
+    html.light .popup-form input,html.light .popup-form select{background:var(--bg2);color:var(--text);}
+    html.light #chat-input{background:var(--bg2);color:var(--text);}
+    html.light #chat-input-container{background:var(--bg3);}
+    html.light .price-amount{color:var(--text);}
+    html.light .vs-divider::after{background:var(--card);}
+    html.light .tl-dot{background:var(--accent);color:#fff;}
+    html.light .result-num{color:var(--accent);}
+    body,nav,.problem-card,.feature-card,.price-card,.testimonial-card,.result-box,.case-visual,.demo-form-wrap,.popup-box,.faq-item,.value-card,.tools-card,.industries-card,.home-card,.membership-badge{transition:background-color 0.25s ease,border-color 0.25s ease,color 0.15s ease;}
+    .hero h1,.hero p.sub,.badge,.hero-ctas,.hero-stats{will-change:opacity,transform;}
+    .reveal{will-change:opacity,transform;}
+    @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.hero-ctas,.hero-stats,.badge,.tw-text,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;width:auto!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
     nav.scrolled{padding:10px 48px;}
-    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .logo-img{height:50px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
     /* HERO */
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
@@ -185,6 +224,7 @@
     .faq-categories{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
     .faq-cat{padding:6px 14px;border-radius:100px;border:1px solid var(--border);font-size:0.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent;}
     .faq-cat:hover{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.4);color:var(--accent);}
+    .faq-cat.active{background:rgba(0,200,150,0.12);border-color:rgba(0,200,150,0.5);color:var(--accent);font-weight:700;}
     .faq-contact-card{background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,200,150,0.02));border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;}
     .faq-contact-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(0,200,150,0.08);pointer-events:none;}
     .faq-contact-card h4{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
@@ -193,7 +233,8 @@
     .faq-contact-card a:hover{background:#33ddb0;}
     .faq-right{padding-top:2px;}
     .faq-list{display:flex;flex-direction:column;}
-    .faq-item{border-bottom:1px solid var(--border);}
+    .faq-item{border-bottom:1px solid var(--border);transition:opacity 0.2s;}
+    .faq-item.faq-hidden{display:none;}
     .faq-q{width:100%;background:none;border:none;padding:22px 0;text-align:left;display:grid;grid-template-columns:44px 1fr 28px;align-items:center;gap:12px;cursor:pointer;transition:all 0.2s;}
     .faq-num{font-family:var(--font-head);font-size:0.7rem;font-weight:800;color:var(--accent);opacity:0.4;letter-spacing:1px;transition:opacity 0.2s;}
     .faq-q-text{font-family:var(--font-head);font-size:0.98rem;font-weight:600;color:var(--text);transition:color 0.2s;line-height:1.4;}
@@ -206,6 +247,14 @@
     .faq-a{max-height:0;overflow:hidden;transition:max-height 0.45s cubic-bezier(0.16,1,0.3,1);}
     .faq-a-inner{padding:0 0 22px 56px;color:var(--muted);font-size:0.92rem;line-height:1.8;}
     .chevron{display:none;}
+    html.light .faq-contact-card{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,152,112,0.02));border-color:rgba(0,152,112,0.22);}
+    @media(max-width:768px){
+      .faq-layout{grid-template-columns:1fr;gap:36px;}
+      .faq-left{position:static;}
+      .faq-a-inner{padding:0 0 18px 0;}
+      .faq-q{grid-template-columns:36px 1fr 28px;}
+      .faq-num{font-size:0.65rem;}
+    }
     /* DEMO FORM */
     .demo-section{background:var(--bg);}
     .demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
@@ -294,7 +343,10 @@
     .popup-success h3{font-family:var(--font-head);font-size:1.4rem;font-weight:800;margin-bottom:8px;}
     .popup-success p{color:var(--muted);font-size:0.9rem;}
     /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
     #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
     #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
     #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
@@ -312,7 +364,7 @@
     .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
     /* MOBILE */
     @media(max-width:900px){
-      nav{padding:16px 24px;}
+      nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links,nav>.btn-primary{display:none;}
       .hamburger{display:flex;}
       .problem-grid{grid-template-columns:1fr;}
@@ -336,10 +388,21 @@
       .vs-divider{width:100%;height:1px;}
     }
     @media(max-width:600px){
+      .cta-band{padding:60px 20px;}
+      .cta-band h2{font-size:clamp(1.4rem,6vw,2.2rem);}
+      .tw-wrap{display:block;text-align:center;}
+      .tw-text{white-space:normal;width:auto!important;opacity:1!important;animation:none!important;font-size:clamp(1.6rem,7vw,2.2rem);word-break:break-word;}
+      .tw-cursor{display:none;}
+      
       .features-grid{grid-template-columns:1fr;}
       .form-row{grid-template-columns:1fr;}
-      
       section{padding:60px 20px;}
+      .case-visual h4{white-space:normal;font-size:1rem;}
+      .funnel-label{width:78px;font-size:0.72rem;}
+      .funnel-pct{width:30px;font-size:0.72rem;}
+      .result-num{font-size:2rem;letter-spacing:-1px;}
+      .case-results{gap:10px;}
+      .result-box{padding:20px 14px;}
     }
   </style>
 </head>
@@ -348,11 +411,11 @@
 <nav id="navbar">
   <a href="#home"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
   <ul class="nav-links">
-    <li><a href="#about">Our Story</a></li>
-    <li><a href="#features">Solutions</a></li>
-    <li><a href="#how-it-works">How It Works</a></li>
-    <li><a href="#testimonials">Results</a></li>
-    <li><a href="#demo" class="nav-cta">Free AI Audit →</a></li>
+    <li><a href="our-story.html">Our Story</a></li>
+    <li><a href="solutions.html">Solutions</a></li>
+    <li><a href="how-it-works.html">How It Works</a></li>
+    <li><a href="portfolio.html">Our Work</a></li>
+    <li><a href="contact.html" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -510,7 +573,7 @@
         </div>
       </div>
       <div class="case-visual">
-        <h4 style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:28px;letter-spacing:-0.3px;white-space:nowrap;">Onboarding Performance Lift</h4>
+        <h4 style="font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:28px;letter-spacing:-0.3px;">Onboarding Performance Lift</h4>
         <div class="funnel">
           <div class="funnel-step"><div class="funnel-label">Reps Enrolled</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:100%"></div></div><div class="funnel-pct">100%</div></div>
           <div class="funnel-step"><div class="funnel-label">Module Complete</div><div class="funnel-bar-wrap"><div class="funnel-bar" style="width:95%"></div></div><div class="funnel-pct">95%</div></div>
@@ -527,22 +590,22 @@
 <!-- CTA BAND 1 -->
 <div class="cta-band" data-tw-cta="1">
   <div class="tw-wrap">
-    <span class="tw-text" style="--tw-dur:2s;--tw-delay:0.2s;">Ready to Build Your Custom AI Model?</span>
+    <span class="tw-text" style="--tw-dur:2s;--tw-delay:0.2s;">Your Competitors Are Already Using AI. Are You?</span>
     <span class="tw-cursor"></span>
   </div>
-  <p>Join forward-thinking SMEs that stopped waiting for AI to come to them — and built it around their business instead.</p>
+  <p>Every week you wait is revenue lost to manual work, slow decisions, and tools that weren't built for your business. Get your free AI audit and find out exactly what you're leaving on the table.</p>
   <div class="btn-row">
-    <a href="#demo" class="btn-primary">🚀 Book Your Free AI Audit</a>
-    <a href="#pricing" class="btn-secondary">View Pricing →</a>
+    <a href="#demo" class="btn-primary">🚀 Get My Free AI Audit</a>
+    <a href="#pricing" class="btn-secondary">See Pricing →</a>
   </div>
 </div>
 
 <!-- TESTIMONIALS -->
 <section class="testimonials-section" id="testimonials">
   <div class="container">
-    <span class="section-tag">Client Results</span>
-    <h2 class="section-title">What Our Clients Say</h2>
-    <p class="section-sub">Business owners who stopped settling for generic AI — and built something built exactly for their business.</p>
+    <span class="section-tag">Real Client Results</span>
+    <h2 class="section-title">Don't Take Our Word For It</h2>
+    <p class="section-sub">From law firms and insurance brokerages to healthcare clinics and engineering firms — here's what business owners say after their custom AI goes live.</p>
 
     <div class="testi-columns-wrap">
 
@@ -838,17 +901,18 @@
         <h2>Questions We Hear<br>All the Time</h2>
         <p>Plain answers — no jargon, no runaround. Everything you need to know before working with us.</p>
         <div class="faq-categories">
-          <span class="faq-cat">Getting Started</span>
-          <span class="faq-cat">Technology</span>
-          <span class="faq-cat">Timeline</span>
-          <span class="faq-cat">Security</span>
-          <span class="faq-cat">Industries</span>
-          <span class="faq-cat">Support</span>
+          <span class="faq-cat active" onclick="filterFaq('all',this)">All</span>
+          <span class="faq-cat" onclick="filterFaq('getting-started',this)">Getting Started</span>
+          <span class="faq-cat" onclick="filterFaq('technology',this)">Technology</span>
+          <span class="faq-cat" onclick="filterFaq('timeline',this)">Timeline</span>
+          <span class="faq-cat" onclick="filterFaq('security',this)">Security</span>
+          <span class="faq-cat" onclick="filterFaq('industries',this)">Industries</span>
+          <span class="faq-cat" onclick="filterFaq('support',this)">Support</span>
         </div>
         <div class="faq-contact-card">
           <h4>Still have questions?</h4>
           <p>Book a free 45-minute discovery call — we'll answer everything and map out exactly what AI can do for your business.</p>
-          <a href="#demo">Book Free Audit →</a>
+          <a href="contact.html">Book Free Audit →</a>
         </div>
       </div>
 
@@ -856,7 +920,7 @@
       <div class="faq-right">
       <div class="faq-list" style="border-top:1px solid var(--border)">
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="getting-started">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">01</span>
             <span class="faq-q-text">Do I need technical knowledge to work with you?</span>
@@ -865,7 +929,7 @@
           <div class="faq-a"><div class="faq-a-inner">Not at all. You describe your business challenges and goals in plain language — we handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can explain how your business works, we can build the AI for it.</div></div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="technology">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">02</span>
             <span class="faq-q-text">What makes a custom AI model better than ChatGPT?</span>
@@ -874,7 +938,7 @@
           <div class="faq-a"><div class="faq-a-inner">Public AI tools like ChatGPT are trained on generic internet data — they don't know your products, your clients, your compliance requirements, or your internal processes. A custom model trained on your specific data gives precise, consistent outputs that align with your exact standards. It's the difference between a generalist and a specialist who knows your business inside-out.</div></div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="timeline">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">03</span>
             <span class="faq-q-text">How long does it take to build and deploy?</span>
@@ -883,7 +947,7 @@
           <div class="faq-a"><div class="faq-a-inner">Starter systems are typically live within 2 weeks. Growth packages run 3–5 weeks depending on scope and integrations. Enterprise timelines are scoped during discovery. We always agree on a firm delivery date before work begins — and we hold to it.</div></div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="security">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">04</span>
             <span class="faq-q-text">Is my business data safe and private?</span>
@@ -892,7 +956,7 @@
           <div class="faq-a"><div class="faq-a-inner">Absolutely. We sign NDAs before any discovery work begins and never use your data to train models for other clients. All proprietary models are hosted in isolated environments. We build with data privacy by design — your data stays yours, always.</div></div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="industries">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">05</span>
             <span class="faq-q-text">What industries do you serve?</span>
@@ -901,13 +965,49 @@
           <div class="faq-a"><div class="faq-a-inner">We work across healthcare, legal, insurance, financial services, engineering, manufacturing, real estate, and professional services. Our approach is industry-agnostic — if your business has data and repeatable processes, we can build AI around it. We've delivered for solo consultancies and multi-hundred-person organizations alike.</div></div>
         </div>
 
-        <div class="faq-item">
+        <div class="faq-item" data-cat="support">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">06</span>
             <span class="faq-q-text">What happens after the AI is deployed?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
           <div class="faq-a"><div class="faq-a-inner">Every deployment includes a monitoring period where we track performance, catch edge cases, and tune the model. Support windows range from 30–60 days depending on your plan. As your business grows, we offer ongoing retraining and model updates to keep your AI performing at its best.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="getting-started">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">07</span>
+            <span class="faq-q-text">How much does it cost?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Our Starter package begins at $2,500, Growth at $7,500, and Enterprise is scoped per project. Every engagement starts with a free AI Discovery Audit so you see exactly what you're getting before you commit. There are no hidden fees — the price we quote is what you pay.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="getting-started">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">08</span>
+            <span class="faq-q-text">What ROI can I realistically expect?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Most clients recoup their investment within the first 60–90 days through time savings alone. Common outcomes include 70–80% reduction in manual processing time, faster client response cycles, and measurable revenue uplift from better lead handling. During your free audit we'll build a personalized ROI estimate using your actual numbers.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="technology">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">09</span>
+            <span class="faq-q-text">Can you integrate with the software I already use?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Yes. We build integrations with CRMs (Salesforce, HubSpot), project management tools (Asana, Monday), communication platforms (Slack, Teams), ERPs, and proprietary databases. If your tool has an API — or even just a spreadsheet export — we can connect to it. We design around your existing stack, not the other way around.</div></div>
+        </div>
+
+        <div class="faq-item" data-cat="support">
+          <button class="faq-q" onclick="toggleFaq(this)">
+            <span class="faq-num">10</span>
+            <span class="faq-q-text">Do you train my team to use the AI?</span>
+            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner">Absolutely. Every deployment includes a structured handover and team training session so your people are confident from day one. We provide documentation, workflow guides, and a dedicated support window for questions. You're never left to figure it out alone — we're invested in your team's success, not just the technical delivery.</div></div>
         </div>
 
       </div><!-- /faq-list -->
@@ -1175,6 +1275,7 @@
       <button id="chat-send-button">Send</button>
     </div>
   </div>
+  <button id="floatingThemeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
   <button id="chatbot-button">💬</button>
 </div>
 
@@ -1324,6 +1425,34 @@
     }
   }
 
+  // ── FAQ FILTER ──
+  function filterFaq(cat, pill) {
+    document.querySelectorAll('.faq-cat').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    // Close all open items before filtering
+    document.querySelectorAll('.faq-item.open').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = '0';
+    });
+    document.querySelectorAll('.faq-item').forEach(item => {
+      if (cat === 'all' || item.dataset.cat === cat) {
+        item.classList.remove('faq-hidden');
+      } else {
+        item.classList.add('faq-hidden');
+      }
+    });
+  }
+
+  // Open first FAQ item by default
+  (function(){
+    const first = document.querySelector('.faq-item');
+    if (first) {
+      first.classList.add('open');
+      const a = first.querySelector('.faq-a');
+      if (a) a.style.maxHeight = a.scrollHeight + 'px';
+    }
+  })();
+
   // ── MOBILE MENU ──
   function handleFooterSubscribe() {
     const input = document.getElementById('footerEmail');
@@ -1339,7 +1468,9 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      // Close menu when a link is clicked
+      links.querySelectorAll('a').forEach(a => { a.addEventListener('click', () => { links.style.display = 'none'; }, {once:true}); });
     }
   }
 
@@ -1443,6 +1574,9 @@
       el.classList.add('tw-animate');
     });
   }, 500);
+  // ── THEME TOGGLE ──
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works — Tech Velocity</title>
   <meta name="description" content="Learn how Tech Velocity helps SMEs implement AI solutions through our simple, scalable 3-step process: Discovery, Build, and Deploy.">
@@ -13,21 +14,46 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
+    html.light body{background:var(--bg);color:var(--text);}
+    html.light body::before{opacity:0.05;}
+    html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
+    html.light .logo-img,html.light .nav-logo img,html.light .footer-logo,html.light .footer-logo-circle img,html.light .membership-badge img{filter:none;}
+    html.light .hamburger span{background:var(--text);}
+    html.light .mobile-nav{background:var(--bg);}
+    html.light .hero-glow{background:radial-gradient(ellipse at center,rgba(0,152,112,0.1) 0%,transparent 70%);}
+    html.light .hero-grid{background-image:linear-gradient(rgba(0,152,112,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,152,112,0.07) 1px,transparent 1px);}
+    html.light .btn-secondary{border-color:rgba(12,24,48,0.15);color:var(--text);}
+    html.light .btn-secondary:hover{border-color:rgba(0,152,112,0.35);background:rgba(0,152,112,0.06);}
+    html.light .pipeline-step:not(:last-child)::after{background:var(--bg);}
+    html.light .feature-card:hover,html.light .home-card:hover,html.light .tools-card:hover{box-shadow:0 16px 48px rgba(0,0,0,0.09);}
+    html.light .faq-q:hover{background:rgba(0,0,0,0.02);}
+    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
+    html.light #chat-messages{background:var(--bg2);}
+    html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+    html.light #chat-input{background:var(--bg2);color:var(--text);}
+    html.light #chat-input-container{background:var(--bg3);}
+    html.light .tl-dot{background:var(--accent);color:#fff;}
+    body,nav,.problem-card,.feature-card,.price-card,.testimonial-card,.faq-item,.value-card,.tools-card,.home-card{transition:background-color 0.25s ease,border-color 0.25s ease,color 0.15s ease;}
+    .hero h1,.hero p.sub,.badge,.hero-ctas{will-change:opacity,transform;}
+    .reveal{will-change:opacity,transform;}
+    @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
     nav.scrolled{padding:10px 48px;}
-    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .logo-img{height:50px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
 
     /* HERO */
@@ -104,9 +130,9 @@
     .stats-row{display:flex;gap:0;max-width:1040px;margin:0 auto;}
     .stat-item{flex:1;text-align:center;padding:24px;border-right:1px solid var(--border);}
     .stat-item:last-child{border-right:none;}
-    .stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--text);}
+    .stat-num{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:var(--text);white-space:nowrap;line-height:1.1;}
     .stat-num em{color:var(--accent);font-style:normal;}
-    .stat-label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
+    .stat-label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:8px;}
 
     /* TIMELINE */
     .timeline-section{background:var(--bg);}
@@ -144,7 +170,10 @@
     .reveal-delay-3{transition-delay:0.3s;}
 
     /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
     #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
     #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
     #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
@@ -167,7 +196,7 @@
 
     /* MOBILE */
     @media(max-width:900px){
-      nav{padding:16px 24px;}
+      nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
       .hamburger{display:flex;}
       .pipeline{flex-direction:column;}
@@ -208,16 +237,16 @@
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
   <div class="badge">🗺️ The Process</div>
-  <h1>How It <em>Works</em></h1>
-  <p class="sub">A Simple, Scalable Path to AI-Driven Growth</p>
+  <h1>Your Business Gets AI<br><em>In Weeks, Not Years.</em></h1>
+  <p class="sub">A straightforward, three-step process — from a free discovery audit to a live, production-ready AI model built around how your business actually works.</p>
 </section>
 
 <!-- PIPELINE OVERVIEW -->
 <section class="steps-section">
   <div class="container">
     <span class="section-tag">Our 3-Step Process</span>
-    <h2 class="section-title">From Discovery to<br>Deployed in Weeks</h2>
-    <p class="section-sub">A transparent, collaborative process that puts you in control every step of the way — from first workshop to live AI system.</p>
+    <h2 class="section-title">Audit. Build. Deploy.<br>That's It.</h2>
+    <p class="section-sub">No complexity, no months of back-and-forth, no vague roadmaps. You see the plan, approve it, and we deliver a working AI system — on time, on budget, every time.</p>
 
     <div class="pipeline reveal">
       <div class="pipeline-step">
@@ -225,9 +254,9 @@
         <div class="step-icon">🔍</div>
         <div class="step-title">Discovery</div>
         <ul class="step-list">
-          <li>Collaborative workshops to learn your goals and challenges</li>
-          <li>Identify high-impact opportunities for automation</li>
-          <li>Review and assess your existing data sources</li>
+          <li>Free 45-minute audit — we map your biggest time and revenue leaks</li>
+          <li>Pinpoint the highest-ROI automation opportunities first</li>
+          <li>You walk away with a custom AI roadmap, zero obligation</li>
         </ul>
         <div class="step-tag">🆓 Free Audit</div>
       </div>
@@ -236,9 +265,9 @@
         <div class="step-icon">🏗️</div>
         <div class="step-title">Build</div>
         <ul class="step-list">
-          <li>Design AI solutions tailored to your business processes</li>
-          <li>Use your real data to train, test, and optimize the model</li>
-          <li>Maintain transparency throughout the development process</li>
+          <li>AI trained on your data — not a generic template</li>
+          <li>You see, test, and approve before anything goes live</li>
+          <li>Full transparency: no black boxes, no surprises</li>
         </ul>
         <div class="step-tag">⚙️ Custom Model</div>
       </div>
@@ -247,9 +276,9 @@
         <div class="step-icon">🚀</div>
         <div class="step-title">Deploy</div>
         <ul class="step-list">
-          <li>Seamless integration into your workflows or systems</li>
-          <li>Monitor performance and make adjustments as needed</li>
-          <li>Deliver measurable value from day one</li>
+          <li>Plugs into your existing tools — zero rip-and-replace</li>
+          <li>Your team gets trained and confident from day one</li>
+          <li>We monitor, tune, and improve as your business grows</li>
         </ul>
         <div class="step-tag">📈 Live &amp; Scaling</div>
       </div>
@@ -261,11 +290,11 @@
         <img src="https://img1.wsimg.com/isteam/getty/504908890/:/cr=t:12.51%25,l:0%25,w:100%25,h:74.99%25/rs=w:365,h:182.5,cg:true" alt="Business team in collaborative workshop discussing AI strategy" class="step-img">
         <div class="step-body">
           <div class="step-body-num">Step 01 — Discovery</div>
-          <h3>We Learn Your Business Inside Out</h3>
+          <h3>We Find Where AI Makes You Money</h3>
           <ul>
-            <li>Collaborative workshops to map your goals and pain points</li>
-            <li>Identify the highest-ROI automation opportunities first</li>
-            <li>Audit your existing data sources and infrastructure</li>
+            <li>Identify the workflows costing you the most time and revenue</li>
+            <li>Prioritize automation opportunities by business impact</li>
+            <li>Deliver a concrete AI roadmap — in one 45-minute call</li>
           </ul>
         </div>
       </div>
@@ -273,11 +302,11 @@
         <img src="https://img1.wsimg.com/isteam/getty/1642636530/:/cr=t:12.51%25,l:0%25,w:100%25,h:74.99%25/rs=w:365,h:182.5,cg:true" alt="AI development team building custom machine learning models" class="step-img">
         <div class="step-body">
           <div class="step-body-num">Step 02 — Build</div>
-          <h3>We Build It Around Your Data</h3>
+          <h3>We Train AI on How Your Business Works</h3>
           <ul>
-            <li>Design AI tailored precisely to your business processes</li>
-            <li>Train, test, and optimize on your real business data</li>
-            <li>Full transparency throughout — no black boxes</li>
+            <li>Every model trained exclusively on your data, not generic datasets</li>
+            <li>You review and approve outputs before anything deploys</li>
+            <li>Iterative testing until performance meets your exact targets</li>
           </ul>
         </div>
       </div>
@@ -285,11 +314,11 @@
         <img src="https://img1.wsimg.com/isteam/getty/1144379636/:/cr=t:12.51%25,l:0%25,w:100%25,h:74.99%25/rs=w:365,h:182.5,cg:true" alt="Successful AI system deployment and integration" class="step-img">
         <div class="step-body">
           <div class="step-body-num">Step 03 — Deploy</div>
-          <h3>We Launch &amp; Keep It Running</h3>
+          <h3>Live in Your Workflow, Monitored, and Always Improving</h3>
           <ul>
-            <li>Seamless integration into your existing workflows</li>
-            <li>Monitor performance and tune as your business evolves</li>
-            <li>Measurable value delivered from day one</li>
+            <li>Integrates with the tools your team already uses</li>
+            <li>We train your staff and stay on through the go-live period</li>
+            <li>Ongoing tuning keeps the AI sharp as your business scales</li>
           </ul>
         </div>
       </div>
@@ -301,20 +330,20 @@
 <div class="stats-band">
   <div class="stats-row">
     <div class="stat-item">
-      <div class="stat-num">2–6<em>wks</em></div>
-      <div class="stat-label">Average Delivery Time</div>
+      <div class="stat-num">2–6<em> Wks</em></div>
+      <div class="stat-label">From Audit to Live AI</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">100<em>%</em></div>
-      <div class="stat-label">Custom Built for You</div>
+      <div class="stat-label">Built Around Your Business</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">Day<em> 1</em></div>
-      <div class="stat-label">Value Delivered</div>
+      <div class="stat-num">80<em>%</em></div>
+      <div class="stat-label">Reduction in Manual Work</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">Zero<em> BS</em></div>
-      <div class="stat-label">No Black Boxes</div>
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Hidden Fees or Lock-In</div>
     </div>
   </div>
 </div>
@@ -327,25 +356,25 @@
         <img src="https://img1.wsimg.com/isteam/getty/2205274485/:/cr=t:0%25,l:26.58%25,w:66.5%25,h:100%25/rs=w:600,h:451" alt="Glowing AI chip on digital circuit board" class="partnership-img">
       </div>
       <div class="partnership-text reveal reveal-delay-1">
-        <h6>Transparent &amp; Collaborative</h6>
-        <h2>Partnership Every Step<br>of the Way</h2>
-        <p>Unlike off-the-shelf solutions, we work directly with you to understand your unique challenges and build AI that fits your business — not the other way around. Our transparent process ensures you're involved from discovery to deployment, with measurable results from day one.</p>
+        <h6>How We Work With You</h6>
+        <h2>You're in Control.<br>We Do the Heavy Lifting.</h2>
+        <p>Most AI vendors hand you a tool and walk away. We don't. We embed alongside your team, understand how you operate, and build AI that fits your business like a glove — then stay to make sure it delivers.</p>
         <div class="partnership-checklist">
           <div class="pcheck">
             <div class="pcheck-icon">🤝</div>
-            <div class="pcheck-text"><strong>You're Involved at Every Stage</strong>No surprises, no black boxes. You see the model, you test it, you sign off on it.</div>
+            <div class="pcheck-text"><strong>You See Everything</strong>No black boxes, ever. You review the model, test it in real scenarios, and sign off before it touches your live workflow.</div>
           </div>
           <div class="pcheck">
             <div class="pcheck-icon">🎯</div>
-            <div class="pcheck-text"><strong>Built Around Your Goals</strong>We design around your specific workflows, compliance needs, and performance targets.</div>
+            <div class="pcheck-text"><strong>Aligned to Your Business Goals</strong>We don't just build features — we build toward your specific KPIs: hours saved, revenue recovered, errors eliminated.</div>
           </div>
           <div class="pcheck">
             <div class="pcheck-icon">📈</div>
-            <div class="pcheck-text"><strong>Measurable From Day One</strong>Every deployment is tracked against real business KPIs — time saved, errors reduced, revenue impacted.</div>
+            <div class="pcheck-text"><strong>Results You Can Measure</strong>Every deployment is benchmarked against real business outcomes — not vanity metrics or vague performance scores.</div>
           </div>
           <div class="pcheck">
             <div class="pcheck-icon">🔄</div>
-            <div class="pcheck-text"><strong>We Stay With You Post-Launch</strong>Performance monitoring, model tuning, and retraining as your business grows.</div>
+            <div class="pcheck-text"><strong>We Don't Disappear at Launch</strong>Post-deployment support, performance dashboards, and model retraining included — because growth changes what AI needs to do.</div>
           </div>
         </div>
       </div>
@@ -357,8 +386,8 @@
 <section class="timeline-section">
   <div class="container">
     <span class="section-tag">What to Expect</span>
-    <h2 class="section-title">Your Journey from<br>Audit to AI</h2>
-    <p class="section-sub">A typical engagement from free discovery to live deployment — so you know exactly what to expect and when.</p>
+    <h2 class="section-title">Week by Week: From<br>Zero to Live AI</h2>
+    <p class="section-sub">This is exactly what your engagement looks like — no vague timelines, no surprises. A firm schedule agreed before work begins, delivered on time.</p>
     <div class="timeline">
       <div class="tl-item reveal">
         <div class="tl-dot">1</div>
@@ -406,11 +435,11 @@
 
 <!-- CTA -->
 <div class="cta-band">
-  <h2>Start with a Free<br>Discovery Audit</h2>
-  <p>45 minutes. Zero cost. Walk away with a custom AI roadmap built around your business — no obligation to continue.</p>
+  <h2>See Exactly Where AI Can<br>Save You Time and Money</h2>
+  <p>One free 45-minute call. We map your biggest opportunities, give you a custom roadmap, and answer every question — with zero pressure to move forward.</p>
   <div class="btn-row">
-    <a href="contact.html" class="btn-primary">🚀 Book My Free AI Audit</a>
-    <a href="solutions.html" class="btn-secondary">See Our Solutions →</a>
+    <a href="contact.html" class="btn-primary">🚀 Claim My Free AI Audit</a>
+    <a href="solutions.html" class="btn-secondary">Explore Our Solutions →</a>
   </div>
 </div>
 
@@ -475,6 +504,7 @@
       <button id="chat-send-button">Send</button>
     </div>
   </div>
+  <button id="floatingThemeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
   <button id="chatbot-button">💬</button>
 </div>
 
@@ -492,7 +522,8 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      links.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{links.style.display='none';},{once:true});});
     }
   }
 
@@ -550,6 +581,9 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+  // ── THEME TOGGLE ──
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>

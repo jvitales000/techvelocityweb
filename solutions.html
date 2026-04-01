@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Custom AI Solutions for Business Efficiency — Tech Velocity</title>
   <meta name="description" content="Discover custom AI solutions that enhance automation, drive business intelligence, and enable data-driven decisions for your business.">
@@ -13,21 +14,40 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
+    html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
+    html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
+    html.light .logo-img,html.light .footer-logo,html.light .footer-logo-circle img,html.light .membership-badge img{filter:none;}
+    html.light .hamburger span{background:var(--text);}html.light .mobile-nav{background:var(--bg);}
+    html.light .hero-glow{background:radial-gradient(ellipse at center,rgba(0,152,112,0.1) 0%,transparent 70%);}
+    html.light .hero-grid{background-image:linear-gradient(rgba(0,152,112,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,152,112,0.07) 1px,transparent 1px);}
+    html.light .btn-secondary{border-color:rgba(12,24,48,0.15);color:var(--text);}
+    html.light .btn-secondary:hover{border-color:rgba(0,152,112,0.35);background:rgba(0,152,112,0.06);}
+    html.light .feature-card:hover,html.light .tools-card:hover,html.light .industries-card:hover{box-shadow:0 16px 48px rgba(0,0,0,0.09);}
+    html.light .faq-q:hover{background:rgba(0,0,0,0.02);}
+    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
+    html.light #chat-messages{background:var(--bg2);}html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+    html.light #chat-input{background:var(--bg2);color:var(--text);}html.light #chat-input-container{background:var(--bg3);}
+    body,nav,.feature-card,.tools-card,.testimonial-card,.faq-item,.home-card{transition:background-color 0.25s ease,border-color 0.25s ease,color 0.15s ease;}
+    .hero h1,.hero p.sub,.badge,.hero-ctas{will-change:opacity,transform;}
+    .reveal{will-change:opacity,transform;}
+    @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
     nav.scrolled{padding:10px 48px;}
-    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .logo-img{height:50px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
 
     /* HERO */
@@ -150,7 +170,10 @@
     .reveal-delay-3{transition-delay:0.3s;}
 
     /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
     #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
     #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
     #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
@@ -173,7 +196,7 @@
 
     /* MOBILE */
     @media(max-width:900px){
-      nav{padding:16px 24px;}
+      nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
       .hamburger{display:flex;}
       .cap-grid{grid-template-columns:1fr 1fr;}
@@ -213,17 +236,17 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="badge">⚙️ What We Do</div>
-  <h1>Custom AI That Fits<br><em>Your Business</em></h1>
-  <p class="sub">Custom AI automation that fits your business — think of it as building a smart assistant that understands your business intelligence inside out and never takes a day off. This technology enables you to make data-driven decisions effortlessly.</p>
+  <div class="badge">⚙️ What We Build</div>
+  <h1>AI That Works the Way<br><em>Your Business Does</em></h1>
+  <p class="sub">Not a template. Not an off-the-shelf plugin. Every solution is designed, trained, and deployed specifically for your industry, your team, and your workflows — so it delivers real results from day one.</p>
 </section>
 
 <!-- CAPABILITIES -->
 <section class="cap-section">
   <div class="container">
-    <span class="section-tag">Capabilities</span>
-    <h2 class="section-title">What Our AI Can Do</h2>
-    <p class="section-sub">Three core capabilities, one unified platform — all built specifically around your data, your workflows, and your goals.</p>
+    <span class="section-tag">Core Capabilities</span>
+    <h2 class="section-title">What We Build for You</h2>
+    <p class="section-sub">Four high-impact AI capabilities — each one purpose-built to eliminate your biggest operational bottlenecks and unlock measurable business growth.</p>
     <div class="cap-grid">
       <div class="cap-card reveal">
         <div class="cap-icon">🤖</div>
@@ -340,26 +363,26 @@
 <!-- SOLUTION DEEP-DIVES -->
 <section class="deepdive-section">
   <div class="container">
-    <span class="section-tag">Why Custom AI</span>
-    <h2 class="section-title">Built Around<br>Your Business</h2>
-    <p class="section-sub" style="margin-bottom:64px;">Four reasons why a custom AI model outperforms any off-the-shelf solution — every time.</p>
+    <span class="section-tag">Why Custom AI Wins</span>
+    <h2 class="section-title">Generic AI Won't Cut It.<br>Here's Why We Build Custom.</h2>
+    <p class="section-sub" style="margin-bottom:64px;">Off-the-shelf AI tools are built for everyone — which means they're truly optimized for no one. Here's what a purpose-built AI model changes for your business.</p>
 
     <div class="deepdive reveal">
       <div class="deepdive-img">
         <img src="https://img1.wsimg.com/isteam/getty/1263348490/:/cr=t:1.8%25,l:0%25,w:100%25,h:96.39%25/rs=w:600,h:300,cg:true" alt="Professionals discussing AI data and analytics">
       </div>
       <div class="deepdive-text">
-        <h6>Custom AI Solutions for Ambitious Businesses</h6>
-        <h2>Tailored to Your Business Needs</h2>
-        <p>Off-the-shelf AI automation tools are often too generic. In contrast, a custom model built on your data not only understands your customers and processes but also aligns with your goals — enabling more informed business intelligence and facilitating data-driven decisions that deliver accurate and actionable results.</p>
+        <h6>Precision Over Guesswork</h6>
+        <h2>AI That Actually Knows Your Business</h2>
+        <p>Generic tools are trained on the internet — they don't know your products, clients, compliance rules, or internal processes. A custom model is trained on your specific data, so every output is accurate, on-brand, and aligned with how you actually operate. No prompt engineering. No babysitting. Just reliable results.</p>
       </div>
     </div>
 
     <div class="deepdive reverse reveal">
       <div class="deepdive-text">
-        <h6>Intelligent Workflow Enhancement</h6>
-        <h2>Boost Efficiency with Smart Automation</h2>
-        <p>Custom AI automation can automate repetitive tasks, predict outcomes, and streamline decision-making — enabling small teams to leverage business intelligence, do more with less, and free up time for high-impact work focused on data-driven decisions.</p>
+        <h6>Time is Your Most Valuable Asset</h6>
+        <h2>Eliminate the Work That's Draining Your Team</h2>
+        <p>Email triage, document routing, data entry, reporting, scheduling — your team is burning hours on tasks that don't grow your business. Custom AI automation handles these end-to-end, with zero errors and zero overtime, so your people can focus on the high-impact work that actually moves the needle.</p>
       </div>
       <div class="deepdive-img">
         <img src="https://img1.wsimg.com/isteam/getty/1367967285/:/cr=t:3.12%25,l:0%25,w:100%25,h:93.75%25/rs=w:600,h:300,cg:true" alt="Workflow automation interface">
@@ -371,17 +394,17 @@
         <img src="https://img1.wsimg.com/isteam/getty/1699670758/:/cr=t:12.51%25,l:0%25,w:100%25,h:74.99%25/rs=w:600,h:300,cg:true" alt="Data analytics dashboard">
       </div>
       <div class="deepdive-text">
-        <h6>Data-Driven Business Growth</h6>
-        <h2>Turn Data into a Competitive Advantage</h2>
-        <p>Most SMEs sit on untapped data. By leveraging AI automation, a custom model can unlock real-time insights, trends, and predictions that enhance your business intelligence — helping you stay ahead of competitors and make data-driven decisions faster.</p>
+        <h6>Intelligence Your Competitors Don't Have</h6>
+        <h2>Your Data Is a Gold Mine. We Help You Use It.</h2>
+        <p>Most businesses sit on years of untapped data — past clients, historical transactions, service records, operational logs. A custom AI model transforms this raw data into real-time insights, predictive signals, and actionable intelligence that helps you outpace competitors who are still running on gut instinct.</p>
       </div>
     </div>
 
     <div class="deepdive reverse reveal">
       <div class="deepdive-text">
-        <h6>Secure and Compliant AI Solutions</h6>
-        <h2>Stronger Data Privacy &amp; Control</h2>
-        <p>With a custom model, your data remains within your ecosystem — enhancing privacy, compliance, and control over how it's used. This approach supports AI automation and empowers business intelligence, ultimately leading to more informed data-driven decisions.</p>
+        <h6>Security and Compliance, By Design</h6>
+        <h2>Your Data Stays Yours — Always</h2>
+        <p>Sending sensitive client or business data through public AI platforms creates real compliance and IP risk. With a proprietary custom model, your data never leaves your environment. We build with strict privacy controls, sign NDAs before any discovery begins, and ensure every system meets the compliance standards of your industry.</p>
       </div>
       <div class="deepdive-img">
         <img src="https://img1.wsimg.com/isteam/getty/2174551157/:/cr=t:2.59%25,l:0%25,w:100%25,h:94.81%25/rs=w:600,h:300,cg:true" alt="Data security and privacy">
@@ -393,29 +416,29 @@
 <!-- INDUSTRIES -->
 <section class="industries-section">
   <div class="container">
-    <span class="section-tag">Industries</span>
-    <h2 class="section-title">Industries We Empower</h2>
-    <p class="section-sub">We've built custom AI for some of the most demanding industries — where precision, compliance, and speed are non-negotiable.</p>
+    <span class="section-tag">Industries We Serve</span>
+    <h2 class="section-title">Built for Businesses Where<br>Mistakes Cost Money</h2>
+    <p class="section-sub">We specialize in high-stakes industries where precision, compliance, and speed directly impact revenue and client trust.</p>
     <div class="ind-grid">
       <div class="ind-card reveal">
         <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&auto=format&fit=crop&q=80" alt="Healthcare and clinics" class="ind-img">
         <div class="ind-body">
           <h3>Healthcare &amp; Clinics</h3>
-          <p>Automate patient intake, reminders, and record updates to optimize workflows and improve service speed across clinical environments.</p>
+          <p>Cut patient intake processing time by 70%, automate follow-up reminders, and free your clinical staff to focus on care — not paperwork.</p>
         </div>
       </div>
       <div class="ind-card reveal reveal-delay-1">
         <img src="https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=800&auto=format&fit=crop&q=80" alt="Retail and eCommerce" class="ind-img">
         <div class="ind-body">
           <h3>Retail &amp; eCommerce</h3>
-          <p>Bring automation to inventory, order routing, and customer support to scale your business operations faster and more profitably.</p>
+          <p>Automate customer support, inventory alerts, and order routing — so your team handles 3x the volume without adding headcount.</p>
         </div>
       </div>
       <div class="ind-card reveal reveal-delay-2">
         <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&auto=format&fit=crop&q=80" alt="Professional services" class="ind-img">
         <div class="ind-body">
-          <h3>Professional Services</h3>
-          <p>Streamline document handling, appointment coordination, and client management using intelligent systems built for your firm.</p>
+          <h3>Legal, Insurance &amp; Financial Services</h3>
+          <p>Eliminate manual document triage, commission reconciliation, and client intake processes — and reclaim dozens of hours every week.</p>
         </div>
       </div>
     </div>
@@ -440,19 +463,19 @@
 <section class="faq-mini-section">
   <div class="container">
     <span class="section-tag">Quick Answers</span>
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <h2 class="section-title">Questions We Get Every Day</h2>
     <div class="faq-mini-grid">
       <div class="faq-mini-card reveal">
-        <h3>How long does the setup take?</h3>
-        <p>Most automations are up and running within 2–6 weeks depending on complexity and workflows. We agree on a firm delivery date before work begins.</p>
+        <h3>How fast will we see results?</h3>
+        <p>Most clients are live within 2–6 weeks and see measurable ROI in the first 30–60 days. We agree on a firm delivery date before a single line of code is written.</p>
       </div>
       <div class="faq-mini-card reveal reveal-delay-1">
-        <h3>Do we need technical skills?</h3>
-        <p>No — we handle all configuration and training so your team can just focus on using the system. You describe the problem; we build the AI.</p>
+        <h3>Do we need a technical team?</h3>
+        <p>Not at all. You bring the business knowledge; we build, configure, and train the AI. Your team just needs to know how to use the result — and we train them on that too.</p>
       </div>
       <div class="faq-mini-card reveal reveal-delay-2">
-        <h3>Is our company data secure?</h3>
-        <p>Yes. Your data remains within your environment, ensuring privacy and full compliance. We sign NDAs before any discovery work begins.</p>
+        <h3>What happens to our data?</h3>
+        <p>It stays yours — always. We sign NDAs before discovery begins and build in isolated, private environments. Your data never trains other clients' models. Ever.</p>
       </div>
     </div>
   </div>
@@ -460,11 +483,11 @@
 
 <!-- CTA -->
 <div class="cta-band">
-  <h2>Ready to See What<br>Custom AI Can Do?</h2>
-  <p>Book a free 45-minute discovery call and walk away with a custom AI roadmap — no obligation, no pitch.</p>
+  <h2>Stop Leaving Money on<br>the Table. Start with a Free Audit.</h2>
+  <p>In 45 minutes, we'll identify exactly where custom AI can save you time, cut costs, and grow revenue — with no obligation to continue.</p>
   <div class="btn-row">
-    <a href="contact.html" class="btn-primary">🚀 Book Your Free AI Audit</a>
-    <a href="our-story.html" class="btn-secondary">Our Story →</a>
+    <a href="contact.html" class="btn-primary">🚀 Claim My Free AI Audit</a>
+    <a href="how-it-works.html" class="btn-secondary">See How It Works →</a>
   </div>
 </div>
 
@@ -529,6 +552,7 @@
       <button id="chat-send-button">Send</button>
     </div>
   </div>
+  <button id="floatingThemeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
   <button id="chatbot-button">💬</button>
 </div>
 
@@ -548,7 +572,8 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      links.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{links.style.display='none';},{once:true});});
     }
   }
 
@@ -667,6 +692,9 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+  // ── THEME TOGGLE ──
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>

@@ -4,6 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Story — Tech Velocity</title>
   <meta name="description" content="Learn about Tech Velocity's journey from Fortune 500 expertise to empowering SMEs with custom AI solutions.">
@@ -13,21 +14,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
+    html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
+    html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
+    html.light .logo-img,html.light .footer-logo,html.light .footer-logo-circle img,html.light .membership-badge img{filter:none;}
+    html.light .hamburger span{background:var(--text);}html.light .mobile-nav{background:var(--bg);}
+    html.light .hero-glow{background:radial-gradient(ellipse at center,rgba(0,152,112,0.1) 0%,transparent 70%);}
+    html.light .hero-grid{background-image:linear-gradient(rgba(0,152,112,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(0,152,112,0.07) 1px,transparent 1px);}
+    html.light .btn-secondary{border-color:rgba(12,24,48,0.15);color:var(--text);}
+    html.light .btn-secondary:hover{border-color:rgba(0,152,112,0.35);background:rgba(0,152,112,0.06);}
+    html.light .value-card{box-shadow:none;}html.light .faq-q:hover{background:rgba(0,0,0,0.02);}
+    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
+    html.light #chat-messages{background:var(--bg2);}html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
+    html.light #chat-input{background:var(--bg2);color:var(--text);}html.light #chat-input-container{background:var(--bg3);}
+    html.light .story-highlight{border-left-color:var(--accent);}
+    html.light .membership-badge{box-shadow:0 8px 32px rgba(0,0,0,0.08);}
+    body,nav,.value-card,.testimonial-card,.faq-item,.membership-badge{transition:background-color 0.25s ease,border-color 0.25s ease,color 0.15s ease;}
+    .hero h1,.hero p.sub,.badge,.hero-ctas{will-change:opacity,transform;}
+    .reveal{will-change:opacity,transform;}
+    @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
     nav.scrolled{padding:10px 48px;}
-    .logo-img{height:42px;width:auto;filter:brightness(0) invert(1);}
+    .logo-img{height:50px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
 
     /* HERO */
@@ -138,7 +159,10 @@
     .reveal-delay-3{transition-delay:0.3s;}
 
     /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
     #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
     #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
     #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
@@ -162,7 +186,7 @@
 
     /* MOBILE */
     @media(max-width:900px){
-      nav{padding:16px 24px;}
+      nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
       .hamburger{display:flex;}
       .story-grid{grid-template-columns:1fr;gap:40px;}
@@ -198,9 +222,9 @@
 <section class="hero">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="badge">🏢 Company</div>
-  <h1>Our <em>Story</em></h1>
-  <p class="sub">From Fortune 500 boardrooms to empowering the businesses that power our communities — this is why Tech Velocity exists.</p>
+  <div class="badge">🏢 Who We Are</div>
+  <h1>We Brought Fortune 500<br><em>AI to Your Business.</em></h1>
+  <p class="sub">After 20+ years building AI for the world's largest companies, we decided the businesses that deserved it most — were the ones being left out.</p>
 </section>
 
 <!-- QUOTE -->
@@ -226,16 +250,15 @@
         <div class="story-img-badge">20+ Years<br>Enterprise AI</div>
       </div>
       <div class="story-content reveal reveal-delay-1">
-        <h6>Custom AI Solutions for Ambitious Businesses</h6>
-        <h2>From Fortune 500 to Future-Focused AI for SMEs</h2>
-        <p>After 20+ years of building and leading technology initiatives inside Fortune 500 companies, our founder saw a clear gap: the world's most powerful tools — especially in AI — were only being built for the biggest players.</p>
-        <p>Small and midsize businesses were being left behind, without access to the kind of innovation that could truly transform their operations.</p>
-        <p>That's why <strong>Tech Velocity</strong> was created.</p>
-        <p>We believe <strong>AI isn't just for tech giants — it's for everyone.</strong> Especially the businesses that power our communities: healthcare providers, law firms, insurance brokerages, manufacturers, and beyond.</p>
-        <p>Tech Velocity exists to give SMEs a competitive edge through <strong>custom-built AI models</strong> designed around your unique workflows, data, and goals. We don't do one-size-fits-all. We design intelligent systems that fit <em>you</em>.</p>
-        <p>Backed by a handpicked team of engineers, data scientists, and business strategists, we bring enterprise-grade AI capabilities to the companies that need them most — quickly, affordably, and without the red tape.</p>
+        <h6>The Gap We Set Out to Close</h6>
+        <h2>The World's Best AI Was Built for<br>the World's Biggest Companies. We Changed That.</h2>
+        <p>After 20+ years leading AI and technology initiatives inside Fortune 500 companies, our founder saw the same pattern everywhere: the most transformative tools were only accessible to organizations with dedicated AI teams, eight-figure budgets, and months to spare.</p>
+        <p>Small and midsize businesses — the firms that drive local economies, employ millions, and deliver real value to real communities — were being systematically left behind.</p>
+        <p>That's the problem <strong>Tech Velocity</strong> was built to solve.</p>
+        <p>We give SMEs the same caliber of AI that powers the world's biggest enterprises — without the enterprise complexity, cost, or timeline. Every model we build is custom: trained on your data, designed around your workflows, and scoped to deliver measurable ROI within weeks, not quarters.</p>
+        <p>We're not a software product. We're a team of engineers, data scientists, and business strategists who embed with your business, understand how it works, and build AI that fits it perfectly.</p>
         <div class="story-highlight">
-          <p>Our motto says it all: <em><strong>"Building Your AI Future, Today."</strong></em><br><br>Let's create something that changes the way you do business — for good.</p>
+          <p>Our promise is simple: <em><strong>"If it doesn't deliver real business results, we're not done."</strong></em><br><br>That accountability is what makes every partnership with Tech Velocity different.</p>
         </div>
       </div>
     </div>
@@ -245,9 +268,9 @@
 <!-- FOUNDER / MISSION -->
 <section class="founder-section">
   <div class="container">
-    <span class="section-tag">Leadership</span>
-    <h2 class="section-title">Built by People Who've<br>Done It Before</h2>
-    <p class="section-sub">Our team brings decades of enterprise AI experience — now focused entirely on helping SMEs compete and win.</p>
+    <span class="section-tag">Our Team</span>
+    <h2 class="section-title">Enterprise-Trained. SME-Focused.<br>Obsessively Results-Driven.</h2>
+    <p class="section-sub">We've spent decades in the rooms where Fortune 500 AI gets built. Now we use that knowledge exclusively to help smaller businesses compete and win.</p>
     <div class="founder-grid">
       <div class="founder-card reveal">
         <div class="founder-avatar">TV</div>
@@ -264,17 +287,17 @@
         <div class="mission-card">
           <div class="mission-icon">🎯</div>
           <h3>Our Mission</h3>
-          <p>Democratize access to enterprise-grade AI for small and midsize businesses. We believe the tools that power the world's biggest companies should be available to every ambitious business — not just those with dedicated AI teams and billion-dollar budgets.</p>
+          <p>Make enterprise-grade AI accessible to every ambitious SME. Not a watered-down version — the real thing. Custom-built models that deliver the same caliber of results as Fortune 500 AI programs, at a fraction of the cost and timeline.</p>
         </div>
         <div class="mission-card">
           <div class="mission-icon">👁️</div>
           <h3>Our Vision</h3>
-          <p>A world where every SME operates with the same AI-powered efficiency and insight as the Fortune 500. Where healthcare providers, law firms, insurance brokerages, and manufacturers compete on intelligence — not just resources.</p>
+          <p>A business landscape where size no longer determines who can leverage AI. Where a 20-person law firm competes with the efficiency of a 200-person one — because their AI is built just as well.</p>
         </div>
         <div class="mission-card">
           <div class="mission-icon">🤝</div>
           <h3>Our Promise</h3>
-          <p>We're not a vendor — we're a partner. Every AI model we build is designed around your specific workflows, data, and goals. We stay with you through discovery, build, deployment, and beyond. Your success is our metric.</p>
+          <p>We don't hand you a tool and disappear. We partner with you through discovery, build, launch, and ongoing growth. Your ROI is our scorecard — and we take it seriously every single engagement.</p>
         </div>
       </div>
     </div>
@@ -322,11 +345,11 @@
 
 <!-- CTA -->
 <div class="cta-band">
-  <h2>Ready to Build<br>Your AI Future?</h2>
-  <p>Join the SMEs that stopped letting AI pass them by — and started building it around their business.</p>
+  <h2>Your Competitors Are<br>Already Investing in AI.</h2>
+  <p>The businesses pulling ahead aren't bigger — they're smarter. Find out exactly where AI gives your business a competitive edge, for free.</p>
   <div class="btn-row">
-    <a href="contact.html" class="btn-primary">🚀 Book Your Free AI Audit</a>
-    <a href="index.html#features" class="btn-secondary">See Our Solutions →</a>
+    <a href="contact.html" class="btn-primary">🚀 Get My Free AI Audit</a>
+    <a href="solutions.html" class="btn-secondary">Explore Solutions →</a>
   </div>
 </div>
 
@@ -391,6 +414,7 @@
       <button id="chat-send-button">Send</button>
     </div>
   </div>
+  <button id="floatingThemeToggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle light/dark mode">☀️</button>
   <button id="chatbot-button">💬</button>
 </div>
 
@@ -410,7 +434,8 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(6,10,15,0.97);padding:24px 32px;gap:20px;border-bottom:1px solid var(--border);z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      links.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{links.style.display='none';},{once:true});});
     }
   }
 
@@ -474,6 +499,9 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+  // ── THEME TOGGLE ──
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>
