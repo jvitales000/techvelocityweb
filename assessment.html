@@ -310,12 +310,12 @@
 
 <!-- NAV -->
 <nav id="navbar">
-  <a href="inbox"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
+  <a href="index"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Logo_Black_Stroke.png/:/rs=h:171,cg:true,m/qt=q:95" alt="Tech Velocity Logo" class="logo-img"></a>
   <ul class="nav-links">
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="portfolio" class="active">Projects</a></li>
-    <li><a href="index.html#testimonials">Results</a></li>
+    <li><a href="index#testimonials">Results</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -442,11 +442,15 @@
     <span class="section-tag" style="display:block;text-align:center;">Demo</span>
     <h2 class="section-title">See the System in Action</h2>
     <p style="color:var(--muted);font-size:0.92rem;text-align:center;max-width:600px;margin:0 auto 40px;">Watch how our AI-powered platform automatically scores clinical assessments with precision and consistency — from input to report in seconds.</p>
-    <div class="video-wrap reveal">
-      <video autoplay muted loop controls>
-        <source src="" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+    <div class="video-wrap reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:60px 32px;cursor:pointer;" onclick="window.location.href='contact'">
+      <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,200,150,0.12);border:2px solid rgba(0,200,150,0.35);display:flex;align-items:center;justify-content:center;transition:all 0.3s;" onmouseenter="this.style.background='rgba(0,200,150,0.22)';this.style.transform='scale(1.08)'" onmouseleave="this.style.background='rgba(0,200,150,0.12)';this.style.transform='scale(1)'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="rgba(0,200,150,1)"/></svg>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Live Demo Available</div>
+        <div style="font-size:0.88rem;color:var(--muted);max-width:380px;line-height:1.6;">Book a personalized walkthrough and see the system working with your actual data and workflows.</div>
+      </div>
+      <a href="contact" class="btn-primary" style="margin-top:4px;" onclick="event.stopPropagation()">🎯 Book a Live Demo</a>
     </div>
     <p style="text-align:center;margin-top:20px;font-size:0.85rem;color:var(--muted);">Live demonstration: From assessment input to automated scoring and reporting</p>
   </div>
