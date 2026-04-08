@@ -1083,15 +1083,43 @@
 
     <div style="display:flex;gap:28px;align-items:stretch;justify-content:center;flex-wrap:wrap;">
 
-      <!-- Chamber of Commerce Badge -->
-      <a href="https://www.westorangechamber.com/list/member/tech-velocity-31693" target="_blank" rel="noopener" style="flex:1 1 0;max-width:480px;min-width:260px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;position:relative;overflow:hidden;transition:all 0.3s;text-decoration:none;" onmouseenter="this.style.borderColor='rgba(0,200,150,0.3)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
+      <!-- Chamber of Commerce Widget -->
+      <div style="flex:1 1 0;max-width:480px;min-width:260px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;transition:all 0.3s;" onmouseenter="this.style.borderColor='rgba(0,200,150,0.3)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
         <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);"></div>
-        <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/download.webp/:/rs=h:120,cg:true,m" alt="West Orange Chamber of Commerce" style="max-height:100px;width:auto;object-fit:contain;animation:tvFloat 3s ease-in-out infinite;" onerror="this.style.display='none'">
-        <div style="text-align:center;">
-          <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);letter-spacing:0.3px;margin-bottom:6px;">West Orange Chamber of Commerce</div>
-          <div style="font-size:0.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;">Proud Member</div>
+        <div id="mni-membership-639064017815707172" style="width:100%;text-align:center;">
+          <!-- Fallback shown until widget loads -->
+          <a href="https://www.westorangechamber.com/list/member/tech-velocity-31693" target="_blank" rel="noopener" style="text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:16px;">
+            <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/download.webp/:/rs=h:120,cg:true,m" alt="West Orange Chamber of Commerce" style="max-height:100px;width:auto;object-fit:contain;" onerror="this.style.display='none'">
+            <div>
+              <div style="font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px;">West Orange Chamber of Commerce</div>
+              <div style="font-size:0.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1.5px;">Proud Member</div>
+            </div>
+          </a>
         </div>
-      </a>
+        <style>
+          #mni-membership-639064017815707172{display:flex!important;flex-direction:column;align-items:center;justify-content:center;gap:18px;width:100%;}
+          #mni-membership-639064017815707172 .mn-widget-member-logo{max-width:200px!important;height:auto!important;margin:0 auto;}
+          #mni-membership-639064017815707172 .mn-widget-member-name{color:var(--text)!important;font-family:'Syne',sans-serif!important;font-size:1rem!important;font-weight:700!important;margin:0!important;}
+        </style>
+        <script type="text/javascript">
+          (function(){
+            function initWidget(){
+              if(typeof MNI!=='undefined'&&MNI.Widgets&&MNI.Widgets.Member){
+                document.getElementById('mni-membership-639064017815707172').innerHTML='';
+                new MNI.Widgets.Member('mni-membership-639064017815707172',{
+                  member:31693,
+                  styleTemplate:'#@id{text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px}#@id .mn-widget-member-name{font-weight:700;font-size:18px}#@id .mn-widget-member-logo{max-width:100%;display:block}'
+                }).create();
+              }
+            }
+            if(document.readyState==='loading'){
+              document.addEventListener('DOMContentLoaded',initWidget);
+            } else {
+              initWidget();
+            }
+          })();
+        </script>
+      </div>
 
       <!-- BNI Video Badge -->
       <div style="flex:1.2 1 0;max-width:560px;min-width:260px;background:var(--card);border:1px solid var(--border);border-radius:20px;overflow:hidden;position:relative;transition:all 0.3s;min-height:320px;" onmouseenter="this.style.borderColor='rgba(0,200,150,0.3)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,0.4)'" onmouseleave="this.style.borderColor='rgba(255,255,255,0.07)';this.style.transform='translateY(0)';this.style.boxShadow='none'">
