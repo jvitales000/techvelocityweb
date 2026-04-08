@@ -162,7 +162,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .contact-grid{grid-template-columns:1fr;gap:40px;}
       .footer-grid{grid-template-columns:1fr 1fr;}
       .form-row{grid-template-columns:1fr;}
@@ -217,21 +217,21 @@
 
         <div class="contact-methods">
           <a href="mailto:hello@techvelocity.ai" class="contact-method">
-            <div class="method-icon"></div>
+            <div class="method-icon">&#9993;</div>
             <div class="method-text">
               <strong>Email Us</strong>
               <span>hello@techvelocity.ai</span>
             </div>
           </a>
           <a href="tel:+18335330225" class="contact-method">
-            <div class="method-icon"></div>
+            <div class="method-icon">&#128222;</div>
             <div class="method-text">
               <strong>Call Us</strong>
               <span>+1 833-533-0225</span>
             </div>
           </a>
           <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" class="contact-method">
-            <div class="method-icon"></div>
+            <div class="method-icon" style="font-size:1.1rem;font-weight:800;font-family:sans-serif;">in</div>
             <div class="method-text">
               <strong>LinkedIn</strong>
               <span>@techvelocityai</span>
@@ -516,6 +516,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

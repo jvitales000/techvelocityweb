@@ -198,7 +198,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.tab-panel.active{grid-template-columns:1fr;}
       .tabs-content-wrap{padding:32px 28px;}
     }
@@ -247,7 +247,7 @@
       <div class="hero-left">
         <div class="hero-badge">Automation &amp; Workflow</div>
         <h1>Stop Spending Hours<br><em>Sorting Your Inbox.</em></h1>
-        <p>We built this for a law firm that had a paralegal spending 3 hours every morning just sorting email. That work now runs automatically, with 95% accuracy and zero missed priorities. Every message is classified, ranked, and routed before your team opens their laptop.</p>
+        <p>We built this for a law firm that had a paralegal spending 3 hours every morning just sorting email. That work now runs automatically, with <span style="color:var(--accent)">95% accuracy</span> and zero missed priorities. Every message is classified, ranked, and routed before your team opens their laptop.</p>
         <div class="hero-metrics">
           <div><div class="hero-metric-val">90%+</div><div class="hero-metric-label">Time Reduction</div></div>
           <div><div class="hero-metric-val">3x</div><div class="hero-metric-label">Faster Response</div></div>
@@ -335,25 +335,25 @@
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128193;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Smart Classification</span></div>
         <p>Sorts emails by type, urgency, and required action with 95% NLP accuracy. Legal matters, client inquiries, deadlines. Nothing lands in the wrong place, and nothing gets skipped.</p>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128680;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Priority Detection</span></div>
         <p>Flags urgent emails before they get buried. Every message is scored for urgency based on content and sender context, so time-sensitive items surface immediately.</p>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-bottom"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128257;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Auto-Routing</span></div>
         <p>Every email goes to the right person based on what it is, who owns it, and who has capacity. Set manual rules or let the AI figure it out on its own.</p>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-bottom"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128202;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Real-Time Analytics</span></div>
         <p>Live dashboards on volume, response times, and team performance. Managers can see exactly where email is slowing down and fix it before clients feel it.</p>
       </div>
@@ -584,6 +584,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

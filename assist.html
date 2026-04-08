@@ -260,7 +260,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
@@ -389,7 +389,7 @@
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128196;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Jurisdiction-Specific Guidance</span></div>
         <p>Get precise answers on engineering regulations, building codes, and compliance requirements specific to your project's location and scope.</p>
         <ul class="hf-list"><li>Multi-jurisdiction regulatory compliance</li><li>Real-time code interpretation</li><li>Automatic updates for regulatory changes</li></ul>
@@ -403,7 +403,7 @@
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128200;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Predictive Analytics</span></div>
         <p>Use AI-driven insights for risk assessment, project optimization, and performance forecasting based on historical data and industry best practices.</p>
         <ul class="hf-list"><li>Risk mitigation strategies</li><li>Project timeline optimization</li><li>Cost prediction and analysis</li></ul>
@@ -762,6 +762,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

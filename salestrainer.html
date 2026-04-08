@@ -260,7 +260,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
@@ -389,21 +389,21 @@
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#127914;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Realistic Role-Play Scenarios</span></div>
         <p>Practice against AI buyers that push back, go quiet, ask hard questions, and behave like real prospects. Every persona is different.</p>
         <ul class="hf-list"><li>Multiple customer personality types</li><li>Industry-specific scenarios</li><li>Adaptive difficulty levels</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#127908;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Natural Voice Interactions</span></div>
         <p>Practice with multimodal AI that processes voice inputs and responds naturally, delivering the most realistic training experience possible without requiring a human partner.</p>
         <ul class="hf-list"><li>Real-time voice processing</li><li>Natural conversation flow</li><li>Tone and sentiment analysis</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128200;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Performance Analytics</span></div>
         <p>Receive instant feedback on objection handling, product knowledge, closing techniques, and communication effectiveness with detailed, personalised improvement recommendations.</p>
         <ul class="hf-list"><li>Real-time coaching feedback</li><li>Progress tracking dashboards</li><li>Skill gap identification</li></ul>
@@ -537,7 +537,7 @@
         <div>
           <span class="tab-badge">Enterprise Security</span>
           <h3 class="tab-title">All training data protected and audit-ready.</h3>
-          <p class="tab-desc">All user data, training records, and performance reports are protected using enterprise-grade security standards. Encrypted storage and strict access controls keep sensitive sales intelligence secure, while GDPR and SOC 2-ready compliance frameworks ensure your organisation meets regulatory requirements without extra overhead.</p>
+          <p class="tab-desc">All user data, training records, and performance reports are protected using <span style="color:var(--accent)">enterprise-grade</span> security standards. Encrypted storage and strict access controls keep sensitive sales intelligence secure, while GDPR and SOC 2-ready compliance frameworks ensure your organisation meets regulatory requirements without extra overhead.</p>
           <a href="contact" class="tab-cta">View Security Docs →</a>
         </div>
         <div class="tab-img">
@@ -762,6 +762,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

@@ -260,7 +260,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
@@ -389,21 +389,21 @@
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128193;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Intelligent Categorization</span></div>
-        <p>The AI reads every incoming email and sorts it by topic, urgency, and required action. with 95% accuracy. Nothing gets missed, and nothing gets misrouted.</p>
+        <p>The AI reads every incoming email and sorts it by topic, urgency, and required action. with <span style="color:var(--accent)">95% accuracy</span>. Nothing gets missed, and nothing gets misrouted.</p>
         <ul class="hf-list"><li>Multi-dimensional classification engine</li><li>Context-aware sentiment analysis</li><li>Custom category configuration</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128680;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Priority-Based Routing</span></div>
         <p>Emails go to the right person automatically. based on who handles what, current workload, and urgency level. Urgent items get escalated immediately. Nothing sits in a generic inbox.</p>
         <ul class="hf-list"><li>Automated team assignment</li><li>Workload balancing algorithms</li><li>Escalation protocols for urgent items</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128202;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Analytics &amp; Insights</span></div>
         <p>Live dashboards show email volume, response times, and team performance. Managers can see exactly where emails are slowing down. and fix it before clients notice.</p>
         <ul class="hf-list"><li>Real-time performance monitoring</li><li>Trend analysis and forecasting</li><li>Custom reporting capabilities</li></ul>
@@ -599,7 +599,7 @@
   <div class="container">
     <span class="section-tag">Build Your Solution</span>
     <h2>How Many Hours Is Your Team<br>Losing to Email Every Week?</h2>
-    <p>Book a free 45-minute audit and we will calculate the exact time and revenue cost, then show you what this system would recover for your specific business.</p>
+    <p>Book a free <span style="color:var(--accent)">45-minute</span> audit and we will calculate the exact time and revenue cost, then show you what this system would recover for your specific business.</p>
     <div class="cta-buttons">
       <a href="contact" class="btn-primary">Calculate My Email ROI</a>
       <a href="portfolio" class="btn-secondary">Back to Projects</a>
@@ -762,6 +762,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

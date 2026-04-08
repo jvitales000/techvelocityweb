@@ -282,7 +282,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
@@ -413,21 +413,21 @@
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128203;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Automated Clinical Scoring</span></div>
         <p>The AI scores each assessment against the same criteria every time. No variation between clinicians, no scoring drift, no second-guessing.</p>
         <ul class="hf-list"><li>Multi-domain assessment scoring</li><li>Evidence-based criteria application</li><li>Real-time score calculation</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#129504;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">NLP-Powered Analysis</span></div>
         <p>Natural language processing reads free-text clinical notes and patient responses, pulls out the relevant indicators, and maps them to standardised assessment frameworks.</p>
         <ul class="hf-list"><li>Clinical terminology recognition</li><li>Sentiment and severity analysis</li><li>Context-aware interpretation</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
+        <div class="hover-feature-icon">&#128202;</div>
         <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Automated Reporting</span></div>
         <p>Detailed reports with score breakdowns, clinical insights, and trend analysis. generated automatically. Exports directly to major EHR platforms with no manual re-entry.</p>
         <ul class="hf-list"><li>Automated report generation</li><li>Longitudinal trend tracking</li><li>EHR integration capabilities</li></ul>
@@ -868,6 +868,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

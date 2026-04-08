@@ -198,7 +198,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .cap-grid{grid-template-columns:1fr 1fr;}
       .carousel-slide{flex:0 0 100%;}
       .deepdive{grid-template-columns:1fr;gap:32px;}
@@ -342,7 +342,7 @@
             <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80" alt="Commission automation dashboard" class="proj-img">
             <div class="proj-body">
               <h3>Multi-Carrier Commission Automation &amp; Reconciliation</h3>
-              <p>Automatically pulls commission statements from 150+ carriers and reconciles them with 90%+ accuracy. cutting what used to take 3 days down to a few hours.</p>
+              <p>Automatically pulls commission statements from <span style="color:var(--accent)">150+ carrier</span>s and reconciles them with 90%+ accuracy. cutting what used to take 3 days down to a few hours.</p>
               <a href="reconciliation" class="proj-btn">Explore →</a>
             </div>
           </div>
@@ -693,6 +693,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();

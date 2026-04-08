@@ -90,7 +90,7 @@
     .story-section{background:var(--bg);}
     .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
     .story-img-wrap{position:relative;}
-    .story-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;}
+    .story-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:20px;display:block;}
     .story-img-placeholder{width:100%;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
     .story-img-badge{position:absolute;bottom:-20px;right:-20px;background:var(--accent);color:#000;font-family:var(--font-head);font-weight:800;font-size:0.85rem;padding:14px 20px;border-radius:12px;box-shadow:0 8px 32px rgba(0,200,150,0.35);line-height:1.3;}
     .story-content h6{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:14px;}
@@ -188,7 +188,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .story-grid{grid-template-columns:1fr;gap:40px;}
       .story-img-badge{bottom:-12px;right:12px;}
       .values-grid{grid-template-columns:1fr 1fr;}
@@ -224,7 +224,7 @@
   <div class="hero-grid"></div>
   <div class="badge">Who We Are</div>
   <h1>We Brought Fortune 500<br><em>AI to Your Business.</em></h1>
-  <p class="sub">After 20+ years building AI for the world's largest companies, we made a decision. The businesses that deserved it most were the ones being left out entirely.</p>
+  <p class="sub">After <span style="color:var(--accent)">20+ years</span> building AI for the world's largest companies, we made a decision. The businesses that deserved it most were the ones being left out entirely.</p>
 </section>
 
 <!-- QUOTE -->
@@ -246,19 +246,19 @@
   <div class="container">
     <div class="story-grid">
       <div class="story-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Tech Velocity team collaborating on AI solutions" class="story-img" loading="lazy">
-        <div class="story-img-badge">20+ Years<br>Enterprise AI</div>
+        <img src="img/sirjo.jpeg" alt="Tech Velocity CEO and Founder" class="story-img" loading="lazy">
+        <div class="story-img-badge">Jonathan LeDoux<br>CEO, Tech Velocity</div>
       </div>
       <div class="story-content reveal reveal-delay-1">
         <h6>The Gap We Set Out to Close</h6>
-        <h2>The World's Best AI Was Built for the World's Biggest Companies.<br>We Changed That.</h2>
-        <p>After 20+ years leading AI inside Fortune 500 companies, our founder kept seeing the same gap: the best AI tools were only available to organizations with dedicated teams, eight-figure budgets, and months to burn.</p>
-        <p>Small and mid-sized businesses. the firms that drive local economies and employ millions. were being left out. Completely.</p>
-        <p>That is the problem <strong>Tech Velocity</strong> was built to fix.</p>
-        <p>We bring SMEs the same quality of AI that large enterprises run. Without the enterprise price tag, the complexity, or the year-long timeline. Every model we build is custom: trained on your data, built around your workflows, and scoped to deliver real results in weeks, not quarters.</p>
-        <p>We are not a software product. We are engineers, data scientists, and business operators who embed alongside your team, learn how you work, and build AI that fits well.</p>
+        <h2>From Fortune 500 to Future-Focused AI for SMEs</h2>
+        <p>After <span style="color:var(--accent)">20+ years</span> of building and leading technology initiatives inside <span style="color:var(--accent)">Fortune 500</span> companies, our founder saw a clear gap: the world's most powerful tools, especially in AI, were only being built for the biggest players. Small and midsize businesses were being left behind, without access to the kind of innovation that could truly transform their operations.</p>
+        <p>That is why <strong>Tech Velocity</strong> was created.</p>
+        <p>We believe AI is not just for tech giants. It is for everyone. Especially the businesses that power our communities: healthcare providers, law firms, insurance brokerages, manufacturers, and beyond.</p>
+        <p>Tech Velocity exists to give SMEs a competitive edge through <span style="color:var(--accent)">custom-built</span> AI models designed around your unique workflows, data, and goals. We do not do one-size-fits-all. We design intelligent systems that fit you.</p>
+        <p>Backed by a handpicked team of engineers, data scientists, and business strategists, we bring <span style="color:var(--accent)">enterprise-grade</span> AI capabilities to the companies that need them most. Quickly, affordably, and without the red tape.</p>
         <div class="story-highlight">
-          <p>Our promise is simple: <em><strong>"If it does not deliver real business results, we are not done."</strong></em><br><br>That accountability is what makes every partnership with Tech Velocity different.</p>
+          <p>Our motto says it all: <em><strong>"<span style="color:var(--accent)">Building Your AI Future, Today</span>."</strong></em><br><br>Let us create something that changes the way you do business, for good.</p>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@
     <p class="section-sub">We spent decades building AI at the highest level. Now we apply every lesson learned to help smaller businesses compete, grow, and win.</p>
     <div class="founder-grid">
       <div class="founder-card reveal">
-        <div class="founder-avatar">TV</div>
+        <div class="founder-avatar" style="background:none;padding:0;overflow:hidden;"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/logo500.jpg/:/rs=h:175,m" alt="Tech Velocity" style="width:100%;height:100%;object-fit:contain;border-radius:16px;"></div>
         <div class="founder-name">Tech Velocity Team</div>
         <div class="founder-title">AI Solutions Partners</div>
         <div class="founder-stats">
@@ -285,17 +285,17 @@
       </div>
       <div class="founder-mission reveal reveal-delay-1">
         <div class="mission-card">
-          <div class="mission-icon"></div>
+          <div class="mission-icon">&#127919;</div>
           <h3>Our Mission</h3>
-          <p>Make serious AI accessible to every ambitious small business. Not a watered-down version. The real thing. Custom models that deliver the same quality as Fortune 500 AI programs, at a fraction of the cost and in a fraction of the time.</p>
+          <p>Make serious AI accessible to every ambitious small business. Not a watered-down version. The real thing. Custom models that deliver the same quality as <span style="color:var(--accent)">Fortune 500</span> AI programs, at a fraction of the cost and in a fraction of the time.</p>
         </div>
         <div class="mission-card">
-          <div class="mission-icon"></div>
+          <div class="mission-icon">&#128300;</div>
           <h3>Our Vision</h3>
           <p>A world where size does not determine who gets access to great AI. A 20-person law firm competing with the operational efficiency of a 200-person firm, because their AI is just as good. That world exists. We are building it.</p>
         </div>
         <div class="mission-card">
-          <div class="mission-icon"></div>
+          <div class="mission-icon">&#129309;</div>
           <h3>Our Promise</h3>
           <p>We do not hand you a tool and disappear. We stay with you through discovery, build, launch, and growth. Your ROI is our scorecard. We take it seriously on every single engagement, with every single client.</p>
         </div>
@@ -312,28 +312,28 @@
     <p class="section-sub">These are not marketing words. They are the principles that guide every model we build and every client relationship we form.</p>
     <div class="values-grid">
       <div class="value-card reveal">
-        <div class="value-img-placeholder"></div>
+        <div class="value-img-placeholder">&#127760;</div>
         <div class="value-body">
           <h3>AI for Everyone Who Earns It</h3>
           <p>Serious AI should not be exclusive to large companies. We build it for the businesses that need it most. Size and budget do not determine who deserves great technology.</p>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-1">
-        <div class="value-img-placeholder"></div>
+        <div class="value-img-placeholder">&#9881;</div>
         <div class="value-body">
           <h3>Built Around Your Business</h3>
           <p>Every model is designed from a deep understanding of how your business actually works. No generic tools. No off-the-shelf shortcuts. Built around you, not around a template.</p>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-2">
-        <div class="value-img-placeholder"></div>
+        <div class="value-img-placeholder">&#128269;</div>
         <div class="value-body">
           <h3>Transparency in Everything</h3>
           <p>We build trust through clear communication, ethical practices, and full explanations. No black boxes. No hidden processes. No surprises on the invoice or in the output.</p>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-3">
-        <div class="value-img-placeholder"></div>
+        <div class="value-img-placeholder">&#9889;</div>
         <div class="value-body">
           <h3>Speed Without Shortcuts</h3>
           <p>We move fast. But we never cut corners. Clean, focused AI systems that deliver results quickly and grow stronger as your business evolves. Fast and right, every time.</p>
@@ -499,6 +499,20 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
