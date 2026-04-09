@@ -110,7 +110,7 @@
     .problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px;}
     .problem-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color 0.3s;}
     .problem-card:hover{border-color:rgba(0,200,150,0.2);}
-    .problem-card .icon{font-size:1.6rem;margin-bottom:14px;}
+    .problem-card .icon{display:none;}
     .problem-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
     .problem-card p{color:var(--muted);font-size:0.88rem;line-height:1.6;}
     .problem-vs{display:flex;background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
@@ -132,7 +132,7 @@
     .pipeline-step:hover{background:rgba(0,200,150,0.05);border-color:rgba(0,200,150,0.2);z-index:1;}
     .pipeline-step:not(:last-child)::after{content:'›';position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--bg);border:1px solid var(--border);border-radius:50%;color:var(--accent);z-index:2;line-height:24px;text-align:center;font-size:1rem;}
     .step-num{font-size:0.68rem;font-weight:700;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
-    .step-icon{font-size:1.5rem;margin-bottom:10px;}
+    .step-icon{display:none;}
     .step-title{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:8px;}
     .step-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;margin-bottom:14px;}
     .step-tag{font-size:0.72rem;color:var(--accent);font-weight:600;background:rgba(0,200,150,0.08);padding:3px 9px;border-radius:100px;display:inline-block;}
@@ -263,7 +263,7 @@
     .demo-info p{color:var(--muted);font-size:0.93rem;line-height:1.7;margin-bottom:32px;}
     .demo-bullets{display:flex;flex-direction:column;gap:14px;}
     .demo-bullet{display:flex;align-items:flex-start;gap:14px;}
-    .bullet-icon{width:36px;height:36px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .bullet-icon{display:none;}
     .bullet-text strong{display:block;font-family:var(--font-head);font-size:0.92rem;font-weight:700;margin-bottom:3px;}
     .bullet-text span{color:var(--muted);font-size:0.83rem;}
     .demo-form-wrap{background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:36px 32px;}

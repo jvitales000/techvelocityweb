@@ -106,7 +106,7 @@
     .platform-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:all 0.3s;position:relative;overflow:hidden;}
     .platform-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);}
     .platform-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.2);}
-    .platform-icon{font-size:1.8rem;margin-bottom:16px;line-height:1;}
+    .platform-icon{display:none;}
     .platform-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:10px;}
     .platform-card p{font-size:0.85rem;color:var(--muted);line-height:1.7;}
 
@@ -131,7 +131,7 @@
     .io-col{display:flex;flex-direction:column;gap:12px;}
     .io-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;}
     .io-item:hover{border-color:rgba(0,200,150,0.25);}
-    .io-item-icon{font-size:1.3rem;line-height:1;flex-shrink:0;}
+    .io-item-icon{display:none;}
     .io-item-text{}
     .io-item-title{font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:3px;}
     .io-item-sub{font-size:0.76rem;color:var(--muted);}
@@ -150,7 +150,7 @@
     .hover-feature:nth-last-child(-n+3){border-bottom:none;}
     .hover-feature-bg-top{opacity:0;transition:opacity 0.25s;position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,200,150,0.06),transparent);pointer-events:none;}
     .hover-feature:hover .hover-feature-bg-top{opacity:1;}
-    .hover-feature-icon{margin-bottom:18px;position:relative;z-index:1;font-size:1.5rem;line-height:1;}
+    .hover-feature-icon{display:none;}
     .hover-feature-title-row{position:relative;z-index:1;margin-bottom:10px;display:flex;align-items:center;}
     .hover-feature-bar{position:absolute;left:-40px;top:50%;transform:translateY(-50%);height:24px;width:3px;border-radius:0 3px 3px 0;background:rgba(255,255,255,0.08);transition:all 0.2s;}
     .hover-feature:hover .hover-feature-bar{height:32px;background:var(--accent);}
@@ -168,7 +168,7 @@
     .arch-step{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 20px;text-align:center;position:relative;z-index:1;margin:0 8px;transition:all 0.3s;}
     .arch-step:hover{border-color:rgba(0,200,150,0.35);transform:translateY(-4px);}
     .arch-step-num{width:44px;height:44px;border-radius:50%;background:rgba(0,200,150,0.1);border:2px solid rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:0.88rem;font-weight:800;color:var(--accent);margin:0 auto 16px;}
-    .arch-step-icon{font-size:1.4rem;margin-bottom:10px;line-height:1;}
+    .arch-step-icon{display:none;}
     .arch-step h3{font-family:var(--font-head);font-size:0.9rem;font-weight:700;margin-bottom:8px;color:var(--accent);}
     .arch-step p{font-size:0.78rem;color:var(--muted);line-height:1.6;}
 
@@ -196,7 +196,7 @@
     .phi-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px 26px;position:relative;overflow:hidden;transition:all 0.3s;}
     .phi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);}
     .phi-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);}
-    .phi-icon{font-size:1.6rem;margin-bottom:14px;line-height:1;}
+    .phi-icon{display:none;}
     .phi-card h3{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:10px;}
     .phi-card p{font-size:0.84rem;color:var(--muted);line-height:1.7;}
 
@@ -226,7 +226,7 @@
     .hipaa-badges{display:flex;flex-direction:column;gap:14px;}
     .hipaa-badge-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;transition:all 0.3s;}
     .hipaa-badge-card:hover{border-color:rgba(0,200,150,0.25);}
-    .hipaa-badge-card .badge-icon{font-size:2rem;margin-bottom:12px;}
+    .hipaa-badge-card .badge-icon{display:none;}
     .hipaa-badge-card h4{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:6px;}
     .hipaa-badge-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
 
