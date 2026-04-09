@@ -439,7 +439,7 @@
       <div class="platform-card reveal">
         <div class="platform-icon"></div>
         <h3>Unified FHIR Core</h3>
-        <p>All inputs — video assessments, spiral drawings, clinical notes, EHR data — are normalized to FHIR R4 resources. Outputs are returned as FHIR-compliant bundles, making integration with any modern EHR system seamless and standards-based.</p>
+        <p>All inputs — video assessments, physician assessments, clinical notes, EHR data — are normalized to FHIR R4 resources. Outputs are returned as FHIR-compliant bundles, making integration with any modern EHR system seamless and standards-based.</p>
       </div>
     </div>
   </div>
@@ -477,14 +477,14 @@
           <div class="io-item-icon"></div>
           <div class="io-item-text">
             <div class="io-item-title">Video Assessment</div>
-            <div class="io-item-sub">Movement &amp; behavioral capture</div>
+            <div class="io-item-sub">Mobility, behavior, motor function</div>
           </div>
         </div>
         <div class="io-item">
           <div class="io-item-icon"></div>
           <div class="io-item-text">
-            <div class="io-item-title">Spiral Drawing</div>
-            <div class="io-item-sub">Motor function analysis</div>
+            <div class="io-item-title">Physician Assessment</div>
+            <div class="io-item-sub">Physician assessment forms and evaluations</div>
           </div>
         </div>
         <div class="io-item">
@@ -518,8 +518,8 @@
         <div class="io-item">
           <div class="io-item-icon"></div>
           <div class="io-item-text">
-            <div class="io-item-title">Risk Scores</div>
-            <div class="io-item-sub">FHIR Observation resources</div>
+            <div class="io-item-title">Assessment Results</div>
+            <div class="io-item-sub">Assessment results, functional metrics, physician evaluations</div>
           </div>
         </div>
         <div class="io-item">
@@ -561,16 +561,16 @@
           <div class="hover-feature-bar"></div>
           <span class="hover-feature-title">Video-Based Assessment</span>
         </div>
-        <p>Capture and analyze patient movement, tremor patterns, and behavioral markers through video input. AI extracts quantitative clinical signals without storing identifiable footage.</p>
+        <p>Capture and analyze patient mobility, behavior, and motor function through video input. AI extracts quantitative clinical signals without storing identifiable footage — applicable across any specialty.</p>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
         <div class="hover-feature-icon"></div>
         <div class="hover-feature-title-row">
           <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">Spiral Drawing Analysis</span>
+          <span class="hover-feature-title">Physician Assessment Analysis</span>
         </div>
-        <p>Motor function and neurological markers extracted from digital spiral drawings. Objective, repeatable measurement that removes clinician subjectivity from fine motor assessment.</p>
+        <p>Standardized physician assessment forms digitized and analyzed by AI across any specialty — from primary care to oncology to cardiology. Functional assessment indexing and automated clinical scoring that removes subjectivity from evaluation.</p>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
@@ -591,7 +591,7 @@
         <p>Clinical NLP, image analysis, and risk stratification models run entirely within your Azure environment via Azure AI Foundry. No third-party model endpoints. No data leaving your cloud tenant.</p>
         <ul class="hf-list">
           <li>NLP for clinical notes</li>
-          <li>Computer vision for video &amp; drawings</li>
+          <li>Computer vision for video &amp; physician assessments</li>
           <li>Risk scoring &amp; outcome prediction</li>
         </ul>
       </div>
@@ -676,8 +676,8 @@
         <h3>Clinical Content for AI Processing</h3>
         <ul>
           <li>Tokenized clinical notes (no patient identifiers)</li>
-          <li>Video motion data (no facial or biometric markers)</li>
-          <li>Spiral drawing vectors (no patient metadata)</li>
+          <li>Video mobility &amp; behavioral data (no facial or biometric markers)</li>
+          <li>Standardized physician assessment forms (no patient metadata)</li>
           <li>Structured FHIR clinical observations</li>
           <li>Processed entirely in Azure AI Foundry</li>
           <li>Outputs returned as anonymous FHIR observations</li>
@@ -703,12 +703,12 @@
       <div class="phi-card reveal">
         <div class="phi-icon"></div>
         <h3>Computer Vision Engine</h3>
-        <p>Analyzes video motion data and spiral drawing vectors for motor dysfunction markers, tremor quantification, and behavioral patterns. Operates entirely on anonymized movement data — no facial recognition, no biometric identification.</p>
+        <p>Analyzes video mobility and behavioral data alongside standardized physician assessment forms for condition-specific markers across all specialties. Operates entirely on anonymized data — no facial recognition, no biometric identification.</p>
       </div>
       <div class="phi-card reveal">
         <div class="phi-icon"></div>
         <h3>Risk Stratification Engine</h3>
-        <p>Aggregates NLP and vision outputs to generate clinical risk scores, disease progression indicators, and care prioritization flags. All outputs are FHIR-compliant risk assessment resources, ready for EHR integration.</p>
+        <p>Aggregates NLP and vision outputs to generate functional assessment indexes, automated clinical scores, and care prioritization flags. All outputs are FHIR-compliant risk assessment resources, ready for EHR integration.</p>
       </div>
     </div>
   </div>
