@@ -39,8 +39,9 @@
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s,transform 0.3s;}
     nav.scrolled{padding:10px 48px;}
+    .nav-hidden{transform:translateY(-100%);}
     .logo-img{height:70px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
@@ -559,9 +560,15 @@
 
 <script>
   // NAV SCROLL
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  });
+  (function(){
+    var lastY=0,nav=document.getElementById('navbar');
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY;
+      if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}
+      nav.classList.toggle('scrolled',y>60);
+      lastY=y;
+    },{passive:true});
+  })();
 
   // MOBILE MENU
   function toggleMenu() {
