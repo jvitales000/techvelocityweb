@@ -69,6 +69,7 @@
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+    .nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:4px;}.nav-sub{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 0;min-width:220px;list-style:none;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.3);}.nav-sub::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}.nav-dropdown:hover>.nav-sub{display:flex;flex-direction:column;animation:subDrop 0.18s ease forwards;}@keyframes subDrop{from{opacity:0;transform:translateX(-50%) translateY(-8px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}.nav-sub li a{display:block;padding:9px 16px;color:var(--muted);font-size:0.84rem;white-space:nowrap;transition:color 0.2s,background 0.2s;}.nav-sub li a:hover{color:var(--text);background:rgba(0,200,150,0.06);}.nav-sub .sub-all a{color:var(--accent);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:12px;}@media(max-width:900px){.nav-sub{display:flex;flex-direction:column;position:static;transform:none;box-shadow:none;border:none;background:none;padding:0 0 0 12px;gap:2px;}.nav-sub::before{display:none;}.nav-sub .sub-all a{border-bottom:none;padding-bottom:9px;}}
     /* HERO */
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
     .hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.15) 0%,transparent 70%);pointer-events:none;}
@@ -276,27 +277,18 @@
     .form-group select option{background:#0c1218;}
     .form-group textarea{resize:none;height:90px;}
     .form-privacy{font-size:0.74rem;color:var(--muted);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
-    /* FOOTER - STACKED CIRCULAR */
-    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 24px 40px;position:relative;z-index:1;}
-    .footer-inner{display:flex;flex-direction:column;align-items:center;max-width:640px;margin:0 auto;}
-    .footer-logo-circle{display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
-    .footer-logo-circle img{height:56px;width:auto;}
-    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:32px;}
-    .footer-nav a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
-    .footer-nav a:hover{color:var(--accent);}
-    .footer-socials{display:flex;gap:12px;margin-bottom:32px;}
-    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--muted);}
-    .footer-social-btn:hover{border-color:rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:var(--accent);}
-    .footer-social-btn svg{width:16px;height:16px;fill:currentColor;}
-    .footer-subscribe{width:100%;max-width:420px;display:flex;gap:8px;margin-bottom:36px;}
-    .footer-subscribe input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 18px;color:var(--text);font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:var(--font-body);}
-    .footer-subscribe input::placeholder{color:var(--muted);}
-    .footer-subscribe input:focus{border-color:rgba(0,200,150,0.4);}
-    .footer-subscribe button{background:var(--accent);color:#000;border:none;border-radius:100px;padding:10px 22px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:background 0.2s;white-space:nowrap;font-family:var(--font-body);}
-    .footer-subscribe button:hover{background:#33ddb0;}
-    .footer-copy{font-size:0.8rem;color:var(--muted);text-align:center;line-height:1.6;}
-    .footer-copy a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
-    .footer-copy a:hover{color:var(--text);}
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 48px;}
+    .footer-brand p{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-top:14px;max-width:240px;}
+    .footer-logo{height:56px;width:auto;}
+    .footer-col h4{font-family:var(--font-head);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.87rem;transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--text);}
+    .footer-bottom{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:640px){footer{padding:48px 24px 32px;}.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}.footer-grid>div:nth-child(2){grid-column:1/-1;}.footer-bottom{flex-direction:column;gap:8px;text-align:center;}}
     /* SCROLL REVEAL */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
@@ -380,8 +372,6 @@
       .demo-wrap{grid-template-columns:1fr;}
       .faq-layout{grid-template-columns:1fr;}
       .faq-left{position:static;}
-      .footer-subscribe{flex-direction:column;}
-      .footer-subscribe input,.footer-subscribe button{width:100%;}
       .pipeline{flex-direction:column;}
       .pipeline-step{border-radius:12px!important;border-right:1px solid var(--border)!important;}
       .pipeline-step:not(:last-child)::after{content:'↓';right:50%;bottom:-12px;top:auto;transform:translateX(50%);}
@@ -415,7 +405,7 @@
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="how-it-works">How It Works</a></li>
-    <li><a href="portfolio">Our Work</a></li>
+    <li class="nav-dropdown"><a href="portfolio">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li></ul></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -921,7 +911,7 @@
             <span class="faq-q-text">Do I need technical knowledge to work with you?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives. not engineers. If you can describe how your business works, we can build the AI for it.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can describe how your business works, we can build the AI for it.</div></div>
         </div>
 
         <div class="faq-item" data-cat="technology">
@@ -1130,55 +1120,51 @@
   </div>
 </section>
 
-<!-- FOOTER - STACKED CIRCULAR -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-
-    <!-- Circular logo badge -->
-    <div class="footer-logo-circle">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo" class="footer-logo">
+      <p>Custom AI built for your data, your workflows, and your business. Private, secure, and delivered fast.</p>
+      <div style="display:flex;gap:14px;margin-top:16px;align-items:center;">
+        <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><defs><linearGradient id="igfg" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igfg)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
     </div>
-
-    <!-- Nav links -->
-    <nav class="footer-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Our Story</a>
-      <a href="#features">Solutions</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#testimonials">Results</a>
-      <a href="#demo">Contact</a>
-      <a href="privacy-policy">Privacy</a>
-      <a href="terms-and-conditions">Terms</a>
-    </nav>
-
-    <!-- Social buttons - rounded outline style matching component -->
-    <div class="footer-socials">
-      <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X / Twitter" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="solutions">AI Customer Assistance</a></li>
+        <li><a href="solutions">Workflow Automation</a></li>
+        <li><a href="solutions">Business Intelligence</a></li>
+        <li><a href="solutions">AI Sales Training</a></li>
+      </ul>
     </div>
-
-    <!-- Email subscribe form - rounded pill style matching component -->
-    <div class="footer-subscribe">
-      <input type="email" placeholder="Your email for AI tips and updates" id="footerEmail">
-      <button onclick="handleFooterSubscribe()">Subscribe</button>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="our-story">Our Story</a></li>
+        <li><a href="how-it-works">How It Works</a></li>
+        <li><a href="index#testimonials">Client Results</a></li>
+        <li><a href="index#faq">FAQ</a></li>
+      </ul>
     </div>
-
-    <!-- Copyright -->
-    <div class="footer-copy">
-      <p>© 2025 Tech Velocity, LLC. All rights reserved.</p>
-      <p style="margin-top:6px;"><a href="tel:+18335330225">+1 833-533-0225</a> · <a href="/cdn-cgi/l/email-protection#8fe7eae3e3e0cffbeaece7f9eae3e0ece6fbf6a1eee6"><span class="__cf_email__" data-cfemail="a0c8c5cccccfe0d4c5c3c8d6c5cccfc3c9d4d98ec1c9">[email&#160;protected]</span></a></p>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
+        <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
+        <li><a href="contact">Book a Free Audit</a></li>
+        <li><a href="privacy-policy">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions">Terms of Service</a></li>
+      </ul>
     </div>
-
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>Custom AI for ambitious SMEs.</span>
   </div>
 </footer>
 
@@ -1406,6 +1392,7 @@
       var y=window.scrollY;
       if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}
       nav.classList.toggle('scrolled',y>60);
+      var ml=document.querySelector('.nav-links');if(ml&&ml.style.display==='flex'){ml.style.display='none';}
       lastY=y;
     },{passive:true});
   })();
