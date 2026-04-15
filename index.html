@@ -55,7 +55,7 @@
     @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.hero-ctas,.hero-stats,.badge,.tw-text,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;width:auto!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
     /* NAV */
     nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s,transform 0.3s;}
@@ -77,15 +77,15 @@
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:28px;animation:fadeInDown 0.6s ease both;}
     .badge::before{content:'●';font-size:0.6rem;animation:pulse 2s infinite;}
     @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-    .hero h1{font-family:var(--font-head);font-size:clamp(2rem,3.8vw,3.6rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;max-width:720px;margin-bottom:24px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2.2rem,4.4vw,4.2rem);font-weight:800;line-height:1.1;letter-spacing:-1px;max-width:780px;margin-bottom:28px;animation:fadeInUp 0.7s 0.1s ease both;}
     .hero h1 em{font-style:normal;color:var(--accent);}
     .hero p.sub{font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto 40px;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;}
     .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.7s 0.3s ease both;}
-    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
     .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
     .btn-primary:hover::after{opacity:1;}
-    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
     .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
     .hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);animation:fadeInUp 0.7s 0.4s ease both;flex-wrap:wrap;justify-content:center;}
     .stat{text-align:center;}
@@ -101,11 +101,11 @@
     .logo-pill{display:flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.9rem;padding:8px 16px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;}
     .logo-pill:hover{color:var(--text);border-color:rgba(255,255,255,0.15);}
     /* SECTION BASE */
-    section{padding:80px 24px;position:relative;z-index:1;}
+    section{padding:110px 24px;position:relative;z-index:1;}
     .container{max-width:1040px;margin:0 auto;}
-    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
-    .section-sub{color:var(--muted);font-size:0.97rem;max-width:540px;margin-bottom:56px;line-height:1.7;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:14px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:20px;}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:64px;line-height:1.75;}
     /* PROBLEM */
     .problem-section{background:var(--bg2);}
     .problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px;}
@@ -165,7 +165,7 @@
     .funnel-bar{height:100%;background:linear-gradient(90deg,var(--accent),#00e8a8);border-radius:100px;}
     .funnel-pct{font-size:0.78rem;font-weight:800;color:var(--text);width:34px;text-align:right;flex-shrink:0;font-family:var(--font-head);}
     /* CTA BAND */
-    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
+    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
     .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 36px;}
 
     /* TYPEWRITER */
@@ -186,8 +186,10 @@
     .testi-col:nth-child(3) .testi-col-inner{animation-duration:17s;}
     @keyframes scrollUp{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
     .testi-col-inner:hover{animation-play-state:paused;}
-    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:border-color 0.3s;}
-    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);}
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0;transition:opacity 0.3s;}
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+    .testimonial-card:hover::before{opacity:1;}
     .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
     .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
     .testimonial-author{display:flex;align-items:center;gap:10px;}
@@ -394,6 +396,10 @@
       .result-num{font-size:2rem;letter-spacing:-1px;}
       .case-results{gap:10px;}
       .result-box{padding:20px 14px;}
+      .hero-ctas{flex-direction:column;align-items:center;}
+      .hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .btn-row{flex-direction:column;align-items:center;}
+      .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
     }
   </style>
 </head>
@@ -415,9 +421,9 @@
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="badge">Custom AI for Your Business</div>
-  <h1>Building Your AI Future,<br><em>Today.</em></h1>
-  <p class="sub">Your competitors are not waiting. We build the AI that gets you back ahead. Private, <span style="color:var(--accent)">purpose-built</span>, and yours.</p>
+  <div class="badge">AI Systems for Business Operations</div>
+  <h1>Automate and Simplify Your<br>Business Operations <em>with AI</em></h1>
+  <p class="sub">Reduce manual work, improve workflow efficiency, and scale operations with smart automation built specifically for your business.</p>
   <div class="hero-ctas">
     <a href="#demo" class="btn-primary">Book Your Free AI Audit</a>
     <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
@@ -439,10 +445,10 @@
     <h2 class="section-title">Your Competitors Are Moving Fast.<br>Manual Work Is Holding You Back.</h2>
     <p class="section-sub">Larger players have dedicated AI teams. Generic tools don't know your workflows or your clients. The businesses winning right now have AI built specifically for <em>them</em>.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div class="icon"></div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Your best people spend most of the day on tasks AI can handle in seconds. Data entry, email sorting, reporting, routing. That is capacity going to waste every single day. Stop it.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT does not know your workflows, your clients, or your compliance rules. Public AI tools guess. A model trained on your actual data delivers accurate, consistent outputs your team can trust.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>Your team acts on stale data. By the time the report is ready, the window is closed. Competitors who move on real-time information win more often. It really is that simple.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive client data through public AI platforms is a real compliance and IP liability. A private model keeps your data secure and fully under your control. Always.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Data entry, email sorting, reporting, routing — AI can handle all of it in seconds. Your best people are wasting capacity on tasks that don't require them.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT doesn't know your workflows, your clients, or your compliance rules. A model trained on your actual data delivers outputs your team can actually trust.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>By the time the report is ready, the window is closed. Competitors acting on real-time data win more deals. The gap widens every day you don't close it.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive data through public AI tools is a compliance and IP liability. A private model keeps everything secure and fully under your control.</p></div>
     </div>
     <div class="problem-vs">
       <div class="vs-col bad">
@@ -509,22 +515,22 @@
     <div class="features-grid">
       <div class="feature-card reveal">
         <h3>AI Customer Assistance</h3>
-        <p>Stop making customers wait. AI trained on your products, policies, and FAQs delivers instant, accurate answers around the clock. No wait times. No extra headcount. Just results.</p>
+        <p>AI trained on your products, policies, and FAQs — instant, accurate answers 24/7. No wait times. No extra headcount.</p>
         <div class="feature-tags"><span class="tag">24/7 Support</span><span class="tag">Custom Training</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <h3>Workflow Automation</h3>
-        <p>Stop doing by hand what a machine can do in seconds. Email triage, document routing, data entry, scheduling, reporting. AI handles it so your team focuses on work that actually grows the business.</p>
+        <p>Email triage, document routing, data entry, reporting — automated. Your team focuses on the work that actually moves the business forward.</p>
         <div class="feature-tags"><span class="tag">Email Triage</span><span class="tag">Data Entry</span><span class="tag">Routing</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <h3>Business Intelligence</h3>
-        <p>Live dashboards that surface real-time insights so your team makes faster, better decisions. Before the opportunity closes. Before the problem compounds. Finally.</p>
+        <p>Live dashboards with real-time insights. Make faster, better decisions — before the opportunity closes, before the problem compounds.</p>
         <div class="feature-tags"><span class="tag">Live Dashboards</span><span class="tag">Predictive AI</span></div>
       </div>
       <div class="feature-card reveal">
         <h3>AI Sales Training</h3>
-        <p>Realistic role-play scenarios and natural voice conversations. Cut onboarding time by 60%. Increase win rates by 35%. Your reps learn faster, practice more, and close better deals.</p>
+        <p>Realistic role-play and voice practice — on demand. Cut onboarding by 60%, increase win rates by 35%. Reps learn faster and close better.</p>
         <div class="feature-tags"><span class="tag">Role-Play AI</span><span class="tag">Voice Simulation</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
@@ -534,7 +540,7 @@
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <h3>Industry-Specific AI</h3>
-        <p>Clinical assessments. Engineering code compliance. Insurance underwriting. We build for industries where getting it wrong is not an option. Precision and compliance, built in by design.</p>
+        <p>Clinical assessments. Engineering compliance. Insurance underwriting. Built for industries where precision and accuracy are non-negotiable — compliance by design.</p>
         <div class="feature-tags"><span class="tag">Healthcare</span><span class="tag">Legal</span><span class="tag">Engineering</span></div>
       </div>
     </div>
@@ -549,7 +555,7 @@
     <div class="case-grid">
       <div>
         <h3 style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;margin-bottom:12px;">AI Sales Training Platform. Professional Services Firm.</h3>
-        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">A professional services firm was burning 12+ weeks onboarding new sales reps with static slides and shadowing. Results were inconsistent. Turnover was high. We built a custom AI training system with realistic role-play and voice practice. Here is what happened after 90 days:</p>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">A professional services firm was burning 12+ weeks onboarding new reps. Results were inconsistent. Turnover was high. We replaced static slide decks with a custom AI training platform — realistic role-play, voice practice, real feedback. Here is what changed in 90 days:</p>
         <div class="case-results">
           <div class="result-box"><div class="result-num">60%</div><div class="result-label">Faster Onboarding</div></div>
           <div class="result-box"><div class="result-num">35%</div><div class="result-label">Higher Win Rates</div></div>
@@ -590,7 +596,13 @@
   <div class="container">
     <span class="section-tag">Real Client Results</span>
     <h2 class="section-title">Hear It From the People<br>Who Run These Businesses</h2>
-    <p class="section-sub">Law firms, insurance agencies, healthcare clinics, engineering firms. Here is what business owners and operators say after their custom AI goes live.</p>
+    <p class="section-sub">Law firms, insurance agencies, healthcare clinics, engineering firms. Real outcomes — not demos, not promises.</p>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:64px;">
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-align:center;min-width:140px;flex:1;max-width:200px;"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-2px;">70%</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;font-weight:600;">Less Manual Work</div></div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-align:center;min-width:140px;flex:1;max-width:200px;"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-2px;">60%</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;font-weight:600;">Faster Onboarding</div></div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-align:center;min-width:140px;flex:1;max-width:200px;"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-2px;">$40K</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;font-weight:600;">Revenue Recovered</div></div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 28px;text-align:center;min-width:140px;flex:1;max-width:200px;"><div style="font-family:var(--font-head);font-size:2rem;font-weight:800;color:var(--accent);letter-spacing:-2px;">3×</div><div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:6px;font-weight:600;">More Volume, Same Team</div></div>
+    </div>
 
     <div class="testi-columns-wrap">
 
@@ -601,7 +613,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div class="author-avatar-initials">JR</div>
               <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
             </div>
           </div>
@@ -609,7 +621,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div class="author-avatar-initials">SN</div>
               <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
             </div>
           </div>
@@ -617,7 +629,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"After 20 years with <span style="color:var(--accent)">Fortune 500</span> AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div class="author-avatar-initials">DM</div>
               <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
             </div>
           </div>
@@ -625,7 +637,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates - our staff finally has breathing room to focus on patient care."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div class="author-avatar-initials">LP</div>
               <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
             </div>
           </div>
@@ -635,7 +647,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div class="author-avatar-initials">JR</div>
               <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
             </div>
           </div>
@@ -643,7 +655,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div class="author-avatar-initials">SN</div>
               <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
             </div>
           </div>
@@ -651,7 +663,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"After 20 years with <span style="color:var(--accent)">Fortune 500</span> AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div class="author-avatar-initials">DM</div>
               <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
             </div>
           </div>
@@ -659,7 +671,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates - our staff finally has breathing room to focus on patient care."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div class="author-avatar-initials">LP</div>
               <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
             </div>
           </div>
@@ -673,7 +685,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate - we recovered $40K in missed commissions in the first month."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div class="author-avatar-initials">MT</div>
               <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
             </div>
           </div>
@@ -681,7 +693,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes - I understood exactly what the model was doing and why. That trust is rare."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div class="author-avatar-initials">AR</div>
               <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
             </div>
           </div>
@@ -689,7 +701,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div class="author-avatar-initials">RK</div>
               <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
             </div>
           </div>
@@ -697,7 +709,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a <span style="color:var(--accent)">purpose-built</span> AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div class="author-avatar-initials">PS</div>
               <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
             </div>
           </div>
@@ -707,7 +719,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate - we recovered $40K in missed commissions in the first month."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div class="author-avatar-initials">MT</div>
               <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
             </div>
           </div>
@@ -715,7 +727,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes - I understood exactly what the model was doing and why. That trust is rare."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div class="author-avatar-initials">AR</div>
               <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
             </div>
           </div>
@@ -723,7 +735,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div class="author-avatar-initials">RK</div>
               <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
             </div>
           </div>
@@ -731,7 +743,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a <span style="color:var(--accent)">purpose-built</span> AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div class="author-avatar-initials">PS</div>
               <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
             </div>
           </div>
@@ -745,7 +757,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div class="author-avatar-initials">SL</div>
               <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
             </div>
           </div>
@@ -753,7 +765,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"They didn't just hand us software - they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div class="author-avatar-initials">CM</div>
               <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
             </div>
           </div>
@@ -761,7 +773,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div class="author-avatar-initials">JW</div>
               <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
             </div>
           </div>
@@ -769,7 +781,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div class="author-avatar-initials">TH</div>
               <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
             </div>
           </div>
@@ -779,7 +791,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div class="author-avatar-initials">SL</div>
               <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
             </div>
           </div>
@@ -787,7 +799,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"They didn't just hand us software - they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div class="author-avatar-initials">CM</div>
               <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
             </div>
           </div>
@@ -795,7 +807,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div class="author-avatar-initials">JW</div>
               <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
             </div>
           </div>
@@ -803,7 +815,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div class="author-avatar-initials">TH</div>
               <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
             </div>
           </div>
@@ -835,7 +847,7 @@
           <li><span class="x">✗</span>Advanced workflow automation</li>
           <li><span class="x">✗</span>Custom AI dashboard UI</li>
         </ul>
-        <a href="#demo" class="price-cta outline">Get Started Now →</a>
+        <a href="#demo" class="price-cta outline">Book a Strategy Call →</a>
       </div>
       <div class="price-card popular reveal reveal-delay-1">
         <div class="popular-badge">Most Popular</div>
@@ -1018,6 +1030,9 @@
         <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:800;letter-spacing:-0.2px;margin-bottom:6px;">Book Your Free AI Audit</h3>
         <p style="color:var(--muted);font-size:0.83rem;margin-bottom:22px;">We respond within 1 business day. Guaranteed.</p>
         <form id="mainForm" onsubmit="handleMainSubmit(event)">
+          <!-- honeypot: bots fill this, humans don't -->
+          <div style="display:none;position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="_ts" id="mainFormTs">
           <div class="form-row">
             <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="First name" required></div>
             <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Last name" required></div>
@@ -1055,7 +1070,7 @@
     <span class="tw-cursor"></span>
   </div>
   <p>Every day without a custom AI model is another day of manual work, higher costs, and revenue left on the table. Start now.</p>
-  <div class="btn-row"><a href="contact" class="btn-primary">Build My AI Model Today</a></div>
+  <div class="btn-row"><a href="contact" class="btn-primary">Book an AI Strategy Call</a></div>
   <p style="margin-top:16px;font-size:0.78rem;color:var(--muted);">Starting at $2,999. Free discovery audit. 2-week delivery.</p>
 </div>
 
@@ -1191,6 +1206,9 @@
     <div class="popup-body" id="popupFormWrap">
       <form class="popup-form" id="popupForm" onsubmit="handlePopupSubmit(event)">
         <input type="hidden" name="formSource" id="popupFormSource" value="popup">
+        <!-- honeypot -->
+        <div style="display:none;position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website2" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="_ts" id="popupFormTs">
         <div class="popup-form-row">
           <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Juan" required></div>
           <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Dela Cruz" required></div>
@@ -1295,9 +1313,31 @@
     setTimeout(() => t.classList.remove('show'), 4000);
   }
 
+  // ── BOT / RATE-LIMIT GUARD ──
+  function checkBotGuard(form) {
+    // 1. Honeypot: if filled, it's a bot
+    const hp = form.querySelector('input[name="website"], input[name="website2"]');
+    if (hp && hp.value.trim() !== '') return false;
+    // 2. Timing: humans take > 3 s to fill a form
+    const tsEl = form.querySelector('input[name="_ts"]');
+    if (tsEl) {
+      const elapsed = Date.now() - parseInt(tsEl.value || '0', 10);
+      if (elapsed < 3000) return false;
+    }
+    // 3. Rate limit: max 3 submissions per 10 min per browser
+    const key = 'tv_sub_times';
+    const now = Date.now();
+    const times = JSON.parse(localStorage.getItem(key) || '[]').filter(t => now - t < 600000);
+    if (times.length >= 3) return false;
+    times.push(now);
+    localStorage.setItem(key, JSON.stringify(times));
+    return true;
+  }
+
   // ── MAIN FORM ──
   async function handleMainSubmit(e) {
     e.preventDefault();
+    if (!checkBotGuard(e.target)) return;
     const btn = document.getElementById('mainSubmitBtn');
     btn.disabled = true;
     btn.textContent = 'Sending...';
@@ -1339,6 +1379,7 @@
 
   async function handlePopupSubmit(e) {
     e.preventDefault();
+    if (!checkBotGuard(e.target)) return;
     const btn = document.getElementById('popupSubmitBtn');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
@@ -1384,6 +1425,24 @@
   setTimeout(() => {
     if (!popupShown) openPopup('time_on_page');
   }, 45000);
+
+  // ── STAMP FORM LOAD TIMES (for bot timing check) ──
+  (function(){
+    var now = Date.now().toString();
+    var mts = document.getElementById('mainFormTs');
+    var pts = document.getElementById('popupFormTs');
+    if(mts) mts.value = now;
+    if(pts) pts.value = now;
+    // Re-stamp popup ts each time it opens
+    var origOpen = window.openPopup;
+    if(typeof origOpen === 'function') {
+      window.openPopup = function(src) {
+        origOpen(src);
+        var el = document.getElementById('popupFormTs');
+        if(el) el.value = Date.now().toString();
+      };
+    }
+  })();
 
   // ── NAV SCROLL ──
   (function(){

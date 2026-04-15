@@ -33,7 +33,7 @@
     @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
@@ -66,10 +66,10 @@
     @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
     /* SECTIONS */
-    section{padding:80px 24px;position:relative;z-index:1;}
+    section{padding:110px 24px;position:relative;z-index:1;}
     .container{max-width:1040px;margin:0 auto;}
-    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:14px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:20px;}
 
     /* CONTACT MAIN */
     .contact-section{background:var(--bg2);}
@@ -106,7 +106,10 @@
     .form-group input::placeholder,.form-group textarea::placeholder{color:rgba(122,154,181,0.5);}
     .form-group select option{background:#0c1218;}
     .form-group textarea{resize:none;height:100px;}
-    .submit-btn{width:100%;background:var(--accent);color:#000;padding:16px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;}
+    .submit-btn{width:100%;background:var(--accent);color:#000;padding:16px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;position:relative;overflow:hidden;}
+    .submit-btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
+    .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
+    .submit-btn:hover::after{opacity:1;}
     .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
     .submit-btn:disabled{opacity:0.6;cursor:not-allowed;transform:none;}
     .form-privacy{font-size:0.73rem;color:var(--muted);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
@@ -174,6 +177,8 @@
       section{padding:60px 20px;}
       .contact-form-wrap{padding:28px 20px;}
       .hero-contacts{flex-direction:column;align-items:center;}
+      .btn-row{flex-direction:column;align-items:center;}
+      .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
     }
   </style>
 </head>
@@ -320,6 +325,8 @@
                 <label>What is your biggest operational challenge right now?</label>
                 <textarea name="needs" placeholder="Tell us what is costing your team the most time or where you feel the most friction..."></textarea>
               </div>
+              <div style="display:none;position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+              <input type="hidden" name="_ts" id="contactFormTs">
               <button type="submit" class="submit-btn" id="submitBtn">Submit and Book My Audit</button>
               <p class="form-privacy">100% confidential. No spam. We respond within 1 business day.</p>
               <p class="recaptcha-notice">This site is protected by reCAPTCHA and the Google <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a> and <a href="https://policies.google.com/terms" target="_blank">Terms of Service</a> apply.</p>
@@ -409,6 +416,22 @@
 <script>
   const SHEET_URL = atob('aHR0cHM6Ly9zY3JpcHQuZ29vZ2xlLmNvbS9tYWNyb3Mvcy9BS2Z5Y2J3YU9UY2t4NGNIbEpKclh6OEpraE9vUkNIbG8yY21menoxTFZGN0hXUUpINUlJZ1pRUUZLSTVJaHVkdXF1d3R6S1AvZXhlYw==');
 
+  // BOT GUARD
+  function checkBotGuard(form) {
+    const hp = form.querySelector('input[name="website"]');
+    if (hp && hp.value.trim() !== '') return false;
+    const tsEl = form.querySelector('input[name="_ts"]');
+    if (tsEl) { const elapsed = Date.now() - parseInt(tsEl.value || '0', 10); if (elapsed < 3000) return false; }
+    const key = 'tv_sub_times';
+    const now = Date.now();
+    const times = JSON.parse(localStorage.getItem(key) || '[]').filter(t => now - t < 600000);
+    if (times.length >= 3) return false;
+    times.push(now);
+    localStorage.setItem(key, JSON.stringify(times));
+    return true;
+  }
+  (function(){ var ts=document.getElementById('contactFormTs'); if(ts) ts.value=Date.now(); })();
+
   // NAV SCROLL
   (function(){
     var lastY=0,nav=document.getElementById('navbar');
@@ -452,6 +475,7 @@
     const btn = document.getElementById('submitBtn');
     btn.disabled = true;
     btn.textContent = 'Sending...';
+    if (!checkBotGuard(e.target)) { btn.disabled=false; btn.textContent='Submit & Book My Audit'; return; }
 
     const data = {};
     new FormData(e.target).forEach((v, k) => data[k] = v);
