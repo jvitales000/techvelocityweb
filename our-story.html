@@ -58,7 +58,7 @@
     .hero-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.13) 0%,transparent 70%);pointer-events:none;}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);}
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px;animation:fadeInDown 0.6s ease both;}
-    .hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2.6rem,5.2vw,5rem);font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:28px;animation:fadeInUp 0.7s 0.1s ease both;}
     .hero h1 em{font-style:normal;color:var(--accent);}
     .hero p.sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;}
     @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
@@ -70,14 +70,14 @@
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
     .btn-primary:hover::after{opacity:1;}
     .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
-    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .btn-secondary:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.06);transform:translateY(-1px);}
 
     /* SECTIONS */
     section{padding:110px 24px;position:relative;z-index:1;}
     .container{max-width:1040px;margin:0 auto;}
-    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:14px;border-left:3px solid var(--accent);padding-left:10px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:20px;}
-    .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:64px;line-height:1.75;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:20px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.4rem);font-weight:600;letter-spacing:-0.8px;line-height:1.12;margin-bottom:28px;}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:80px;line-height:1.75;}
 
     /* QUOTE SECTION */
     .quote-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -98,12 +98,12 @@
     .story-img-placeholder{width:100%;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
     .story-img-badge{position:absolute;bottom:-20px;right:-20px;background:var(--accent);color:#000;font-family:var(--font-head);font-weight:800;font-size:0.85rem;padding:14px 20px;border-radius:12px;box-shadow:0 8px 32px rgba(0,200,150,0.35);line-height:1.3;}
     .story-content h6{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:14px;}
-    .story-content h2{font-family:var(--font-head);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;line-height:1.2;letter-spacing:-0.3px;margin-bottom:24px;}
+    .story-content h2{font-family:var(--font-head);font-size:clamp(1.7rem,2.6vw,2.4rem);font-weight:600;line-height:1.18;letter-spacing:-0.6px;margin-bottom:28px;}
     .story-content p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:14px;}
     .story-content p strong{color:var(--text);}
     .story-content p em strong{color:var(--accent);}
     .story-highlight{background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,168,125,0.04));border:1px solid rgba(0,200,150,0.2);border-radius:12px;padding:20px 24px;margin-top:24px;}
-    .story-highlight p{color:var(--text);font-size:0.95rem;margin:0;line-height:1.6;}
+    .story-highlight p{color:var(--text);font-size:0.95rem;margin:0;line-height:1.7;}
     .story-highlight p em{color:var(--accent);font-style:italic;}
 
     /* VALUES SECTION */
@@ -138,9 +138,26 @@
     .mission-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
     .mission-card p{color:var(--muted);font-size:0.88rem;line-height:1.65;}
 
+    .bullets{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;}
+    .bullets li{display:flex;align-items:flex-start;gap:9px;font-size:0.88rem;color:var(--muted);line-height:1.65;}
+    .bullets li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;font-size:0.82rem;}
+    /* TRUST SECTION */
+    .trust-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;}
+    .trust-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
+    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.5;transition:opacity 0.3s;}
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+    .testimonial-card:hover::before{opacity:1;}
+    .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
+    .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
+    .testimonial-author{display:flex;align-items:center;gap:10px;}
+    .author-avatar-initials{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.75rem;color:#000;flex-shrink:0;}
+    .author-name{font-family:var(--font-head);font-weight:700;font-size:0.88rem;}
+    .author-role{color:var(--muted);font-size:0.76rem;margin-top:2px;}
     /* CTA BAND */
     .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;}
-    .cta-band h2{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:800;margin-bottom:16px;letter-spacing:-0.5px;}
+    .cta-band h2{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.2rem);font-weight:600;margin-bottom:24px;letter-spacing:-0.8px;}
     .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.75;}
     .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
@@ -198,6 +215,7 @@
       .values-grid{grid-template-columns:1fr 1fr;}
       .founder-grid{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr 1fr;}
+      .testi-grid{grid-template-columns:1fr;}
     }
     @media(max-width:600px){
       .values-grid{grid-template-columns:1fr;}
@@ -205,6 +223,11 @@
       section{padding:60px 20px;}
       .btn-row{flex-direction:column;align-items:center;}
       .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .cta-band{padding:64px 20px;}
+      .cta-band h2{font-size:clamp(1.4rem,6.5vw,2.1rem);}
+      .testi-grid{grid-template-columns:1fr;}
+      .testimonial-card{padding:20px;}
+      .section-sub{margin-bottom:40px!important;}
     }
   </style>
 </head>
@@ -259,13 +282,10 @@
       <div class="story-content reveal reveal-delay-1">
         <h6>The Gap We Set Out to Close</h6>
         <h2>From Fortune 500 to Future-Focused AI for SMEs</h2>
-        <p>After <span style="color:var(--accent)">20+ years</span> of building and leading technology initiatives inside <span style="color:var(--accent)">Fortune 500</span> companies, our founder saw a clear gap: the world's most powerful tools, especially in AI, were only being built for the biggest players. Small and midsize businesses were being left behind, without access to the kind of innovation that could truly transform their operations.</p>
-        <p>That is why <strong>Tech Velocity</strong> was created.</p>
-        <p>We believe AI is not just for tech giants. It is for everyone. Especially the businesses that power our communities: healthcare providers, law firms, insurance brokerages, manufacturers, and beyond.</p>
-        <p>Tech Velocity exists to give SMEs a competitive edge through <span style="color:var(--accent)">custom-built</span> AI models designed around your unique workflows, data, and goals. We do not do one-size-fits-all. We design intelligent systems that fit you.</p>
-        <p>Backed by a handpicked team of engineers, data scientists, and business strategists, we bring <span style="color:var(--accent)">enterprise-grade</span> AI capabilities to the companies that need them most. Quickly, affordably, and without the red tape.</p>
-        <div class="story-highlight">
-          <p>Our motto says it all: <em><strong>"<span style="color:var(--accent)">Building Your AI Future, Today</span>."</strong></em><br><br>Let us create something that changes the way you do business, for good.</p>
+        <p>After 20+ years inside Fortune 500 companies, our founder saw a clear gap — the most powerful AI tools were only being built for the biggest players.</p>
+        <ul class="bullets"><li>SMEs were being left behind with no access to enterprise-grade AI</li><li>Off-the-shelf tools ignored unique workflows and compliance needs</li><li>Smaller businesses needed the real thing — not a watered-down version</li><li>Tech Velocity was built to close that gap, fast and affordably</li></ul>
+        <div class="story-highlight" style="margin-top:28px;">
+          <p>Our motto: <em><strong>"<span style="color:var(--accent)">Building Your AI Future, Today.</span>"</strong></em></p>
         </div>
       </div>
     </div>
@@ -294,17 +314,20 @@
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Mission</h3>
-          <p>Make serious AI accessible to every ambitious small business. Not a watered-down version. The real thing. Custom models that deliver the same quality as <span style="color:var(--accent)">Fortune 500</span> AI programs, at a fraction of the cost and in a fraction of the time.</p>
+          <p>Bring enterprise-grade AI to every ambitious small business — fast, affordable, and built for real impact.</p>
+          <ul class="bullets"><li>Custom models, not generic tools</li><li>Fortune 500 quality at SME pricing</li><li>Delivered in weeks, not months</li></ul>
         </div>
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Vision</h3>
-          <p>A world where size does not determine who gets access to great AI. A 20-person law firm competing with the operational efficiency of a 200-person firm, because their AI is just as good. That world exists. We are building it.</p>
+          <p>A world where business size no longer determines who gets access to great AI.</p>
+          <ul class="bullets"><li>Small firms competing at enterprise efficiency</li><li>AI that levels the operational playing field</li><li>Smarter decisions at every team size</li></ul>
         </div>
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Promise</h3>
-          <p>We do not hand you a tool and disappear. We stay with you through discovery, build, launch, and growth. Your ROI is our scorecard. We take it seriously on every single engagement, with every single client.</p>
+          <p>We stay with you from discovery through launch and beyond — your ROI is our scorecard.</p>
+          <ul class="bullets"><li>Hands-on through discovery, build, and deploy</li><li>Training and support post-launch</li><li>We do not disappear after delivery</li></ul>
         </div>
       </div>
     </div>
@@ -321,25 +344,64 @@
       <div class="value-card reveal">
         <div class="value-body">
           <h3>AI for Everyone Who Earns It</h3>
-          <p>Serious AI should not be exclusive to large companies. We build it for the businesses that need it most. Size and budget do not determine who deserves great technology.</p>
+          <p>Size and budget do not determine who deserves great technology.</p>
+          <ul class="bullets"><li>Built for the businesses that need it most</li><li>Enterprise quality, SME pricing</li><li>No gatekeeping, no compromises</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-1">
         <div class="value-body">
           <h3>Built Around Your Business</h3>
-          <p>Every model is designed from a deep understanding of how your business actually works. No generic tools. No off-the-shelf shortcuts. Built around you, not around a template.</p>
+          <p>Every model starts with a deep understanding of how your business actually works.</p>
+          <ul class="bullets"><li>Trained on your data, not generic datasets</li><li>Built around your workflows and compliance rules</li><li>No templates, no shortcuts</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-2">
         <div class="value-body">
           <h3>Transparency in Everything</h3>
-          <p>We build trust through clear communication, ethical practices, and full explanations. No black boxes. No hidden processes. No surprises on the invoice or in the output.</p>
+          <p>No black boxes, no hidden processes — just clear communication at every step.</p>
+          <ul class="bullets"><li>You understand exactly what we build and why</li><li>Ethical AI practices, documented and explained</li><li>No surprises on the invoice or in the output</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-3">
         <div class="value-body">
           <h3>Speed Without Shortcuts</h3>
-          <p>We move fast. But we never cut corners. Clean, focused AI systems that deliver results quickly and grow stronger as your business evolves. Fast and right, every time.</p>
+          <p>We move fast — but never cut corners. Results quickly, built to last.</p>
+          <ul class="bullets"><li>Live AI in weeks, not quarters</li><li>Clean, focused systems — no unnecessary complexity</li><li>Gets stronger as your business evolves</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="trust-section">
+  <div class="container">
+    <span class="section-tag">What Clients Say</span>
+    <h2 class="section-title">The Trust We've Earned<br>Speaks Louder Than Claims</h2>
+    <p class="section-sub">Words from the people we built for.</p>
+    <div class="testi-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes — I understood exactly what the model was doing and why. That trust is rare."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">KW</div>
+          <div><div class="author-name">Karen Williams</div><div class="author-role">CEO · Regional Staffing Agency, Dallas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong — our model understands our engineering database better than most of our staff."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">DM</div>
+          <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"They don't just build and disappear. They stayed with us through training, launch, and the first 90 days. I've never had a technology partner care this much about whether it actually worked."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">JB</div>
+          <div><div class="author-name">Jessica Barnes</div><div class="author-role">Operations Director · Healthcare Group, Orlando</div></div>
         </div>
       </div>
     </div>
@@ -351,7 +413,7 @@
   <h2>Your Competitors Are<br>Already Investing in AI.</h2>
   <p>The businesses pulling ahead are not always bigger. They are just moving faster. Find out exactly where AI gives your business an edge, for free.</p>
   <div class="btn-row">
-    <a href="contact" class="btn-primary">Book Your Free AI Audit</a>
+    <a href="contact" class="btn-primary">Book an AI Strategy Call</a>
     <a href="solutions" class="btn-secondary">Explore Solutions →</a>
   </div>
 </div>
@@ -392,7 +454,7 @@
       <ul>
         <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
         <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
-        <li><a href="contact">Book a Free Audit</a></li>
+        <li><a href="contact">Book an AI Strategy Call</a></li>
         <li><a href="privacy-policy">Privacy Policy</a></li>
         <li><a href="terms-and-conditions">Terms of Service</a></li>
       </ul>

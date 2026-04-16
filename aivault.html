@@ -53,14 +53,14 @@
     /* SHARED */
     .container{max-width:1040px;margin:0 auto;}
     section{padding:110px 24px;position:relative;z-index:1;}
-    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:14px;border-left:3px solid var(--accent);padding-left:10px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:800;letter-spacing:-0.5px;line-height:1.15;margin-bottom:20px;text-align:center;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:20px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.4rem);font-weight:600;letter-spacing:-0.8px;line-height:1.12;margin-bottom:28px;text-align:center;}
     .btn-primary{background:var(--accent);color:#000;padding:14px 28px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
     .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
     .btn-primary:hover::after{opacity:1;}
     .btn-secondary{background:transparent;color:var(--text);padding:14px 28px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:0.95rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
-    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .btn-secondary:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.06);transform:translateY(-1px);}
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
     @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
@@ -81,7 +81,7 @@
     .hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1;}
     .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:6px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:20px;animation:fadeInDown 0.6s ease both;}
     .hero-badge::before{content:'●';font-size:0.55rem;animation:pulse 2s infinite;}
-    .hero-left h1{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-0.5px;margin-bottom:20px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero-left h1{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-0.8px;margin-bottom:26px;animation:fadeInUp 0.7s 0.1s ease both;}
     .hero-left h1 em{font-style:normal;color:var(--accent);}
     .hero-left p{font-size:0.97rem;color:var(--muted);line-height:1.8;margin-bottom:32px;animation:fadeInUp 0.7s 0.2s ease both;}
     .hero-metrics{display:flex;gap:32px;flex-wrap:wrap;padding-top:28px;border-top:1px solid var(--border);animation:fadeInUp 0.7s 0.3s ease both;}
@@ -89,14 +89,14 @@
     .hero-metric-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
     .hero-right{position:relative;animation:fadeInUp 0.7s 0.2s ease both;}
     .hero-img-wrap{border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 32px 80px rgba(0,0,0,0.5);}
-    .hero-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;}
+    .hero-img-wrap img{width:100%;height:280px;object-fit:cover;display:block;filter:brightness(0.7) saturate(0.85);}
     .hero-tag-strip{position:absolute;bottom:-16px;left:16px;right:16px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:8px;flex-wrap:wrap;}
     .htag{font-size:0.72rem;font-weight:600;color:var(--muted);background:rgba(255,255,255,0.04);border:1px solid var(--border);padding:4px 10px;border-radius:100px;}
 
     /* OVERVIEW */
     .overview-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
     .overview-inner{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;}
-    .overview-text h2{font-family:var(--font-head);font-size:clamp(1.4rem,2.4vw,2rem);font-weight:800;line-height:1.2;margin-bottom:20px;letter-spacing:-0.3px;}
+    .overview-text h2{font-family:var(--font-head);font-size:clamp(1.6rem,2.6vw,2.4rem);font-weight:600;line-height:1.18;margin-bottom:26px;letter-spacing:-0.6px;}
     .overview-text p{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:16px;}
     .overview-details{display:flex;flex-direction:column;gap:16px;}
     .detail-row{display:flex;flex-direction:column;gap:4px;padding:18px;background:var(--card);border:1px solid var(--border);border-radius:12px;}
@@ -113,6 +113,9 @@
     .platform-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:10px;}
     .platform-card p{font-size:0.85rem;color:var(--muted);line-height:1.7;}
 
+    .bullets{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;}
+    .bullets li{display:flex;align-items:flex-start;gap:9px;font-size:0.88rem;color:var(--muted);line-height:1.65;}
+    .bullets li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;font-size:0.82rem;}
     /* PROBLEM / SOLUTION */
     .ps-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
     .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
@@ -161,7 +164,7 @@
     .hover-feature:hover .hover-feature-title{transform:translateX(4px);}
     .hover-feature p{font-size:0.85rem;color:var(--muted);line-height:1.7;position:relative;z-index:1;}
     .hover-feature ul.hf-list{list-style:none;margin-top:12px;display:flex;flex-direction:column;gap:7px;position:relative;z-index:1;}
-    .hover-feature ul.hf-list li{font-size:0.82rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.6;}
+    .hover-feature ul.hf-list li{font-size:0.82rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.7;}
     .hover-feature ul.hf-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.72rem;}
 
     /* ARCHITECTURE PIPELINE */
@@ -173,7 +176,7 @@
     .arch-step-num{width:44px;height:44px;border-radius:50%;background:rgba(0,200,150,0.1);border:2px solid rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:0.88rem;font-weight:800;color:var(--accent);margin:0 auto 16px;}
     .arch-step-icon{display:none;}
     .arch-step h3{font-family:var(--font-head);font-size:0.9rem;font-weight:700;margin-bottom:8px;color:var(--accent);}
-    .arch-step p{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+    .arch-step p{font-size:0.78rem;color:var(--muted);line-height:1.7;}
 
     /* PRIVACY GATE DUAL STREAM */
     .privacy-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -189,7 +192,7 @@
     .stream-card.deid .stream-label{color:var(--accent);}
     .stream-card h3{font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:16px;}
     .stream-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-    .stream-card ul li{font-size:0.87rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.6;}
+    .stream-card ul li{font-size:0.87rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.7;}
     .stream-card.identity ul li::before{content:'●';position:absolute;left:0;color:rgba(147,51,234,0.7);font-size:0.55rem;top:6px;}
     .stream-card.deid ul li::before{content:'●';position:absolute;left:0;color:var(--accent);font-size:0.55rem;top:6px;}
 
@@ -209,13 +212,21 @@
     .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;}
 
     /* RESULTS */
-    .results-section{background:var(--bg);}
+    .results-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;}
+    .results-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
     .results-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-    .result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 24px;text-align:center;transition:all 0.3s;}
-    .result-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);}
-    .result-val{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--accent);display:block;line-height:1;margin-bottom:10px;}
+    .result-card{background:var(--card);border:1px solid rgba(0,200,150,0.15);border-radius:16px;padding:32px 24px;text-align:center;transition:all 0.3s;}
+    .result-card:hover{border-color:rgba(0,200,150,0.35);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.2);}
+    .result-val{font-family:var(--font-head);font-size:2.6rem;font-weight:800;color:var(--accent);display:block;line-height:1;margin-bottom:10px;letter-spacing:-2px;}
     .result-label{font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:8px;}
-    .result-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+    .result-desc{font-size:0.78rem;color:var(--muted);line-height:1.7;}
+    .featured-quote{background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.2);border-left:3px solid var(--accent);border-radius:0 16px 16px 0;padding:32px 40px;margin-top:48px;max-width:780px;margin-left:auto;margin-right:auto;}
+    .featured-quote blockquote{font-size:1.05rem;line-height:1.75;color:var(--text);font-style:italic;margin-bottom:20px;}
+    .featured-quote blockquote::before{content:'\201C';font-size:4rem;color:var(--accent);line-height:0;vertical-align:-1.2rem;margin-right:2px;opacity:0.4;font-style:normal;}
+    .fq-author{display:flex;align-items:center;gap:12px;}
+    .fq-initials{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.78rem;color:#000;flex-shrink:0;}
+    .fq-name{font-family:var(--font-head);font-weight:700;font-size:0.9rem;}
+    .fq-role{color:var(--muted);font-size:0.78rem;margin-top:2px;}
 
     /* HIPAA COMPLIANCE */
     .hipaa-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -225,19 +236,19 @@
     .hipaa-item:hover{border-color:rgba(0,200,150,0.2);}
     .hipaa-check{width:28px;height:28px;border-radius:50%;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75rem;color:var(--accent);font-weight:700;}
     .hipaa-item-text h4{font-family:var(--font-head);font-size:0.88rem;font-weight:700;margin-bottom:4px;}
-    .hipaa-item-text p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .hipaa-item-text p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
     .hipaa-badges{display:flex;flex-direction:column;gap:14px;}
     .hipaa-badge-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;transition:all 0.3s;}
     .hipaa-badge-card:hover{border-color:rgba(0,200,150,0.25);}
     .hipaa-badge-card .badge-icon{display:none;}
     .hipaa-badge-card h4{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:6px;}
-    .hipaa-badge-card p{font-size:0.8rem;color:var(--muted);line-height:1.6;}
+    .hipaa-badge-card p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
 
     /* GALLERY */
     .gallery-section{display:none;background:var(--bg);border-top:1px solid var(--border);}
     .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
     .gallery-item{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);cursor:pointer;aspect-ratio:16/10;background:var(--bg3);}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;}
+    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;filter:brightness(0.7) saturate(0.85);}
     .gallery-item:hover img{transform:scale(1.06);filter:brightness(0.65);}
     .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,15,0.92) 0%,transparent 55%);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.3s;}
     .gallery-item:hover .gallery-overlay{opacity:1;}
@@ -257,7 +268,7 @@
     /* CTA BAND */
     .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;}
     .cta-band::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(0,200,150,0.07) 0%,transparent 70%);pointer-events:none;}
-    .cta-band h2{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:800;margin-bottom:16px;letter-spacing:-0.5px;position:relative;z-index:1;}
+    .cta-band h2{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.2rem);font-weight:600;margin-bottom:24px;letter-spacing:-0.8px;position:relative;z-index:1;}
     .cta-band p{color:var(--muted);font-size:1rem;max-width:520px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1;}
     .cta-buttons{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1;}
 
@@ -331,6 +342,14 @@
       .hero-metrics{gap:20px;}
       .btn-row{flex-direction:column;align-items:center;}
       .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .cta-band{padding:64px 20px;}
+      .cta-band h2{font-size:clamp(1.4rem,6.5vw,2.1rem);}
+      .cta-buttons{flex-direction:column;align-items:stretch;gap:10px;}
+      .cta-buttons .btn-primary,.cta-buttons .btn-secondary{width:100%;justify-content:center;}
+      .featured-quote{padding:22px 20px;margin-top:28px;}
+      .featured-quote blockquote{font-size:0.93rem;}
+      .section-sub{margin-bottom:40px!important;}
+      .testimonial-card{padding:20px;}
     }
   </style>
 </head>
@@ -399,8 +418,8 @@
       <div class="overview-text reveal">
         <span class="section-tag">Project Overview</span>
         <h2>The Clinical AI Platform That Keeps PHI Where It Belongs, With You.</h2>
-        <p>Healthcare AI has a fundamental tension: the most valuable insights come from patient data, but that data carries the highest compliance burden. Most platforms force a choice between capability and safety. AIVault eliminates that trade-off.</p>
-        <p>Built on Azure's healthcare cloud infrastructure with a FHIR-first data model, AIVault routes all clinical data through a Privacy Gate before it ever reaches an AI engine. Identity and protected health information stay in a secured identity stream. Only de-identified, tokenized clinical content enters the AI processing zone, by architectural design, not policy alone.</p>
+        <p>Most healthcare AI platforms force a choice between capability and compliance. AIVault eliminates that trade-off — by architectural design, not policy alone.</p>
+        <ul class="bullets"><li>Azure-native FHIR-first infrastructure — built for healthcare from the ground up</li><li>Privacy Gate de-identifies all data before it reaches any AI engine</li><li>PHI stays in a secured identity stream — the AI never sees raw patient data</li><li>HIPAA alignment baked into the architecture, not bolted on after</li></ul>
       </div>
       <div class="overview-details reveal">
         <div class="detail-row"><label>Industry</label><span>Healthcare &amp; Clinical Services</span></div>
@@ -448,12 +467,14 @@
       <div class="ps-card problem">
         <div class="ps-label">The Problem</div>
         <h3>Healthcare AI Demands Access to the Most Protected Data in Existence</h3>
-        <p>Clinical AI models need patient data to be useful, but HIPAA, state regulations, and patient trust demand that data stay protected. Most healthcare AI platforms store or transmit PHI to third-party models, creating massive compliance exposure. Security teams say no. Clinical teams lose the tools they need.</p>
+        <p>Most platforms transmit PHI to third-party models — creating compliance exposure that security teams cannot accept.</p>
+        <ul class="bullets"><li>HIPAA, state regulations, and patient trust demand data stay protected</li><li>Existing tools force security teams to say no to clinical AI</li><li>Clinical teams lose the intelligence they need to deliver better care</li></ul>
       </div>
       <div class="ps-card solution">
         <div class="ps-label">Our Solution</div>
         <h3>AIVault Separates Identity From Intelligence, By Design</h3>
-        <p>The AHDS Privacy Gate splits every data stream at the source. Protected identity data stays in an encrypted, access-controlled identity store. De-identified clinical content flows to Azure AI Foundry for processing. The AI never sees who the patient is. The clinician sees the full picture. Compliance is architectural, not procedural.</p>
+        <p>The Privacy Gate splits every stream at the source — the AI processes clinical content, never patient identity.</p>
+        <ul class="bullets"><li>PHI stays in an encrypted, access-controlled identity store</li><li>De-identified content flows to Azure AI Foundry for processing</li><li>Clinician sees full picture — AI never sees who the patient is</li></ul>
       </div>
     </div>
   </div>
@@ -721,9 +742,9 @@
       </div>
       <div style="text-align:center;">
         <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px;color:var(--text);">Live Demo Available</div>
-        <div style="font-size:0.88rem;color:var(--muted);max-width:380px;line-height:1.6;">Book a personalized walkthrough of the AIVault platform. See the Privacy Gate, AI pipeline, and clinical dashboards live with your use case.</div>
+        <div style="font-size:0.88rem;color:var(--muted);max-width:380px;line-height:1.7;">Book a personalized walkthrough of the AIVault platform. See the Privacy Gate, AI pipeline, and clinical dashboards live with your use case.</div>
       </div>
-      <a href="contact" class="btn-primary" onclick="event.stopPropagation()">Book a Live Demo</a>
+      <a href="contact" class="btn-primary" onclick="event.stopPropagation()">Book an AI Strategy Call</a>
     </div>
     <div style="text-align:center;margin-top:32px;">
       <p style="color:var(--muted);font-size:0.88rem;">Want to see the full platform architecture tailored to your clinical workflows?</p>
@@ -756,6 +777,13 @@
         <span class="result-val">100%</span>
         <div class="result-label">FHIR R4 Compliant</div>
         <p class="result-desc">All inputs, outputs, and stored data conform to FHIR R4 resource specifications.</p>
+      </div>
+    </div>
+    <div class="featured-quote reveal">
+      <blockquote>We process thousands of clinical records each week. AIVault gives us zero-PHI processing we can actually prove in an audit — not just claim. Our compliance team signed off in two weeks. That never happens.</blockquote>
+      <div class="fq-author">
+        <div class="fq-initials">LP</div>
+        <div><div class="fq-name">Dr. Linda Park</div><div class="fq-role">Medical Director · Healthcare Clinic, Miami</div></div>
       </div>
     </div>
   </div>
@@ -842,8 +870,8 @@
         <div class="gallery-overlay"><h3>Risk Stratification</h3><p>AI-generated clinical risk scores and flags</p></div>
         <div class="gallery-expand">⤢</div>
       </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="FHIR Analytics">
+      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80">
+        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="FHIR Analytics">
         <div class="gallery-overlay"><h3>FHIR Analytics</h3><p>Population-level clinical trend reporting</p></div>
         <div class="gallery-expand">⤢</div>
       </div>
@@ -884,7 +912,7 @@
     <h2>Clinical AI That Your Legal,<br>Security, and Clinical Teams All Approve.</h2>
     <p>Book a free discovery session. We map your current clinical data flows, identify where PHI risk exists today, and show you exactly how AIVault's privacy-first architecture would work in your environment.</p>
     <div class="cta-buttons">
-      <a href="contact" class="btn-primary">Book Your Free Discovery Session</a>
+      <a href="contact" class="btn-primary">Book an AI Strategy Call</a>
       <a href="portfolio" class="btn-secondary">Back to Projects</a>
     </div>
   </div>
@@ -926,7 +954,7 @@
       <ul>
         <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
         <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
-        <li><a href="contact">Book a Free Audit</a></li>
+        <li><a href="contact">Book an AI Strategy Call</a></li>
         <li><a href="privacy-policy">Privacy Policy</a></li>
         <li><a href="terms-and-conditions">Terms of Service</a></li>
       </ul>
