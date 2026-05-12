@@ -13,7 +13,7 @@
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--red:rgba(239,68,68,0.9);--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--red:rgba(239,68,68,0.9);--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
     html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--red:rgba(210,45,45,0.9);}
     html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
     html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
@@ -279,13 +279,15 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}.logo-img{height:44px;}
+      .hamburger{display:flex!important;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;}.hamburger span{width:24px;height:3px!important;border-radius:2px;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.hover-features-grid,.process-grid,.gcp-grid,.benefits-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
       .hover-feature:nth-last-child(-n+3){border-bottom:1px solid var(--border);}
       .hover-feature:last-child{border-bottom:none;}
       .tab-panel.active{grid-template-columns:1fr;}
       .tabs-content-wrap{padding:32px 28px;}
+      nav.scrolled{padding:10px 24px;}
+      .nav-hidden{transform:none!important;}
     }
     @media(max-width:640px){
       section{padding:60px 20px;}
@@ -316,7 +318,7 @@
   <ul class="nav-links">
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
-    <li class="nav-dropdown"><a href="portfolio" class="active">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li></ul></li>
+    <li class="nav-dropdown"><a href="portfolio" class="active">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Call Center</a></li></ul></li>
     <li><a href="index#testimonials">Results</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
@@ -388,7 +390,7 @@
 
 <section class="ps-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">The Challenge</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">The Challenge</span>
     <h2 class="section-title">The Problem &amp; Our Solution</h2>
     <div class="ps-grid reveal">
       <div class="ps-card problem">
@@ -410,7 +412,7 @@
 <!-- CORE CAPABILITIES - hover-effects grid -->
 <section class="capabilities-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">What It Does</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">What It Does</span>
     <h2 class="section-title">Core Capabilities</h2>
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
@@ -461,7 +463,7 @@
 
 <section class="process-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">End-to-End Workflow</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">End-to-End Workflow</span>
     <h2 class="section-title">How It Works</h2>
     <div class="process-grid reveal">
       <div class="process-step"><div class="step-num">1</div><h3>Automated Login</h3><p>AI agents securely authenticate to <span style="color:var(--accent)">150+ carrier</span> portals using encrypted credentials, handling MFA and security challenges automatically.</p><div class="step-connector"></div></div>
@@ -477,7 +479,7 @@
 <!-- ARCHITECTURE - Feature108 tabs pattern -->
 <section class="arch-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Technical Architecture</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Technical Architecture</span>
     <h2 class="section-title">Enterprise Architecture on Google Cloud Platform</h2>
     <div class="tabs-list">
       <button class="tab-btn active" onclick="switchTab(this,'recon-automation')">
@@ -533,7 +535,7 @@
 
 <section class="video-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Demo</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Demo</span>
     <h2 class="section-title">See the Solution in Action</h2>
     <p class="section-sub">Watch how our AI automation retrieves and reconciles commission statements across multiple carrier portals. end to end, without human intervention.</p>
     <div class="video-wrap reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:60px 32px;cursor:pointer;" onclick="window.location.href='contact'">
@@ -552,7 +554,7 @@
 
 <section class="comparison-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Impact</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Impact</span>
     <h2 class="section-title">Before &amp; After Transformation</h2>
     <div class="table-wrap reveal">
       <table>
@@ -574,7 +576,7 @@
 
 <section class="gallery-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Platform Screenshots</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Platform Screenshots</span>
     <h2 class="section-title">Platform Screenshots</h2>
     <div class="gallery-grid">
       <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80">
@@ -613,7 +615,7 @@
 
 <section class="results-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Performance Targets</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Performance Targets</span>
     <h2 class="section-title">Success Metrics</h2>
     <div class="results-grid">
       <div class="result-card reveal"><span class="result-val">6</span><div class="result-label">Hours</div><p class="result-desc">Complete statement retrieval for all <span style="color:var(--accent)">150+ carrier</span>s within the first 6 hours of each month</p></div>
@@ -633,7 +635,7 @@
 
 <section class="benefits-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Business Value</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Business Value</span>
     <h2 class="section-title">Key Business Benefits</h2>
     <div class="benefits-grid">
       <div class="benefit-card reveal"><h3>Operational Excellence</h3><p>Eliminate manual data entry and reduce processing time from days to hours with automated workflows that operate continuously without breaks or errors.</p></div>
@@ -648,7 +650,7 @@
 
 <section class="gcp-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Infrastructure Choice</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Infrastructure Choice</span>
     <h2 class="section-title">Why Google Cloud Platform</h2>
     <div class="gcp-grid">
       <div class="gcp-card reveal"><div class="gcp-icon"></div><h3>Unified Platform</h3><p>Native integration between Vertex AI and GCP storage and compute layers ensures optimal performance and simple operations. no glue code required.</p></div>
@@ -660,7 +662,7 @@
 
 <section class="investment-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">ROI</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">ROI</span>
     <h2 class="section-title">Investment &amp; ROI</h2>
     <div class="investment-highlight reveal">
       <h3><span>92% Cost Reduction</span> - $12K/mo to $1K/mo</h3>
@@ -772,7 +774,7 @@
   // MOBILE MENU
   function toggleMenu() {
     const l = document.querySelector('.nav-links');
-    const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
+    const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:999;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
   }
 
   // TABS (Feature108 pattern)

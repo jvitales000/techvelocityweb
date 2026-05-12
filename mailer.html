@@ -13,7 +13,7 @@
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
     html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;}
     html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
     html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
@@ -268,7 +268,7 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}.logo-img{height:44px;}
+      .hamburger{display:flex!important;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;}.hamburger span{width:24px;height:3px!important;border-radius:2px;}.logo-img{height:44px;}
       .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
@@ -277,6 +277,8 @@
       .process-grid{grid-template-columns:1fr 1fr;}
       .results-grid{grid-template-columns:1fr 1fr;}
       .tabs-content-wrap{padding:32px 28px;}
+      nav.scrolled{padding:10px 24px;}
+      .nav-hidden{transform:none!important;}
     }
     @media(max-width:640px){
       section{padding:60px 20px;}
@@ -306,7 +308,7 @@
   <ul class="nav-links">
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
-    <li class="nav-dropdown"><a href="portfolio" class="active">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li></ul></li>
+    <li class="nav-dropdown"><a href="portfolio" class="active">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Call Center</a></li></ul></li>
     <li><a href="index#testimonials">Results</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
@@ -380,7 +382,7 @@
 <!-- PROBLEM / SOLUTION -->
 <section class="ps-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">The Challenge</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">The Challenge</span>
     <h2 class="section-title">The Problem &amp; Our Solution</h2>
     <div class="ps-grid reveal">
       <div class="ps-card problem">
@@ -402,7 +404,7 @@
 <!-- CORE CAPABILITIES - hover-effects grid -->
 <section class="features-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">What It Does</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">What It Does</span>
     <h2 class="section-title">Core Capabilities</h2>
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
@@ -433,7 +435,7 @@
 <!-- PROCESS FLOW -->
 <section class="process-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">End-to-End Workflow</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">End-to-End Workflow</span>
     <h2 class="section-title">How It Works</h2>
     <div class="process-grid reveal">
       <div class="process-step">
@@ -466,7 +468,7 @@
 <!-- GALLERY -->
 <section class="gallery-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Platform Interface</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Platform Interface</span>
     <h2 class="section-title">Platform Screenshots</h2>
     <p style="color:var(--muted);font-size:0.92rem;text-align:center;max-width:640px;margin:0 auto 40px;">A look at the email management dashboard. built for the team that actually uses it every day.</p>
     <div class="gallery-grid">
@@ -492,7 +494,7 @@
 <!-- TECHNICAL STACK - Feature108 tabs -->
 <section class="tech-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Architecture</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Architecture</span>
     <h2 class="section-title">Technical Architecture</h2>
     <div class="tabs-list">
       <button class="tab-btn active" onclick="switchTab(this,'mailer-ai')">
@@ -549,7 +551,7 @@
 <!-- VIDEO -->
 <section class="video-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Demo</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Demo</span>
     <h2 class="section-title">See the System in Action</h2>
     <p style="color:var(--muted);font-size:0.92rem;text-align:center;max-width:600px;margin:0 auto 40px;">Watch how our AI assistant delivers instant email triage, intelligent routing, and real-time analytics.</p>
     <div class="video-wrap reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:60px 32px;cursor:pointer;" onclick="window.location.href='contact'">
@@ -569,7 +571,7 @@
 <!-- RESULTS -->
 <section class="results-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Impact</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Impact</span>
     <h2 class="section-title">Measurable Business Impact</h2>
     <div class="results-grid">
       <div class="result-card reveal">
@@ -606,7 +608,7 @@
 <!-- BENEFITS -->
 <section class="benefits-section">
   <div class="container">
-    <span class="section-tag" style="display:block;text-align:center;">Business Value</span>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Business Value</span>
     <h2 class="section-title">Key Business Benefits</h2>
     <div class="benefits-grid">
       <div class="benefit-card reveal"><h3>Your Team Works on Real Work</h3><p>Inbox admin disappears. Staff spend their time on billable, high-value tasks instead.</p></div>
@@ -718,7 +720,7 @@
   // MOBILE MENU
   function toggleMenu() {
     const l = document.querySelector('.nav-links');
-    const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
+    const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:999;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
   }
 
   // TABS

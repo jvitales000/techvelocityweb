@@ -6,8 +6,8 @@
   <meta charset="UTF-8">
   <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AIVault — Privacy-First Clinical AI Platform - Tech Velocity</title>
-  <meta name="description" content="Azure-native, FHIR-first, HIPAA-aligned clinical AI platform. Zero PHI leaves your environment. Dual-interface clinical intelligence with full audit trail.">
+  <title>AI Call Center Automation - Tech Velocity Project</title>
+  <meta name="description" content="AI-powered call center that handles inbound and outbound calls automatically, routes intelligently, transcribes in real time, and resolves 85% of inquiries without a live agent.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
@@ -103,21 +103,12 @@
     .detail-row label{font-size:0.7rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);}
     .detail-row span{font-size:0.9rem;color:var(--text);font-weight:500;}
 
-    /* PLATFORM CARDS */
-    .platform-section{background:var(--bg);}
-    .platform-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .platform-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:all 0.3s;position:relative;overflow:hidden;}
-    .platform-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);}
-    .platform-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,0.2);}
-    .platform-icon{display:none;}
-    .platform-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:10px;}
-    .platform-card p{font-size:0.85rem;color:var(--muted);line-height:1.7;}
-
     .bullets{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;}
     .bullets li{display:flex;align-items:flex-start;gap:9px;font-size:0.88rem;color:var(--muted);line-height:1.65;}
     .bullets li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;font-size:0.82rem;}
+
     /* PROBLEM / SOLUTION */
-    .ps-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .ps-section{background:var(--bg);}
     .ps-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;}
     .ps-card{border-radius:16px;padding:36px;position:relative;overflow:hidden;}
     .ps-card.problem{background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);}
@@ -131,31 +122,15 @@
     .ps-card h3{font-family:var(--font-head);font-size:1.15rem;font-weight:800;margin-bottom:16px;}
     .ps-card p{font-size:0.9rem;color:var(--muted);line-height:1.8;}
 
-    /* IO FLOW */
-    .io-section{background:var(--bg);}
-    .io-flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;align-items:center;margin-top:40px;}
-    .io-col{display:flex;flex-direction:column;gap:12px;}
-    .io-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px 20px;display:flex;align-items:center;gap:12px;transition:border-color 0.2s;}
-    .io-item:hover{border-color:rgba(0,200,150,0.25);}
-    .io-item-icon{display:none;}
-    .io-item-text{}
-    .io-item-title{font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:3px;}
-    .io-item-sub{font-size:0.76rem;color:var(--muted);}
-    .io-arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 20px;gap:6px;}
-    .io-arrow svg{color:var(--accent);opacity:0.7;}
-    .io-gate{background:rgba(0,200,150,0.06);border:1px solid rgba(0,200,150,0.25);border-radius:16px;padding:28px 24px;text-align:center;}
-    .io-gate-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:6px;}
-    .io-gate-title{font-family:var(--font-head);font-size:0.92rem;font-weight:800;margin-bottom:8px;}
-    .io-gate-sub{font-size:0.76rem;color:var(--muted);line-height:1.5;}
-
-    /* FEATURES - hover-effects grid */
+    /* FEATURES */
     .features-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
     .hover-features-grid{display:grid;grid-template-columns:repeat(3,1fr);position:relative;z-index:1;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
     .hover-feature{display:flex;flex-direction:column;padding:36px 40px;position:relative;border-right:1px solid var(--border);border-bottom:1px solid var(--border);cursor:default;transition:all 0.2s;background:var(--card);}
     .hover-feature:nth-child(3n){border-right:none;}
     .hover-feature:nth-last-child(-n+3){border-bottom:none;}
     .hover-feature-bg-top{opacity:0;transition:opacity 0.25s;position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(0,200,150,0.06),transparent);pointer-events:none;}
-    .hover-feature:hover .hover-feature-bg-top{opacity:1;}
+    .hover-feature-bg-bottom{opacity:0;transition:opacity 0.25s;position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(to top,rgba(0,200,150,0.06),transparent);pointer-events:none;}
+    .hover-feature:hover .hover-feature-bg-top,.hover-feature:hover .hover-feature-bg-bottom{opacity:1;}
     .hover-feature-icon{display:none;}
     .hover-feature-title-row{position:relative;z-index:1;margin-bottom:10px;display:flex;align-items:center;}
     .hover-feature-bar{position:absolute;left:-40px;top:50%;transform:translateY(-50%);height:24px;width:3px;border-radius:0 3px 3px 0;background:rgba(255,255,255,0.08);transition:all 0.2s;}
@@ -167,49 +142,40 @@
     .hover-feature ul.hf-list li{font-size:0.82rem;color:var(--muted);padding-left:14px;position:relative;line-height:1.7;}
     .hover-feature ul.hf-list li::before{content:'→';position:absolute;left:0;color:var(--accent);font-size:0.72rem;}
 
-    /* ARCHITECTURE PIPELINE */
-    .arch-section{background:var(--bg);}
-    .arch-pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:40px;}
-    .arch-pipeline::before{content:'';position:absolute;top:40px;left:10%;right:10%;height:2px;background:linear-gradient(90deg,transparent,rgba(0,200,150,0.3),rgba(0,200,150,0.5),rgba(0,200,150,0.3),transparent);z-index:0;}
-    .arch-step{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 20px;text-align:center;position:relative;z-index:1;margin:0 8px;transition:all 0.3s;}
-    .arch-step:hover{border-color:rgba(0,200,150,0.35);transform:translateY(-4px);}
-    .arch-step-num{width:44px;height:44px;border-radius:50%;background:rgba(0,200,150,0.1);border:2px solid rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:0.88rem;font-weight:800;color:var(--accent);margin:0 auto 16px;}
-    .arch-step-icon{display:none;}
-    .arch-step h3{font-family:var(--font-head);font-size:0.9rem;font-weight:700;margin-bottom:8px;color:var(--accent);}
-    .arch-step p{font-size:0.78rem;color:var(--muted);line-height:1.7;}
-
-    /* PRIVACY GATE DUAL STREAM */
-    .privacy-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-    .privacy-dual{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:40px;}
-    .stream-card{border-radius:16px;padding:36px;position:relative;overflow:hidden;}
-    .stream-card.identity{background:rgba(147,51,234,0.06);border:1px solid rgba(147,51,234,0.2);}
-    .stream-card.deid{background:rgba(0,200,150,0.06);border:1px solid rgba(0,200,150,0.2);}
-    .stream-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;}
-    .stream-card.identity::before{background:linear-gradient(90deg,rgba(147,51,234,0.8),transparent);}
-    .stream-card.deid::before{background:linear-gradient(90deg,rgba(0,200,150,0.8),transparent);}
-    .stream-label{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;}
-    .stream-card.identity .stream-label{color:rgba(147,51,234,0.9);}
-    .stream-card.deid .stream-label{color:var(--accent);}
-    .stream-card h3{font-family:var(--font-head);font-size:1.1rem;font-weight:800;margin-bottom:16px;}
-    .stream-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;}
-    .stream-card ul li{font-size:0.87rem;color:var(--muted);padding-left:18px;position:relative;line-height:1.7;}
-    .stream-card.identity ul li::before{content:'●';position:absolute;left:0;color:rgba(147,51,234,0.7);font-size:0.55rem;top:6px;}
-    .stream-card.deid ul li::before{content:'●';position:absolute;left:0;color:var(--accent);font-size:0.55rem;top:6px;}
-
-    /* ZERO PHI ZONE */
-    .phi-section{background:var(--bg);}
-    .phi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px;}
-    .phi-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px 26px;position:relative;overflow:hidden;transition:all 0.3s;}
-    .phi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),transparent);}
-    .phi-card:hover{border-color:rgba(0,200,150,0.25);transform:translateY(-4px);}
-    .phi-icon{display:none;}
-    .phi-card h3{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:10px;}
-    .phi-card p{font-size:0.84rem;color:var(--muted);line-height:1.7;}
-
     /* VIDEO */
-    .video-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .video-section{background:var(--bg);}
     .video-wrap{max-width:860px;margin:0 auto;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 24px 60px rgba(0,0,0,0.5);aspect-ratio:16/9;background:var(--bg3);}
     .video-wrap video{width:100%;height:100%;display:block;object-fit:cover;}
+
+    /* PROCESS */
+    .process-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+    .process-step{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:all 0.3s;position:relative;}
+    .process-step:hover{border-color:rgba(0,200,150,0.2);transform:translateY(-4px);}
+    .step-num{width:44px;height:44px;border-radius:50%;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-size:1rem;font-weight:800;color:var(--accent);margin-bottom:18px;}
+    .process-step h3{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:10px;}
+    .process-step p{font-size:0.85rem;color:var(--muted);line-height:1.7;}
+    .step-connector{position:absolute;top:38px;right:-12px;width:24px;height:2px;background:linear-gradient(90deg,rgba(0,200,150,0.4),transparent);z-index:2;}
+
+    /* TECH TABS */
+    .tech-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+    .tabs-list{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:32px;}
+    .tab-btn{display:flex;align-items:center;gap:8px;padding:11px 24px;border-radius:12px;background:transparent;border:1px solid var(--border);color:var(--muted);font-family:var(--font-head);font-size:0.85rem;font-weight:600;cursor:pointer;transition:all 0.2s;}
+    .tab-btn svg{width:16px;height:16px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+    .tab-btn:hover{border-color:rgba(0,200,150,0.3);color:var(--text);}
+    .tab-btn.active{background:rgba(0,200,150,0.1);border-color:rgba(0,200,150,0.4);color:var(--text);}
+    .tabs-content-wrap{border-radius:20px;background:rgba(0,200,150,0.04);border:1px solid rgba(0,200,150,0.12);padding:48px 52px;}
+    .tab-panel{display:none;grid-template-columns:1fr 1fr;gap:56px;align-items:center;}
+    .tab-panel.active{display:grid;}
+    .tab-badge{display:inline-block;background:var(--card);border:1px solid var(--border);color:var(--accent);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 14px;border-radius:100px;margin-bottom:18px;}
+    .tab-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.6vw,2.5rem);font-weight:800;line-height:1.12;letter-spacing:-0.6px;margin-bottom:20px;}
+    .tab-desc{font-size:0.92rem;color:var(--muted);line-height:1.8;margin-bottom:28px;}
+    .tab-cta{background:var(--accent);color:#000;padding:12px 26px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.9rem;text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:all 0.25s;border:none;cursor:pointer;position:relative;overflow:hidden;}
+    .tab-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
+    .tab-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
+    .tab-cta:hover::after{opacity:1;}
+    .tab-img{border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+    .tab-img img{width:100%;height:240px;object-fit:cover;display:block;filter:brightness(0.7) saturate(0.85);}
 
     /* RESULTS */
     .results-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;}
@@ -227,35 +193,6 @@
     .fq-initials{width:44px;height:44px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.78rem;color:#000;flex-shrink:0;}
     .fq-name{font-family:var(--font-head);font-weight:700;font-size:0.9rem;}
     .fq-role{color:var(--muted);font-size:0.78rem;margin-top:2px;}
-
-    /* HIPAA COMPLIANCE */
-    .hipaa-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-    .hipaa-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px;align-items:start;}
-    .hipaa-list{display:flex;flex-direction:column;gap:14px;margin-top:20px;}
-    .hipaa-item{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:var(--card);border:1px solid var(--border);border-radius:12px;transition:border-color 0.2s;}
-    .hipaa-item:hover{border-color:rgba(0,200,150,0.2);}
-    .hipaa-check{width:28px;height:28px;border-radius:50%;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.75rem;color:var(--accent);font-weight:700;}
-    .hipaa-item-text h4{font-family:var(--font-head);font-size:0.88rem;font-weight:700;margin-bottom:4px;}
-    .hipaa-item-text p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
-    .hipaa-badges{display:flex;flex-direction:column;gap:14px;}
-    .hipaa-badge-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;text-align:center;transition:all 0.3s;}
-    .hipaa-badge-card:hover{border-color:rgba(0,200,150,0.25);}
-    .hipaa-badge-card .badge-icon{display:none;}
-    .hipaa-badge-card h4{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:6px;}
-    .hipaa-badge-card p{font-size:0.8rem;color:var(--muted);line-height:1.7;}
-
-    /* GALLERY */
-    .gallery-section{display:none;background:var(--bg);border-top:1px solid var(--border);}
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .gallery-item{position:relative;overflow:hidden;border-radius:14px;border:1px solid var(--border);cursor:pointer;aspect-ratio:16/10;background:var(--bg3);}
-    .gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;filter:brightness(0.7) saturate(0.85);}
-    .gallery-item:hover img{transform:scale(1.06);filter:brightness(0.65);}
-    .gallery-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,15,0.92) 0%,transparent 55%);padding:18px;display:flex;flex-direction:column;justify-content:flex-end;opacity:0;transition:opacity 0.3s;}
-    .gallery-item:hover .gallery-overlay{opacity:1;}
-    .gallery-overlay h3{font-family:var(--font-head);font-size:0.92rem;font-weight:700;margin-bottom:4px;}
-    .gallery-overlay p{font-size:0.76rem;color:var(--muted);}
-    .gallery-expand{position:absolute;top:12px;right:12px;width:30px;height:30px;background:rgba(0,200,150,0.9);border-radius:50%;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;font-size:0.8rem;}
-    .gallery-item:hover .gallery-expand{opacity:1;}
 
     /* BENEFITS */
     .benefits-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -320,27 +257,22 @@
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
       .hamburger{display:flex!important;width:44px;height:44px;align-items:center;justify-content:center;flex-direction:column;gap:5px;padding:0;}.hamburger span{width:24px;height:3px!important;border-radius:2px;}.logo-img{height:44px;}
-      .hero-layout,.overview-inner,.ps-grid,.hipaa-grid{grid-template-columns:1fr;}
+      .hero-layout,.overview-inner,.ps-grid,.tab-panel.active{grid-template-columns:1fr;}
       .hover-features-grid{grid-template-columns:1fr;}
       .hover-feature{border-right:none;}
       .hover-feature:nth-last-child(-n+3){border-bottom:1px solid var(--border);}
       .hover-feature:last-child{border-bottom:none;}
-      .platform-grid,.phi-grid{grid-template-columns:1fr 1fr;}
+      .process-grid{grid-template-columns:1fr 1fr;}
       .results-grid{grid-template-columns:1fr 1fr;}
-      .arch-pipeline{grid-template-columns:1fr 1fr;}
-      .arch-pipeline::before{display:none;}
-      .privacy-dual{grid-template-columns:1fr;}
-      .gallery-grid{grid-template-columns:repeat(2,1fr);}
-      .io-flow{grid-template-columns:1fr;gap:12px;}
-      .io-arrow{transform:rotate(90deg);}
+      .tabs-content-wrap{padding:32px 28px;}
       nav.scrolled{padding:10px 24px;}
       .nav-hidden{transform:none!important;}
     }
     @media(max-width:640px){
       section{padding:60px 20px;}
-      .gallery-grid{grid-template-columns:1fr;}
       .benefits-grid{grid-template-columns:1fr;}
-      .platform-grid,.phi-grid,.arch-pipeline,.results-grid{grid-template-columns:1fr;}
+      .process-grid,.results-grid{grid-template-columns:1fr;}
+      .tabs-content-wrap{padding:24px 20px;}
       .hero-metrics{gap:20px;}
       .btn-row{flex-direction:column;align-items:center;}
       .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
@@ -364,7 +296,7 @@
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li class="nav-dropdown"><a href="portfolio" class="active">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Call Center</a></li></ul></li>
-    <li><a href="index#testimonials">Results</a></li>
+    <li><a href="index">Results</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -376,7 +308,7 @@
     <div class="breadcrumb-inner">
       <a href="index">Home</a><span>›</span>
       <a href="portfolio">Projects</a><span>›</span>
-      <span style="color:var(--text);">AIVault: Clinical AI Platform</span>
+      <span style="color:var(--text);">AI Call Center</span>
     </div>
   </div>
 </div>
@@ -388,25 +320,25 @@
   <div class="container">
     <div class="hero-layout">
       <div class="hero-left">
-        <div class="hero-badge">Privacy-First Clinical AI</div>
-        <h1>Clinical Intelligence.<br><em>Zero PHI. Full Power.</em></h1>
-        <p>AIVault is Tech Velocity's Azure-native, FHIR-first clinical AI platform built for healthcare organizations that refuse to compromise between insight and compliance. Patient data never leaves your environment. AI never sees raw PHI. And your clinicians get the intelligence they need to deliver better care.</p>
+        <div class="hero-badge">Call Center Automation</div>
+        <h1>Every Call Handled.<br><em>Zero Agents Required.</em></h1>
+        <p>Running a call center means paying for agents to answer the same questions all day. This AI system handles inbound and outbound calls automatically — routing intelligently, resolving instantly, and escalating to a human only when it genuinely needs to.</p>
         <div class="hero-metrics">
-          <div><div class="hero-metric-val">0</div><div class="hero-metric-label">PHI to AI Models</div></div>
-          <div><div class="hero-metric-val">100%</div><div class="hero-metric-label">HIPAA Aligned</div></div>
-          <div><div class="hero-metric-val">FHIR</div><div class="hero-metric-label">R4 Native</div></div>
+          <div><div class="hero-metric-val">70%</div><div class="hero-metric-label">Cost Reduction</div></div>
+          <div><div class="hero-metric-val">85%</div><div class="hero-metric-label">Auto-Resolved</div></div>
+          <div><div class="hero-metric-val">24/7</div><div class="hero-metric-label">Availability</div></div>
         </div>
       </div>
       <div class="hero-right">
         <div class="hero-img-wrap">
-          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="AIVault Clinical AI Platform Dashboard">
+          <img src="https://images.unsplash.com/photo-1556745753-b2904692b3cd?w=800&q=80" alt="AI Call Center Dashboard" onerror="this.src='https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80'">
         </div>
         <div class="hero-tag-strip">
-          <span class="htag">Azure-Native</span>
-          <span class="htag">FHIR R4</span>
-          <span class="htag">HIPAA Aligned</span>
-          <span class="htag">De-Identification</span>
-          <span class="htag">Dual Interface</span>
+          <span class="htag">Conversational AI</span>
+          <span class="htag">Voice NLP</span>
+          <span class="htag">Sentiment Analysis</span>
+          <span class="htag">CRM Integration</span>
+          <span class="htag">Real-Time Transcription</span>
         </div>
       </div>
     </div>
@@ -419,42 +351,21 @@
     <div class="overview-inner">
       <div class="overview-text reveal">
         <span class="section-tag">Project Overview</span>
-        <h2>The Clinical AI Platform That Keeps PHI Where It Belongs, With You.</h2>
-        <p>Most healthcare AI platforms force a choice between capability and compliance. AIVault eliminates that trade-off — by architectural design, not policy alone.</p>
-        <ul class="bullets"><li>Azure-native FHIR-first infrastructure — built for healthcare from the ground up</li><li>Privacy Gate de-identifies all data before it reaches any AI engine</li><li>PHI stays in a secured identity stream — the AI never sees raw patient data</li><li>HIPAA alignment baked into the architecture, not bolted on after</li></ul>
+        <h2>An AI That Answers, Routes, and Resolves — Around the Clock.</h2>
+        <p>Traditional call centers burn money on repetitive inquiries that don't need a human. This system intercepts those calls, handles them completely, and only routes to a live agent when there's genuine complexity — reducing volume, cost, and wait times simultaneously.</p>
+        <ul class="bullets">
+          <li>Handles inbound and outbound calls with natural voice AI</li>
+          <li>Detects caller intent and sentiment in real time</li>
+          <li>Resolves FAQs, scheduling, account queries, and follow-ups without human intervention</li>
+          <li>Logs every interaction to your CRM automatically</li>
+        </ul>
       </div>
       <div class="overview-details reveal">
-        <div class="detail-row"><label>Industry</label><span>Healthcare &amp; Clinical Services</span></div>
-        <div class="detail-row"><label>Platform</label><span>Azure-Native, FHIR R4 Core</span></div>
-        <div class="detail-row"><label>Architecture</label><span>Privacy Gate + Dual AI Stream</span></div>
-        <div class="detail-row"><label>Compliance</label><span>HIPAA, AHDS, SOC 2, Azure Health Data</span></div>
-        <div class="detail-row"><label>Interfaces</label><span>Clinician Dashboard + Patient Portal</span></div>
+        <div class="detail-row"><label>Industry</label><span>Insurance, Financial Services, Healthcare, Retail</span></div>
+        <div class="detail-row"><label>Project Type</label><span>AI Voice Automation &amp; Call Handling</span></div>
+        <div class="detail-row"><label>Core Technology</label><span>Conversational AI, Voice NLP, LLM Orchestration</span></div>
+        <div class="detail-row"><label>Integrations</label><span>CRM, EHR, Scheduling Systems, Ticketing Platforms</span></div>
         <div class="detail-row"><label>Status</label><span style="color:var(--accent);">✓ Live &amp; Operational</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLATFORM OVERVIEW CARDS -->
-<section class="platform-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Platform Pillars</span>
-    <h2 class="section-title">Three Principles. One Platform.</h2>
-    <div class="platform-grid">
-      <div class="platform-card reveal">
-        <div class="platform-icon"></div>
-        <h3>Clinical Intelligence</h3>
-        <p>AI models trained on de-identified clinical data deliver diagnostic support, risk stratification, and outcomes prediction, without ever accessing raw patient identifiers. Insights are re-linked to patient context after processing, in a HIPAA-controlled environment.</p>
-      </div>
-      <div class="platform-card reveal">
-        <div class="platform-icon"></div>
-        <h3>Privacy-First Design</h3>
-        <p>PHI de-identification is not a feature. It is the architecture. Every data flow passes through the AHDS Privacy Gate before reaching any AI engine. Token mapping, pseudonymization, and differential privacy are built into the pipeline at the infrastructure level.</p>
-      </div>
-      <div class="platform-card reveal">
-        <div class="platform-icon"></div>
-        <h3>Unified FHIR Core</h3>
-        <p>All inputs, including video assessments, physician assessments, clinical notes, and EHR data, are normalized to FHIR R4 resources. Outputs are returned as FHIR-compliant bundles, making integration with any modern EHR system seamless and standards-based.</p>
       </div>
     </div>
   </div>
@@ -468,288 +379,168 @@
     <div class="ps-grid reveal">
       <div class="ps-card problem">
         <div class="ps-label">The Problem</div>
-        <h3>Healthcare AI Demands Access to the Most Protected Data in Existence</h3>
-        <p>Most platforms transmit PHI to third-party models — creating compliance exposure that security teams cannot accept.</p>
-        <ul class="bullets"><li>HIPAA, state regulations, and patient trust demand data stay protected</li><li>Existing tools force security teams to say no to clinical AI</li><li>Clinical teams lose the intelligence they need to deliver better care</li></ul>
+        <h3>Call Centers Are Expensive, Slow, and Inconsistent</h3>
+        <p>Hiring, training, and managing agents is costly — and most of what they handle is repetitive. Meanwhile, customers wait on hold, quality varies by rep, and after-hours calls go unanswered.</p>
+        <ul class="bullets">
+          <li>High cost-per-call eating into margins</li>
+          <li>Long wait times driving customer churn</li>
+          <li>After-hours coverage gaps losing revenue</li>
+        </ul>
       </div>
       <div class="ps-card solution">
-        <div class="ps-label">Our Solution</div>
-        <h3>AIVault Separates Identity From Intelligence, By Design</h3>
-        <p>The Privacy Gate splits every stream at the source — the AI processes clinical content, never patient identity.</p>
-        <ul class="bullets"><li>PHI stays in an encrypted, access-controlled identity store</li><li>De-identified content flows to Azure AI Foundry for processing</li><li>Clinician sees full picture — AI never sees who the patient is</li></ul>
+        <div class="ps-label">The Solution</div>
+        <h3>AI That Handles the Volume So Your Team Handles the Value</h3>
+        <p>A conversational AI layer that answers calls instantly, resolves routine inquiries end-to-end, and hands off only the calls that actually need a human — with full context already loaded.</p>
+        <ul class="bullets">
+          <li>Natural voice interactions, not robotic phone trees</li>
+          <li>Intent detection routes smarter than any IVR</li>
+          <li>Every call logged, transcribed, and summarized automatically</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- INPUTS & OUTPUTS FLOW -->
-<section class="io-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Data Flow</span>
-    <h2 class="section-title">From Clinical Inputs to FHIR-Ready Outputs</h2>
-    <div class="io-flow reveal">
-      <div class="io-col">
-        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px;text-align:center;">Clinical Inputs</div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Video Assessment</div>
-            <div class="io-item-sub">Mobility, behavior, motor function</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Physician Assessment</div>
-            <div class="io-item-sub">Physician assessment forms and evaluations</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Clinical Notes</div>
-            <div class="io-item-sub">Unstructured NLP input</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">EHR Data</div>
-            <div class="io-item-sub">Structured health records</div>
-          </div>
-        </div>
-      </div>
-      <div class="io-arrow">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-      <div class="io-gate reveal">
-        <div class="io-gate-label">Privacy Gate</div>
-        <div class="io-gate-title">AHDS De-ID Layer</div>
-        <div class="io-gate-sub">PHI removed &amp; tokenized.<br>Identity stored separately.<br>Zero PHI reaches AI.</div>
-      </div>
-      <div class="io-arrow">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-      <div class="io-col">
-        <div style="font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px;text-align:center;">FHIR Outputs</div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Assessment Results</div>
-            <div class="io-item-sub">Assessment results, functional metrics, physician evaluations</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Diagnostic Flags</div>
-            <div class="io-item-sub">FHIR Condition bundles</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Trend Analysis</div>
-            <div class="io-item-sub">Longitudinal FHIR reports</div>
-          </div>
-        </div>
-        <div class="io-item">
-          <div class="io-item-icon"></div>
-          <div class="io-item-text">
-            <div class="io-item-title">Clinical Summary</div>
-            <div class="io-item-sub">Auto-generated FHIR documents</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES GRID -->
+<!-- CORE CAPABILITIES -->
 <section class="features-section">
   <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Capabilities</span>
-    <h2 class="section-title">What AIVault Delivers</h2>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">What It Does</span>
+    <h2 class="section-title">Core Capabilities</h2>
     <div class="hover-features-grid reveal">
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
         <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">Video-Based Assessment</span>
-        </div>
-        <p>Capture and analyze patient mobility, behavior, and motor function through video input. AI extracts quantitative clinical signals without storing identifiable footage. Applicable across any specialty.</p>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Intelligent Call Routing</span></div>
+        <p>Goes beyond press-1-for-billing. The AI understands what the caller actually wants — by listening, not menu-navigating — and routes to the right outcome instantly.</p>
+        <ul class="hf-list"><li>Intent detection from natural speech</li><li>Sentiment-aware escalation to live agents</li><li>Priority routing for high-value callers</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
         <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">Physician Assessment Analysis</span>
-        </div>
-        <p>Standardized physician assessment forms digitized and analyzed by AI across any specialty, from primary care to oncology to cardiology. Functional assessment indexing and automated clinical scoring that removes subjectivity from evaluation.</p>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Real-Time Transcription &amp; Analysis</span></div>
+        <p>Every call is transcribed, analyzed for sentiment, and summarized the moment it ends — giving supervisors instant visibility and agents a full context brief before any transfer.</p>
+        <ul class="hf-list"><li>Live transcription with speaker diarization</li><li>Sentiment scoring per call segment</li><li>Auto-generated post-call summaries</li></ul>
       </div>
       <div class="hover-feature">
         <div class="hover-feature-bg-top"></div>
         <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">AHDS Privacy Gate</span>
-        </div>
-        <p>Every data stream passes through the Azure Health Data Services Privacy Gate. PHI is tokenized and separated before AI processing. Identity data never enters the AI processing zone.</p>
-      </div>
-      <div class="hover-feature">
-        <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">Azure AI Foundry Models</span>
-        </div>
-        <p>Clinical NLP, image analysis, and risk stratification models run entirely within your Azure environment via Azure AI Foundry. No third-party model endpoints. No data leaving your cloud tenant.</p>
-        <ul class="hf-list">
-          <li>NLP for clinical notes</li>
-          <li>Computer vision for video &amp; physician assessments</li>
-          <li>Risk scoring &amp; outcome prediction</li>
-        </ul>
-      </div>
-      <div class="hover-feature">
-        <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">FHIR R4 Native Core</span>
-        </div>
-        <p>All data is stored and exchanged as FHIR R4 resources via Azure Health Data Services. Plug directly into Epic, Cerner, Meditech, and any SMART on FHIR-compatible EHR without custom connectors.</p>
-      </div>
-      <div class="hover-feature">
-        <div class="hover-feature-bg-top"></div>
-        <div class="hover-feature-icon"></div>
-        <div class="hover-feature-title-row">
-          <div class="hover-feature-bar"></div>
-          <span class="hover-feature-title">Dual React Interfaces</span>
-        </div>
-        <p>Two purpose-built React applications: a Clinician Dashboard with full AI insights and audit tools, and a Patient Portal for self-directed assessments and results review, both FHIR-backed.</p>
+        <div class="hover-feature-title-row"><div class="hover-feature-bar"></div><span class="hover-feature-title">Automated Resolution Engine</span></div>
+        <p>Handles the calls that don't need a human — FAQs, appointment scheduling, account lookups, payment status, claim updates — fully resolved with no wait time and no agent cost.</p>
+        <ul class="hf-list"><li>Integrates with your CRM and back-end systems</li><li>Outbound follow-up calls triggered automatically</li><li>Seamless handoff with full call context on transfer</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ARCHITECTURE PIPELINE -->
-<section class="arch-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Architecture</span>
-    <h2 class="section-title">End-to-End Clinical AI Pipeline</h2>
-    <div class="arch-pipeline reveal">
-      <div class="arch-step">
-        <div class="arch-step-num">1</div>
-        <div class="arch-step-icon"></div>
-        <h3>AHDS Privacy Gate</h3>
-        <p>All clinical inputs enter the Azure Health Data Services Privacy Gate. PHI is identified, tokenized, and routed to the secure identity stream. De-identified content continues to AI.</p>
-      </div>
-      <div class="arch-step">
-        <div class="arch-step-num">2</div>
-        <div class="arch-step-icon"></div>
-        <h3>Azure AI Foundry</h3>
-        <p>De-identified clinical content is processed by specialized AI models (NLP, computer vision, risk scoring) entirely within your Azure environment. Zero PHI in this zone.</p>
-      </div>
-      <div class="arch-step">
-        <div class="arch-step-num">3</div>
-        <div class="arch-step-icon"></div>
-        <h3>AHDS FHIR Core</h3>
-        <p>AI outputs are structured as FHIR R4 resources and stored in the Azure Health Data Services FHIR server. Results are re-linked to patient identity in the secure environment.</p>
-      </div>
-      <div class="arch-step">
-        <div class="arch-step-num">4</div>
-        <div class="arch-step-icon"></div>
-        <h3>Dual React Interfaces</h3>
-        <p>FHIR-backed React applications surface insights to clinicians and patients. All interface queries go through SMART on FHIR authorization, role-based, audited, and compliant.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRIVACY GATE DEEP DIVE -->
-<section class="privacy-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Privacy Gate</span>
-    <h2 class="section-title">Two Streams. One Unbreakable Boundary.</h2>
-    <p style="text-align:center;color:var(--muted);max-width:600px;margin:0 auto 16px;font-size:0.95rem;line-height:1.75;">The AHDS Privacy Gate splits every clinical data flow into two parallel streams. They never merge inside the AI processing zone.</p>
-    <div class="privacy-dual reveal">
-      <div class="stream-card identity">
-        <div class="stream-label">Secure Identity Stream</div>
-        <h3>Protected Health Information</h3>
-        <ul>
-          <li>Patient name, DOB, MRN, contact data</li>
-          <li>Insurance identifiers and payer codes</li>
-          <li>Location and demographic identifiers</li>
-          <li>Biometric data and facial recognition markers</li>
-          <li>Stored in AHDS with RBAC and audit logging</li>
-          <li>Access requires authenticated clinical authorization</li>
-          <li>Never routed to AI model endpoints</li>
-        </ul>
-      </div>
-      <div class="stream-card deid">
-        <div class="stream-label">De-Identified AI Stream</div>
-        <h3>Clinical Content for AI Processing</h3>
-        <ul>
-          <li>Tokenized clinical notes (no patient identifiers)</li>
-          <li>Video mobility &amp; behavioral data (no facial or biometric markers)</li>
-          <li>Standardized physician assessment forms (no patient metadata)</li>
-          <li>Structured FHIR clinical observations</li>
-          <li>Processed entirely in Azure AI Foundry</li>
-          <li>Outputs returned as anonymous FHIR observations</li>
-          <li>Re-linked to patient identity only post-processing</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ZERO PHI AI ZONE -->
-<section class="phi-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Zero PHI AI Zone</span>
-    <h2 class="section-title">Three AI Engines. Zero Patient Identity.</h2>
-    <p style="text-align:center;color:var(--muted);max-width:580px;margin:0 auto;font-size:0.95rem;line-height:1.75;">All AI processing occurs in an isolated Azure environment where PHI cannot exist by architectural constraint, not just policy.</p>
-    <div class="phi-grid">
-      <div class="phi-card reveal">
-        <div class="phi-icon"></div>
-        <h3>Clinical NLP Engine</h3>
-        <p>Processes de-identified clinical notes to extract diagnoses, medication references, symptom patterns, and clinical indicators. Trained on healthcare corpora with medical terminology understanding. Outputs structured FHIR Observation and Condition resources.</p>
-      </div>
-      <div class="phi-card reveal">
-        <div class="phi-icon"></div>
-        <h3>Computer Vision Engine</h3>
-        <p>Analyzes video mobility and behavioral data alongside standardized physician assessment forms for condition-specific markers across all specialties. Operates entirely on anonymized data. No facial recognition, no biometric identification.</p>
-      </div>
-      <div class="phi-card reveal">
-        <div class="phi-icon"></div>
-        <h3>Risk Stratification Engine</h3>
-        <p>Aggregates NLP and vision outputs to generate functional assessment indexes, automated clinical scores, and care prioritization flags. All outputs are FHIR-compliant risk assessment resources, ready for EHR integration.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO / DEMO SECTION -->
+<!-- VIDEO -->
 <section class="video-section">
   <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Platform Demo</span>
-    <h2 class="section-title">See AIVault in Action</h2>
-    <div class="video-wrap reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:60px 32px;cursor:pointer;" onclick="window.location.href='contact'">
-      <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,200,150,0.12);border:2px solid rgba(0,200,150,0.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-          <polygon points="5,3 19,12 5,21" fill="rgba(0,200,150,1)"/>
-        </svg>
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Demo</span>
+    <h2 class="section-title">See the AI Call Center in Action</h2>
+    <p style="color:var(--muted);font-size:0.92rem;text-align:center;max-width:600px;margin:0 auto 40px;">Watch how our AI handles a real inbound call — detects intent, resolves the inquiry, and hands off with a full summary when escalation is needed.</p>
+    <div class="video-wrap reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:24px;padding:60px 32px;cursor:pointer;" onclick="window.open('https://undaunted-rebecka-ungrained.ngrok-free.dev/kardosh-prototype.html','_blank')">
+      <div style="width:80px;height:80px;border-radius:50%;background:rgba(0,200,150,0.12);border:2px solid rgba(0,200,150,0.35);display:flex;align-items:center;justify-content:center;transition:all 0.3s;" onmouseenter="this.style.background='rgba(0,200,150,0.22)';this.style.transform='scale(1.08)'" onmouseleave="this.style.background='rgba(0,200,150,0.12)';this.style.transform='scale(1)'">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><polygon points="5,3 19,12 5,21" fill="rgba(0,200,150,1)"/></svg>
       </div>
       <div style="text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:8px;color:var(--text);">Live Demo Available</div>
-        <div style="font-size:0.88rem;color:var(--muted);max-width:380px;line-height:1.7;">Book a personalized walkthrough of the AIVault platform. See the Privacy Gate, AI pipeline, and clinical dashboards live with your use case.</div>
+        <div style="font-family:var(--font-head);font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px;">Interactive Demo — Live Now</div>
+        <div style="font-size:0.88rem;color:var(--muted);max-width:380px;line-height:1.7;">Try the AI Call Center prototype live. See how it handles inbound calls, detects intent, and resolves inquiries end-to-end.</div>
       </div>
-      <a href="contact" class="btn-primary" onclick="event.stopPropagation()">Book an AI Strategy Call</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:4px;">
+        <a href="https://undaunted-rebecka-ungrained.ngrok-free.dev/kardosh-prototype.html" target="_blank" class="btn-primary" onclick="event.stopPropagation()">Try Live Demo →</a>
+        <a href="contact" class="btn-secondary" onclick="event.stopPropagation()">Book a Walkthrough</a>
+      </div>
     </div>
-    <div style="text-align:center;margin-top:32px;">
-      <p style="color:var(--muted);font-size:0.88rem;">Want to see the full platform architecture tailored to your clinical workflows?</p>
+    <p style="text-align:center;margin-top:20px;font-size:0.85rem;color:var(--muted);">Live prototype: inbound call handling, intent detection, and intelligent escalation</p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="container">
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">End-to-End Workflow</span>
+    <h2 class="section-title">How It Works</h2>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <h3>Call Intake &amp; Intent Detection</h3>
+        <p>The AI answers instantly, listens to the caller, and identifies their intent and sentiment within the first few seconds — no hold music, no menus.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <h3>AI Resolution or Smart Routing</h3>
+        <p>Routine requests are resolved end-to-end by the AI. Complex or escalated calls are routed to the right human agent with full context transferred instantly.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <h3>Live Agent Assist</h3>
+        <p>For transferred calls, agents see a real-time brief: caller history, intent summary, sentiment score, and suggested responses — so they can resolve faster.</p>
+        <div class="step-connector"></div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <h3>Post-Call Analytics &amp; CRM Sync</h3>
+        <p>Every call is transcribed, tagged, and logged automatically. Supervisors get a full dashboard of call outcomes, resolution rates, and sentiment trends.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL ARCHITECTURE -->
+<section class="tech-section">
+  <div class="container">
+    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Architecture</span>
+    <h2 class="section-title">Technical Architecture</h2>
+    <div class="tabs-list">
+      <button class="tab-btn active" onclick="switchTab(this,'cc-voice')">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        AI Voice Engine
+      </button>
+      <button class="tab-btn" onclick="switchTab(this,'cc-crm')">
+        <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        CRM Integration
+      </button>
+      <button class="tab-btn" onclick="switchTab(this,'cc-security')">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Data Security
+      </button>
+    </div>
+    <div class="tabs-content-wrap reveal">
+      <div id="cc-voice" class="tab-panel active">
+        <div>
+          <span class="tab-badge">Conversational AI</span>
+          <h3 class="tab-title">Natural conversations. Not phone trees.</h3>
+          <p class="tab-desc">The voice engine uses large language models with real-time speech recognition and synthesis to hold natural, context-aware phone conversations. It understands interruptions, accents, and intent shifts — behaving like a skilled agent, not a scripted bot. Sentiment is tracked throughout the call and used to trigger escalation rules automatically when a caller becomes frustrated or the topic exceeds the AI's scope.</p>
+          <a href="contact" class="tab-cta">Explore Voice AI Options →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80" alt="AI voice engine">
+        </div>
+      </div>
+      <div id="cc-crm" class="tab-panel">
+        <div>
+          <span class="tab-badge">Seamless Integration</span>
+          <h3 class="tab-title">Every call logged. Every system updated.</h3>
+          <p class="tab-desc">The system connects directly to your CRM, scheduling platform, ticketing system, and any other back-end tools your team uses. When the AI resolves a call, it updates the customer record, logs notes, creates tickets, and sends follow-ups — all without agent involvement. When it transfers, the receiving agent has the complete call history loaded in front of them before they say hello.</p>
+          <a href="contact" class="tab-cta">Discuss Your Stack →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="CRM integration">
+        </div>
+      </div>
+      <div id="cc-security" class="tab-panel">
+        <div>
+          <span class="tab-badge">Enterprise Security</span>
+          <h3 class="tab-title">Call data protected from intake to archive.</h3>
+          <p class="tab-desc">All call recordings, transcripts, and customer data are handled with <span style="color:var(--accent)">enterprise-grade</span> encryption in transit and at rest. Role-based access controls ensure only authorized personnel can access sensitive conversation data. The system is architected to meet compliance requirements in regulated industries — including HIPAA for healthcare and PCI-DSS for payment-related inquiries — without additional overhead on your team.</p>
+          <a href="contact" class="tab-cta">Review Compliance Docs →</a>
+        </div>
+        <div class="tab-img">
+          <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?w=800&q=80" alt="Data security">
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -758,134 +549,34 @@
 <section class="results-section">
   <div class="container">
     <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Impact</span>
-    <h2 class="section-title">Platform Performance Metrics</h2>
+    <h2 class="section-title">Measurable Business Impact</h2>
     <div class="results-grid">
       <div class="result-card reveal">
-        <span class="result-val">0</span>
-        <div class="result-label">PHI to AI Models</div>
-        <p class="result-desc">Architectural guarantee: no patient identifiers ever reach AI processing endpoints.</p>
+        <span class="result-val">70%</span>
+        <div class="result-label">Cost Per Call Reduction</div>
+        <p class="result-desc">Dramatic drop in cost-per-interaction by automating the majority of routine call volume.</p>
       </div>
       <div class="result-card reveal">
-        <span class="result-val">99.9%</span>
-        <div class="result-label">Azure SLA Uptime</div>
-        <p class="result-desc">Enterprise-grade availability backed by Azure Health Data Services infrastructure.</p>
+        <span class="result-val">85%</span>
+        <div class="result-label">First-Call Resolution</div>
+        <p class="result-desc">Inquiries resolved without transfer or callback, improving customer satisfaction significantly.</p>
       </div>
       <div class="result-card reveal">
-        <span class="result-val">&lt;2s</span>
-        <div class="result-label">AI Processing Time</div>
-        <p class="result-desc">Clinical AI results returned in under 2 seconds for real-time clinical decision support.</p>
+        <span class="result-val">40%</span>
+        <div class="result-label">CSAT Improvement</div>
+        <p class="result-desc">Customers reach resolution faster with no hold times and consistent, knowledgeable responses.</p>
       </div>
       <div class="result-card reveal">
-        <span class="result-val">100%</span>
-        <div class="result-label">FHIR R4 Compliant</div>
-        <p class="result-desc">All inputs, outputs, and stored data conform to FHIR R4 resource specifications.</p>
+        <span class="result-val">24/7</span>
+        <div class="result-label">Coverage Without Staff</div>
+        <p class="result-desc">After-hours calls handled fully automatically — no coverage gaps, no overtime costs.</p>
       </div>
     </div>
     <div class="featured-quote reveal">
-      <blockquote>We process thousands of clinical records each week. AIVault gives us zero-PHI processing we can actually prove in an audit — not just claim. Our compliance team signed off in two weeks. That never happens.</blockquote>
+      <blockquote>We cut our call center headcount by 60% while actually improving our customer satisfaction scores. The AI handles the volume — our agents only take the calls that genuinely need a human touch.</blockquote>
       <div class="fq-author">
-        <div class="fq-initials">LP</div>
-        <div><div class="fq-name">Dr. Linda Park</div><div class="fq-role">Medical Director · Healthcare Clinic, Miami</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HIPAA COMPLIANCE -->
-<section class="hipaa-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Compliance</span>
-    <h2 class="section-title">Built for the Most Regulated Environment in Healthcare</h2>
-    <div class="hipaa-grid reveal">
-      <div>
-        <p style="color:var(--muted);font-size:0.95rem;line-height:1.8;margin-bottom:24px;">AIVault's compliance posture is not a checklist. It is the architecture. Every design decision, from data routing to access control to audit logging, was made with HIPAA, HITECH, and Azure Health Data Services requirements as first-order constraints.</p>
-        <div class="hipaa-list">
-          <div class="hipaa-item">
-            <div class="hipaa-check">✓</div>
-            <div class="hipaa-item-text">
-              <h4>PHI De-identification at Source</h4>
-              <p>HIPAA Safe Harbor and Expert Determination methods applied before any AI processing. No PHI enters the AI zone.</p>
-            </div>
-          </div>
-          <div class="hipaa-item">
-            <div class="hipaa-check">✓</div>
-            <div class="hipaa-item-text">
-              <h4>End-to-End Encryption</h4>
-              <p>Data encrypted at rest (AES-256) and in transit (TLS 1.3) throughout the entire pipeline, including identity and AI streams.</p>
-            </div>
-          </div>
-          <div class="hipaa-item">
-            <div class="hipaa-check">✓</div>
-            <div class="hipaa-item-text">
-              <h4>Role-Based Access Control</h4>
-              <p>SMART on FHIR authorization enforces clinician, admin, and patient roles. Access to PHI requires explicit authorization scopes.</p>
-            </div>
-          </div>
-          <div class="hipaa-item">
-            <div class="hipaa-check">✓</div>
-            <div class="hipaa-item-text">
-              <h4>Complete Audit Trail</h4>
-              <p>Every data access, AI query, and result delivery is logged with immutable timestamps. Ready for HIPAA audit, OCR investigation, and payer review.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="hipaa-badges">
-        <div class="hipaa-badge-card">
-          <div class="badge-icon"></div>
-          <h4>Azure Health Data Services</h4>
-          <p>Built on Microsoft's HIPAA-eligible healthcare cloud infrastructure with a signed Business Associate Agreement.</p>
-        </div>
-        <div class="hipaa-badge-card">
-          <div class="badge-icon"></div>
-          <h4>FHIR R4 &amp; SMART</h4>
-          <p>Full compliance with HL7 FHIR R4 specifications and SMART on FHIR authorization framework for EHR integration.</p>
-        </div>
-        <div class="hipaa-badge-card">
-          <div class="badge-icon"></div>
-          <h4>SOC 2 Aligned</h4>
-          <p>Security, availability, and confidentiality controls aligned with SOC 2 Type II requirements for healthcare data handling.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY -->
-<section class="gallery-section">
-  <div class="container">
-    <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Platform Views</span>
-    <h2 class="section-title">AIVault Interface Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Clinical Dashboard">
-        <div class="gallery-overlay"><h3>Clinician Dashboard</h3><p>AI insights and patient overview interface</p></div>
-        <div class="gallery-expand">⤢</div>
-      </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?w=800&q=80" alt="Privacy Gate Architecture">
-        <div class="gallery-overlay"><h3>Privacy Gate</h3><p>Dual-stream data separation architecture</p></div>
-        <div class="gallery-expand">⤢</div>
-      </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="AI Risk Scoring">
-        <div class="gallery-overlay"><h3>Risk Stratification</h3><p>AI-generated clinical risk scores and flags</p></div>
-        <div class="gallery-expand">⤢</div>
-      </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="FHIR Analytics">
-        <div class="gallery-overlay"><h3>FHIR Analytics</h3><p>Population-level clinical trend reporting</p></div>
-        <div class="gallery-expand">⤢</div>
-      </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80" alt="Patient Portal">
-        <div class="gallery-overlay"><h3>Patient Portal</h3><p>Self-directed assessment and results access</p></div>
-        <div class="gallery-expand">⤢</div>
-      </div>
-      <div class="gallery-item reveal" data-img="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80">
-        <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Compliance Audit Trail">
-        <div class="gallery-overlay"><h3>Audit &amp; Compliance</h3><p>Complete HIPAA-ready documentation trail</p></div>
-        <div class="gallery-expand">⤢</div>
+        <div class="fq-initials">DK</div>
+        <div><div class="fq-name">David Kim</div><div class="fq-role">VP Operations · Insurance Brokerage, Houston</div></div>
       </div>
     </div>
   </div>
@@ -895,14 +586,14 @@
 <section class="benefits-section">
   <div class="container">
     <span class="section-tag" style="display:table;margin-left:auto;margin-right:auto;">Business Value</span>
-    <h2 class="section-title">Why Healthcare Organizations Choose AIVault</h2>
+    <h2 class="section-title">Key Business Benefits</h2>
     <div class="benefits-grid">
-      <div class="benefit-card reveal"><h3>Compliance Without Compromise</h3><p>HIPAA compliance is built into the architecture. No policy workarounds, no compliance theater. PHI separation is enforced at the infrastructure level, every time.</p></div>
-      <div class="benefit-card reveal"><h3>EHR-Ready From Day One</h3><p>FHIR R4 native design means zero custom integration work for Epic, Cerner, or any SMART on FHIR-compatible system. Clinical data flows naturally between platforms.</p></div>
-      <div class="benefit-card reveal"><h3>Azure-Native Security Posture</h3><p>Built entirely on Azure Health Data Services. Inherits Microsoft's enterprise security, global compliance certifications, and BAA coverage for HIPAA-eligible workloads.</p></div>
-      <div class="benefit-card reveal"><h3>Real-Time Clinical Intelligence</h3><p>AI results in under 2 seconds means AIVault supports point-of-care decisions, not just retrospective analysis. Clinicians get insight when they need it most.</p></div>
-      <div class="benefit-card reveal"><h3>Patient Trust Preserved</h3><p>Patients whose data never leaves your environment and never reaches a third-party AI are patients who trust your institution. Privacy-first design is a competitive and ethical advantage.</p></div>
-      <div class="benefit-card reveal"><h3>Scalable Clinical Operations</h3><p>From 10 assessments a day to 10,000. The platform scales on Azure infrastructure without architectural changes. Add modalities, models, and interfaces as clinical needs grow.</p></div>
+      <div class="benefit-card reveal"><h3>Dramatically Lower Costs</h3><p>Eliminate the majority of agent labor costs for routine calls. Pay for AI infrastructure, not headcount handling repetitive inquiries.</p></div>
+      <div class="benefit-card reveal"><h3>Zero Hold Times</h3><p>Every caller is answered instantly, day or night. No queue, no hold music, no frustrated customers hanging up before they're served.</p></div>
+      <div class="benefit-card reveal"><h3>Consistent Quality</h3><p>Every call handled to the same standard, every time. No bad days, no off-script moments, no compliance gaps from agent variability.</p></div>
+      <div class="benefit-card reveal"><h3>Full Call Intelligence</h3><p>Complete transcripts, sentiment trends, and resolution analytics across every call — giving supervisors visibility they never had before.</p></div>
+      <div class="benefit-card reveal"><h3>Seamless Escalation</h3><p>When a call does need a human, the agent receives a full context brief instantly. No repeat explanations, no blind transfers.</p></div>
+      <div class="benefit-card reveal"><h3>Scales With Demand</h3><p>Handle a spike in call volume — seasonal, campaign-driven, or unexpected — without hiring, training, or scrambling for coverage.</p></div>
     </div>
   </div>
 </section>
@@ -910,9 +601,9 @@
 <!-- CTA -->
 <div class="cta-band">
   <div class="container">
-    <span class="section-tag">Deploy AIVault</span>
-    <h2>Clinical AI That Your Legal,<br>Security, and Clinical Teams All Approve.</h2>
-    <p>Book a free discovery session. We map your current clinical data flows, identify where PHI risk exists today, and show you exactly how AIVault's privacy-first architecture would work in your environment.</p>
+    <span class="section-tag">Transform Your Call Center</span>
+    <h2>How Much Is Your Call Center<br>Costing You Per Month?</h2>
+    <p>We will calculate it in your free audit, then show you exactly how an AI call center built around your workflows would cut that cost — while improving the experience for every caller.</p>
     <div class="cta-buttons">
       <a href="contact" class="btn-primary">Book an AI Strategy Call</a>
       <a href="portfolio" class="btn-secondary">Back to Projects</a>
@@ -1009,6 +700,14 @@
     const _lm=document.documentElement.classList.contains('light');if(l.style.display==='flex'){l.style.display='none';return;}l.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:999;';l.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{l.style.display='none';},{once:true});});
   }
 
+  // TABS
+  function switchTab(btn, panelId) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(panelId).classList.add('active');
+  }
+
   // SCROLL REVEAL
   const ro = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); ro.unobserve(e.target); }
@@ -1033,14 +732,6 @@
   modal.addEventListener('click', e => {
     if (e.target === modal) { modal.classList.remove('active'); document.body.style.overflow = ''; }
   });
-
-  // FOOTER SUBSCRIBE
-  function handleSubscribe() {
-    const inp = document.getElementById('footerEmail');
-    if (!inp.value.includes('@')) { inp.focus(); return; }
-    inp.value = ''; inp.placeholder = "✅ You're subscribed!";
-    setTimeout(() => { inp.placeholder = 'Enter your email'; }, 3000);
-  }
 
   // CHATBOT
   const chatBtn = document.getElementById('chatbot-button');
@@ -1090,7 +781,7 @@
     }
   }
 
-  // ── MOBILE FLOATING BUTTONS ──
+  // MOBILE FLOATING BUTTONS
   (function(){
     var t,el=document.getElementById('chatbot-container');
     function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
@@ -1103,17 +794,9 @@
       t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
     },{passive:true});
   })();
-
-  // ── THEME TOGGLE ──
-  function toggleTheme() {
-    const isLight = document.documentElement.classList.toggle('light');
-    localStorage.setItem('tvTheme', isLight ? 'light' : 'dark');
-    document.getElementById('floatingThemeToggle').textContent = isLight ? '🌙' : '☀️';
-  }
-  (function(){
-    const isLight = document.documentElement.classList.contains('light');
-    document.getElementById('floatingThemeToggle').textContent = isLight ? '🌙' : '☀️';
-  })();
+  // THEME TOGGLE
+  function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
 </script>
 </body>
 </html>
