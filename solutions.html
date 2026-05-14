@@ -138,10 +138,21 @@
     .ind-body p{color:var(--muted);font-size:0.87rem;line-height:1.7;}
 
     /* PARTNERS */
-    .partners-section{background:var(--bg2);border-top:1px solid var(--border);}
-    .partners-row{display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;margin-top:40px;}
-    .partner-logo{max-height:60px;width:auto;mix-blend-mode:screen;}
-    html.light .partner-logo{mix-blend-mode:multiply;}
+    .partners-section{background:var(--bg2);border-top:1px solid var(--border);overflow:hidden;}
+    .partners-marquee{position:relative;margin-top:48px;overflow:hidden;}
+    .partners-marquee::before,.partners-marquee::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+    .partners-marquee::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
+    .partners-marquee::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
+    .partners-track{display:flex;gap:20px;width:max-content;animation:scroll-logos 28s linear infinite;}
+    .partners-track:hover{animation-play-state:paused;}
+    @keyframes scroll-logos{0%{transform:translateX(0);}100%{transform:translateX(-50%);}}
+    .partner-item{flex-shrink:0;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:14px;padding:20px 32px;display:flex;align-items:center;justify-content:center;min-width:140px;transition:border-color 0.2s,background 0.2s;}
+    .partner-item:hover{background:rgba(0,200,150,0.06);border-color:rgba(0,200,150,0.25);}
+    html.light .partner-item{background:rgba(255,255,255,0.85);box-shadow:0 2px 12px rgba(0,0,0,0.07);}
+    html.light .partner-item:hover{background:#fff;box-shadow:0 4px 20px rgba(0,0,0,0.1);}
+    html.light .partner-item-dark{background:#111!important;border-color:rgba(0,0,0,0.15)!important;}
+    html.light .partner-item-dark:hover{background:#1a1a1a!important;}
+    .partner-logo{max-height:56px;width:auto;max-width:150px;object-fit:contain;}
 
     /* FAQ MINI */
     .faq-mini-section{background:var(--bg);}
@@ -256,6 +267,17 @@
       .testimonial-card{padding:20px;}
       .section-sub{margin-bottom:40px!important;}
     }
+    #back-to-top{position:fixed;bottom:20px;left:20px;z-index:499;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all 0.3s;opacity:0;pointer-events:none;}
+    #back-to-top.visible{opacity:1;pointer-events:auto;}
+    #back-to-top:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,200,150,0.3);}
+    /* ── VISUAL ENHANCEMENTS ── */
+    @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.04);}}
+    .hero-glow{animation:glow-pulse 5s ease-in-out infinite!important;}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.13),transparent);transition:left 0.55s ease;pointer-events:none;z-index:1;}
+    .btn-primary:hover::before{left:150%;}
+    .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
   </style>
 </head>
 <body>
@@ -500,12 +522,21 @@
   <div class="container" style="text-align:center;">
     <span class="section-tag">Trusted By</span>
     <h2 class="section-title">Businesses That Trust Us<br>to Build Their AI</h2>
-    <div class="partners-row">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/download.webp/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" alt="Partner logo" class="partner-logo">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/immigrationsolutionus_logo.jpeg/:/rs=h:100,cg:true,m" alt="IMS Immigration Solution" class="partner-logo">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/scenthound-logo.png/:/rs=h:100,cg:true,m" alt="Scenthound" class="partner-logo">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Orlando%20Neurosurgery%20Logo.png/:/rs=h:175,m" alt="Orlando Neurosurgery" class="partner-logo">
-      <img src="img/l&e.png" alt="L&E" class="partner-logo">
+    <div class="partners-marquee">
+      <div class="partners-track">
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/download.webp/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" alt="Partner logo" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/immigrationsolutionus_logo.jpeg/:/rs=h:100,cg:true,m" alt="IMS Immigration Solution" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/scenthound-logo.png/:/rs=h:100,cg:true,m" alt="Scenthound" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Orlando%20Neurosurgery%20Logo.png/:/rs=h:175,m" alt="Orlando Neurosurgery" class="partner-logo"></div>
+        <div class="partner-item"><img src="img/l&e.png" alt="L&E" class="partner-logo"></div>
+        <div class="partner-item partner-item-dark"><img src="img/UTC-White-logo-e1727120444686.png" alt="UTC" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/download.webp/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=h:100,cg:true" alt="Partner logo" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/immigrationsolutionus_logo.jpeg/:/rs=h:100,cg:true,m" alt="IMS Immigration Solution" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/scenthound-logo.png/:/rs=h:100,cg:true,m" alt="Scenthound" class="partner-logo"></div>
+        <div class="partner-item"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/Orlando%20Neurosurgery%20Logo.png/:/rs=h:175,m" alt="Orlando Neurosurgery" class="partner-logo"></div>
+        <div class="partner-item"><img src="img/l&e.png" alt="L&E" class="partner-logo"></div>
+        <div class="partner-item partner-item-dark"><img src="img/UTC-White-logo-e1727120444686.png" alt="UTC" class="partner-logo"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -634,10 +665,7 @@
 <!-- CHATBOT -->
 <div id="chatbot-container">
   <div id="chat-window">
-    <div id="chat-header">
-      <span>💬 Chat with Tech Velocity</span>
-      <button id="close-chatbot">&times;</button>
-    </div>
+<div id="chat-header"><span style="display:flex;align-items:center;gap:10px;"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity" style="height:24px;width:auto;">Chat with Tech Velocity</span><button id="close-chatbot">&times;</button></div>
     <div id="chat-messages"></div>
     <div id="chat-input-container">
       <input type="text" id="chat-input" placeholder="Type your message...">
@@ -650,6 +678,7 @@
 
 <!-- FLOATING BUTTON -->
 <button class="popup-trigger-btn" onclick="window.location.href='contact'">Free AI Audit</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
 
 <script>
   // NAV SCROLL
@@ -808,6 +837,13 @@
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
+  // Scroll progress bar
+  (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();
+  // Animated counters
+  (function(){function fmt(n,sfx){return(Number.isInteger(n)?n:n.toFixed(0))+sfx;}function anim(el){var raw=el.getAttribute('data-cv');if(!raw)return;var num=parseFloat(raw),sfx=el.getAttribute('data-cs')||'';if(!num)return;var s=0;var iv=setInterval(function(){s+=num/(1600/16);if(s>=num){clearInterval(iv);el.textContent=fmt(num,sfx);}else{el.textContent=fmt(Math.floor(s),sfx);}},16);}var obs2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anim(e.target);obs2.unobserve(e.target);}});},{threshold:0.5});document.querySelectorAll('.result-val,.hero-metric-val,.metric-val,.hero-stat-num,.trust-stat-num').forEach(function(el){var t=el.textContent.trim();var m=t.match(/^([0-9]+)(.*)$/);if(m&&parseInt(m[1])>=2){el.setAttribute('data-cv',m[1]);el.setAttribute('data-cs',m[2]);obs2.observe(el);}});})();
+  // Floating orbs
+  (function(){var hero=document.querySelector('.project-hero,.portfolio-hero,.hero');if(!hero)return;[{s:220,x:8,y:15,d:7,dl:0},{s:160,x:82,y:55,d:9,dl:2.5},{s:110,x:48,y:75,d:6,dl:4}].forEach(function(o){var el=document.createElement('div');el.style.cssText='position:absolute;width:'+o.s+'px;height:'+o.s+'px;border-radius:50%;left:'+o.x+'%;top:'+o.y+'%;background:radial-gradient(circle,rgba(0,200,150,0.07),transparent 70%);pointer-events:none;animation:orbFloat '+o.d+'s '+o.dl+'s ease-in-out infinite;z-index:0;';hero.appendChild(el);});})();
 </script>
 </body>
 </html>
