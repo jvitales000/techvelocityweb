@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OrderStream AI — Inbox Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6;--font:'Inter',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
+
+    /* TOP BAR */
+    .topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;flex-shrink:0;}
+    .topbar-back{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+    .topbar-back:hover{color:var(--accent);}
+    .topbar-back svg{width:14px;height:14px;}
+    .topbar-divider{width:1px;height:20px;background:var(--border);}
+    .topbar-brand{display:flex;align-items:center;gap:10px;}
+    .topbar-logo{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#000;}
+    .topbar-name{font-weight:700;font-size:0.95rem;}
+    .topbar-badge{font-size:0.7rem;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:2px 10px;border-radius:100px;font-weight:600;margin-left:auto;}
+
+    /* SCREEN TABS */
+    .screen-tabs{background:var(--bg3);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;flex-shrink:0;}
+    .screen-tab{padding:12px 22px;font-size:0.82rem;font-weight:600;color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.2s;user-select:none;}
+    .screen-tab.active{color:var(--accent);border-bottom-color:var(--accent);}
+    .screen-tab:hover:not(.active){color:var(--text);}
+
+    /* LAYOUT */
+    .app-body{display:flex;flex:1;overflow:hidden;}
+    .screen{display:none;flex:1;overflow-y:auto;padding:28px;}
+    .screen.active{display:flex;flex-direction:column;gap:20px;}
+
+    /* SHARED */
+    .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
+    .section-title{font-size:1rem;font-weight:700;}
+    .section-sub{font-size:0.78rem;color:var(--muted);}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
+    .badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;letter-spacing:0.3px;}
+    .badge-urgent{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);color:#f87171;}
+    .badge-followup{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:#fbbf24;}
+    .badge-info{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);color:#60a5fa;}
+    .badge-done{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;}
+    .btn-primary{background:var(--accent);color:#000;}
+    .btn-primary:hover{background:#33ddb0;}
+    .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
+    .btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,0.15);}
+
+    /* LOGIN SCREEN */
+    #screen-login{align-items:center;justify-content:center;min-height:calc(100vh - 100px);}
+    .login-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:20px;}
+    .login-logo{width:52px;height:52px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#000;margin-bottom:4px;}
+    .login-box h2{font-size:1.4rem;font-weight:800;letter-spacing:-0.5px;}
+    .login-box p{color:var(--muted);font-size:0.85rem;margin-top:-12px;}
+    .form-group{display:flex;flex-direction:column;gap:6px;}
+    .form-group label{font-size:0.78rem;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+    .form-group input{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:10px 14px;font-size:0.9rem;color:var(--text);font-family:var(--font);outline:none;transition:border-color 0.2s;}
+    .form-group input:focus{border-color:var(--accent);}
+    .login-btn{background:var(--accent);color:#000;border:none;border-radius:8px;padding:12px;font-size:0.9rem;font-weight:700;cursor:pointer;transition:background 0.2s;}
+    .login-btn:hover{background:#33ddb0;}
+    .login-demo-note{font-size:0.75rem;color:var(--muted);text-align:center;}
+    .login-demo-note span{color:var(--accent);}
+
+    /* INBOX SCREEN */
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;}
+    .stat-card .sv{font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1;}
+    .stat-card .sl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+
+    .inbox-list{display:flex;flex-direction:column;gap:1px;background:var(--border);border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+    .inbox-item{background:var(--card);padding:16px 20px;display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;cursor:pointer;transition:background 0.15s;}
+    .inbox-item:hover{background:var(--bg3);}
+    .inbox-item.unread{border-left:3px solid var(--accent);}
+    .inbox-item.urgent{border-left:3px solid var(--red);}
+    .sender-avatar{width:36px;height:36px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;color:var(--accent);flex-shrink:0;border:1px solid var(--border);}
+    .email-meta{min-width:0;}
+    .email-sender{font-weight:600;font-size:0.88rem;display:flex;align-items:center;gap:8px;}
+    .email-subject{font-size:0.82rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+    .email-right{display:flex;flex-direction:column;align-items:flex-end;gap:6px;flex-shrink:0;}
+    .email-time{font-size:0.72rem;color:var(--muted);}
+    .ai-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;padding:2px 8px;border-radius:4px;}
+
+    /* EMAIL DETAIL */
+    .email-detail-header{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;}
+    .email-detail-header h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;}
+    .email-meta-row{display:flex;flex-wrap:wrap;gap:16px;font-size:0.8rem;color:var(--muted);}
+    .email-body-wrap{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;}
+    .email-body{font-size:0.9rem;color:var(--muted);line-height:1.8;white-space:pre-line;}
+    .ai-analysis{background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.18);border-radius:14px;padding:20px 24px;}
+    .ai-analysis h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:12px;}
+    .ai-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+    .ai-item{background:var(--bg3);border-radius:10px;padding:12px 14px;}
+    .ai-item-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.8px;color:var(--muted);margin-bottom:4px;}
+    .ai-item-val{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .ai-suggestion{background:var(--bg2);border-radius:8px;padding:12px 14px;font-size:0.82rem;color:var(--muted);}
+    .ai-suggestion strong{color:var(--accent);}
+
+    /* PRIORITY QUEUE */
+    .priority-list{display:flex;flex-direction:column;gap:10px;}
+    .priority-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;}
+    .priority-rank{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.82rem;flex-shrink:0;}
+    .rank-1{background:rgba(239,68,68,0.15);color:#f87171;border:1px solid rgba(239,68,68,0.3);}
+    .rank-2{background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);}
+    .rank-3{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.3);}
+    .rank-n{background:var(--bg2);color:var(--muted);border:1px solid var(--border);}
+    .priority-info{flex:1;min-width:0;}
+    .priority-subject{font-weight:600;font-size:0.88rem;}
+    .priority-from{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+    .priority-score{text-align:right;flex-shrink:0;}
+    .score-val{font-size:1.1rem;font-weight:800;color:var(--accent);display:block;line-height:1;}
+    .score-label{font-size:0.68rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.5px;}
+
+    /* ROUTING BOARD */
+    .routing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .routing-col{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;}
+    .routing-col-head{padding:14px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+    .routing-col-head h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+    .routing-count{font-size:0.72rem;font-weight:700;background:var(--bg2);padding:2px 10px;border-radius:100px;color:var(--muted);}
+    .routing-items{padding:12px;display:flex;flex-direction:column;gap:8px;}
+    .routing-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+    .routing-card-from{font-size:0.78rem;font-weight:600;margin-bottom:3px;}
+    .routing-card-subject{font-size:0.75rem;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .routing-tag{font-size:0.66rem;font-weight:700;padding:2px 7px;border-radius:4px;margin-top:6px;display:inline-block;text-transform:uppercase;letter-spacing:0.3px;}
+
+    /* ANALYTICS */
+    .analytics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+    .analytics-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
+    .analytics-card h4{font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:16px;}
+    .bar-chart{display:flex;flex-direction:column;gap:10px;}
+    .bar-row{display:grid;grid-template-columns:90px 1fr 40px;align-items:center;gap:10px;}
+    .bar-label{font-size:0.78rem;color:var(--muted);}
+    .bar-track{background:var(--bg2);border-radius:100px;height:8px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:100px;transition:width 0.8s ease;}
+    .bar-val{font-size:0.78rem;font-weight:700;text-align:right;}
+    .donut-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+    .donut-item{background:var(--bg2);border-radius:10px;padding:14px;}
+    .donut-val{font-size:1.6rem;font-weight:800;color:var(--accent);line-height:1;}
+    .donut-label{font-size:0.72rem;color:var(--muted);margin-top:4px;}
+    .trend-row{display:flex;align-items:flex-end;gap:4px;height:80px;}
+    .trend-bar{flex:1;border-radius:3px 3px 0 0;background:rgba(0,200,150,0.25);transition:background 0.2s;}
+    .trend-bar:hover{background:var(--accent);}
+    .trend-labels{display:flex;gap:4px;margin-top:6px;}
+    .trend-label{flex:1;font-size:0.65rem;color:var(--muted);text-align:center;}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="inbox" class="topbar-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to Product Page</a>
+  <div class="topbar-divider"></div>
+  <div class="topbar-brand">
+    <div class="topbar-logo">OS</div>
+    <span class="topbar-name">OrderStream AI Inbox</span>
+  </div>
+  <span class="topbar-badge">Interactive Demo</span>
+</div>
+
+<div class="screen-tabs">
+  <div class="screen-tab active" onclick="showScreen('login',this)">Login</div>
+  <div class="screen-tab" onclick="showScreen('inbox',this)">Inbox</div>
+  <div class="screen-tab" onclick="showScreen('detail',this)">Email Detail</div>
+  <div class="screen-tab" onclick="showScreen('priority',this)">Priority Queue</div>
+  <div class="screen-tab" onclick="showScreen('routing',this)">Routing Board</div>
+  <div class="screen-tab" onclick="showScreen('analytics',this)">Analytics</div>
+</div>
+
+<div class="app-body">
+
+  <!-- LOGIN -->
+  <div class="screen active" id="screen-login">
+    <div class="login-box">
+      <div class="login-logo">OS</div>
+      <div>
+        <h2>Welcome back</h2>
+        <p>Sign in to your OrderStream AI dashboard</p>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" value="sarah@acme-logistics.com" placeholder="your@company.com">
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" value="••••••••••" placeholder="••••••••••">
+      </div>
+      <button class="login-btn" onclick="showScreen('inbox',document.querySelectorAll('.screen-tab')[1])">Sign In →</button>
+      <p class="login-demo-note">Demo credentials pre-filled. Click <span>Sign In</span> to explore.</p>
+    </div>
+  </div>
+
+  <!-- INBOX -->
+  <div class="screen" id="screen-inbox">
+    <div class="stats-row">
+      <div class="stat-card"><div class="sv">247</div><div class="sl">Emails Today</div></div>
+      <div class="stat-card"><div class="sv" style="color:#f87171;">14</div><div class="sl">Urgent</div></div>
+      <div class="stat-card"><div class="sv" style="color:#fbbf24;">38</div><div class="sl">Awaiting Reply</div></div>
+      <div class="stat-card"><div class="sv">195</div><div class="sl">Auto-Resolved</div></div>
+    </div>
+    <div class="section-head">
+      <div>
+        <div class="section-title">Inbox — AI Classified</div>
+        <div class="section-sub">All emails sorted by priority and intent in real time</div>
+      </div>
+      <button class="btn btn-ghost">Filter ▾</button>
+    </div>
+    <div class="inbox-list">
+      <div class="inbox-item urgent" onclick="showScreen('detail',document.querySelectorAll('.screen-tab')[2])">
+        <div class="sender-avatar">TR</div>
+        <div class="email-meta">
+          <div class="email-sender">Tyler R. — Acme Distribution <span class="badge badge-urgent">Urgent</span></div>
+          <div class="email-subject">ORDER #8821 — Wrong SKU Shipped / Need Replacement ASAP</div>
+        </div>
+        <div class="email-right"><span class="email-time">2m ago</span></div>
+      </div>
+      <div class="inbox-item unread">
+        <div class="sender-avatar">MK</div>
+        <div class="email-meta">
+          <div class="email-sender">Maria K. — BlueSky Retail <span class="badge badge-followup">Follow-up</span></div>
+          <div class="email-subject">Re: Q3 Pricing Agreement — still waiting on the updated sheet</div>
+        </div>
+        <div class="email-right"><span class="email-time">18m ago</span></div>
+      </div>
+      <div class="inbox-item">
+        <div class="sender-avatar">JP</div>
+        <div class="email-meta">
+          <div class="email-sender">James P. — Northgate Imports <span class="badge badge-info">Info</span></div>
+          <div class="email-subject">Shipping manifest for PO-4490 attached — please confirm receipt</div>
+        </div>
+        <div class="email-right"><span class="email-time">34m ago</span></div>
+      </div>
+      <div class="inbox-item">
+        <div class="sender-avatar">AS</div>
+        <div class="email-meta">
+          <div class="email-sender">Accounts — SunCoast Wholesale <span class="badge badge-followup">Follow-up</span></div>
+          <div class="email-subject">Invoice INV-20221 — 30 days past due, requesting payment confirmation</div>
+        </div>
+        <div class="email-right"><span class="email-time">1h ago</span></div>
+      </div>
+      <div class="inbox-item">
+        <div class="sender-avatar">LC</div>
+        <div class="email-meta">
+          <div class="email-sender">Lisa C. — Freight Partner <span class="badge badge-info">Info</span></div>
+          <div class="email-subject">Rate update effective October 1 — new fuel surcharge schedule</div>
+        </div>
+        <div class="email-right"><span class="email-time">2h ago</span></div>
+      </div>
+      <div class="inbox-item">
+        <div class="sender-avatar">RB</div>
+        <div class="email-meta">
+          <div class="email-sender">Robert B. — Cascade Supply <span class="badge badge-urgent">Urgent</span></div>
+          <div class="email-subject">System down — can't access portal, need order status for 3 POs</div>
+        </div>
+        <div class="email-right"><span class="email-time">3h ago</span></div>
+      </div>
+      <div class="inbox-item">
+        <div class="sender-avatar">NW</div>
+        <div class="email-meta">
+          <div class="email-sender">Newsletter — Industry Today <span class="badge badge-done">Auto-Archived</span></div>
+          <div class="email-subject">This week in supply chain: AI adoption, port delays, and more</div>
+        </div>
+        <div class="email-right"><span class="email-time">4h ago</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMAIL DETAIL -->
+  <div class="screen" id="screen-detail">
+    <div class="email-detail-header">
+      <div class="email-sender" style="margin-bottom:8px;font-size:0.82rem;color:var(--muted);">From: Tyler Reynolds &lt;tyler.r@acmedist.com&gt; · To: operations@yourcompany.com</div>
+      <h3>ORDER #8821 — Wrong SKU Shipped / Need Replacement ASAP</h3>
+      <div class="email-meta-row">
+        <span>Received: Today, 9:14 AM</span>
+        <span class="badge badge-urgent">Urgent</span>
+        <span class="badge badge-followup">Requires Action</span>
+      </div>
+    </div>
+    <div class="email-body-wrap">
+      <div class="email-body">Hi team,
+
+We just received the delivery for Order #8821 and the wrong SKU was shipped. We ordered SKU-4420-B (the 12-pack blue label) but received SKU-4420-A (the 6-pack red label). We need 200 units of the correct product by Friday for our weekend promotion.
+
+This is causing a major disruption on our end and our warehouse team is already on the phone with our store managers. Please expedite the replacement shipment and provide a return label for the incorrect items.
+
+Can you also confirm whether this will affect any other pending orders in our queue?
+
+Thanks,
+Tyler Reynolds
+Operations Manager, Acme Distribution
++1 (555) 820-4490</div>
+    </div>
+    <div class="ai-analysis">
+      <h4>AI Analysis</h4>
+      <div class="ai-row">
+        <div class="ai-item"><div class="ai-item-label">Priority Score</div><div class="ai-item-val" style="color:#f87171;">9.2 / 10</div></div>
+        <div class="ai-item"><div class="ai-item-label">Intent</div><div class="ai-item-val">Order Error — Replacement</div></div>
+        <div class="ai-item"><div class="ai-item-label">Sentiment</div><div class="ai-item-val" style="color:#f87171;">Frustrated</div></div>
+      </div>
+      <div class="ai-row">
+        <div class="ai-item"><div class="ai-item-label">Order Ref</div><div class="ai-item-val">#8821</div></div>
+        <div class="ai-item"><div class="ai-item-label">SKU Issue</div><div class="ai-item-val">4420-A vs 4420-B</div></div>
+        <div class="ai-item"><div class="ai-item-label">Deadline</div><div class="ai-item-val">Friday (3 days)</div></div>
+      </div>
+      <div class="ai-suggestion"><strong>Suggested Action:</strong> Route to Fulfillment Team immediately. Issue return label for SKU-4420-A, create expedited replacement order for 200× SKU-4420-B. Reply to Tyler confirming receipt and ETA. Check queue for any other orders containing SKU-4420-A.</div>
+    </div>
+    <div style="display:flex;gap:10px;">
+      <button class="btn btn-primary">Reply with AI Draft</button>
+      <button class="btn btn-ghost">Assign to Fulfillment</button>
+      <button class="btn btn-ghost">Create Ticket</button>
+    </div>
+  </div>
+
+  <!-- PRIORITY QUEUE -->
+  <div class="screen" id="screen-priority">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Priority Queue</div>
+        <div class="section-sub">AI-ranked by urgency score — updated every 60 seconds</div>
+      </div>
+      <button class="btn btn-ghost">Bulk Assign</button>
+    </div>
+    <div class="priority-list">
+      <div class="priority-item"><div class="priority-rank rank-1">1</div><div class="priority-info"><div class="priority-subject">Wrong SKU Shipped — Replacement ASAP (Acme Distribution)</div><div class="priority-from">Tyler R. · Received 2 min ago · Order #8821</div></div><div class="priority-score"><span class="score-val">9.2</span><span class="score-label">Priority</span></div></div>
+      <div class="priority-item"><div class="priority-rank rank-1">2</div><div class="priority-info"><div class="priority-subject">System down — can't access portal, need order status</div><div class="priority-from">Robert B. · Cascade Supply · 3 POs affected</div></div><div class="priority-score"><span class="score-val">8.7</span><span class="score-label">Priority</span></div></div>
+      <div class="priority-item"><div class="priority-rank rank-2">3</div><div class="priority-info"><div class="priority-subject">Invoice INV-20221 — 30 days past due</div><div class="priority-from">Accounts · SunCoast Wholesale · Overdue $12,400</div></div><div class="priority-score"><span class="score-val">7.4</span><span class="score-label">Priority</span></div></div>
+      <div class="priority-item"><div class="priority-rank rank-2">4</div><div class="priority-info"><div class="priority-subject">Q3 Pricing Agreement — still waiting on update</div><div class="priority-from">Maria K. · BlueSky Retail · 3rd follow-up</div></div><div class="priority-score"><span class="score-val">6.8</span><span class="score-label">Priority</span></div></div>
+      <div class="priority-item"><div class="priority-rank rank-3">5</div><div class="priority-info"><div class="priority-subject">Shipping manifest for PO-4490 — confirm receipt</div><div class="priority-from">James P. · Northgate Imports · Action needed</div></div><div class="priority-score"><span class="score-val">5.1</span><span class="score-label">Priority</span></div></div>
+      <div class="priority-item"><div class="priority-rank rank-n">6</div><div class="priority-info"><div class="priority-subject">Rate update — new fuel surcharge schedule Oct 1</div><div class="priority-from">Lisa C. · Freight Partner · FYI only</div></div><div class="priority-score"><span class="score-val">2.3</span><span class="score-label">Priority</span></div></div>
+    </div>
+  </div>
+
+  <!-- ROUTING BOARD -->
+  <div class="screen" id="screen-routing">
+    <div class="section-head">
+      <div>
+        <div class="section-title">Routing Board</div>
+        <div class="section-sub">Real-time view of where every email is being directed</div>
+      </div>
+    </div>
+    <div class="routing-grid">
+      <div class="routing-col">
+        <div class="routing-col-head"><h4 style="color:#f87171;">Fulfillment Team</h4><span class="routing-count">4</span></div>
+        <div class="routing-items">
+          <div class="routing-card"><div class="routing-card-from">Acme Distribution</div><div class="routing-card-subject">Wrong SKU — need replacement</div><span class="routing-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Urgent</span></div>
+          <div class="routing-card"><div class="routing-card-from">Cascade Supply</div><div class="routing-card-subject">Portal down — order status needed</div><span class="routing-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Urgent</span></div>
+          <div class="routing-card"><div class="routing-card-from">Northgate Imports</div><div class="routing-card-subject">PO-4490 manifest — confirm receipt</div><span class="routing-tag" style="background:rgba(59,130,246,0.12);color:#60a5fa;">Action</span></div>
+          <div class="routing-card"><div class="routing-card-from">Harbour Goods</div><div class="routing-card-subject">Bulk order restock for Q4</div><span class="routing-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Follow-up</span></div>
+        </div>
+      </div>
+      <div class="routing-col">
+        <div class="routing-col-head"><h4 style="color:#fbbf24;">Finance Team</h4><span class="routing-count">3</span></div>
+        <div class="routing-items">
+          <div class="routing-card"><div class="routing-card-from">SunCoast Wholesale</div><div class="routing-card-subject">INV-20221 — 30 days overdue</div><span class="routing-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Overdue</span></div>
+          <div class="routing-card"><div class="routing-card-from">BlueSky Retail</div><div class="routing-card-subject">Q3 pricing agreement update</div><span class="routing-tag" style="background:rgba(245,158,11,0.12);color:#fbbf24;">Follow-up</span></div>
+          <div class="routing-card"><div class="routing-card-from">Delta Merchandise</div><div class="routing-card-subject">Disputed charge on Sept invoice</div><span class="routing-tag" style="background:rgba(239,68,68,0.12);color:#f87171;">Dispute</span></div>
+        </div>
+      </div>
+      <div class="routing-col">
+        <div class="routing-col-head"><h4 style="color:var(--accent);">Auto-Resolved</h4><span class="routing-count">195</span></div>
+        <div class="routing-items">
+          <div class="routing-card"><div class="routing-card-from">Multiple Senders</div><div class="routing-card-subject">Order confirmations sent</div><span class="routing-tag" style="background:rgba(0,200,150,0.12);color:var(--accent);">Auto-Replied</span></div>
+          <div class="routing-card"><div class="routing-card-from">Various</div><div class="routing-card-subject">Newsletters & marketing</div><span class="routing-tag" style="background:rgba(0,200,150,0.12);color:var(--accent);">Archived</span></div>
+          <div class="routing-card"><div class="routing-card-from">Shipping Partners</div><div class="routing-card-subject">Delivery confirmations logged</div><span class="routing-tag" style="background:rgba(0,200,150,0.12);color:var(--accent);">Logged</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="screen" id="screen-analytics">
+    <div class="analytics-grid">
+      <div class="analytics-card">
+        <h4>Email Volume — Last 7 Days</h4>
+        <div class="trend-row" id="trendChart"></div>
+        <div class="trend-labels">
+          <div class="trend-label">Mon</div><div class="trend-label">Tue</div><div class="trend-label">Wed</div>
+          <div class="trend-label">Thu</div><div class="trend-label">Fri</div><div class="trend-label">Sat</div><div class="trend-label">Sun</div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Classification Breakdown</h4>
+        <div class="donut-row">
+          <div class="donut-item"><div class="donut-val">79%</div><div class="donut-label">Auto-Resolved</div></div>
+          <div class="donut-item"><div class="donut-val" style="color:#f87171;">6%</div><div class="donut-label">Urgent Actions</div></div>
+          <div class="donut-item"><div class="donut-val" style="color:#fbbf24;">15%</div><div class="donut-label">Follow-ups</div></div>
+          <div class="donut-item"><div class="donut-val" style="color:#60a5fa;">5%</div><div class="donut-label">Info Only</div></div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Top Senders by Volume</h4>
+        <div class="bar-chart">
+          <div class="bar-row"><span class="bar-label">Acme Dist.</span><div class="bar-track"><div class="bar-fill" style="width:82%;background:var(--accent);"></div></div><span class="bar-val">82</span></div>
+          <div class="bar-row"><span class="bar-label">BlueSky Retail</span><div class="bar-track"><div class="bar-fill" style="width:64%;background:#60a5fa;"></div></div><span class="bar-val">64</span></div>
+          <div class="bar-row"><span class="bar-label">Cascade Supply</span><div class="bar-track"><div class="bar-fill" style="width:51%;background:#fbbf24;"></div></div><span class="bar-val">51</span></div>
+          <div class="bar-row"><span class="bar-label">SunCoast</span><div class="bar-track"><div class="bar-fill" style="width:39%;background:var(--accent);"></div></div><span class="bar-val">39</span></div>
+          <div class="bar-row"><span class="bar-label">Northgate</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--muted);"></div></div><span class="bar-val">22</span></div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Performance Metrics</h4>
+        <div class="donut-row">
+          <div class="donut-item"><div class="donut-val">4.2m</div><div class="donut-label">Avg Response Time</div></div>
+          <div class="donut-item"><div class="donut-val">95%</div><div class="donut-label">Classification Accuracy</div></div>
+          <div class="donut-item"><div class="donut-val">90%+</div><div class="donut-label">Inbox Time Saved</div></div>
+          <div class="donut-item"><div class="donut-val">24/7</div><div class="donut-label">Always Processing</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function showScreen(id, tab) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.screen-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('screen-' + id).classList.add('active');
+    tab.classList.add('active');
+  }
+
+  // Build trend chart bars
+  const heights = [45, 62, 55, 78, 92, 30, 58];
+  const chart = document.getElementById('trendChart');
+  heights.forEach(h => {
+    const bar = document.createElement('div');
+    bar.className = 'trend-bar';
+    bar.style.height = h + '%';
+    chart.appendChild(bar);
+  });
+</script>
+</body>
+</html>
