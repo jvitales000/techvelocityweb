@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -l \"background:rgba\\(6,10,15,0.97\\)\" \"c:/Users/Vincent/Desktop/techvelocity/\"*.html)",
+      "Read(//c/Users/Vincent/Desktop/techvelocity/**)",
+      "Bash(python3 -c \":*)",
+      "Read(//c/Users/Vincent/Desktop/**)",
+      "Bash(python3)",
+      "Bash(python3 -)",
+      "Bash(grep -rn \"Onboarding Performance\\\\|Reps Enrolled\\\\|60%.*FASTER ONBOARDING\\\\|FASTER ONBOARDING\" *.html)",
+      "Bash(grep -rl \"tw-text\\\\|tw-wrap\" *.html)",
+      "Bash(grep -rn \"src=\" *.html)",
+      "Bash(grep -rn 'src=\"[^h]' *.html)",
+      "Bash(grep -rn 'src=\"[^h][^t][^t]' *.html)",
+      "Bash(git ls-tree:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m ':*)",
+      "Bash(git pull:*)",
+      "Bash(git rebase:*)",
+      "Bash(git commit:*)",
+      "Bash(git checkout:*)",
+      "Bash(git push:*)",
+      "Bash(grep -rn \"MNI\\\\|membernetwork\\\\|membernet\\\\|westoran\\\\|west-orange\\\\|chamber\" *.html)",
+      "Bash(grep -rn \"docs.google\\\\|spreadsheet\\\\|sheets.googleapis\\\\|script.google\" *.html)",
+      "Bash(python3 -c \"import base64; url='https://script.google.com/macros/s/AKfycbwaOTckx4cHlJJrXz8JkhOoRCHlo2cmfzz1LVF7HWQJH5IIgZQQFKI5IhuduquwtzKP/exec'; print\\(base64.b64encode\\(url.encode\\(\\)\\).decode\\(\\)\\)\")",
+      "Bash(grep -rn '\\\\.html\"' *.html)",
+      "Bash(grep -v \"http\\\\|//\")",
+      "Bash(ls img/*.mp4 img/*.webm video/)",
+      "Bash(grep -rn 'index\\\\.html' *.html)"
+    ]
+  }
+}

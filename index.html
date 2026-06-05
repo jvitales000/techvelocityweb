@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
@@ -12,9 +12,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
   <script src="https://wochamber.chambermaster.com/Content/Script/Member.js" type="text/javascript"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
     html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
     html.light body{background:var(--bg);color:var(--text);}
     html.light body::before{opacity:0.05;}
@@ -55,11 +55,12 @@
     @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.hero-ctas,.hero-stats,.badge,.tw-text,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;width:auto!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s,transform 0.3s;}
     nav.scrolled{padding:10px 48px;}
+    .nav-hidden{transform:translateY(-100%);}
     .logo-img{height:70px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
@@ -68,6 +69,7 @@
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+    .nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:4px;}.nav-sub{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 0;min-width:220px;list-style:none;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.3);}.nav-sub::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}.nav-dropdown:hover>.nav-sub{display:flex;flex-direction:column;animation:subDrop 0.18s ease forwards;}@keyframes subDrop{from{opacity:0;transform:translateX(-50%) translateY(-8px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}.nav-sub li a{display:block;padding:9px 16px;color:var(--muted);font-size:0.84rem;white-space:nowrap;transition:color 0.2s,background 0.2s;}.nav-sub li a:hover{color:var(--text);background:rgba(0,200,150,0.06);}.nav-sub .sub-all a{color:var(--accent);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:12px;}@media(max-width:900px){.nav-sub{display:flex;flex-direction:column;position:static;transform:none;box-shadow:none;border:none;background:none;padding:0 0 0 12px;gap:2px;}.nav-sub::before{display:none;}.nav-sub .sub-all a{border-bottom:none;padding-bottom:9px;}}
     /* HERO */
     .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;overflow:hidden;}
     .hero-glow{position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.15) 0%,transparent 70%);pointer-events:none;}
@@ -75,16 +77,16 @@
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:28px;animation:fadeInDown 0.6s ease both;}
     .badge::before{content:'●';font-size:0.6rem;animation:pulse 2s infinite;}
     @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
-    .hero h1{font-family:var(--font-head);font-size:clamp(2rem,3.8vw,3.6rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;max-width:720px;margin-bottom:24px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2.6rem,5vw,5rem);font-weight:800;line-height:1.08;letter-spacing:-1.5px;max-width:820px;margin-bottom:32px;animation:fadeInUp 0.7s 0.1s ease both;}
     .hero h1 em{font-style:normal;color:var(--accent);}
     .hero p.sub{font-size:1rem;color:var(--muted);max-width:520px;margin:0 auto 40px;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;}
     .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;animation:fadeInUp 0.7s 0.3s ease both;}
-    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
     .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
     .btn-primary:hover::after{opacity:1;}
-    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
-    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-secondary:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.06);transform:translateY(-1px);}
     .hero-stats{display:flex;gap:48px;margin-top:64px;padding-top:40px;border-top:1px solid var(--border);animation:fadeInUp 0.7s 0.4s ease both;flex-wrap:wrap;justify-content:center;}
     .stat{text-align:center;}
     .stat-num{font-family:var(--font-head);font-size:1.7rem;font-weight:800;color:var(--text);}
@@ -99,19 +101,19 @@
     .logo-pill{display:flex;align-items:center;gap:8px;color:var(--muted);font-weight:600;font-size:0.9rem;padding:8px 16px;border:1px solid var(--border);border-radius:100px;transition:all 0.2s;}
     .logo-pill:hover{color:var(--text);border-color:rgba(255,255,255,0.15);}
     /* SECTION BASE */
-    section{padding:80px 24px;position:relative;z-index:1;}
+    section{padding:110px 24px;position:relative;z-index:1;}
     .container{max-width:1040px;margin:0 auto;}
-    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
-    .section-sub{color:var(--muted);font-size:0.97rem;max-width:540px;margin-bottom:56px;line-height:1.7;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:20px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.4rem);font-weight:600;letter-spacing:-0.8px;line-height:1.12;margin-bottom:28px;}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:80px;line-height:1.75;}
     /* PROBLEM */
     .problem-section{background:var(--bg2);}
     .problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-bottom:48px;}
     .problem-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;transition:border-color 0.3s;}
     .problem-card:hover{border-color:rgba(0,200,150,0.2);}
-    .problem-card .icon{font-size:1.6rem;margin-bottom:14px;}
+    .problem-card .icon{display:none;}
     .problem-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
-    .problem-card p{color:var(--muted);font-size:0.88rem;line-height:1.6;}
+    .problem-card p{color:var(--muted);font-size:0.88rem;line-height:1.7;}
     .problem-vs{display:flex;background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;}
     .vs-col{flex:1;padding:36px;}
     .vs-col.bad{background:rgba(255,60,60,0.04);}
@@ -131,9 +133,9 @@
     .pipeline-step:hover{background:rgba(0,200,150,0.05);border-color:rgba(0,200,150,0.2);z-index:1;}
     .pipeline-step:not(:last-child)::after{content:'›';position:absolute;right:-12px;top:50%;transform:translateY(-50%);width:24px;height:24px;background:var(--bg);border:1px solid var(--border);border-radius:50%;color:var(--accent);z-index:2;line-height:24px;text-align:center;font-size:1rem;}
     .step-num{font-size:0.68rem;font-weight:700;letter-spacing:1.5px;color:var(--accent);text-transform:uppercase;margin-bottom:12px;}
-    .step-icon{font-size:1.5rem;margin-bottom:10px;}
+    .step-icon{display:none;}
     .step-title{font-family:var(--font-head);font-size:0.95rem;font-weight:700;margin-bottom:8px;}
-    .step-desc{font-size:0.82rem;color:var(--muted);line-height:1.55;margin-bottom:14px;}
+    .step-desc{font-size:0.82rem;color:var(--muted);line-height:1.65;margin-bottom:14px;}
     .step-tag{font-size:0.72rem;color:var(--accent);font-weight:600;background:rgba(0,200,150,0.08);padding:3px 9px;border-radius:100px;display:inline-block;}
     /* FEATURES */
     .features-section{background:var(--bg2);}
@@ -144,7 +146,7 @@
     .feature-card:hover::before{opacity:1;}
     .feature-icon-box{width:52px;height:52px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:20px;}
     .feature-card h3{font-family:var(--font-head);font-size:1.08rem;font-weight:700;margin-bottom:10px;}
-    .feature-card p{color:var(--muted);font-size:0.9rem;line-height:1.65;margin-bottom:20px;}
+    .feature-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:20px;}
     .feature-tags{display:flex;gap:8px;flex-wrap:wrap;}
     .tag{font-size:0.72rem;color:var(--accent);background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.15);padding:3px 10px;border-radius:100px;font-weight:600;}
     /* CASE STUDY */
@@ -163,7 +165,7 @@
     .funnel-bar{height:100%;background:linear-gradient(90deg,var(--accent),#00e8a8);border-radius:100px;}
     .funnel-pct{font-size:0.78rem;font-weight:800;color:var(--text);width:34px;text-align:right;flex-shrink:0;font-family:var(--font-head);}
     /* CTA BAND */
-    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
+    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
     .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 36px;}
 
     /* TYPEWRITER */
@@ -176,7 +178,14 @@
     .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
     /* TESTIMONIALS */
     /* TESTIMONIALS - SCROLLING COLUMNS */
-    .testimonials-section{background:var(--bg2);}
+    .testimonials-section{background:var(--bg2);position:relative;}
+    .testimonials-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+    .trust-stats-row{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-bottom:64px;}
+    .trust-stat-box{background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:14px;padding:22px 28px;text-align:center;min-width:140px;flex:1;max-width:200px;position:relative;overflow:hidden;transition:all 0.3s;}
+    .trust-stat-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--accent);}
+    .trust-stat-box:hover{border-color:rgba(0,200,150,0.4);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,0.2);}
+    .trust-stat-num{font-family:var(--font-head);font-size:2.2rem;font-weight:800;color:var(--accent);letter-spacing:-2px;line-height:1;}
+    .trust-stat-label{font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-top:8px;font-weight:600;}
     .testi-columns-wrap{display:flex;gap:20px;justify-content:center;max-height:740px;overflow:hidden;mask-image:linear-gradient(to bottom,transparent,black 20%,black 80%,transparent);-webkit-mask-image:linear-gradient(to bottom,transparent,black 20%,black 80%,transparent);}
     .testi-col{display:flex;flex-direction:column;gap:16px;flex:0 0 300px;}
     .testi-col-inner{display:flex;flex-direction:column;gap:16px;animation:scrollUp 15s linear infinite;}
@@ -184,8 +193,10 @@
     .testi-col:nth-child(3) .testi-col-inner{animation-duration:17s;}
     @keyframes scrollUp{0%{transform:translateY(0);}100%{transform:translateY(-50%);}}
     .testi-col-inner:hover{animation-play-state:paused;}
-    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:border-color 0.3s;}
-    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);}
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:24px;transition:border-color 0.3s,box-shadow 0.3s;position:relative;overflow:hidden;}
+    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.45;transition:opacity 0.3s;}
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+    .testimonial-card:hover::before{opacity:1;}
     .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
     .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
     .testimonial-author{display:flex;align-items:center;gap:10px;}
@@ -203,23 +214,25 @@
     .price-tier{font-family:var(--font-head);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:12px;}
     .price-amount{font-family:var(--font-head);font-size:2.4rem;font-weight:800;color:#fff;letter-spacing:-2px;margin-bottom:4px;}
     .price-period{font-size:0.8rem;color:var(--muted);margin-bottom:14px;}
-    .price-desc{font-size:0.86rem;color:var(--muted);line-height:1.6;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+    .price-desc{font-size:0.86rem;color:var(--muted);line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
     .price-features{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px;}
     .price-features li{display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--muted);}
     .check{color:var(--green);font-weight:700;flex-shrink:0;}
     .x{color:#ff4444;font-weight:700;flex-shrink:0;}
-    .price-cta{display:block;text-align:center;padding:14px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;}
+    .price-cta{display:block;text-align:center;padding:14px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;position:relative;overflow:hidden;}
+    .price-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.18),transparent);opacity:0;transition:opacity 0.2s;}
     .price-cta.solid{background:var(--accent);color:#000;}
     .price-cta.solid:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,200,150,0.35);}
+    .price-cta.solid:hover::after{opacity:1;}
     .price-cta.outline{border:1px solid rgba(0,200,150,0.25);color:var(--text);}
-    .price-cta.outline:hover{background:rgba(0,200,150,0.08);border-color:rgba(0,200,150,0.4);}
+    .price-cta.outline:hover{background:rgba(0,200,150,0.08);border-color:rgba(0,200,150,0.4);transform:translateY(-1px);}
     /* FAQ - PREMIUM REDESIGN */
     .faq-section{background:var(--bg);position:relative;overflow:hidden;}
     .faq-section::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,150,0.07) 0%,transparent 70%);pointer-events:none;}
     .faq-layout{display:grid;grid-template-columns:1fr 1.6fr;gap:64px;align-items:start;}
     .faq-left{position:sticky;top:100px;}
     .faq-left .section-tag{margin-bottom:16px;display:inline-block;}
-    .faq-left h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;}
+    .faq-left h2{font-family:var(--font-head);font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:600;line-height:1.12;letter-spacing:-0.7px;margin-bottom:20px;}
     .faq-left p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:32px;}
     .faq-categories{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
     .faq-cat{padding:6px 14px;border-radius:100px;border:1px solid var(--border);font-size:0.78rem;font-weight:600;color:var(--muted);cursor:pointer;transition:all 0.2s;background:transparent;}
@@ -228,7 +241,7 @@
     .faq-contact-card{background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,200,150,0.02));border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:28px;position:relative;overflow:hidden;}
     .faq-contact-card::before{content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;border-radius:50%;background:rgba(0,200,150,0.08);pointer-events:none;}
     .faq-contact-card h4{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
-    .faq-contact-card p{font-size:0.83rem;color:var(--muted);line-height:1.6;margin-bottom:18px;}
+    .faq-contact-card p{font-size:0.83rem;color:var(--muted);line-height:1.7;margin-bottom:18px;}
     .faq-contact-card a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#000;font-weight:700;font-size:0.85rem;padding:10px 20px;border-radius:100px;text-decoration:none;transition:background 0.2s;}
     .faq-contact-card a:hover{background:#33ddb0;}
     .faq-right{padding-top:2px;}
@@ -258,11 +271,11 @@
     /* DEMO FORM */
     .demo-section{background:var(--bg);}
     .demo-wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
-    .demo-info h2{font-family:var(--font-head);font-size:clamp(1.6rem,2.6vw,2.2rem);font-weight:800;letter-spacing:-0.6px;line-height:1.2;margin-bottom:14px;}
+    .demo-info h2{font-family:var(--font-head);font-size:clamp(1.7rem,2.8vw,2.5rem);font-weight:600;letter-spacing:-0.7px;line-height:1.18;margin-bottom:18px;}
     .demo-info p{color:var(--muted);font-size:0.93rem;line-height:1.7;margin-bottom:32px;}
     .demo-bullets{display:flex;flex-direction:column;gap:14px;}
     .demo-bullet{display:flex;align-items:flex-start;gap:14px;}
-    .bullet-icon{width:36px;height:36px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .bullet-icon{display:none;}
     .bullet-text strong{display:block;font-family:var(--font-head);font-size:0.92rem;font-weight:700;margin-bottom:3px;}
     .bullet-text span{color:var(--muted);font-size:0.83rem;}
     .demo-form-wrap{background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:20px;padding:36px 32px;}
@@ -275,27 +288,18 @@
     .form-group select option{background:#0c1218;}
     .form-group textarea{resize:none;height:90px;}
     .form-privacy{font-size:0.74rem;color:var(--muted);text-align:center;margin-top:12px;display:flex;align-items:center;justify-content:center;gap:6px;}
-    /* FOOTER - STACKED CIRCULAR */
-    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 24px 40px;position:relative;z-index:1;}
-    .footer-inner{display:flex;flex-direction:column;align-items:center;max-width:640px;margin:0 auto;}
-    .footer-logo-circle{display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
-    .footer-logo-circle img{height:80px;width:auto;}
-    .footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 28px;margin-bottom:32px;}
-    .footer-nav a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
-    .footer-nav a:hover{color:var(--accent);}
-    .footer-socials{display:flex;gap:12px;margin-bottom:32px;}
-    .footer-social-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.2s;text-decoration:none;color:var(--muted);}
-    .footer-social-btn:hover{border-color:rgba(0,200,150,0.4);background:rgba(0,200,150,0.08);color:var(--accent);}
-    .footer-social-btn svg{width:16px;height:16px;fill:currentColor;}
-    .footer-subscribe{width:100%;max-width:420px;display:flex;gap:8px;margin-bottom:36px;}
-    .footer-subscribe input{flex:1;background:var(--card);border:1px solid var(--border);border-radius:100px;padding:10px 18px;color:var(--text);font-size:0.88rem;outline:none;transition:border-color 0.2s;font-family:var(--font-body);}
-    .footer-subscribe input::placeholder{color:var(--muted);}
-    .footer-subscribe input:focus{border-color:rgba(0,200,150,0.4);}
-    .footer-subscribe button{background:var(--accent);color:#000;border:none;border-radius:100px;padding:10px 22px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:background 0.2s;white-space:nowrap;font-family:var(--font-body);}
-    .footer-subscribe button:hover{background:#33ddb0;}
-    .footer-copy{font-size:0.8rem;color:var(--muted);text-align:center;line-height:1.6;}
-    .footer-copy a{color:var(--muted);text-decoration:none;transition:color 0.2s;}
-    .footer-copy a:hover{color:var(--text);}
+    /* FOOTER */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 48px;}
+    .footer-brand p{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-top:14px;max-width:240px;}
+    .footer-logo{height:56px;width:auto;}
+    .footer-col h4{font-family:var(--font-head);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);margin-bottom:18px;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.87rem;transition:color 0.2s;}
+    .footer-col ul li a:hover{color:var(--text);}
+    .footer-bottom{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);}
+    @media(max-width:900px){.footer-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:640px){footer{padding:48px 24px 32px;}.footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}.footer-grid>div:nth-child(2){grid-column:1/-1;}.footer-bottom{flex-direction:column;gap:8px;text-align:center;}}
     /* SCROLL REVEAL */
     .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
@@ -324,7 +328,7 @@
     .popup-close{position:absolute;top:16px;right:16px;width:32px;height:32px;background:rgba(255,255,255,0.06);border:1px solid var(--border);border-radius:8px;color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;line-height:1;}
     .popup-close:hover{background:rgba(255,255,255,0.1);color:var(--text);}
     .popup-eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);color:var(--accent);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;padding:4px 10px;border-radius:100px;margin-bottom:12px;}
-    .popup-header h2{font-family:var(--font-head);font-size:1.3rem;font-weight:800;letter-spacing:-0.2px;line-height:1.25;margin-bottom:8px;}
+    .popup-header h2{font-family:var(--font-head);font-size:1.3rem;font-weight:700;letter-spacing:-0.2px;line-height:1.25;margin-bottom:8px;}
     .popup-header h2 span{color:var(--accent);}
     .popup-header p{color:var(--muted);font-size:0.86rem;font-weight:300;}
     .popup-body{padding:28px 32px 32px;}
@@ -366,21 +370,24 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links,nav>.btn-primary{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .problem-grid{grid-template-columns:1fr;}
       .features-grid{grid-template-columns:1fr 1fr;}
       .pricing-grid{grid-template-columns:1fr;}
       .price-card.popular{transform:none;}
       .testi-col:nth-child(2){display:flex;}.testi-col:nth-child(3){display:none;}
+      .trust-stat-box{min-width:100px;padding:16px 18px;}
+      nav.scrolled{padding:10px 24px;}
+      .nav-hidden{transform:none!important;}
     }
     @media(max-width:640px){
       .testi-col:nth-child(2){display:none;}
+      .trust-stats-row{gap:8px;}
+      .trust-stat-num{font-size:1.6rem;}
       .case-grid{grid-template-columns:1fr;}
       .demo-wrap{grid-template-columns:1fr;}
       .faq-layout{grid-template-columns:1fr;}
       .faq-left{position:static;}
-      .footer-subscribe{flex-direction:column;}
-      .footer-subscribe input,.footer-subscribe button{width:100%;}
       .pipeline{flex-direction:column;}
       .pipeline-step{border-radius:12px!important;border-right:1px solid var(--border)!important;}
       .pipeline-step:not(:last-child)::after{content:'↓';right:50%;bottom:-12px;top:auto;transform:translateX(50%);}
@@ -403,7 +410,39 @@
       .result-num{font-size:2rem;letter-spacing:-1px;}
       .case-results{gap:10px;}
       .result-box{padding:20px 14px;}
+      .hero-ctas{flex-direction:column;align-items:center;}
+      .hero-ctas .btn-primary,.hero-ctas .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .btn-row{flex-direction:column;align-items:center;}
+      .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .hero-stats{gap:24px;padding-top:28px;margin-top:40px;}
+      .trust-stats-row{gap:8px;}
+      .trust-stat-box{padding:14px 16px;}
+      .trust-stat-num{font-size:1.8rem;}
+      .testimonial-card{padding:20px;}
+      .section-sub{margin-bottom:40px!important;}
+      .popup-overlay{align-items:flex-start;overflow-y:auto;padding:16px 16px 32px;}
+      .popup-box{border-radius:16px;}
+      .popup-close{width:44px;height:44px;font-size:1.1rem;top:12px;right:12px;}
+      .popup-header{padding:24px 20px 20px;}
+      .popup-body{padding:20px;}
+      .popup-form-row{grid-template-columns:1fr;}
+      #affiliations{padding:48px 16px!important;}
+      #affiliations>div>div:last-child{gap:16px!important;}
+      #affiliations>div>div>div{min-width:100%!important;max-width:100%!important;}
+      #affiliations>div>div>div:first-child{padding:28px 20px!important;}
+      #affiliations video,#affiliations a{min-height:220px!important;}
     }
+    #back-to-top{position:fixed;bottom:20px;left:20px;z-index:499;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all 0.3s;opacity:0;pointer-events:none;}
+    #back-to-top.visible{opacity:1;pointer-events:auto;}
+    #back-to-top:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,200,150,0.3);}
+    /* ── VISUAL ENHANCEMENTS ── */
+    @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.04);}}
+    .hero-glow{animation:glow-pulse 5s ease-in-out infinite!important;}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.13),transparent);transition:left 0.55s ease;pointer-events:none;z-index:1;}
+    .btn-primary:hover::before{left:150%;}
+    .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
   </style>
 </head>
 <body>
@@ -414,7 +453,7 @@
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="how-it-works">How It Works</a></li>
-    <li><a href="portfolio">Our Work</a></li>
+    <li class="nav-dropdown"><a href="portfolio">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Command Center</a></li></ul></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -424,11 +463,11 @@
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="badge">Custom AI for Your Business</div>
-  <h1>Building Your AI Future,<br><em>Today.</em></h1>
-  <p class="sub">Your competitors are not waiting. We build the AI that gets you back ahead. Private, purpose-built, and yours.</p>
+  <div class="badge">AI Systems for Business Operations</div>
+  <h1>Automate and Simplify Your<br>Business Operations <em>with AI</em></h1>
+  <p class="sub">Reduce manual work, improve workflow efficiency, and scale operations with smart automation built specifically for your business.</p>
   <div class="hero-ctas">
-    <a href="#demo" class="btn-primary">Book Your Free AI Audit</a>
+    <a href="#demo" class="btn-primary">Book an AI Strategy Call</a>
     <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
   </div>
   <div class="hero-stats">
@@ -448,10 +487,10 @@
     <h2 class="section-title">Your Competitors Are Moving Fast.<br>Manual Work Is Holding You Back.</h2>
     <p class="section-sub">Larger players have dedicated AI teams. Generic tools don't know your workflows or your clients. The businesses winning right now have AI built specifically for <em>them</em>.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div class="icon">⏰</div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Your best people spend most of the day on tasks AI can handle in seconds. Data entry, email sorting, reporting, routing. That is capacity going to waste every single day. Stop it.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT does not know your workflows, your clients, or your compliance rules. Public AI tools guess. A model trained on your actual data delivers accurate, consistent outputs your team can trust.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>Your team acts on stale data. By the time the report is ready, the window is closed. Competitors who move on real-time information win more often. It really is that simple.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive client data through public AI platforms is a real compliance and IP liability. A private model keeps your data secure and fully under your control. Always.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Data entry, email sorting, reporting, routing — AI can handle all of it in seconds. Your best people are wasting capacity on tasks that don't require them.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT doesn't know your workflows, your clients, or your compliance rules. A model trained on your actual data delivers outputs your team can actually trust.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>By the time the report is ready, the window is closed. Competitors acting on real-time data win more deals. The gap widens every day you don't close it.</p></div>
+      <div class="problem-card"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive data through public AI tools is a compliance and IP liability. A private model keeps everything secure and fully under your control.</p></div>
     </div>
     <div class="problem-vs">
       <div class="vs-col bad">
@@ -478,11 +517,21 @@
 </section>
 
 <!-- HOW IT WORKS -->
+<!-- STATS HIGHLIGHT BAND -->
+<section class="stats-band">
+  <div class="stats-band-inner reveal">
+    <div class="stat-item"><span class="stat-num">70%</span><div class="stat-desc">Cost Reduction Average</div></div>
+    <div class="stat-item"><span class="stat-num">60%</span><div class="stat-desc">Faster Conversations</div></div>
+    <div class="stat-item"><span class="stat-num">80%</span><div class="stat-desc">Less Manual Work</div></div>
+    <div class="stat-item"><span class="stat-num">100%</span><div class="stat-desc">Custom Built For You</div></div>
+  </div>
+</section>
+
 <section class="system-section" id="how-it-works">
   <div class="container">
     <span class="section-tag">The Process</span>
     <h2 class="section-title">Your Custom AI in<br>3 Clear Steps</h2>
-    <p class="section-sub">No vague roadmaps. No endless back-and-forth. We deliver a working AI model. Not a deck. Not a proposal. Real results, fast.</p>
+    <p class="section-sub">Three steps, clear milestones, working AI — from discovery to live deployment.</p>
     <div class="pipeline reveal">
       <div class="pipeline-step">
         <div class="step-num">Step 01</div>
@@ -514,42 +563,36 @@
   <div class="container">
     <span class="section-tag">Solutions</span>
     <h2 class="section-title">What We Build<br>For Your Business</h2>
-    <p class="section-sub">Six AI systems built for the real problems SMEs face. Each one private, purpose-built, and designed around how your business actually runs.</p>
+    <p class="section-sub">Six AI systems built for the real problems SMEs face. Each one private, <span style="color:var(--accent)">purpose-built</span>, and designed around how your business actually runs.</p>
     <div class="features-grid">
       <div class="feature-card reveal">
-        <div class="feature-icon-box"></div>
         <h3>AI Customer Assistance</h3>
-        <p>Stop making customers wait. AI trained on your products, policies, and FAQs delivers instant, accurate answers around the clock. No wait times. No extra headcount. Just results.</p>
+        <p>AI trained on your products, policies, and FAQs — instant, accurate answers 24/7. No wait times. No extra headcount.</p>
         <div class="feature-tags"><span class="tag">24/7 Support</span><span class="tag">Custom Training</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
-        <div class="feature-icon-box"></div>
         <h3>Workflow Automation</h3>
-        <p>Stop doing by hand what a machine can do in seconds. Email triage, document routing, data entry, scheduling, reporting. AI handles it so your team focuses on work that actually grows the business.</p>
+        <p>Email triage, document routing, data entry, reporting — automated. Your team focuses on the work that actually moves the business forward.</p>
         <div class="feature-tags"><span class="tag">Email Triage</span><span class="tag">Data Entry</span><span class="tag">Routing</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="feature-icon-box"></div>
         <h3>Business Intelligence</h3>
-        <p>Live dashboards that surface real-time insights so your team makes faster, better decisions. Before the opportunity closes. Before the problem compounds. Finally.</p>
+        <p>Live dashboards with real-time insights. Make faster, better decisions — before the opportunity closes, before the problem compounds.</p>
         <div class="feature-tags"><span class="tag">Live Dashboards</span><span class="tag">Predictive AI</span></div>
       </div>
       <div class="feature-card reveal">
-        <div class="feature-icon-box"></div>
         <h3>AI Sales Training</h3>
-        <p>Realistic role-play scenarios and natural voice conversations. Cut onboarding time by 60%. Increase win rates by 35%. Your reps learn faster, practice more, and close better deals.</p>
+        <p>Realistic role-play and voice practice — on demand. Cut onboarding by 60%, increase win rates by 35%. Reps learn faster and close better.</p>
         <div class="feature-tags"><span class="tag">Role-Play AI</span><span class="tag">Voice Simulation</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
-        <div class="feature-icon-box"></div>
         <h3>AI-Powered Inbox</h3>
         <p>Every email sorted, categorized, and routed automatically. Built for law firms, insurance agencies, and professional service teams where missing a message costs real money.</p>
         <div class="feature-tags"><span class="tag">Legal</span><span class="tag">Triage</span><span class="tag">Routing</span></div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
-        <div class="feature-icon-box"></div>
         <h3>Industry-Specific AI</h3>
-        <p>Clinical assessments. Engineering code compliance. Insurance underwriting. We build for industries where getting it wrong is not an option. Precision and compliance, built in by design.</p>
+        <p>Clinical assessments. Engineering compliance. Insurance underwriting. Built for industries where precision and accuracy are non-negotiable — compliance by design.</p>
         <div class="feature-tags"><span class="tag">Healthcare</span><span class="tag">Legal</span><span class="tag">Engineering</span></div>
       </div>
     </div>
@@ -564,7 +607,7 @@
     <div class="case-grid">
       <div>
         <h3 style="font-family:var(--font-head);font-size:1.3rem;font-weight:700;margin-bottom:12px;">AI Sales Training Platform. Professional Services Firm.</h3>
-        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">A professional services firm was burning 12+ weeks onboarding new sales reps with static slides and shadowing. Results were inconsistent. Turnover was high. We built a custom AI training system with realistic role-play and voice practice. Here is what happened after 90 days:</p>
+        <p style="color:var(--muted);font-size:0.92rem;line-height:1.7;margin-bottom:20px;">We replaced a 12-week onboarding process with a custom AI training platform — here is what changed in 90 days:</p>
         <div class="case-results">
           <div class="result-box"><div class="result-num">60%</div><div class="result-label">Faster Onboarding</div></div>
           <div class="result-box"><div class="result-num">35%</div><div class="result-label">Higher Win Rates</div></div>
@@ -595,7 +638,7 @@
   </div>
   <p>Every week without a custom AI model is another week of manual work, slow decisions, and tools that were never built for you. Find out exactly what you are leaving on the table.</p>
   <div class="btn-row">
-    <a href="#demo" class="btn-primary">Book Your Free AI Audit</a>
+    <a href="#demo" class="btn-primary">Book an AI Strategy Call</a>
     <a href="#pricing" class="btn-secondary">See Pricing →</a>
   </div>
 </div>
@@ -605,7 +648,13 @@
   <div class="container">
     <span class="section-tag">Real Client Results</span>
     <h2 class="section-title">Hear It From the People<br>Who Run These Businesses</h2>
-    <p class="section-sub">Law firms, insurance agencies, healthcare clinics, engineering firms. Here is what business owners and operators say after their custom AI goes live.</p>
+    <p class="section-sub">Law firms, insurance agencies, healthcare clinics, engineering firms. Real outcomes — not demos, not promises.</p>
+    <div class="trust-stats-row">
+      <div class="trust-stat-box reveal"><div class="trust-stat-num">70%</div><div class="trust-stat-label">Less Manual Work</div></div>
+      <div class="trust-stat-box reveal"><div class="trust-stat-num">60%</div><div class="trust-stat-label">Faster Onboarding</div></div>
+      <div class="trust-stat-box reveal"><div class="trust-stat-num">$40K</div><div class="trust-stat-label">Revenue Recovered</div></div>
+      <div class="trust-stat-box reveal"><div class="trust-stat-num">3×</div><div class="trust-stat-label">More Volume, Same Team</div></div>
+    </div>
 
     <div class="testi-columns-wrap">
 
@@ -616,7 +665,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div class="author-avatar-initials">JR</div>
               <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
             </div>
           </div>
@@ -624,15 +673,15 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div class="author-avatar-initials">SN</div>
               <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
+            <p class="testimonial-text">"After 20 years with <span style="color:var(--accent)">Fortune 500</span> AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div class="author-avatar-initials">DM</div>
               <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
             </div>
           </div>
@@ -640,7 +689,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates - our staff finally has breathing room to focus on patient care."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div class="author-avatar-initials">LP</div>
               <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
             </div>
           </div>
@@ -650,7 +699,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Tech Velocity built a custom AI inbox management system for our law firm. What used to take a paralegal 3 hours per day now runs automatically. Accuracy went up, costs went down."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="James Rivera" class="author-avatar">
+              <div class="author-avatar-initials">JR</div>
               <div><div class="author-name">James Rivera</div><div class="author-role">Managing Partner · Law Firm, NY</div></div>
             </div>
           </div>
@@ -658,15 +707,15 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The AI sales training platform transformed how we onboard reps. Time-to-first-deal dropped from 14 weeks to under 6. The role-play scenarios are genuinely better than any human coaching."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Nguyen" class="author-avatar">
+              <div class="author-avatar-initials">SN</div>
               <div><div class="author-name">Sarah Nguyen</div><div class="author-role">VP Sales · Insurance Brokerage, Chicago</div></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
+            <p class="testimonial-text">"After 20 years with <span style="color:var(--accent)">Fortune 500</span> AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong - our model understands our engineering database better than most of our staff."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="David Monroe" class="author-avatar">
+              <div class="author-avatar-initials">DM</div>
               <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
             </div>
           </div>
@@ -674,7 +723,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We cut patient intake processing time by 70%. The AI handles scheduling, reminders, and record updates - our staff finally has breathing room to focus on patient care."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Linda Park" class="author-avatar">
+              <div class="author-avatar-initials">LP</div>
               <div><div class="author-name">Dr. Linda Park</div><div class="author-role">Medical Director · Healthcare Clinic, Miami</div></div>
             </div>
           </div>
@@ -688,7 +737,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate - we recovered $40K in missed commissions in the first month."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div class="author-avatar-initials">MT</div>
               <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
             </div>
           </div>
@@ -696,7 +745,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes - I understood exactly what the model was doing and why. That trust is rare."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div class="author-avatar-initials">AR</div>
               <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
             </div>
           </div>
@@ -704,15 +753,15 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div class="author-avatar-initials">RK</div>
               <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a purpose-built AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
+            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a <span style="color:var(--accent)">purpose-built</span> AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div class="author-avatar-initials">PS</div>
               <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
             </div>
           </div>
@@ -722,7 +771,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Commission reconciliation used to take my team 3 full days every month. Now it's done in under 2 hours with 90%+ accuracy. The ROI was immediate - we recovered $40K in missed commissions in the first month."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Marcus Thompson" class="author-avatar">
+              <div class="author-avatar-initials">MT</div>
               <div><div class="author-name">Marcus Thompson</div><div class="author-role">Principal · Insurance Agency, Atlanta</div></div>
             </div>
           </div>
@@ -730,7 +779,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes - I understood exactly what the model was doing and why. That trust is rare."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Alicia Reyes" class="author-avatar">
+              <div class="author-avatar-initials">AR</div>
               <div><div class="author-name">Alicia Reyes</div><div class="author-role">COO · Professional Services Firm, Dallas</div></div>
             </div>
           </div>
@@ -738,15 +787,15 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our AI assistant answers jurisdiction-specific engineering code questions with cited sources. What used to require a 30-minute senior engineer review now takes 90 seconds. It's changed how we deliver projects."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/77.jpg" alt="Robert Kim" class="author-avatar">
+              <div class="author-avatar-initials">RK</div>
               <div><div class="author-name">Robert Kim</div><div class="author-role">Director of Engineering · Construction Co.</div></div>
             </div>
           </div>
           <div class="testimonial-card">
             <div class="stars">★★★★★</div>
-            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a purpose-built AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
+            <p class="testimonial-text">"I expected a generic chatbot. What they delivered was a <span style="color:var(--accent)">purpose-built</span> AI that knows our products, our policies, and our tone. Customer satisfaction scores jumped 28% in the first quarter."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Priya Sharma" class="author-avatar">
+              <div class="author-avatar-initials">PS</div>
               <div><div class="author-name">Priya Sharma</div><div class="author-role">Head of CX · eCommerce Brand, LA</div></div>
             </div>
           </div>
@@ -760,7 +809,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div class="author-avatar-initials">SL</div>
               <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
             </div>
           </div>
@@ -768,7 +817,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"They didn't just hand us software - they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div class="author-avatar-initials">CM</div>
               <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
             </div>
           </div>
@@ -776,7 +825,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div class="author-avatar-initials">JW</div>
               <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
             </div>
           </div>
@@ -784,7 +833,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div class="author-avatar-initials">TH</div>
               <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
             </div>
           </div>
@@ -794,7 +843,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"The clinical scoring system cut evaluation time by 70% and runs at 98% consistency. Our assessors spend time on judgment calls, not data entry. This is the future of clinical operations."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Dr. Susan Lee" class="author-avatar">
+              <div class="author-avatar-initials">SL</div>
               <div><div class="author-name">Dr. Susan Lee</div><div class="author-role">Chief Clinical Officer · Health Network</div></div>
             </div>
           </div>
@@ -802,7 +851,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"They didn't just hand us software - they learned our business first. The discovery process revealed automation opportunities we hadn't even considered. We're getting value from workflows we didn't know were inefficient."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/41.jpg" alt="Carlos Mendez" class="author-avatar">
+              <div class="author-avatar-initials">CM</div>
               <div><div class="author-name">Carlos Mendez</div><div class="author-role">CEO · Manufacturing SME, Phoenix</div></div>
             </div>
           </div>
@@ -810,7 +859,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"Our email triage system now routes and categorizes 500+ daily emails automatically. Response time dropped from 4 hours to 20 minutes. We handle 3x the volume with the same team."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/women/14.jpg" alt="Jennifer Walsh" class="author-avatar">
+              <div class="author-avatar-initials">JW</div>
               <div><div class="author-name">Jennifer Walsh</div><div class="author-role">Operations Lead · Legal Firm, Boston</div></div>
             </div>
           </div>
@@ -818,7 +867,7 @@
             <div class="stars">★★★★★</div>
             <p class="testimonial-text">"We were skeptical about AI. Tech Velocity walked us through every step, answered every question, and delivered on time. Six months later, I can't imagine running the business without it."</p>
             <div class="testimonial-author">
-              <img src="https://randomuser.me/api/portraits/men/63.jpg" alt="Tom Harrington" class="author-avatar">
+              <div class="author-avatar-initials">TH</div>
               <div><div class="author-name">Tom Harrington</div><div class="author-role">Owner · Retail Group, Denver</div></div>
             </div>
           </div>
@@ -850,7 +899,7 @@
           <li><span class="x">✗</span>Advanced workflow automation</li>
           <li><span class="x">✗</span>Custom AI dashboard UI</li>
         </ul>
-        <a href="#demo" class="price-cta outline">Get Started Now →</a>
+        <a href="#demo" class="price-cta outline">Book an AI Strategy Call →</a>
       </div>
       <div class="price-card popular reveal reveal-delay-1">
         <div class="popular-badge">Most Popular</div>
@@ -867,7 +916,7 @@
           <li><span class="check">✓</span>60-day post-launch support</li>
           <li><span class="check">✓</span>Performance monitoring</li>
         </ul>
-        <a href="#demo" class="price-cta solid">Book Free Audit →</a>
+        <a href="#demo" class="price-cta solid">Book an AI Strategy Call →</a>
       </div>
       <div class="price-card reveal reveal-delay-2">
         <div class="price-tier">Enterprise</div>
@@ -883,7 +932,7 @@
           <li><span class="check">✓</span>Ongoing model retraining</li>
           <li><span class="check">✓</span>Priority SLA and on-site workshops</li>
         </ul>
-        <a href="#demo" class="price-cta outline">Talk to Our Team →</a>
+        <a href="#demo" class="price-cta outline">Book an AI Strategy Call →</a>
       </div>
     </div>
     <p style="text-align:center;color:var(--muted);font-size:0.82rem;margin-top:28px;">All plans include a free discovery audit. No lock-in contracts. Pricing built for SMEs.</p>
@@ -911,8 +960,8 @@
         </div>
         <div class="faq-contact-card">
           <h4>Still have questions?</h4>
-          <p>Book a free 45-minute call. We answer every question and map out exactly what AI can do for your business. No pressure, no pitch. Just clarity.</p>
-          <a href="contact">Book Free Audit →</a>
+          <p>Book a free <span style="color:var(--accent)">45-minute</span> call. We answer every question and map out exactly what AI can do for your business. No pressure, no pitch. Just clarity.</p>
+          <a href="contact">Book an AI Strategy Call →</a>
         </div>
       </div>
 
@@ -926,7 +975,7 @@
             <span class="faq-q-text">Do I need technical knowledge to work with you?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
-          <div class="faq-a"><div class="faq-a-inner">Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives. not engineers. If you can describe how your business works, we can build the AI for it.</div></div>
+          <div class="faq-a"><div class="faq-a-inner">Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can describe how your business works, we can build the AI for it.</div></div>
         </div>
 
         <div class="faq-item" data-cat="technology">
@@ -1023,16 +1072,19 @@
         <h2>Find Out Exactly Where<br>AI Can Pay Off for You</h2>
         <p>45 minutes. We map where your business is leaking time and money, show you what AI would do about it, and hand you a plan. No obligation, no pressure.</p>
         <div class="demo-bullets">
-          <div class="demo-bullet"><div class="bullet-icon">&#128269;</div><div class="bullet-text"><strong>Business Process Analysis</strong><span>We find the workflows costing you the most time and the highest-value places to start</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon"></div><div class="bullet-text"><strong>Business Process Analysis</strong><span>We find the workflows costing you the most time and the highest-value places to start</span></div></div>
           <div class="demo-bullet"><div class="bullet-icon">&#128204;</div><div class="bullet-text"><strong>Your Custom AI Roadmap</strong><span>A clear, prioritized plan: what to build first, in what order, and why it pays off for your business</span></div></div>
-          <div class="demo-bullet"><div class="bullet-icon">&#128200;</div><div class="bullet-text"><strong>Real ROI Numbers</strong><span>Time saved, cost reduced, revenue recovered. Built from your actual data, not industry averages</span></div></div>
-          <div class="demo-bullet"><div class="bullet-icon">&#10003;</div><div class="bullet-text"><strong>100% Free. No Strings.</strong><span>No pitch. No hard close. Just the clearest picture of what is possible and what it is worth to your business</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon"></div><div class="bullet-text"><strong>Real ROI Numbers</strong><span>Time saved, cost reduced, revenue recovered. Built from your actual data, not industry averages</span></div></div>
+          <div class="demo-bullet"><div class="bullet-icon"></div><div class="bullet-text"><strong>100% Free. No Strings.</strong><span>No pitch. No hard close. Just the clearest picture of what is possible and what it is worth to your business</span></div></div>
         </div>
       </div>
       <div class="demo-form-wrap">
-        <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:800;letter-spacing:-0.2px;margin-bottom:6px;">Book Your Free AI Audit</h3>
+        <h3 style="font-family:var(--font-head);font-size:1.15rem;font-weight:800;letter-spacing:-0.2px;margin-bottom:6px;">Book an AI Strategy Call</h3>
         <p style="color:var(--muted);font-size:0.83rem;margin-bottom:22px;">We respond within 1 business day. Guaranteed.</p>
         <form id="mainForm" onsubmit="handleMainSubmit(event)">
+          <!-- honeypot: bots fill this, humans don't -->
+          <div style="display:none;position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>
+          <input type="hidden" name="_ts" id="mainFormTs">
           <div class="form-row">
             <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="First name" required></div>
             <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Last name" required></div>
@@ -1055,7 +1107,7 @@
             </select>
           </div>
           <div class="form-group"><label>What is your biggest operational challenge right now?</label><textarea name="needs" placeholder="Tell us what is slowing your team down or costing you the most time..."></textarea></div>
-          <button type="submit" class="btn-primary" id="mainSubmitBtn" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">Book My Free AI Audit</button>
+          <button type="submit" class="btn-primary" id="mainSubmitBtn" style="width:100%;justify-content:center;padding:16px;font-size:1rem;">Book an AI Strategy Call</button>
           <p class="form-privacy">100% confidential. No spam, ever. We respond within 1 business day.</p>
         </form>
       </div>
@@ -1070,7 +1122,7 @@
     <span class="tw-cursor"></span>
   </div>
   <p>Every day without a custom AI model is another day of manual work, higher costs, and revenue left on the table. Start now.</p>
-  <div class="btn-row"><a href="contact" class="btn-primary">Build My AI Model Today</a></div>
+  <div class="btn-row"><a href="contact" class="btn-primary">Book an AI Strategy Call</a></div>
   <p style="margin-top:16px;font-size:0.78rem;color:var(--muted);">Starting at $2,999. Free discovery audit. 2-week delivery.</p>
 </div>
 
@@ -1135,55 +1187,51 @@
   </div>
 </section>
 
-<!-- FOOTER - STACKED CIRCULAR -->
+<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-
-    <!-- Circular logo badge -->
-    <div class="footer-logo-circle">
-      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo" class="footer-logo">
+      <p>Custom AI built for your data, your workflows, and your business. Private, secure, and delivered fast.</p>
+      <div style="display:flex;gap:14px;margin-top:16px;align-items:center;">
+        <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><defs><linearGradient id="igfg" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igfg)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      </div>
     </div>
-
-    <!-- Nav links -->
-    <nav class="footer-nav">
-      <a href="#home">Home</a>
-      <a href="#about">Our Story</a>
-      <a href="#features">Solutions</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#testimonials">Results</a>
-      <a href="#demo">Contact</a>
-      <a href="privacy-policy">Privacy</a>
-      <a href="terms-and-conditions">Terms</a>
-    </nav>
-
-    <!-- Social buttons - rounded outline style matching component -->
-    <div class="footer-socials">
-      <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-      <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X / Twitter" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-      </a>
-      <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn" class="footer-social-btn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
+    <div class="footer-col">
+      <h4>Solutions</h4>
+      <ul>
+        <li><a href="solutions">AI Customer Assistance</a></li>
+        <li><a href="solutions">Workflow Automation</a></li>
+        <li><a href="solutions">Business Intelligence</a></li>
+        <li><a href="solutions">AI Sales Training</a></li>
+      </ul>
     </div>
-
-    <!-- Email subscribe form - rounded pill style matching component -->
-    <div class="footer-subscribe">
-      <input type="email" placeholder="Your email for AI tips and updates" id="footerEmail">
-      <button onclick="handleFooterSubscribe()">Subscribe</button>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="our-story">Our Story</a></li>
+        <li><a href="how-it-works">How It Works</a></li>
+        <li><a href="index#testimonials">Client Results</a></li>
+        <li><a href="index#faq">FAQ</a></li>
+      </ul>
     </div>
-
-    <!-- Copyright -->
-    <div class="footer-copy">
-      <p>© 2025 Tech Velocity, LLC. All rights reserved.</p>
-      <p style="margin-top:6px;"><a href="tel:+18335330225">+1 833-533-0225</a> · <a href="/cdn-cgi/l/email-protection#8fe7eae3e3e0cffbeaece7f9eae3e0ece6fbf6a1eee6"><span class="__cf_email__" data-cfemail="a0c8c5cccccfe0d4c5c3c8d6c5cccfc3c9d4d98ec1c9">[email&#160;protected]</span></a></p>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
+        <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
+        <li><a href="contact">Book an AI Strategy Call</a></li>
+        <li><a href="privacy-policy">Privacy Policy</a></li>
+        <li><a href="terms-and-conditions">Terms of Service</a></li>
+      </ul>
     </div>
-
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>Custom AI for ambitious SMEs.</span>
   </div>
 </footer>
 
@@ -1192,6 +1240,7 @@
 
 <!-- FLOATING BUTTON -->
 <button class="popup-trigger-btn" id="floatBtn" onclick="openPopup('float_button')">Free AI Audit</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
 
 <!-- POPUP OVERLAY -->
 <div class="popup-overlay" id="popupOverlay" onclick="handleOverlayClick(event)">
@@ -1210,6 +1259,9 @@
     <div class="popup-body" id="popupFormWrap">
       <form class="popup-form" id="popupForm" onsubmit="handlePopupSubmit(event)">
         <input type="hidden" name="formSource" id="popupFormSource" value="popup">
+        <!-- honeypot -->
+        <div style="display:none;position:absolute;left:-9999px;" aria-hidden="true"><input type="text" name="website2" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="_ts" id="popupFormTs">
         <div class="popup-form-row">
           <div class="form-group"><label>First Name *</label><input type="text" name="firstName" placeholder="Juan" required></div>
           <div class="form-group"><label>Last Name *</label><input type="text" name="lastName" placeholder="Dela Cruz" required></div>
@@ -1254,12 +1306,12 @@
             <option>Other</option>
           </select>
         </div>
-        <button type="submit" class="btn-primary popup-submit" id="popupSubmitBtn">Book Your Free AI Audit</button>
+        <button type="submit" class="btn-primary popup-submit" id="popupSubmitBtn">Book an AI Strategy Call</button>
         <div class="popup-privacy">100% confidential · No spam ever · We respond within 1 day</div>
       </form>
     </div>
     <div class="popup-success" id="popupSuccess">
-      <div class="success-icon">&#10003;</div>
+      <div class="success-icon">✅</div>
       <h3>You are in. We will be in touch.</h3>
       <p>Your details have been received.<br><br>
       <strong style="color:var(--accent)">Expect a message within 1 business day</strong> to schedule your free AI audit call.<br><br>
@@ -1272,10 +1324,7 @@
 <!-- CHATBOT -->
 <div id="chatbot-container">
   <div id="chat-window">
-    <div id="chat-header">
-      <span>💬 Chat with Tech Velocity</span>
-      <button id="close-chatbot">&times;</button>
-    </div>
+<div id="chat-header"><span style="display:flex;align-items:center;gap:10px;"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity" style="height:24px;width:auto;">Chat with Tech Velocity</span><button id="close-chatbot">&times;</button></div>
     <div id="chat-messages"></div>
     <div id="chat-input-container">
       <input type="text" id="chat-input" placeholder="Type your message...">
@@ -1314,9 +1363,31 @@
     setTimeout(() => t.classList.remove('show'), 4000);
   }
 
+  // ── BOT / RATE-LIMIT GUARD ──
+  function checkBotGuard(form) {
+    // 1. Honeypot: if filled, it's a bot
+    const hp = form.querySelector('input[name="website"], input[name="website2"]');
+    if (hp && hp.value.trim() !== '') return false;
+    // 2. Timing: humans take > 3 s to fill a form
+    const tsEl = form.querySelector('input[name="_ts"]');
+    if (tsEl) {
+      const elapsed = Date.now() - parseInt(tsEl.value || '0', 10);
+      if (elapsed < 3000) return false;
+    }
+    // 3. Rate limit: max 3 submissions per 10 min per browser
+    const key = 'tv_sub_times';
+    const now = Date.now();
+    const times = JSON.parse(localStorage.getItem(key) || '[]').filter(t => now - t < 600000);
+    if (times.length >= 3) return false;
+    times.push(now);
+    localStorage.setItem(key, JSON.stringify(times));
+    return true;
+  }
+
   // ── MAIN FORM ──
   async function handleMainSubmit(e) {
     e.preventDefault();
+    if (!checkBotGuard(e.target)) return;
     const btn = document.getElementById('mainSubmitBtn');
     btn.disabled = true;
     btn.textContent = 'Sending...';
@@ -1324,7 +1395,7 @@
     await submitToSheets(data);
     e.target.reset();
     btn.disabled = false;
-    btn.innerHTML = 'Book My Free AI Audit';
+    btn.innerHTML = 'Book an AI Strategy Call';
     showToast();
   }
 
@@ -1358,13 +1429,14 @@
 
   async function handlePopupSubmit(e) {
     e.preventDefault();
+    if (!checkBotGuard(e.target)) return;
     const btn = document.getElementById('popupSubmitBtn');
     btn.disabled = true;
     btn.textContent = 'Submitting...';
     const data = collectFormData(e.target, popupSource);
     await submitToSheets(data);
     btn.disabled = false;
-    btn.innerHTML = 'Book Your Free AI Audit';
+    btn.innerHTML = 'Book an AI Strategy Call';
     document.getElementById('popupFormWrap').style.display = 'none';
     const succ = document.getElementById('popupSuccess');
     succ.style.display = 'block';
@@ -1404,10 +1476,35 @@
     if (!popupShown) openPopup('time_on_page');
   }, 45000);
 
+  // ── STAMP FORM LOAD TIMES (for bot timing check) ──
+  (function(){
+    var now = Date.now().toString();
+    var mts = document.getElementById('mainFormTs');
+    var pts = document.getElementById('popupFormTs');
+    if(mts) mts.value = now;
+    if(pts) pts.value = now;
+    // Re-stamp popup ts each time it opens
+    var origOpen = window.openPopup;
+    if(typeof origOpen === 'function') {
+      window.openPopup = function(src) {
+        origOpen(src);
+        var el = document.getElementById('popupFormTs');
+        if(el) el.value = Date.now().toString();
+      };
+    }
+  })();
+
   // ── NAV SCROLL ──
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  });
+  (function(){
+    var lastY=0,nav=document.getElementById('navbar');
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY;
+      if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}
+      nav.classList.toggle('scrolled',y>60);
+      var ml=document.querySelector('.nav-links');if(ml&&ml.style.display==='flex'){ml.style.display='none';}
+      lastY=y;
+    },{passive:true});
+  })();
 
   // ── SCROLL REVEAL ──
   const revealObserver = new IntersectionObserver(entries => {
@@ -1581,9 +1678,30 @@
       el.classList.add('tw-animate');
     });
   }, 500);
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
+  // Scroll progress bar
+  (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();
+  // Animated counters
+  (function(){function fmt(n,sfx){return(Number.isInteger(n)?n:n.toFixed(0))+sfx;}function anim(el){var raw=el.getAttribute('data-cv');if(!raw)return;var num=parseFloat(raw),sfx=el.getAttribute('data-cs')||'';if(!num)return;var s=0;var iv=setInterval(function(){s+=num/(1600/16);if(s>=num){clearInterval(iv);el.textContent=fmt(num,sfx);}else{el.textContent=fmt(Math.floor(s),sfx);}},16);}var obs2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anim(e.target);obs2.unobserve(e.target);}});},{threshold:0.5});document.querySelectorAll('.result-val,.hero-metric-val,.metric-val,.hero-stat-num,.trust-stat-num').forEach(function(el){var t=el.textContent.trim();var m=t.match(/^([0-9]+)(.*)$/);if(m&&parseInt(m[1])>=2){el.setAttribute('data-cv',m[1]);el.setAttribute('data-cs',m[2]);obs2.observe(el);}});})();
+  // Floating orbs
+  (function(){var hero=document.querySelector('.project-hero,.portfolio-hero,.hero');if(!hero)return;[{s:220,x:8,y:15,d:7,dl:0},{s:160,x:82,y:55,d:9,dl:2.5},{s:110,x:48,y:75,d:6,dl:4}].forEach(function(o){var el=document.createElement('div');el.style.cssText='position:absolute;width:'+o.s+'px;height:'+o.s+'px;border-radius:50%;left:'+o.x+'%;top:'+o.y+'%;background:radial-gradient(circle,rgba(0,200,150,0.07),transparent 70%);pointer-events:none;animation:orbFloat '+o.d+'s '+o.dl+'s ease-in-out infinite;z-index:0;';hero.appendChild(el);});})();
 </script>
 </body>
 </html>

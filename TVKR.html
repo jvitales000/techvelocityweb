@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kardosh Realty — AI Command Center Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--red:#ef4444;--yellow:#f59e0b;--font:'Inter',sans-serif;}
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
+
+    .topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;flex-shrink:0;z-index:10;}
+    .topbar-back{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
+    .topbar-back:hover{color:var(--accent);}
+    .topbar-back svg{width:14px;height:14px;}
+    .topbar-divider{width:1px;height:20px;background:var(--border);}
+    .topbar-brand{display:flex;align-items:center;gap:10px;}
+    .topbar-logo{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#000;}
+    .topbar-name{font-weight:700;font-size:0.95rem;}
+    .topbar-badge{font-size:0.7rem;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:2px 10px;border-radius:100px;font-weight:600;margin-left:auto;}
+
+    .app-wrap{display:flex;flex:1;overflow:hidden;}
+
+    .sidebar{width:230px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;}
+    .sidebar-brand{padding:20px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
+    .brand-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.78rem;color:#000;}
+    .brand-text{font-weight:700;font-size:0.9rem;}
+    .brand-sub{font-size:0.72rem;color:var(--muted);}
+    .sidebar-nav{padding:12px 10px;display:flex;flex-direction:column;gap:2px;flex:1;}
+    .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:0.84rem;font-weight:500;transition:all 0.15s;user-select:none;}
+    .nav-item:hover{background:rgba(255,255,255,0.04);color:var(--text);}
+    .nav-item.active{background:rgba(0,200,150,0.1);color:var(--accent);}
+    .nav-item svg{width:16px;height:16px;flex-shrink:0;}
+    .nav-badge{margin-left:auto;font-size:0.68rem;font-weight:700;background:rgba(0,200,150,0.15);color:var(--accent);padding:1px 7px;border-radius:100px;}
+    .nav-badge-red{background:rgba(239,68,68,0.15);color:#f87171;}
+    .sidebar-footer{padding:16px 18px;border-top:1px solid var(--border);}
+    .agent-pill{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);}
+    .agent-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);}
+    .agent-text{font-size:0.78rem;color:var(--muted);}
+    .agent-text strong{color:var(--text);}
+
+    .main{flex:1;overflow-y:auto;padding:28px;}
+    .screen{display:none;}
+    .screen.active{display:block;}
+
+    .page-title{font-size:1.2rem;font-weight:800;letter-spacing:-0.4px;margin-bottom:4px;}
+    .page-sub{font-size:0.82rem;color:var(--muted);margin-bottom:24px;}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
+    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;}
+    .stat-card .sv{font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1;}
+    .stat-card .sl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
+    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
+    .badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;}
+    .badge-green{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);}
+    .badge-yellow{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:#fbbf24;}
+    .badge-red{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);color:#f87171;}
+    .badge-blue{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);color:#60a5fa;}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;}
+    .btn-primary{background:var(--accent);color:#000;}
+    .btn-primary:hover{background:#33ddb0;}
+    .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
+    .btn-ghost:hover{color:var(--text);}
+
+    .listing-table{width:100%;border-collapse:collapse;}
+    .listing-table th{font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
+    .listing-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.84rem;}
+    .listing-table tr:last-child td{border-bottom:none;}
+    .listing-table tr:hover td{background:rgba(255,255,255,0.02);}
+    .listing-img{width:48px;height:36px;border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--muted);border:1px solid var(--border);}
+    .listing-addr{font-weight:600;font-size:0.86rem;}
+    .listing-details{font-size:0.76rem;color:var(--muted);margin-top:2px;}
+    .price{font-weight:700;color:var(--text);}
+    .ai-score{display:flex;align-items:center;gap:6px;}
+    .ai-score-bar{width:40px;height:4px;background:var(--bg2);border-radius:100px;overflow:hidden;}
+    .ai-score-fill{height:100%;border-radius:100px;background:var(--accent);}
+
+    .lead-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
+    .lead-avatar{width:40px;height:40px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.82rem;color:var(--accent);border:1px solid var(--border);flex-shrink:0;}
+    .lead-info{flex:1;min-width:0;}
+    .lead-name{font-weight:700;font-size:0.9rem;}
+    .lead-detail{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+    .lead-ai{font-size:0.78rem;color:var(--muted);margin-top:6px;background:var(--bg2);padding:8px 10px;border-radius:8px;border-left:2px solid var(--accent);}
+    .lead-score{text-align:right;flex-shrink:0;}
+    .lead-score .ls{font-size:1.3rem;font-weight:800;color:var(--accent);line-height:1;}
+    .lead-score .ll{font-size:0.66rem;color:var(--muted);text-transform:uppercase;}
+
+    .appt-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:center;}
+    .appt-time-block{background:var(--bg2);border-radius:10px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:70px;border:1px solid var(--border);}
+    .appt-hour{font-size:1rem;font-weight:800;line-height:1;}
+    .appt-ampm{font-size:0.68rem;color:var(--muted);}
+    .appt-info{flex:1;}
+    .appt-name{font-weight:700;font-size:0.9rem;}
+    .appt-detail{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+
+    .followup-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:center;}
+    .followup-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
+    .icon-email{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);}
+    .icon-call{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);}
+    .icon-text{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);}
+    .followup-info{flex:1;}
+    .followup-lead{font-weight:700;font-size:0.88rem;}
+    .followup-task{font-size:0.78rem;color:var(--muted);margin-top:2px;}
+    .followup-ai{font-size:0.76rem;color:var(--accent);margin-top:4px;}
+    .followup-due{font-size:0.76rem;font-weight:600;flex-shrink:0;text-align:right;}
+
+    .report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+    .report-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;}
+    .rs-val{font-size:2rem;font-weight:800;color:var(--accent);line-height:1;}
+    .rs-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
+    .bar-chart{display:flex;flex-direction:column;gap:10px;}
+    .bar-row{display:grid;grid-template-columns:100px 1fr 60px;align-items:center;gap:10px;}
+    .bar-label{font-size:0.78rem;color:var(--muted);}
+    .bar-track{background:var(--bg2);border-radius:100px;height:8px;overflow:hidden;}
+    .bar-fill{height:100%;border-radius:100px;}
+    .bar-val{font-size:0.78rem;font-weight:700;text-align:right;}
+
+    .setting-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
+    .setting-row:last-child{border-bottom:none;}
+    .setting-label{font-size:0.88rem;font-weight:500;}
+    .setting-desc{font-size:0.76rem;color:var(--muted);margin-top:2px;}
+    .toggle{width:40px;height:22px;background:var(--bg2);border-radius:100px;border:1px solid var(--border);position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;}
+    .toggle.on{background:var(--accent);}
+    .toggle::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:left 0.2s;}
+    .toggle.on::after{left:20px;background:#000;}
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="aicallcenter" class="topbar-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to Product Page</a>
+  <div class="topbar-divider"></div>
+  <div class="topbar-brand">
+    <div class="topbar-logo">KR</div>
+    <span class="topbar-name">Kardosh Realty — AI Command Center</span>
+  </div>
+  <span class="topbar-badge">Interactive Demo</span>
+</div>
+
+<div class="app-wrap">
+  <div class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">KR</div>
+      <div>
+        <div class="brand-text">Kardosh Realty</div>
+        <div class="brand-sub">AI Command Center</div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-item active" onclick="showScreen('dashboard',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </div>
+      <div class="nav-item" onclick="showScreen('listings',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Listings
+        <span class="nav-badge">9</span>
+      </div>
+      <div class="nav-item" onclick="showScreen('leads',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Leads
+        <span class="nav-badge">31</span>
+      </div>
+      <div class="nav-item" onclick="showScreen('appointments',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Appointments
+        <span class="nav-badge">6</span>
+      </div>
+      <div class="nav-item" onclick="showScreen('followups',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+        Follow-ups
+        <span class="nav-badge nav-badge-red">4</span>
+      </div>
+      <div class="nav-item" onclick="showScreen('reports',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Reports
+      </div>
+      <div class="nav-item" onclick="showScreen('settings',this)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+        Settings
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="agent-pill">
+        <div class="agent-dot"></div>
+        <div class="agent-text"><strong>AI Agent</strong> active · 2 leads in queue</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+
+    <!-- DASHBOARD -->
+    <div class="screen active" id="screen-dashboard">
+      <div class="page-title">Welcome back, Daniel 👋</div>
+      <div class="page-sub">Your AI agent responded to 9 new leads overnight and flagged 4 follow-ups needing your attention.</div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="sv">$2.8M</div><div class="sl">Pipeline Value</div></div>
+        <div class="stat-card"><div class="sv">31</div><div class="sl">Active Leads</div></div>
+        <div class="stat-card"><div class="sv">6</div><div class="sl">Showings This Week</div></div>
+        <div class="stat-card"><div class="sv">2</div><div class="sl">Offers Pending</div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Activity — Today</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(0,200,150,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">✉️</div><div><div style="font-size:0.84rem;font-weight:600;">9 lead emails handled</div><div style="font-size:0.74rem;color:var(--muted);">Avg response: 6 minutes</div></div></div>
+            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(0,200,150,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">📅</div><div><div style="font-size:0.84rem;font-weight:600;">2 showings confirmed</div><div style="font-size:0.74rem;color:var(--muted);">Via automated scheduling</div></div></div>
+            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(245,158,11,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">⚠️</div><div><div style="font-size:0.84rem;font-weight:600;">4 follow-ups overdue</div><div style="font-size:0.74rem;color:var(--muted);">Review recommended today</div></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">Top Leads Right Now</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.15);border-radius:8px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">SH</div><div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">Steve &amp; Helen Kardosh</div><div style="font-size:0.74rem;color:var(--muted);">Buyer · $950K budget · Pre-approved</div></div><span class="badge badge-green">9.6</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg2);border-radius:8px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">FN</div><div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">Fadi &amp; Nadia M.</div><div style="font-size:0.74rem;color:var(--muted);">Seller · Est. $780K · Urgent relocation</div></div><span class="badge badge-green">8.9</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg2);border-radius:8px;"><div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">TW</div><div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">Tara Williamson</div><div style="font-size:0.74rem;color:var(--muted);">Buyer · $600K · First home</div></div><span class="badge badge-yellow">6.8</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LISTINGS -->
+    <div class="screen" id="screen-listings">
+      <div class="page-title">Active Listings</div>
+      <div class="page-sub">AI tracks market data and alerts you when pricing adjustments are needed</div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table class="listing-table">
+          <thead><tr><th>Property</th><th>Price</th><th>Status</th><th>Days Listed</th><th>AI Score</th><th>Inquiries</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏠</div><div><div class="listing-addr">224 Oakwood Avenue</div><div class="listing-details">4bd · 3ba · 2,600 sqft</div></div></div></td><td class="price">$940,000</td><td><span class="badge badge-blue">Offer Pending</span></td><td>8</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">9.3</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:93%;"></div></div></div></td><td>14</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
+            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏡</div><div><div class="listing-addr">17 Sunrise Court</div><div class="listing-details">3bd · 2ba · 1,750 sqft</div></div></div></td><td class="price">$629,000</td><td><span class="badge badge-green">Active</span></td><td>4</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">8.1</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:81%;"></div></div></div></td><td>9</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
+            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏘️</div><div><div class="listing-addr">1100 Hillcrest Way</div><div class="listing-details">5bd · 4ba · 3,200 sqft · Pool</div></div></div></td><td class="price">$1,150,000</td><td><span class="badge badge-green">Active</span></td><td>11</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">7.8</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:78%;"></div></div></div></td><td>6</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
+            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏠</div><div><div class="listing-addr">45 Elmwood Drive</div><div class="listing-details">3bd · 2ba · 1,500 sqft</div></div></div></td><td class="price">$478,000</td><td><span class="badge badge-yellow">Price Review</span></td><td>34</td><td><div class="ai-score"><span style="font-weight:700;color:#fbbf24;">5.2</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:52%;background:#fbbf24;"></div></div></div></td><td>2</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- LEADS -->
+    <div class="screen" id="screen-leads">
+      <div class="page-title">Lead Pipeline</div>
+      <div class="page-sub">AI scores every lead based on intent signals, behavior, and budget match</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="lead-card"><div class="lead-avatar">SH</div><div class="lead-info"><div class="lead-name">Steve &amp; Helen Kardosh</div><div class="lead-detail">Buyer · $950K budget · Pre-approved · Want: 4bd, pool preferred</div><div class="lead-ai">💡 AI: Visited 1100 Hillcrest Way listing 5 times. Sent property-specific video last night. High probability of offer this week.</div></div><div class="lead-score"><div class="ls">9.6</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-green">Hot</span></div></div></div>
+        <div class="lead-card"><div class="lead-avatar">FN</div><div class="lead-info"><div class="lead-name">Fadi &amp; Nadia Mansour</div><div class="lead-detail">Seller · Est. $780K · Relocating to Phoenix within 60 days</div><div class="lead-ai">💡 AI: Urgency window is closing. AI drafted CMA comparison vs 2 competitors. Send listing presentation today.</div></div><div class="lead-score"><div class="ls">8.9</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-green">Hot</span></div></div></div>
+        <div class="lead-card"><div class="lead-avatar">TW</div><div class="lead-info"><div class="lead-name">Tara Williamson</div><div class="lead-detail">Buyer · $600K · First-time buyer · Pre-qualification in process</div><div class="lead-ai">💡 AI: Engaged with 3 emails and liked 4 listings. Pre-qual should complete in 5 days — follow up then.</div></div><div class="lead-score"><div class="ls">6.8</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-yellow">Warm</span></div></div></div>
+        <div class="lead-card"><div class="lead-avatar">BS</div><div class="lead-info"><div class="lead-name">Brian &amp; Sarah O'Brien</div><div class="lead-detail">Buyer · $500K · Not pre-approved · Casual browsing</div><div class="lead-ai">💡 AI: Low urgency signals. Enrolled in 90-day nurture drip. AI will re-score after 4 more touchpoints.</div></div><div class="lead-score"><div class="ls">3.4</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-blue">Nurture</span></div></div></div>
+      </div>
+    </div>
+
+    <!-- APPOINTMENTS -->
+    <div class="screen" id="screen-appointments">
+      <div class="page-title">Appointments</div>
+      <div class="page-sub">Today's schedule — AI sends automated reminders and preps showing briefs</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">9:30</div><div class="appt-ampm">AM</div></div><div class="appt-info"><div class="appt-name">Seller Consultation — Fadi &amp; Nadia M.</div><div class="appt-detail">Virtual call · AI-prepared CMA · Competing agent also presenting today</div></div><span class="badge badge-red">High Priority</span><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Prep</button></div>
+        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">11:00</div><div class="appt-ampm">AM</div></div><div class="appt-info"><div class="appt-name">Property Showing — Kardosh Family</div><div class="appt-detail">1100 Hillcrest Way · AI brief: focus on pool, mountain view, open floor plan</div></div><span class="badge badge-green">Confirmed</span><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Brief</button></div>
+        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">1:30</div><div class="appt-ampm">PM</div></div><div class="appt-info"><div class="appt-name">Offer Negotiation — 224 Oakwood Ave</div><div class="appt-detail">Counter-offer call · AI analysis: current offer 2.8% under list · Counteroffer template ready</div></div><span class="badge badge-yellow">Prep Needed</span><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Review</button></div>
+        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">4:00</div><div class="appt-ampm">PM</div></div><div class="appt-info"><div class="appt-name">Showing — Tara Williamson</div><div class="appt-detail">17 Sunrise Court · First-time buyer · AI brief: explain process, focus on schools, low maintenance</div></div><span class="badge badge-blue">Auto-Booked</span><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Brief</button></div>
+      </div>
+    </div>
+
+    <!-- FOLLOW-UPS -->
+    <div class="screen" id="screen-followups">
+      <div class="page-title">Follow-up Queue</div>
+      <div class="page-sub">AI drafts personalized follow-up content — approve and send with one click</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="followup-item"><div class="followup-icon icon-call">📞</div><div class="followup-info"><div class="followup-lead">Fadi Mansour</div><div class="followup-task">Decision follow-up — listing agreement</div><div class="followup-ai">AI note: Check-in before competing agent's 10am call. Window: call between 9:00–9:25 AM.</div></div><div class="followup-due" style="color:#f87171;">Urgent</div><button class="btn btn-primary" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Call Now</button></div>
+        <div class="followup-item"><div class="followup-icon icon-email">✉️</div><div class="followup-info"><div class="followup-lead">Steve Kardosh</div><div class="followup-task">Post-showing follow-up email with comps</div><div class="followup-ai">AI Draft: "Steve — great seeing you at Hillcrest today! Here are 2 recently sold comparables that support the pricing…"</div></div><div class="followup-due" style="color:#f87171;">Overdue 6hrs</div><button class="btn btn-primary" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Send</button></div>
+        <div class="followup-item"><div class="followup-icon icon-text">💬</div><div class="followup-info"><div class="followup-lead">Tara Williamson</div><div class="followup-task">Reminder text — 4pm showing today</div><div class="followup-ai">AI Draft: "Hi Tara! See you at 17 Sunrise Court at 4pm today. Text me if you need directions. – Daniel"</div></div><div class="followup-due" style="color:var(--accent);">Due 12pm</div><button class="btn btn-primary" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Send</button></div>
+        <div class="followup-item"><div class="followup-icon icon-email">✉️</div><div class="followup-info"><div class="followup-lead">Brian O'Brien</div><div class="followup-task">30-day nurture email — market update</div><div class="followup-ai">AI Draft: "Brian — the market in your target area moved this week. Here's what's new in the $450–500K range…"</div></div><div class="followup-due" style="color:var(--muted);">Due Tomorrow</div><button class="btn btn-ghost" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Review</button></div>
+      </div>
+    </div>
+
+    <!-- REPORTS -->
+    <div class="screen" id="screen-reports">
+      <div class="page-title">Reports</div>
+      <div class="page-sub">AI-generated weekly performance overview for Kardosh Realty</div>
+      <div class="report-grid">
+        <div class="report-stat"><div class="rs-val">$2.8M</div><div class="rs-label">Pipeline Value</div></div>
+        <div class="report-stat"><div class="rs-val">74%</div><div class="rs-label">Lead Response Rate</div></div>
+        <div class="report-stat"><div class="rs-val">6.1min</div><div class="rs-label">Avg AI Response Time</div></div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">Lead Source Performance</div>
+          <div class="bar-chart">
+            <div class="bar-row"><span class="bar-label">Referrals</span><div class="bar-track"><div class="bar-fill" style="width:78%;background:var(--accent);"></div></div><span class="bar-val" style="color:var(--accent);">12 leads</span></div>
+            <div class="bar-row"><span class="bar-label">Realtor.com</span><div class="bar-track"><div class="bar-fill" style="width:55%;background:#60a5fa;"></div></div><span class="bar-val" style="color:#60a5fa;">8 leads</span></div>
+            <div class="bar-row"><span class="bar-label">Website</span><div class="bar-track"><div class="bar-fill" style="width:42%;background:var(--accent);"></div></div><span class="bar-val" style="color:var(--accent);">6 leads</span></div>
+            <div class="bar-row"><span class="bar-label">Social Media</span><div class="bar-track"><div class="bar-fill" style="width:33%;background:var(--muted);"></div></div><span class="bar-val">5 leads</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Time Savings</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">Lead responses automated</span><span style="font-weight:700;color:var(--accent);">11 hrs saved/wk</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">Follow-up drafts created</span><span style="font-weight:700;color:var(--accent);">6 hrs saved/wk</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">CMA research &amp; prep</span><span style="font-weight:700;color:var(--accent);">4 hrs saved/wk</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:rgba(0,200,150,0.06);border:1px solid rgba(0,200,150,0.15);border-radius:8px;"><span style="font-size:0.84rem;font-weight:600;">Total weekly savings</span><span style="font-weight:800;color:var(--accent);font-size:1rem;">21 hrs</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="screen" id="screen-settings">
+      <div class="page-title">Settings</div>
+      <div class="page-sub">Configure your AI agent and automation preferences for Kardosh Realty</div>
+      <div class="card">
+        <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Agent Settings</div>
+        <div class="setting-row"><div><div class="setting-label">Auto-respond to new leads</div><div class="setting-desc">AI sends personalized reply within 6 minutes of lead submission</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+        <div class="setting-row"><div><div class="setting-label">Showing auto-confirmation</div><div class="setting-desc">AI sends reminders 24hrs and 1hr before each appointment</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+        <div class="setting-row"><div><div class="setting-label">CMA auto-generation</div><div class="setting-desc">AI prepares comparative market analysis for each new seller lead</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+        <div class="setting-row"><div><div class="setting-label">Competitor alert monitoring</div><div class="setting-desc">Notify me when a competing agent lists nearby</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
+        <div class="setting-row"><div><div class="setting-label">Weekly AI performance digest</div><div class="setting-desc">Email summary every Monday morning</div></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function showScreen(id, el) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('screen-' + id).classList.add('active');
+    el.classList.add('active');
+  }
+</script>
+</body>
+</html>

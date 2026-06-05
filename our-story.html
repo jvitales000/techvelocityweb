@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
@@ -11,9 +11,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1218;--bg3:#111820;--card:#0f1822;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Syne',sans-serif;--font-body:'DM Sans',sans-serif;}
+    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
     html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
     html.light body{background:var(--bg);color:var(--text);}html.light body::before{opacity:0.05;}
     html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
@@ -36,12 +36,13 @@
     @media(prefers-reduced-motion:reduce){.hero h1,.hero p.sub,.badge,.reveal{animation:none!important;opacity:1!important;transform:none!important;transition:none!important;}}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.75;overflow-x:hidden;}
     body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:0.4;}
 
     /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 48px;background:rgba(6,10,15,0.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);transition:padding 0.3s,transform 0.3s;}
     nav.scrolled{padding:10px 48px;}
+    .nav-hidden{transform:translateY(-100%);}
     .logo-img{height:70px;width:auto;}
     .nav-links{display:flex;gap:36px;list-style:none;}
     .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
@@ -50,30 +51,33 @@
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
+    .nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:4px;}.nav-sub{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 0;min-width:220px;list-style:none;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.3);}.nav-sub::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}.nav-dropdown:hover>.nav-sub{display:flex;flex-direction:column;animation:subDrop 0.18s ease forwards;}@keyframes subDrop{from{opacity:0;transform:translateX(-50%) translateY(-8px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}.nav-sub li a{display:block;padding:9px 16px;color:var(--muted);font-size:0.84rem;white-space:nowrap;transition:color 0.2s,background 0.2s;}.nav-sub li a:hover{color:var(--text);background:rgba(0,200,150,0.06);}.nav-sub .sub-all a{color:var(--accent);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:12px;}@media(max-width:900px){.nav-sub{display:flex;flex-direction:column;position:static;transform:none;box-shadow:none;border:none;background:none;padding:0 0 0 12px;gap:2px;}.nav-sub::before{display:none;}.nav-sub .sub-all a{border-bottom:none;padding-bottom:9px;}}
 
     /* HERO */
     .hero{position:relative;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;overflow:hidden;}
     .hero-glow{position:absolute;top:-60px;left:50%;transform:translateX(-50%);width:700px;height:500px;background:radial-gradient(ellipse at center,rgba(0,200,150,0.13) 0%,transparent 70%);pointer-events:none;}
     .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,200,150,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,200,150,0.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 75%);}
     .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:7px 16px;border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:24px;animation:fadeInDown 0.6s ease both;}
-    .hero h1{font-family:var(--font-head);font-size:clamp(2.4rem,5vw,4.2rem);font-weight:800;line-height:1.1;letter-spacing:-1px;margin-bottom:20px;animation:fadeInUp 0.7s 0.1s ease both;}
+    .hero h1{font-family:var(--font-head);font-size:clamp(2.6rem,5.2vw,5rem);font-weight:800;line-height:1.08;letter-spacing:-1.5px;margin-bottom:28px;animation:fadeInUp 0.7s 0.1s ease both;}
     .hero h1 em{font-style:normal;color:var(--accent);}
     .hero p.sub{font-size:1.05rem;color:var(--muted);max-width:560px;margin:0 auto;font-weight:300;animation:fadeInUp 0.7s 0.2s ease both;}
     @keyframes fadeInDown{from{opacity:0;transform:translateY(-20px);}to{opacity:1;transform:translateY(0);}}
     @keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
 
     /* BTN */
-    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-primary{background:var(--accent);color:#000;padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;position:relative;overflow:hidden;}
+    .btn-primary::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.2),transparent);opacity:0;transition:opacity 0.2s;}
     .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,200,150,0.35);}
-    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:8px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
-    .btn-secondary:hover{border-color:rgba(255,255,255,0.2);background:rgba(255,255,255,0.04);}
+    .btn-primary:hover::after{opacity:1;}
+    .btn-secondary{background:transparent;color:var(--text);padding:16px 32px;border-radius:10px;font-family:var(--font-head);font-weight:600;font-size:1rem;text-decoration:none;border:1px solid var(--border);cursor:pointer;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+    .btn-secondary:hover{border-color:rgba(0,200,150,0.3);background:rgba(0,200,150,0.06);transform:translateY(-1px);}
 
     /* SECTIONS */
-    section{padding:80px 24px;position:relative;z-index:1;}
+    section{padding:110px 24px;position:relative;z-index:1;}
     .container{max-width:1040px;margin:0 auto;}
-    .section-tag{display:inline-block;font-size:0.75rem;font-weight:600;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:16px;}
-    .section-title{font-family:var(--font-head);font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:800;letter-spacing:-0.3px;line-height:1.2;margin-bottom:16px;}
-    .section-sub{color:var(--muted);font-size:0.97rem;max-width:540px;margin-bottom:56px;line-height:1.7;}
+    .section-tag{display:inline-flex;align-items:center;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent);margin-bottom:20px;border-left:3px solid var(--accent);padding-left:10px;}
+    .section-title{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.4rem);font-weight:600;letter-spacing:-0.8px;line-height:1.12;margin-bottom:28px;}
+    .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:80px;line-height:1.75;}
 
     /* QUOTE SECTION */
     .quote-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
@@ -90,16 +94,16 @@
     .story-section{background:var(--bg);}
     .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
     .story-img-wrap{position:relative;}
-    .story-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;}
+    .story-img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:20px;display:block;}
     .story-img-placeholder{width:100%;aspect-ratio:4/3;background:var(--card);border:1px solid var(--border);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:4rem;}
     .story-img-badge{position:absolute;bottom:-20px;right:-20px;background:var(--accent);color:#000;font-family:var(--font-head);font-weight:800;font-size:0.85rem;padding:14px 20px;border-radius:12px;box-shadow:0 8px 32px rgba(0,200,150,0.35);line-height:1.3;}
     .story-content h6{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:14px;}
-    .story-content h2{font-family:var(--font-head);font-size:clamp(1.5rem,2.4vw,2rem);font-weight:800;line-height:1.2;letter-spacing:-0.3px;margin-bottom:24px;}
+    .story-content h2{font-family:var(--font-head);font-size:clamp(1.7rem,2.6vw,2.4rem);font-weight:600;line-height:1.18;letter-spacing:-0.6px;margin-bottom:28px;}
     .story-content p{color:var(--muted);font-size:0.95rem;line-height:1.75;margin-bottom:14px;}
     .story-content p strong{color:var(--text);}
     .story-content p em strong{color:var(--accent);}
     .story-highlight{background:linear-gradient(135deg,rgba(0,200,150,0.08),rgba(0,168,125,0.04));border:1px solid rgba(0,200,150,0.2);border-radius:12px;padding:20px 24px;margin-top:24px;}
-    .story-highlight p{color:var(--text);font-size:0.95rem;margin:0;line-height:1.6;}
+    .story-highlight p{color:var(--text);font-size:0.95rem;margin:0;line-height:1.7;}
     .story-highlight p em{color:var(--accent);font-style:italic;}
 
     /* VALUES SECTION */
@@ -130,21 +134,38 @@
     .founder-mission{display:flex;flex-direction:column;gap:20px;}
     .mission-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color 0.3s;}
     .mission-card:hover{border-color:rgba(0,200,150,0.2);}
-    .mission-icon{font-size:1.5rem;margin-bottom:12px;}
+    .mission-icon{display:none;}
     .mission-card h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:8px;}
     .mission-card p{color:var(--muted);font-size:0.88rem;line-height:1.65;}
 
+    .bullets{list-style:none;padding:0;margin:14px 0 0;display:flex;flex-direction:column;gap:8px;}
+    .bullets li{display:flex;align-items:flex-start;gap:9px;font-size:0.88rem;color:var(--muted);line-height:1.65;}
+    .bullets li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;font-size:0.82rem;}
+    /* TRUST SECTION */
+    .trust-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;}
+    .trust-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
+    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.5;transition:opacity 0.3s;}
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+    .testimonial-card:hover::before{opacity:1;}
+    .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
+    .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
+    .testimonial-author{display:flex;align-items:center;gap:10px;}
+    .author-avatar-initials{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.75rem;color:#000;flex-shrink:0;}
+    .author-name{font-family:var(--font-head);font-weight:700;font-size:0.88rem;}
+    .author-role{color:var(--muted);font-size:0.76rem;margin-top:2px;}
     /* CTA BAND */
-    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:80px 24px;text-align:center;position:relative;z-index:1;}
-    .cta-band h2{font-family:var(--font-head);font-size:clamp(1.8rem,3vw,2.6rem);font-weight:800;margin-bottom:16px;}
-    .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 36px;}
+    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;}
+    .cta-band h2{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.2rem);font-weight:600;margin-bottom:24px;letter-spacing:-0.8px;}
+    .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.75;}
     .btn-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
 
     /* FOOTER */
     footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 48px;}
     .footer-brand p{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-top:14px;max-width:240px;}
-    .footer-logo{height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.85;}
+    .footer-logo{height:56px;width:auto;}
     .footer-col h4{font-family:var(--font-head);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);margin-bottom:18px;}
     .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
     .footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.87rem;transition:color 0.2s;}
@@ -188,18 +209,39 @@
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
-      .hamburger{display:flex;}
+      .hamburger{display:flex;}.logo-img{height:44px;}
       .story-grid{grid-template-columns:1fr;gap:40px;}
       .story-img-badge{bottom:-12px;right:12px;}
       .values-grid{grid-template-columns:1fr 1fr;}
       .founder-grid{grid-template-columns:1fr;}
       .footer-grid{grid-template-columns:1fr 1fr;}
+      .testi-grid{grid-template-columns:1fr;}
+      nav.scrolled{padding:10px 24px;}
+      .nav-hidden{transform:none!important;}
     }
     @media(max-width:600px){
       .values-grid{grid-template-columns:1fr;}
-      .footer-grid{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr 1fr;}.footer-brand{grid-column:1/-1;}.footer-grid>div:nth-child(2){grid-column:1/-1;}
       section{padding:60px 20px;}
+      .btn-row{flex-direction:column;align-items:center;}
+      .btn-row .btn-primary,.btn-row .btn-secondary{width:100%;max-width:320px;justify-content:center;}
+      .cta-band{padding:64px 20px;}
+      .cta-band h2{font-size:clamp(1.4rem,6.5vw,2.1rem);}
+      .testi-grid{grid-template-columns:1fr;}
+      .testimonial-card{padding:20px;}
+      .section-sub{margin-bottom:40px!important;}
     }
+    #back-to-top{position:fixed;bottom:20px;left:20px;z-index:499;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all 0.3s;opacity:0;pointer-events:none;}
+    #back-to-top.visible{opacity:1;pointer-events:auto;}
+    #back-to-top:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,200,150,0.3);}
+    /* ── VISUAL ENHANCEMENTS ── */
+    @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.04);}}
+    .hero-glow{animation:glow-pulse 5s ease-in-out infinite!important;}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.13),transparent);transition:left 0.55s ease;pointer-events:none;z-index:1;}
+    .btn-primary:hover::before{left:150%;}
+    .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
   </style>
 </head>
 <body>
@@ -212,6 +254,7 @@
     <li><a href="our-story" class="active">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="how-it-works">How It Works</a></li>
+    <li class="nav-dropdown"><a href="portfolio">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Command Center</a></li></ul></li>
     <li><a href="contact">Contact</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
@@ -224,7 +267,7 @@
   <div class="hero-grid"></div>
   <div class="badge">Who We Are</div>
   <h1>We Brought Fortune 500<br><em>AI to Your Business.</em></h1>
-  <p class="sub">After 20+ years building AI for the world's largest companies, we made a decision. The businesses that deserved it most were the ones being left out entirely.</p>
+  <p class="sub">After <span style="color:var(--accent)">20+ years</span> building AI for the world's largest companies, we made a decision. The businesses that deserved it most were the ones being left out entirely.</p>
 </section>
 
 <!-- QUOTE -->
@@ -246,19 +289,16 @@
   <div class="container">
     <div class="story-grid">
       <div class="story-img-wrap reveal">
-        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&auto=format&fit=crop&q=80" alt="Tech Velocity team collaborating on AI solutions" class="story-img" loading="lazy">
-        <div class="story-img-badge">20+ Years<br>Enterprise AI</div>
+        <img src="img/sirjo.jpeg" alt="Tech Velocity CEO and Founder" class="story-img" loading="lazy">
+        <div class="story-img-badge">Jonathan LeDoux<br>CEO, Tech Velocity</div>
       </div>
       <div class="story-content reveal reveal-delay-1">
         <h6>The Gap We Set Out to Close</h6>
-        <h2>The World's Best AI Was Built for the World's Biggest Companies.<br>We Changed That.</h2>
-        <p>After 20+ years leading AI inside Fortune 500 companies, our founder kept seeing the same gap: the best AI tools were only available to organizations with dedicated teams, eight-figure budgets, and months to burn.</p>
-        <p>Small and mid-sized businesses. the firms that drive local economies and employ millions. were being left out. Completely.</p>
-        <p>That is the problem <strong>Tech Velocity</strong> was built to fix.</p>
-        <p>We bring SMEs the same quality of AI that large enterprises run. Without the enterprise price tag, the complexity, or the year-long timeline. Every model we build is custom: trained on your data, built around your workflows, and scoped to deliver real results in weeks, not quarters.</p>
-        <p>We are not a software product. We are engineers, data scientists, and business operators who embed alongside your team, learn how you work, and build AI that fits well.</p>
-        <div class="story-highlight">
-          <p>Our promise is simple: <em><strong>"If it does not deliver real business results, we are not done."</strong></em><br><br>That accountability is what makes every partnership with Tech Velocity different.</p>
+        <h2>From Fortune 500 to Future-Focused AI for SMEs</h2>
+        <p>After 20+ years inside Fortune 500 companies, our founder saw a clear gap — the most powerful AI tools were only being built for the biggest players.</p>
+        <ul class="bullets"><li>SMEs were being left behind with no access to enterprise-grade AI</li><li>Off-the-shelf tools ignored unique workflows and compliance needs</li><li>Smaller businesses needed the real thing — not a watered-down version</li><li>Tech Velocity was built to close that gap, fast and affordably</li></ul>
+        <div class="story-highlight" style="margin-top:28px;">
+          <p>Our motto: <em><strong>"<span style="color:var(--accent)">Building Your AI Future, Today.</span>"</strong></em></p>
         </div>
       </div>
     </div>
@@ -266,6 +306,16 @@
 </section>
 
 <!-- FOUNDER / MISSION -->
+<!-- STATS HIGHLIGHT BAND -->
+<section class="stats-band">
+  <div class="stats-band-inner reveal">
+    <div class="stat-item"><span class="stat-num">50+</span><div class="stat-desc">Clients Served</div></div>
+    <div class="stat-item"><span class="stat-num">100+</span><div class="stat-desc">AI Solutions Built</div></div>
+    <div class="stat-item"><span class="stat-num">3yrs</span><div class="stat-desc">In Business</div></div>
+    <div class="stat-item"><span class="stat-num">$10M+</span><div class="stat-desc">Client Value Generated</div></div>
+  </div>
+</section>
+
 <section class="founder-section">
   <div class="container">
     <span class="section-tag">Our Team</span>
@@ -273,7 +323,7 @@
     <p class="section-sub">We spent decades building AI at the highest level. Now we apply every lesson learned to help smaller businesses compete, grow, and win.</p>
     <div class="founder-grid">
       <div class="founder-card reveal">
-        <div class="founder-avatar">TV</div>
+        <div class="founder-avatar" style="background:none;padding:0;overflow:hidden;"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/logo500.jpg/:/rs=h:175,m" alt="Tech Velocity" style="width:100%;height:100%;object-fit:contain;border-radius:16px;"></div>
         <div class="founder-name">Tech Velocity Team</div>
         <div class="founder-title">AI Solutions Partners</div>
         <div class="founder-stats">
@@ -287,17 +337,20 @@
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Mission</h3>
-          <p>Make serious AI accessible to every ambitious small business. Not a watered-down version. The real thing. Custom models that deliver the same quality as Fortune 500 AI programs, at a fraction of the cost and in a fraction of the time.</p>
+          <p>Bring enterprise-grade AI to every ambitious small business — fast, affordable, and built for real impact.</p>
+          <ul class="bullets"><li>Custom models, not generic tools</li><li>Fortune 500 quality at SME pricing</li><li>Delivered in weeks, not months</li></ul>
         </div>
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Vision</h3>
-          <p>A world where size does not determine who gets access to great AI. A 20-person law firm competing with the operational efficiency of a 200-person firm, because their AI is just as good. That world exists. We are building it.</p>
+          <p>A world where business size no longer determines who gets access to great AI.</p>
+          <ul class="bullets"><li>Small firms competing at enterprise efficiency</li><li>AI that levels the operational playing field</li><li>Smarter decisions at every team size</li></ul>
         </div>
         <div class="mission-card">
           <div class="mission-icon"></div>
           <h3>Our Promise</h3>
-          <p>We do not hand you a tool and disappear. We stay with you through discovery, build, launch, and growth. Your ROI is our scorecard. We take it seriously on every single engagement, with every single client.</p>
+          <p>We stay with you from discovery through launch and beyond — your ROI is our scorecard.</p>
+          <ul class="bullets"><li>Hands-on through discovery, build, and deploy</li><li>Training and support post-launch</li><li>We do not disappear after delivery</li></ul>
         </div>
       </div>
     </div>
@@ -312,31 +365,66 @@
     <p class="section-sub">These are not marketing words. They are the principles that guide every model we build and every client relationship we form.</p>
     <div class="values-grid">
       <div class="value-card reveal">
-        <div class="value-img-placeholder"></div>
         <div class="value-body">
           <h3>AI for Everyone Who Earns It</h3>
-          <p>Serious AI should not be exclusive to large companies. We build it for the businesses that need it most. Size and budget do not determine who deserves great technology.</p>
+          <p>Size and budget do not determine who deserves great technology.</p>
+          <ul class="bullets"><li>Built for the businesses that need it most</li><li>Enterprise quality, SME pricing</li><li>No gatekeeping, no compromises</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-1">
-        <div class="value-img-placeholder"></div>
         <div class="value-body">
           <h3>Built Around Your Business</h3>
-          <p>Every model is designed from a deep understanding of how your business actually works. No generic tools. No off-the-shelf shortcuts. Built around you, not around a template.</p>
+          <p>Every model starts with a deep understanding of how your business actually works.</p>
+          <ul class="bullets"><li>Trained on your data, not generic datasets</li><li>Built around your workflows and compliance rules</li><li>No templates, no shortcuts</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-2">
-        <div class="value-img-placeholder"></div>
         <div class="value-body">
           <h3>Transparency in Everything</h3>
-          <p>We build trust through clear communication, ethical practices, and full explanations. No black boxes. No hidden processes. No surprises on the invoice or in the output.</p>
+          <p>No black boxes, no hidden processes — just clear communication at every step.</p>
+          <ul class="bullets"><li>You understand exactly what we build and why</li><li>Ethical AI practices, documented and explained</li><li>No surprises on the invoice or in the output</li></ul>
         </div>
       </div>
       <div class="value-card reveal reveal-delay-3">
-        <div class="value-img-placeholder"></div>
         <div class="value-body">
           <h3>Speed Without Shortcuts</h3>
-          <p>We move fast. But we never cut corners. Clean, focused AI systems that deliver results quickly and grow stronger as your business evolves. Fast and right, every time.</p>
+          <p>We move fast — but never cut corners. Results quickly, built to last.</p>
+          <ul class="bullets"><li>Live AI in weeks, not quarters</li><li>Clean, focused systems — no unnecessary complexity</li><li>Gets stronger as your business evolves</li></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="trust-section">
+  <div class="container">
+    <span class="section-tag">What Clients Say</span>
+    <h2 class="section-title">The Trust We've Earned<br>Speaks Louder Than Claims</h2>
+    <p class="section-sub">Words from the people we built for.</p>
+    <div class="testi-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"The implementation was smooth and the team was transparent every step of the way. No black boxes — I understood exactly what the model was doing and why. That trust is rare."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">KW</div>
+          <div><div class="author-name">Karen Williams</div><div class="author-role">CEO · Regional Staffing Agency, Dallas</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"After 20 years with Fortune 500 AI, I was skeptical an SME could match that sophistication. Tech Velocity proved me wrong — our model understands our engineering database better than most of our staff."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">DM</div>
+          <div><div class="author-name">David Monroe</div><div class="author-role">CTO · Engineering Consultancy, Houston</div></div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <p class="testimonial-text">"They don't just build and disappear. They stayed with us through training, launch, and the first 90 days. I've never had a technology partner care this much about whether it actually worked."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar-initials">JB</div>
+          <div><div class="author-name">Jessica Barnes</div><div class="author-role">Operations Director · Healthcare Group, Orlando</div></div>
         </div>
       </div>
     </div>
@@ -348,7 +436,7 @@
   <h2>Your Competitors Are<br>Already Investing in AI.</h2>
   <p>The businesses pulling ahead are not always bigger. They are just moving faster. Find out exactly where AI gives your business an edge, for free.</p>
   <div class="btn-row">
-    <a href="contact" class="btn-primary">Book Your Free AI Audit</a>
+    <a href="contact" class="btn-primary">Book an AI Strategy Call</a>
     <a href="solutions" class="btn-secondary">Explore Solutions →</a>
   </div>
 </div>
@@ -389,7 +477,7 @@
       <ul>
         <li><a href="mailto:hello@techvelocity.ai">hello@techvelocity.ai</a></li>
         <li><a href="tel:+18335330225">+1 833-533-0225</a></li>
-        <li><a href="contact">Book a Free Audit</a></li>
+        <li><a href="contact">Book an AI Strategy Call</a></li>
         <li><a href="privacy-policy">Privacy Policy</a></li>
         <li><a href="terms-and-conditions">Terms of Service</a></li>
       </ul>
@@ -404,10 +492,7 @@
 <!-- CHATBOT -->
 <div id="chatbot-container">
   <div id="chat-window">
-    <div id="chat-header">
-      <span>💬 Chat with Tech Velocity</span>
-      <button id="close-chatbot">&times;</button>
-    </div>
+<div id="chat-header"><span style="display:flex;align-items:center;gap:10px;"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity" style="height:24px;width:auto;">Chat with Tech Velocity</span><button id="close-chatbot">&times;</button></div>
     <div id="chat-messages"></div>
     <div id="chat-input-container">
       <input type="text" id="chat-input" placeholder="Type your message...">
@@ -420,12 +505,20 @@
 
 <!-- FLOATING BUTTON -->
 <button class="popup-trigger-btn" onclick="window.location.href='contact'">Free AI Audit</button>
+<button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
 
 <script>
   // NAV SCROLL
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-  });
+  (function(){
+    var lastY=0,nav=document.getElementById('navbar');
+    window.addEventListener('scroll',function(){
+      var y=window.scrollY;
+      if(y>lastY&&y>80){nav.classList.add('nav-hidden');}else{nav.classList.remove('nav-hidden');}
+      nav.classList.toggle('scrolled',y>60);
+      var ml=document.querySelector('.nav-links');if(ml&&ml.style.display==='flex'){ml.style.display='none';}
+      lastY=y;
+    },{passive:true});
+  })();
 
   // MOBILE MENU
   function toggleMenu() {
@@ -499,9 +592,30 @@
       ph.textContent = 'Sorry, having trouble connecting. Please try again later.';
     }
   }
+
+  // ── MOBILE FLOATING BUTTONS ──
+  (function(){
+    var t,el=document.getElementById('chatbot-container');
+    function setHidden(){if(window.innerWidth<=900&&el)el.classList.add('scroll-hidden');}
+    setHidden();
+    window.addEventListener('resize',setHidden,{passive:true});
+    window.addEventListener('scroll',function(){
+      if(window.innerWidth>900)return;
+      if(el)el.classList.remove('scroll-hidden');
+      clearTimeout(t);
+      t=setTimeout(function(){if(el)el.classList.add('scroll-hidden');},1200);
+    },{passive:true});
+  })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
   (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
+  // Scroll progress bar
+  (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();
+  // Animated counters
+  (function(){function fmt(n,sfx){return(Number.isInteger(n)?n:n.toFixed(0))+sfx;}function anim(el){var raw=el.getAttribute('data-cv');if(!raw)return;var num=parseFloat(raw),sfx=el.getAttribute('data-cs')||'';if(!num)return;var s=0;var iv=setInterval(function(){s+=num/(1600/16);if(s>=num){clearInterval(iv);el.textContent=fmt(num,sfx);}else{el.textContent=fmt(Math.floor(s),sfx);}},16);}var obs2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anim(e.target);obs2.unobserve(e.target);}});},{threshold:0.5});document.querySelectorAll('.result-val,.hero-metric-val,.metric-val,.hero-stat-num,.trust-stat-num').forEach(function(el){var t=el.textContent.trim();var m=t.match(/^([0-9]+)(.*)$/);if(m&&parseInt(m[1])>=2){el.setAttribute('data-cv',m[1]);el.setAttribute('data-cs',m[2]);obs2.observe(el);}});})();
+  // Floating orbs
+  (function(){var hero=document.querySelector('.project-hero,.portfolio-hero,.hero');if(!hero)return;[{s:220,x:8,y:15,d:7,dl:0},{s:160,x:82,y:55,d:9,dl:2.5},{s:110,x:48,y:75,d:6,dl:4}].forEach(function(o){var el=document.createElement('div');el.style.cssText='position:absolute;width:'+o.s+'px;height:'+o.s+'px;border-radius:50%;left:'+o.x+'%;top:'+o.y+'%;background:radial-gradient(circle,rgba(0,200,150,0.07),transparent 70%);pointer-events:none;animation:orbFloat '+o.d+'s '+o.dl+'s ease-in-out infinite;z-index:0;';hero.appendChild(el);});})();
 </script>
 </body>
 </html>
