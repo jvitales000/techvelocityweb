@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -133,13 +133,27 @@
     .toggle.on{background:var(--accent);}
     .toggle::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:left 0.2s;}
     .toggle.on::after{left:20px;background:#000;}
-  </style>
+    /* MOBILE RESPONSIVE */
+    .mob-menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:6px;border-radius:6px;flex-shrink:0;}
+    .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:49;}
+    @media(max-width:768px){
+      .topbar{padding:0 14px;gap:10px;}
+      .mob-menu-btn{display:flex;align-items:center;justify-content:center;}
+      .sidebar{position:fixed;left:-240px;top:0;bottom:0;z-index:50;width:220px;transition:left 0.25s ease;}
+      .sidebar.open{left:0;}
+      .sidebar-overlay.open{display:block;}
+      .content-area{padding:16px;}
+      .dashboard-grid{grid-template-columns:1fr!important;}
+      .modules-grid{grid-template-columns:1fr!important;}
+      .leaderboard-table{font-size:0.78rem;}
+    }  </style>
 </head>
 <body>
 
 <div class="topbar">
   <a href="salestrainer" class="topbar-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to Product Page</a>
-  <div class="topbar-divider"></div>
+  <button class="mob-menu-btn" onclick="toggleSidebar()" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <div class="topbar-divider"></div>
   <div class="topbar-brand">
     <div class="topbar-logo">ST</div>
     <span class="topbar-name">SalesTrainer AI</span>
@@ -147,6 +161,7 @@
   <span class="topbar-badge">Interactive Demo</span>
 </div>
 
+<div class="sidebar-overlay" id="sb-overlay" onclick="toggleSidebar()"></div>
 <div class="app-wrap">
   <!-- SIDEBAR -->
   <div class="sidebar">
@@ -349,6 +364,10 @@
     document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
     document.getElementById('screen-' + id).classList.add('active');
     el.classList.add('active');
+  }
+  function toggleSidebar(){
+    document.querySelector('.sidebar').classList.toggle('open');
+    document.getElementById('sb-overlay').classList.toggle('open');
   }
 </script>
 </body>

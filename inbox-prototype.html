@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -143,7 +143,19 @@
     .trend-bar:hover{background:var(--accent);}
     .trend-labels{display:flex;gap:4px;margin-top:6px;}
     .trend-label{flex:1;font-size:0.65rem;color:var(--muted);text-align:center;}
-  </style>
+    /* MOBILE RESPONSIVE */
+    .mob-menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:6px;border-radius:6px;flex-shrink:0;}
+    .tab-overflow{overflow-x:auto;}
+    @media(max-width:768px){
+      .topbar{padding:0 14px;gap:10px;}
+      .mob-menu-btn{display:none;}
+      .tabs{gap:4px;overflow-x:auto;padding-bottom:4px;}
+      .tab-btn{padding:8px 12px;font-size:0.75rem;white-space:nowrap;}
+      .content{padding:16px;}
+      .email-list{min-width:0;}
+      .email-row{flex-wrap:wrap;gap:6px;}
+      .inbox-stats{grid-template-columns:repeat(2,1fr)!important;}
+    }  </style>
 </head>
 <body>
 
