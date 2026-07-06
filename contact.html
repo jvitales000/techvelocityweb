@@ -4,7 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact - Tech Velocity</title>
   <meta name="description" content="Book your free AI audit with Tech Velocity. One 45-minute call and we will map exactly where AI can save your business time and money. No pressure. No pitch. Just clarity.">
@@ -471,7 +471,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>© 2025 T3CH VELOCITY, LLC. All Rights Reserved.</span>
     <span>Custom AI built for your data, your workflows, and your business. Private, secure, and delivered fast.</span>
   </div>
 </footer>
@@ -646,7 +646,7 @@
   })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
-  (function(){const _i=localStorage.getItem('tvTheme')==='light'?'☀️':'🌙';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
   (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
   // Scroll progress bar
   (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();

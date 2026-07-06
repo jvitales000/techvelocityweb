@@ -4,7 +4,7 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
+  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Velocity - Custom AI for Small and Mid-Sized Businesses</title>
   <meta name="description" content="Tech Velocity builds private, custom AI for small and mid-sized businesses. Stop losing hours to manual work. Start winning with AI built around how you actually operate.">
@@ -1095,15 +1095,6 @@
         <div class="faq-item" data-cat="getting-started">
           <button class="faq-q" onclick="toggleFaq(this)">
             <span class="faq-num">07</span>
-            <span class="faq-q-text">How much does it cost?</span>
-            <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
-          </button>
-          <div class="faq-a"><div class="faq-a-inner">Every build is scoped to your business — the size of the system, the integrations, and the outcomes you need. Every engagement starts with a free AI Discovery Audit, and you get a fixed quote before you commit. There are no hidden fees - the price we quote is what you pay.</div></div>
-        </div>
-
-        <div class="faq-item" data-cat="getting-started">
-          <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-num">08</span>
             <span class="faq-q-text">What ROI can I realistically expect?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -1112,7 +1103,7 @@
 
         <div class="faq-item" data-cat="technology">
           <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-num">09</span>
+            <span class="faq-num">08</span>
             <span class="faq-q-text">Can you integrate with the software I already use?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -1121,7 +1112,7 @@
 
         <div class="faq-item" data-cat="support">
           <button class="faq-q" onclick="toggleFaq(this)">
-            <span class="faq-num">10</span>
+            <span class="faq-num">09</span>
             <span class="faq-q-text">Do you train my team to use the AI?</span>
             <span class="faq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span>
           </button>
@@ -1301,7 +1292,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>© 2025 T3CH VELOCITY, LLC. All Rights Reserved.</span>
     <span>Custom AI for ambitious SMEs.</span>
   </div>
 </footer>
@@ -1783,7 +1774,7 @@
   })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
-  (function(){const _i=localStorage.getItem('tvTheme')==='light'?'☀️':'🌙';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
   (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
   // Scroll progress bar
   (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();
