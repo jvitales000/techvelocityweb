@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
@@ -105,7 +105,15 @@
       .footer-bottom{flex-direction:column;gap:8px;text-align:center;}
       footer{padding:48px 24px 32px;}
     }
-  </style>
+    /* ── SCROLL REVEAL ANIMATIONS ── */
+    .reveal-fade{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-fade.visible{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-left.visible{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-right.visible{opacity:1;transform:translateX(0);}
+    .rv-d1{transition-delay:0.1s;}.rv-d2{transition-delay:0.18s;}.rv-d3{transition-delay:0.26s;}.rv-d4{transition-delay:0.34s;}.rv-d5{transition-delay:0.42s;}.rv-d6{transition-delay:0.5s;}
+    @media(prefers-reduced-motion:reduce){.reveal-fade,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;transition:none!important;}}  </style>
 </head>
 <body>
 <div id="scroll-progress"></div>
@@ -342,6 +350,22 @@
       ph.textContent = "Sorry, something went wrong. Please try again.";
     }
   }
+
+  // AUTO SCROLL REVEAL
+  (function(){
+    var autoTargets = ['.section-title','.section-sub','.section-tag','.feature-card','.value-card','.home-card','.tools-card','.project-card','.price-card','.result-card','.timeline-item','.step-card','.benefit-card','.process-step','.partner-card','.industries-card','.detail-row'];
+    autoTargets.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el,i){
+        if(!el.classList.contains('reveal-fade')&&!el.classList.contains('reveal-left')&&!el.classList.contains('reveal-right')&&!el.classList.contains('reveal')){
+          el.classList.add('reveal-fade');
+          var d=['rv-d1','rv-d2','rv-d3'];if(i%3>0)el.classList.add(d[(i%3)-1]);
+        }
+      });
+    });
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target);}});},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal,.reveal-fade,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el);});
+    setTimeout(function(){document.querySelectorAll('.reveal,.reveal-fade,.reveal-left,.reveal-right').forEach(function(el){el.classList.add('visible');});},200);
+  })();
 </script>
 </body>
 </html>

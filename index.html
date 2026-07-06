@@ -443,6 +443,60 @@
     .btn-primary:hover::before{left:150%;}
     .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
     #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
+    /* ── HERO SPLIT LAYOUT ── */
+    .hero{padding:120px 48px 80px;text-align:left;}
+    .hero-inner{display:grid;grid-template-columns:1.15fr 0.85fr;gap:64px;align-items:center;max-width:1120px;width:100%;position:relative;z-index:2;}
+    .hero-left{display:flex;flex-direction:column;align-items:flex-start;}
+    .hero-left .sub{text-align:left;margin:0 0 36px;}
+    .hero-right{display:flex;justify-content:flex-end;align-items:center;}
+    /* ── AI DASHBOARD CARD ── */
+    .ai-dash{background:linear-gradient(145deg,#0c1e35,#060f1a);border:1px solid rgba(0,200,150,0.22);border-radius:22px;padding:24px;width:100%;max-width:400px;box-shadow:0 24px 60px rgba(0,0,0,0.55),0 0 40px rgba(0,200,150,0.04),inset 0 1px 0 rgba(255,255,255,0.04);position:relative;overflow:hidden;animation:fadeInUp 0.9s 0.4s ease both;}
+    .ai-dash::before{content:'';position:absolute;top:-70px;right:-70px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,200,150,0.1),transparent);border-radius:50%;pointer-events:none;}
+    .ai-dash-hdr{display:flex;align-items:center;gap:5px;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid rgba(255,255,255,0.05);}
+    .ai-d-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+    .ai-dash-hdr>span:last-child{font-size:0.65rem;color:rgba(200,225,240,0.3);margin-left:6px;font-family:monospace;letter-spacing:1px;}
+    .ai-dash-mets{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:14px;}
+    .ai-d-met{background:rgba(0,200,150,0.07);border:1px solid rgba(0,200,150,0.14);border-radius:10px;padding:12px 6px;text-align:center;}
+    .ai-d-met-v{font-family:var(--font-head);font-size:1.25rem;font-weight:800;color:#00c896;letter-spacing:-1px;line-height:1;}
+    .ai-d-met-l{font-size:0.55rem;color:rgba(200,225,240,0.35);text-transform:uppercase;letter-spacing:0.8px;margin-top:4px;}
+    .ai-dash-rows{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+    .ai-d-row{display:flex;align-items:center;gap:9px;padding:8px 10px;background:rgba(255,255,255,0.025);border-radius:8px;border:1px solid rgba(255,255,255,0.04);}
+    .ai-d-row-ic{font-size:0.85rem;flex-shrink:0;width:18px;text-align:center;}
+    .ai-d-row-tx{font-size:0.68rem;color:rgba(200,225,240,0.5);flex:1;}
+    .ai-d-row-vl{font-size:0.68rem;color:#00c896;font-weight:700;}
+    .ai-dash-chart-lbl{font-size:0.56rem;color:rgba(200,225,240,0.28);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:7px;}
+    .ai-dash-bars{display:flex;align-items:flex-end;gap:4px;height:52px;margin-bottom:14px;}
+    .ai-d-bar{flex:1;background:rgba(0,200,150,0.1);border-radius:3px 3px 0 0;}
+    .ai-d-bar.hi{background:linear-gradient(180deg,#00c896,rgba(0,200,150,0.35));}
+    .ai-dash-ft{display:flex;align-items:center;justify-content:space-between;}
+    .ai-dash-si{display:flex;align-items:center;gap:5px;font-size:0.63rem;color:rgba(200,225,240,0.4);}
+    .ai-d-pulse{width:6px;height:6px;border-radius:50%;background:#00c896;animation:pulse 2s infinite;flex-shrink:0;}
+    .ai-dash-lv{font-size:0.63rem;font-weight:700;color:#00c896;letter-spacing:1.5px;}
+    /* ── REVEAL ANIMATION (shared) ── */
+    .reveal-fade{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-fade.visible{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-left.visible{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-right.visible{opacity:1;transform:translateX(0);}
+    .rv-d1{transition-delay:0.1s;}.rv-d2{transition-delay:0.18s;}.rv-d3{transition-delay:0.26s;}.rv-d4{transition-delay:0.34s;}.rv-d5{transition-delay:0.42s;}.rv-d6{transition-delay:0.5s;}
+    @media(prefers-reduced-motion:reduce){.reveal-fade,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;transition:none!important;}}
+    /* ── HERO MOBILE ── */
+    @media(max-width:960px){
+      .hero{padding:110px 24px 70px;text-align:center;}
+      .hero-inner{grid-template-columns:1fr;gap:40px;}
+      .hero-left{align-items:center;}
+      .hero-left .sub{text-align:center;margin:0 auto 36px;}
+      .hero-right{width:100%;justify-content:center;}
+      .ai-dash{max-width:480px;}
+    }
+    @media(max-width:600px){
+      .hero{padding:95px 18px 56px;}
+      .ai-dash{padding:18px;}
+      .ai-dash-mets{gap:5px;}
+      .ai-d-met{padding:10px 5px;}
+      .ai-d-met-v{font-size:1.05rem;}
+    }
   </style>
 </head>
 <body>
@@ -464,18 +518,59 @@
 <section class="hero" id="home">
   <div class="hero-glow"></div>
   <div class="hero-grid"></div>
-  <div class="badge">AI Systems for Business Operations</div>
-  <h1>Automate and Simplify Your<br>Business Operations <em>with AI</em></h1>
-  <p class="sub">Reduce manual work, improve workflow efficiency, and scale operations with smart automation built specifically for your business.</p>
-  <div class="hero-ctas">
-    <a href="#demo" class="btn-primary">Book an AI Strategy Call</a>
-    <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
-  </div>
-  <div class="hero-stats">
-    <div class="stat"><div class="stat-num">20<span>+</span></div><div class="stat-label">Years Enterprise Experience</div></div>
-    <div class="stat"><div class="stat-num">60<span>%</span></div><div class="stat-label">Faster Onboarding</div></div>
-    <div class="stat"><div class="stat-num">80<span>%</span></div><div class="stat-label">Less Manual Work</div></div>
-    <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Custom Built for You</div></div>
+  <div class="hero-inner">
+    <!-- LEFT: copy + CTAs -->
+    <div class="hero-left">
+      <div class="badge">AI Systems for Business Operations</div>
+      <h1>Automate and Simplify Your<br>Business Operations <em>with AI</em></h1>
+      <p class="sub">Reduce manual work, improve workflow efficiency, and scale operations with smart automation built specifically for your business.</p>
+      <div class="hero-ctas">
+        <a href="#demo" class="btn-primary">Book an AI Strategy Call</a>
+        <a href="#how-it-works" class="btn-secondary">See How It Works →</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-num">20<span>+</span></div><div class="stat-label">Years Enterprise Experience</div></div>
+        <div class="stat"><div class="stat-num">60<span>%</span></div><div class="stat-label">Faster Onboarding</div></div>
+        <div class="stat"><div class="stat-num">80<span>%</span></div><div class="stat-label">Less Manual Work</div></div>
+        <div class="stat"><div class="stat-num">100<span>%</span></div><div class="stat-label">Custom Built for You</div></div>
+      </div>
+    </div>
+    <!-- RIGHT: AI dashboard visual -->
+    <div class="hero-right">
+      <div class="ai-dash">
+        <div class="ai-dash-hdr">
+          <span class="ai-d-dot" style="background:#ff5f57"></span>
+          <span class="ai-d-dot" style="background:#febc2e"></span>
+          <span class="ai-d-dot" style="background:#28c840"></span>
+          <span>AI Operations Dashboard</span>
+        </div>
+        <div class="ai-dash-mets">
+          <div class="ai-d-met"><div class="ai-d-met-v">80%</div><div class="ai-d-met-l">Automated</div></div>
+          <div class="ai-d-met"><div class="ai-d-met-v">60%</div><div class="ai-d-met-l">Faster</div></div>
+          <div class="ai-d-met"><div class="ai-d-met-v">3×</div><div class="ai-d-met-l">Capacity</div></div>
+        </div>
+        <div class="ai-dash-rows">
+          <div class="ai-d-row"><span class="ai-d-row-ic">📧</span><span class="ai-d-row-tx">Email Triage Automated</span><span class="ai-d-row-vl">247 / day</span></div>
+          <div class="ai-d-row"><span class="ai-d-row-ic">⚡</span><span class="ai-d-row-tx">Workflows Running</span><span class="ai-d-row-vl">12 active</span></div>
+          <div class="ai-d-row"><span class="ai-d-row-ic">📊</span><span class="ai-d-row-tx">Revenue Insight Live</span><span class="ai-d-row-vl">+$40K</span></div>
+          <div class="ai-d-row"><span class="ai-d-row-ic">🤖</span><span class="ai-d-row-tx">AI Requests Handled</span><span class="ai-d-row-vl">1,247</span></div>
+        </div>
+        <div class="ai-dash-chart-lbl">Automation Volume — Last 7 Days</div>
+        <div class="ai-dash-bars">
+          <div class="ai-d-bar" style="height:33%"></div>
+          <div class="ai-d-bar" style="height:50%"></div>
+          <div class="ai-d-bar" style="height:43%"></div>
+          <div class="ai-d-bar" style="height:66%"></div>
+          <div class="ai-d-bar" style="height:57%"></div>
+          <div class="ai-d-bar" style="height:82%"></div>
+          <div class="ai-d-bar hi" style="height:100%"></div>
+        </div>
+        <div class="ai-dash-ft">
+          <div class="ai-dash-si"><span class="ai-d-pulse"></span>All Systems Running</div>
+          <span class="ai-dash-lv">● LIVE</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -501,10 +596,10 @@
     <h2 class="section-title">Your Competitors Are Moving Fast.<br>Manual Work Is Holding You Back.</h2>
     <p class="section-sub">Larger players have dedicated AI teams. Generic tools don't know your workflows or your clients. The businesses winning right now have AI built specifically for <em>them</em>.</p>
     <div class="problem-grid">
-      <div class="problem-card"><div class="icon"></div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Data entry, email sorting, reporting, routing — AI can handle all of it in seconds. Your best people are wasting capacity on tasks that don't require them.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT doesn't know your workflows, your clients, or your compliance rules. A model trained on your actual data delivers outputs your team can actually trust.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>By the time the report is ready, the window is closed. Competitors acting on real-time data win more deals. The gap widens every day you don't close it.</p></div>
-      <div class="problem-card"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive data through public AI tools is a compliance and IP liability. A private model keeps everything secure and fully under your control.</p></div>
+      <div class="problem-card reveal-fade"><div class="icon"></div><h3>Hours Burned on Work That Should Not Be Manual</h3><p>Data entry, email sorting, reporting, routing — AI can handle all of it in seconds. Your best people are wasting capacity on tasks that don't require them.</p></div>
+      <div class="problem-card reveal-fade rv-d1"><div class="icon"></div><h3>Generic AI Gives You Generic Results</h3><p>ChatGPT doesn't know your workflows, your clients, or your compliance rules. A model trained on your actual data delivers outputs your team can actually trust.</p></div>
+      <div class="problem-card reveal-fade rv-d2"><div class="icon"></div><h3>Slow Decisions Are Costing You Deals</h3><p>By the time the report is ready, the window is closed. Competitors acting on real-time data win more deals. The gap widens every day you don't close it.</p></div>
+      <div class="problem-card reveal-fade rv-d3"><div class="icon"></div><h3>Your Data Is Exposed to Risk</h3><p>Sending sensitive data through public AI tools is a compliance and IP liability. A private model keeps everything secure and fully under your control.</p></div>
     </div>
     <div class="problem-vs">
       <div class="vs-col bad">
@@ -570,32 +665,38 @@
     <h2 class="section-title">What We Build<br>For Your Business</h2>
     <p class="section-sub">Six AI systems built for the real problems SMEs face. Each one private, <span style="color:var(--accent)">purpose-built</span>, and designed around how your business actually runs.</p>
     <div class="features-grid">
-      <div class="feature-card reveal">
+      <div class="feature-card reveal reveal-fade">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
         <h3>AI Customer Assistance</h3>
         <p>AI trained on your products, policies, and FAQs — instant, accurate answers 24/7. No wait times. No extra headcount.</p>
         <div class="feature-tags"><span class="tag">24/7 Support</span><span class="tag">Custom Training</span></div>
       </div>
-      <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-card reveal reveal-fade rv-d2">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Workflow Automation</h3>
         <p>Email triage, document routing, data entry, reporting — automated. Your team focuses on the work that actually moves the business forward.</p>
         <div class="feature-tags"><span class="tag">Email Triage</span><span class="tag">Data Entry</span><span class="tag">Routing</span></div>
       </div>
-      <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-card reveal reveal-fade rv-d3">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Business Intelligence</h3>
         <p>Live dashboards with real-time insights. Make faster, better decisions — before the opportunity closes, before the problem compounds.</p>
         <div class="feature-tags"><span class="tag">Live Dashboards</span><span class="tag">Predictive AI</span></div>
       </div>
-      <div class="feature-card reveal">
+      <div class="feature-card reveal reveal-fade rv-d1">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>AI Sales Training</h3>
         <p>Realistic role-play and voice practice — on demand. Cut onboarding by 60%, increase win rates by 35%. Reps learn faster and close better.</p>
         <div class="feature-tags"><span class="tag">Role-Play AI</span><span class="tag">Voice Simulation</span></div>
       </div>
-      <div class="feature-card reveal reveal-delay-1">
+      <div class="feature-card reveal reveal-fade rv-d2">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <h3>AI-Powered Inbox</h3>
         <p>Every email sorted, categorized, and routed automatically. Built for law firms, insurance agencies, and professional service teams where missing a message costs real money.</p>
         <div class="feature-tags"><span class="tag">Legal</span><span class="tag">Triage</span><span class="tag">Routing</span></div>
       </div>
-      <div class="feature-card reveal reveal-delay-2">
+      <div class="feature-card reveal reveal-fade rv-d3">
+        <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Industry-Specific AI</h3>
         <p>Clinical assessments. Engineering compliance. Insurance underwriting. Built for industries where precision and accuracy are non-negotiable — compliance by design.</p>
         <div class="feature-tags"><span class="tag">Healthcare</span><span class="tag">Legal</span><span class="tag">Engineering</span></div>
@@ -1517,9 +1618,18 @@
   const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(en => { if (en.isIntersecting) { en.target.classList.add('visible'); revealObserver.unobserve(en.target); } });
   }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
-  // Fallback: ensure all reveals are visible after 100ms in case observer doesn't fire
-  setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible')); }, 100);
+  // Auto-tag common elements for reveal
+  ['.section-title','.section-sub','.section-tag','.trust-stat-box','.result-box'].forEach(sel => {
+    document.querySelectorAll(sel).forEach((el,i) => {
+      if(!el.classList.contains('reveal-fade')&&!el.classList.contains('reveal')&&!el.classList.contains('reveal-left')&&!el.classList.contains('reveal-right')){
+        el.classList.add('reveal-fade');
+        if(i%3===1)el.classList.add('rv-d1');
+        if(i%3===2)el.classList.add('rv-d2');
+      }
+    });
+  });
+  document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+  setTimeout(() => { document.querySelectorAll('.reveal, .reveal-fade, .reveal-left, .reveal-right').forEach(el => el.classList.add('visible')); }, 200);
 
   // ── FAQ ACCORDION ──
   function toggleFaq(btn) {
