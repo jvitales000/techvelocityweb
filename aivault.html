@@ -396,6 +396,23 @@
     .btn-primary:hover::before{left:150%;}
     .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
     #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
+  
+    /* ── LIGHT MODE: DARK GREEN CONTRAST SECTIONS (Ramye) ── */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section){background:#062d21;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(h1,h2,h3,h4,blockquote,div,span):not(:where([class*="card"],[class*="-box"],[class*="step-"],[class*="-step"],.problem-vs,.case-visual,.detail-row,.timeline-item) *){color:#eaf6f0;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(p,li):not(:where([class*="card"],[class*="-box"],[class*="step-"],[class*="-step"],.problem-vs,.case-visual,.detail-row,.timeline-item) *){color:#b9d6c8;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .section-tag{color:#17d493;border-left-color:#17d493;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .faq-item{border-color:rgba(255,255,255,0.13);}
+    html.light .faq-section .faq-list{border-top-color:rgba(255,255,255,0.13)!important;}
+    html.light .faq-section .faq-cat{color:#cfe8db;border-color:rgba(255,255,255,0.22);}
+    html.light .faq-section .faq-cat:hover{color:#17d493;}
+    html.light .faq-section .faq-cat.active{color:#17d493;border-color:rgba(23,212,147,0.6);background:rgba(23,212,147,0.12);}
+    html.light .faq-section .faq-icon{border-color:rgba(255,255,255,0.22);color:#cfe8db;}
+    html.light .faq-section .faq-q:hover{background:rgba(255,255,255,0.04);}
+    html.light .faq-section .faq-item.open .faq-q-text,html.light .faq-section .faq-q:hover .faq-q-text{color:#17d493;}
+    html.light .faq-section .faq-contact-card{background:#ffffff;border-color:rgba(0,152,112,0.25);}
+    html.light .integrations-strip .logo-pill{color:#cfe8db;border-color:rgba(255,255,255,0.18);}
+    html.light .integrations-strip .logo-pill:hover{color:#ffffff;border-color:rgba(255,255,255,0.35);}
   </style>
 </head>
 <body>
