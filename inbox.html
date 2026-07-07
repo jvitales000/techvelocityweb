@@ -4,10 +4,21 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
+  <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI-Powered Inbox - Tech Velocity Project</title>
   <meta name="description" content="AI inbox management that classifies, prioritizes, and routes every email automatically. Built for legal and professional services teams. 95% accuracy, 90%+ time savings.">
+  <link rel="canonical" href="https://techvelocity.ai/inbox">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tech Velocity">
+  <meta property="og:url" content="https://techvelocity.ai/inbox">
+  <meta property="og:title" content="AI-Powered Inbox - Tech Velocity Project">
+  <meta property="og:description" content="AI inbox management that classifies, prioritizes, and routes every email automatically. Built for legal and professional services teams. 95% accuracy, 90%+ time savings.">
+  <meta property="og:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="AI-Powered Inbox - Tech Velocity Project">
+  <meta name="twitter:description" content="AI inbox management that classifies, prioritizes, and routes every email automatically. Built for legal and professional services teams. 95% accuracy, 90%+ time savings.">
+  <meta name="twitter:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
@@ -766,7 +777,7 @@
   })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
-  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){const _i=localStorage.getItem('tvTheme')==='light'?'☀️':'🌙';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
   (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
   // Scroll progress bar
   (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();

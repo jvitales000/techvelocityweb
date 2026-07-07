@@ -4,10 +4,21 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
+  <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tech Velocity - Custom AI for Small and Mid-Sized Businesses</title>
   <meta name="description" content="Tech Velocity builds private, custom AI for small and mid-sized businesses. Stop losing hours to manual work. Start winning with AI built around how you actually operate.">
+  <link rel="canonical" href="https://techvelocity.ai/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tech Velocity">
+  <meta property="og:url" content="https://techvelocity.ai/">
+  <meta property="og:title" content="Tech Velocity - Custom AI for Small and Mid-Sized Businesses">
+  <meta property="og:description" content="Tech Velocity builds private, custom AI for small and mid-sized businesses. Stop losing hours to manual work. Start winning with AI built around how you actually operate.">
+  <meta property="og:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Tech Velocity - Custom AI for Small and Mid-Sized Businesses">
+  <meta name="twitter:description" content="Tech Velocity builds private, custom AI for small and mid-sized businesses. Stop losing hours to manual work. Start winning with AI built around how you actually operate.">
+  <meta name="twitter:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
@@ -147,6 +158,8 @@
     .feature-card p{color:var(--muted);font-size:0.9rem;line-height:1.7;margin-bottom:20px;}
     .feature-tags{display:flex;gap:8px;flex-wrap:wrap;}
     .tag{font-size:0.72rem;color:var(--accent);background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.15);padding:3px 10px;border-radius:100px;font-weight:600;}
+    .card-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none;transition:gap 0.2s;}
+    .card-link:hover{gap:10px;}
     /* CASE STUDY */
     .case-section{background:var(--bg);}
     .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;}
@@ -202,6 +215,30 @@
     .author-avatar-initials{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.75rem;color:#000;flex-shrink:0;}
     .author-name{font-family:var(--font-head);font-weight:700;font-size:0.88rem;}
     .author-role{color:var(--muted);font-size:0.76rem;margin-top:2px;}
+    /* PACKAGES (no fixed prices — quoted per need) */
+    .packages-section{background:var(--bg);}
+    .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:start;}
+    .pkg-card{background:linear-gradient(160deg,var(--card2) 0%,var(--card) 60%);border:1px solid var(--border);border-radius:18px;padding:32px 28px;position:relative;transition:all 0.3s;box-shadow:0 12px 36px rgba(0,0,0,0.38),inset 0 1px 0 rgba(255,255,255,0.05);}
+    html.light .pkg-card{box-shadow:0 10px 30px rgba(10,35,70,0.08);}
+    .pkg-card:hover{border-color:rgba(0,200,150,0.3);transform:translateY(-4px);}
+    .pkg-card.popular{border-color:rgba(0,200,150,0.45);background:linear-gradient(135deg,rgba(0,200,150,0.10),rgba(0,140,130,0.05));transform:translateY(-8px);box-shadow:0 30px 80px rgba(0,0,0,0.3),0 0 0 1px rgba(0,200,150,0.3);}
+    html.light .pkg-card.popular{box-shadow:0 24px 64px rgba(0,0,0,0.07),0 0 0 1px rgba(0,152,112,0.3);}
+    .pkg-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--accent);color:#000;font-family:var(--font-head);font-size:0.72rem;font-weight:700;padding:4px 16px;border-radius:100px;white-space:nowrap;}
+    .pkg-tier{font-family:var(--font-head);font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--muted);margin-bottom:12px;}
+    .pkg-price{font-family:var(--font-head);font-size:1.45rem;font-weight:800;color:var(--text);letter-spacing:-0.5px;margin-bottom:4px;line-height:1.2;}
+    .pkg-price span{color:var(--accent);}
+    .pkg-period{font-size:0.8rem;color:var(--muted);margin-bottom:14px;}
+    .pkg-desc{font-size:0.86rem;color:var(--muted);line-height:1.7;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--border);}
+    .pkg-features{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:10px;}
+    .pkg-features li{display:flex;align-items:flex-start;gap:10px;font-size:0.87rem;color:var(--muted);}
+    .check{color:var(--green);font-weight:700;flex-shrink:0;}
+    .x{color:#ff4444;font-weight:700;flex-shrink:0;}
+    .pkg-cta{display:block;text-align:center;padding:14px;border-radius:10px;font-family:var(--font-head);font-weight:700;font-size:0.95rem;text-decoration:none;transition:all 0.25s;}
+    .pkg-cta.solid{background:var(--accent);color:#000;}
+    .pkg-cta.solid:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,200,150,0.35);}
+    .pkg-cta.outline{border:1px solid rgba(0,200,150,0.3);color:var(--text);}
+    .pkg-cta.outline:hover{background:rgba(0,200,150,0.08);border-color:rgba(0,200,150,0.45);transform:translateY(-1px);}
+    @media(max-width:900px){.pkg-grid{grid-template-columns:1fr;}.pkg-card.popular{transform:none;}}
     /* FAQ - PREMIUM REDESIGN */
     .faq-section{background:var(--bg2);position:relative;overflow:hidden;}
     .faq-section::before{content:'';position:absolute;top:-120px;right:-120px;width:480px;height:480px;border-radius:50%;background:radial-gradient(circle,rgba(0,200,150,0.07) 0%,transparent 70%);pointer-events:none;}
@@ -540,6 +577,9 @@
       .chip-3{left:4%;bottom:-14px;}
     }
   </style>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Tech Velocity", "legalName": "T3CH VELOCITY, LLC", "url": "https://techvelocity.ai/", "logo": "https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m", "description": "Tech Velocity builds private, custom AI systems for small and mid-sized businesses: workflow automation, AI-powered inboxes, business intelligence, and industry-specific AI.", "email": "hello@techvelocity.ai", "telephone": "+1-833-533-0225", "sameAs": ["https://www.facebook.com/techvelocityai", "https://www.instagram.com/techvelocityai/", "https://www.linkedin.com/company/techvelocityai", "https://www.x.com/techvelocityai"], "memberOf": {"@type": "Organization", "name": "West Orange Chamber of Commerce", "url": "https://www.westorangechamber.com/"}, "areaServed": "US", "knowsAbout": ["custom AI development", "workflow automation", "AI email triage", "business intelligence dashboards", "AI sales training", "commission reconciliation automation"]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Tech Velocity", "url": "https://techvelocity.ai/"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need technical knowledge to work with you?", "acceptedAnswer": {"@type": "Answer", "text": "Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can describe how your business works, we can build the AI for it."}}, {"@type": "Question", "name": "What makes a custom AI model better than ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "Public AI tools like ChatGPT are trained on generic internet data. They do not know your products, your clients, your compliance rules, or how your team actually works. A custom model trained on your specific data gives accurate, consistent outputs that match your exact standards. The difference is a generalist versus a specialist who knows your business inside and out."}}, {"@type": "Question", "name": "How long does it take to build and deploy?", "acceptedAnswer": {"@type": "Answer", "text": "Starter systems are typically live within 2 weeks. Growth packages run 3–5 weeks depending on scope and integrations. Enterprise timelines are scoped during discovery. We always agree on a firm delivery date before work begins - and we hold to it."}}, {"@type": "Question", "name": "Is my business data safe and private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We sign NDAs before any discovery work begins and never use your data to train models for other clients. All proprietary models are hosted in isolated environments. Your data stays yours, always. That is not a policy. It is how we build."}}, {"@type": "Question", "name": "What industries do you serve?", "acceptedAnswer": {"@type": "Answer", "text": "We work across healthcare, legal, insurance, financial services, engineering, manufacturing, real estate, and professional services. If your business has data and repeatable processes, we can build AI around it. We've delivered for solo consultancies and organizations with hundreds of employees alike."}}, {"@type": "Question", "name": "What happens after the AI is deployed?", "acceptedAnswer": {"@type": "Answer", "text": "Every deployment includes a monitoring period where we track performance, catch edge cases, and tune the model. Support windows are 30–60 days depending on your plan. As your business changes, we offer ongoing retraining and model updates to keep the AI accurate and effective."}}, {"@type": "Question", "name": "What ROI can I realistically expect?", "acceptedAnswer": {"@type": "Answer", "text": "Most clients recoup their investment within the first 60–90 days through time savings alone. Common outcomes include 70–80% reduction in manual processing time, faster client response cycles, and measurable revenue uplift from better lead handling. During your free audit we'll build a personalized ROI estimate using your actual numbers."}}, {"@type": "Question", "name": "Can you integrate with the software I already use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We build integrations with CRMs (Salesforce, HubSpot), project management tools (Asana, Monday), communication platforms (Slack, Teams), ERPs, and proprietary databases. If your tool has an API - or even just a spreadsheet export - we can connect to it. We design around your existing stack, not the other way around."}}, {"@type": "Question", "name": "Do you train my team to use the AI?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Every deployment includes a structured handover and team training session so your people are confident from day one. We provide documentation, workflow guides, and a dedicated support window for questions. You're never left to figure it out alone - we're invested in your team's success, not just the technical delivery."}}]}</script>
 </head>
 <body>
 <!-- NAV -->
@@ -717,36 +757,42 @@
         <h3>AI Customer Assistance</h3>
         <p>AI trained on your products, policies, and FAQs — instant, accurate answers 24/7. No wait times. No extra headcount.</p>
         <div class="feature-tags"><span class="tag">24/7 Support</span><span class="tag">Custom Training</span></div>
+        <a class="card-link" href="aicallcenter">See the case study →</a>
       </div>
       <div class="feature-card reveal reveal-fade rv-d2">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <h3>Workflow Automation</h3>
         <p>Email triage, document routing, data entry, reporting — automated. Your team focuses on the work that actually moves the business forward.</p>
         <div class="feature-tags"><span class="tag">Email Triage</span><span class="tag">Data Entry</span><span class="tag">Routing</span></div>
+        <a class="card-link" href="mailer">See the case study →</a>
       </div>
       <div class="feature-card reveal reveal-fade rv-d3">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>Business Intelligence</h3>
         <p>Live dashboards with real-time insights. Make faster, better decisions — before the opportunity closes, before the problem compounds.</p>
         <div class="feature-tags"><span class="tag">Live Dashboards</span><span class="tag">Predictive AI</span></div>
+        <a class="card-link" href="reconciliation">See the case study →</a>
       </div>
       <div class="feature-card reveal reveal-fade rv-d1">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
         <h3>AI Sales Training</h3>
         <p>Realistic role-play and voice practice — on demand. Cut onboarding by 60%, increase win rates by 35%. Reps learn faster and close better.</p>
         <div class="feature-tags"><span class="tag">Role-Play AI</span><span class="tag">Voice Simulation</span></div>
+        <a class="card-link" href="salestrainer-prototype">Try the live demo →</a>
       </div>
       <div class="feature-card reveal reveal-fade rv-d2">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
         <h3>AI-Powered Inbox</h3>
         <p>Every email sorted, categorized, and routed automatically. Built for law firms, insurance agencies, and professional service teams where missing a message costs real money.</p>
         <div class="feature-tags"><span class="tag">Legal</span><span class="tag">Triage</span><span class="tag">Routing</span></div>
+        <a class="card-link" href="inbox-prototype">Try the live demo →</a>
       </div>
       <div class="feature-card reveal reveal-fade rv-d3">
         <div class="feature-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="24" height="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>Industry-Specific AI</h3>
         <p>Clinical assessments. Engineering compliance. Insurance underwriting. Built for industries where precision and accuracy are non-negotiable — compliance by design.</p>
         <div class="feature-tags"><span class="tag">Healthcare</span><span class="tag">Legal</span><span class="tag">Engineering</span></div>
+        <a class="card-link" href="assessment">See the case study →</a>
       </div>
     </div>
   </div>
@@ -792,7 +838,7 @@
   <p>Every week without a custom AI model is another week of manual work, slow decisions, and tools that were never built for you. Find out exactly what you are leaving on the table.</p>
   <div class="btn-row">
     <a href="#demo" class="btn-primary">Book an AI Strategy Call</a>
-    <a href="#testimonials" class="btn-secondary">See Real Results →</a>
+    <a href="#packages" class="btn-secondary">See What's Included →</a>
   </div>
 </div>
 
@@ -1028,6 +1074,67 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages-section" id="packages">
+  <div class="container">
+    <span class="section-tag">Packages</span>
+    <h2 class="section-title">What's Included.<br>Priced to Your Need.</h2>
+    <p class="section-sub">Three ways to work with us. There's no fixed price list — every engagement is scoped after your free discovery audit, and the quote is based on exactly what your business needs.</p>
+    <div class="pkg-grid">
+      <div class="pkg-card reveal">
+        <div class="pkg-tier">Starter</div>
+        <div class="pkg-price">Priced to <span>your need</span></div>
+        <div class="pkg-period">one-time build · single AI system</div>
+        <div class="pkg-desc">Your first custom AI. One focused system, fast delivery, and real results starting day one. The fastest way to stop losing time and start winning it back.</div>
+        <ul class="pkg-features">
+          <li><span class="check">✓</span>1 custom AI model build</li>
+          <li><span class="check">✓</span>Trained on your business data</li>
+          <li><span class="check">✓</span>Up to 2 integrations</li>
+          <li><span class="check">✓</span>2-week delivery SLA</li>
+          <li><span class="check">✓</span>30-day post-launch support</li>
+          <li><span class="x">✗</span>Advanced workflow automation</li>
+          <li><span class="x">✗</span>Custom AI dashboard UI</li>
+        </ul>
+        <a href="#demo" class="pkg-cta outline">Book an AI Strategy Call →</a>
+      </div>
+      <div class="pkg-card popular reveal reveal-delay-1">
+        <div class="pkg-badge">Most Popular</div>
+        <div class="pkg-tier">Growth</div>
+        <div class="pkg-price">Priced to <span>your need</span></div>
+        <div class="pkg-period">one-time build · full AI system</div>
+        <div class="pkg-desc">Ready to run a full AI stack? Multiple systems working together, wired into the tools your team already uses. This is where real operational change happens.</div>
+        <ul class="pkg-features">
+          <li><span class="check">✓</span>Up to 3 custom AI models</li>
+          <li><span class="check">✓</span>Full workflow automation</li>
+          <li><span class="check">✓</span>Custom AI dashboard UI</li>
+          <li><span class="check">✓</span>Unlimited integrations</li>
+          <li><span class="check">✓</span>Dedicated AI engineer</li>
+          <li><span class="check">✓</span>60-day post-launch support</li>
+          <li><span class="check">✓</span>Performance monitoring</li>
+        </ul>
+        <a href="#demo" class="pkg-cta solid">Book an AI Strategy Call →</a>
+      </div>
+      <div class="pkg-card reveal reveal-delay-2">
+        <div class="pkg-tier">Enterprise</div>
+        <div class="pkg-price">Priced to <span>your need</span></div>
+        <div class="pkg-period">custom engagement · full partnership</div>
+        <div class="pkg-desc">Privately hosted models, custom data pipelines, compliance integrations, and a dedicated AI team that grows with you. Built for organizations that are serious about AI.</div>
+        <ul class="pkg-features">
+          <li><span class="check">✓</span>Unlimited custom AI models</li>
+          <li><span class="check">✓</span>Proprietary model hosting</li>
+          <li><span class="check">✓</span>Private data pipeline</li>
+          <li><span class="check">✓</span>AI quality assurance suite</li>
+          <li><span class="check">✓</span>Dedicated AI team</li>
+          <li><span class="check">✓</span>Ongoing model retraining</li>
+          <li><span class="check">✓</span>Priority SLA and on-site workshops</li>
+        </ul>
+        <a href="#demo" class="pkg-cta outline">Book an AI Strategy Call →</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:0.82rem;margin-top:28px;">Every package starts with a free discovery audit and a fixed quote before you commit. No hidden fees. No lock-in contracts.</p>
   </div>
 </section>
 
@@ -1541,25 +1648,8 @@
     }
   });
 
-  // 2. Scroll depth (45% + 3s dwell)
-  let scrollFired = false;
-  let dwellTimer = null;
-  window.addEventListener('scroll', () => {
-    if (scrollFired || popupShown) return;
-    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-    if (pct > 0.45) {
-      if (!dwellTimer) dwellTimer = setTimeout(() => {
-        if (!popupShown) { scrollFired = true; openPopup('scroll_depth'); }
-      }, 3000);
-    } else {
-      clearTimeout(dwellTimer); dwellTimer = null;
-    }
-  });
-
-  // 3. Time on page (45s)
-  setTimeout(() => {
-    if (!popupShown) openPopup('time_on_page');
-  }, 45000);
+  // Scroll-depth and time-on-page triggers removed — exit intent only,
+  // so visitors aren't interrupted mid-read. Floating button remains as manual entry.
 
   // ── STAMP FORM LOAD TIMES (for bot timing check) ──
   (function(){
@@ -1797,7 +1887,7 @@
   })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
-  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){const _i=localStorage.getItem('tvTheme')==='light'?'☀️':'🌙';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
   (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
   // Scroll progress bar
   (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();

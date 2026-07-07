@@ -1,0 +1,32 @@
+# Tech Velocity
+
+> Tech Velocity (T3CH VELOCITY, LLC) builds private, custom AI systems for small and mid-sized businesses. We train models on each client's own data and workflows — not generic tools — covering workflow automation, AI-powered email triage, business intelligence dashboards, AI sales training, and industry-specific AI for legal, healthcare, insurance, engineering, financial services, real estate, and professional services firms.
+
+Every engagement starts with a free 45-minute AI Discovery Audit. There is no fixed price list: each build is scoped and quoted based on what the business needs. Typical delivery is 2–5 weeks with 30–60 days of post-launch support, team training, and ongoing retraining options. Client data is never used to train models for other clients; proprietary models run in isolated environments.
+
+Contact: hello@techvelocity.ai · +1 833-533-0225 · https://techvelocity.ai/contact
+
+## Core pages
+
+- [Home](https://techvelocity.ai/): what we build, packages overview, FAQ, client results
+- [Solutions](https://techvelocity.ai/solutions): the six AI systems we build for SMEs
+- [How It Works](https://techvelocity.ai/how-it-works): discovery → build → deploy process
+- [Portfolio](https://techvelocity.ai/portfolio): delivered projects with measured outcomes
+- [Our Story](https://techvelocity.ai/our-story): team background (20+ years enterprise AI experience)
+- [Contact / Free AI Audit](https://techvelocity.ai/contact): book a free strategy call
+
+## Case studies
+
+- [AI-Powered Inbox](https://techvelocity.ai/inbox): email triage for law firms and professional services — 500+ daily emails routed automatically, response time 4 hours → 20 minutes
+- [Commission Reconciliation](https://techvelocity.ai/reconciliation): insurance agency reconciliation — 3 days of work to under 2 hours, $40K recovered in month one
+- [Email Automation](https://techvelocity.ai/mailer): outbound and follow-up automation
+- [Engineering Assistant](https://techvelocity.ai/assist): jurisdiction-specific engineering code Q&A with cited sources
+- [AI Sales Training](https://techvelocity.ai/salestrainer): role-play and voice practice — 60% faster onboarding, 35% higher win rates
+- [Clinical Assessment AI](https://techvelocity.ai/assessment): clinical scoring — 70% faster evaluations at 98% consistency
+- [AIVault Platform](https://techvelocity.ai/aivault): private AI platform
+- [AI Command Center](https://techvelocity.ai/aicallcenter): AI call center operations
+
+## Policies
+
+- [Privacy Policy](https://techvelocity.ai/privacy-policy)
+- [Terms of Service](https://techvelocity.ai/terms-and-conditions)
