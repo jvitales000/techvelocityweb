@@ -242,7 +242,7 @@
 <nav id="navbar">
   <a href="index"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo" class="logo-img"></a>
   <ul class="nav-links">
-    <li><a href="index">Home</a></li>
+    <li><a href="home">Home</a></li>
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="how-it-works">How It Works</a></li>
@@ -542,7 +542,7 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;max-height:calc(100vh - 84px);overflow-y:auto;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:20px 24px 36px;gap:18px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';box-shadow:0 24px 48px rgba(0,0,0,0.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:99;';
       links.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{links.style.display='none';},{once:true});});
     }
   }
