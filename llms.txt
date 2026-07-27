@@ -26,6 +26,26 @@ Contact: hello@techvelocity.ai · +1 833-533-0225 · https://techvelocity.ai/con
 - [AIVault Platform](https://techvelocity.ai/aivault): private AI platform
 - [AI Command Center](https://techvelocity.ai/aicallcenter): AI call center operations
 
+## Frequently asked questions
+
+**Do I need technical knowledge to work with you?** Not at all. You tell us what your business does and where the pain is; we handle everything technical. Clients are business owners and operations leads, not engineers.
+
+**What makes a custom AI model better than ChatGPT?** Public AI tools are trained on generic internet data and don't know your products, clients, or compliance rules. A model trained on your specific data gives accurate, consistent outputs matched to your standards.
+
+**How long does it take to build and deploy?** Starter systems are typically live within 2 weeks. Growth packages run 3–5 weeks. Enterprise timelines are scoped during discovery.
+
+**Is my business data safe and private?** Yes. NDAs are signed before discovery work begins, client data is never used to train models for other clients, and proprietary models run in isolated environments.
+
+**What industries do you serve?** Healthcare, legal, insurance, financial services, engineering, manufacturing, real estate, and professional services — any business with data and repeatable processes.
+
+**What happens after the AI is deployed?** A monitoring period tracks performance and catches edge cases. Support windows run 30–60 days depending on plan, with ongoing retraining available.
+
+**What ROI can I realistically expect?** Most clients recoup their investment within 60–90 days through time savings alone, with 70–80% reduction in manual processing time being a common outcome.
+
+**Can you integrate with the software I already use?** Yes — CRMs (Salesforce, HubSpot), project management tools (Asana, Monday), communication platforms (Slack, Teams), ERPs, and any tool with an API or spreadsheet export.
+
+**Do you train my team to use the AI?** Yes, every deployment includes a structured handover, team training session, documentation, and a dedicated support window.
+
 ## Policies
 
 - [Privacy Policy](https://techvelocity.ai/privacy-policy)

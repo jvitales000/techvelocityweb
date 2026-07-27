@@ -5,7 +5,12 @@
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
   <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#03070c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>Tech Velocity - Custom AI for Small and Mid-Sized Businesses</title>
   <meta name="description" content="Tech Velocity builds private, custom AI for small and mid-sized businesses. Stop losing hours to manual work. Start winning with AI built around how you actually operate.">
   <link rel="canonical" href="https://techvelocity.ai/">
@@ -22,6 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png">
   <script src="https://wochamber.chambermaster.com/Content/Script/Member.js" type="text/javascript"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
@@ -170,6 +176,14 @@
     .tag{font-size:0.72rem;color:var(--accent);background:rgba(0,200,150,0.08);border:1px solid rgba(0,200,150,0.15);padding:3px 10px;border-radius:100px;font-weight:600;}
     .card-link{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--accent);font-weight:700;font-size:0.85rem;text-decoration:none;transition:gap 0.2s;}
     .card-link:hover{gap:10px;}
+    /* MID-PAGE CTA STRIP */
+    .mid-cta{padding:56px 24px;background:var(--bg);position:relative;z-index:1;}
+    .mid-cta-inner{max-width:1040px;margin:0 auto;background:linear-gradient(120deg,rgba(0,229,160,0.14),rgba(0,120,210,0.08));border:1px solid rgba(0,229,160,0.25);border-radius:20px;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;box-shadow:0 16px 44px rgba(0,0,0,0.28);}
+    html.light .mid-cta-inner{background:linear-gradient(120deg,rgba(0,152,112,0.10),rgba(0,90,160,0.05));box-shadow:0 12px 32px rgba(10,35,70,0.08);}
+    .mid-cta-text{display:flex;flex-direction:column;gap:4px;}
+    .mid-cta-text strong{font-family:var(--font-head);font-size:1.05rem;font-weight:700;}
+    .mid-cta-text span{color:var(--muted);font-size:0.88rem;}
+    @media(max-width:640px){.mid-cta-inner{flex-direction:column;align-items:stretch;text-align:center;padding:24px 22px;}.mid-cta-inner .btn-primary{justify-content:center;}}
     /* CASE STUDY */
     .case-section{background:var(--bg);}
     .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:stretch;}
@@ -338,6 +352,16 @@
     /* FLOATING BTN */
     .popup-trigger-btn{position:fixed;bottom:20px;right:20px;z-index:500;background:var(--accent);color:#000;border:none;border-radius:50px;padding:12px 18px;font-family:var(--font-head);font-weight:700;font-size:0.82rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 8px 32px rgba(0,200,150,0.35);transition:all 0.25s;animation:floatPulse 3s ease-in-out infinite;}
     .popup-trigger-btn:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 16px 48px rgba(0,200,150,0.45);}
+    /* MOBILE STICKY CTA BAR */
+    #mobileCtaBar{display:none;}
+    @media(max-width:640px){
+      .popup-trigger-btn{display:none;}
+      #mobileCtaBar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:600;background:var(--card);border-top:1px solid var(--border);padding:10px 14px calc(10px + env(safe-area-inset-bottom));box-shadow:0 -8px 28px rgba(0,0,0,0.28);gap:10px;align-items:center;}
+      #mobileCtaBar a{flex:1;text-align:center;justify-content:center;padding:13px 10px;font-size:0.9rem;}
+      #mobileCtaBar .mcta-audit{flex:0 0 auto;width:48px;height:48px;padding:0;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.15rem;background:transparent;border:1px solid var(--border);color:var(--text);}
+      #chatbot-container{bottom:calc(76px + env(safe-area-inset-bottom));}
+      #back-to-top{bottom:calc(76px + env(safe-area-inset-bottom));}
+    }
     @keyframes floatPulse{0%,100%{box-shadow:0 8px 32px rgba(0,200,150,0.35);}50%{box-shadow:0 8px 48px rgba(0,200,150,0.55);}}
     /* POPUP */
     .popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;transition:opacity 0.35s ease,visibility 0.35s ease;}
@@ -417,6 +441,9 @@
       .problem-vs{flex-direction:column;}
       .vs-divider{width:100%;height:1px;}
     }
+    @media(max-width:640px){
+      body{padding-bottom:calc(68px + env(safe-area-inset-bottom));}
+    }
     @media(max-width:600px){
       .cta-band{padding:60px 20px;}
       .cta-band h2{font-size:clamp(1.4rem,6vw,2.2rem);}
@@ -470,7 +497,12 @@
     /* ── DEPTH & DIMENSION ── */
     .problem-card,.feature-card,.testimonial-card,.result-box,.case-visual,.demo-form-wrap,.trust-stat-box,.pipeline-step{background:linear-gradient(160deg,var(--card2) 0%,var(--card) 60%);box-shadow:0 12px 36px rgba(0,0,0,0.38),inset 0 1px 0 rgba(255,255,255,0.05);}
     html.light .problem-card,html.light .feature-card,html.light .testimonial-card,html.light .result-box,html.light .case-visual,html.light .demo-form-wrap,html.light .trust-stat-box,html.light .pipeline-step{box-shadow:0 10px 30px rgba(10,35,70,0.08),inset 0 1px 0 rgba(255,255,255,0.9);}
-    .problem-card:hover{transform:translateY(-4px);box-shadow:0 24px 56px rgba(0,0,0,0.5),0 0 0 1px rgba(0,229,160,0.15);}
+    .problem-card:hover,.feature-card:hover{transform:translateY(-6px);box-shadow:0 24px 56px rgba(0,0,0,0.5),0 0 0 1px rgba(0,229,160,0.15);}
+    .pkg-card:hover{box-shadow:0 24px 56px rgba(0,0,0,0.45),0 0 0 1px rgba(0,229,160,0.15);}
+    .testimonial-card:hover{transform:translateY(-4px);}
+    .hero-glow-2{position:absolute;top:60px;left:-120px;width:520px;height:520px;background:radial-gradient(ellipse at center,rgba(0,140,220,0.12) 0%,transparent 68%);pointer-events:none;animation:glow-pulse2 7s ease-in-out infinite;}
+    @keyframes glow-pulse2{0%,100%{opacity:0.5;transform:scale(1);}50%{opacity:0.9;transform:scale(1.1);}}
+    @media(prefers-reduced-motion:reduce){.hero-glow-2{animation:none!important;}}
     .section-title::after{content:'';display:block;width:64px;height:4px;border-radius:100px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:18px;}
     .faq-left h2::after,.demo-info h2::after{content:'';display:block;width:64px;height:4px;border-radius:100px;background:linear-gradient(90deg,var(--accent),transparent);margin-top:16px;}
     .problem-section::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(0,229,160,0.4),transparent);}
@@ -608,10 +640,18 @@
     html.light .faq-section .faq-contact-card{background:#ffffff;border-color:rgba(0,152,112,0.25);}
     html.light .integrations-strip .logo-pill{color:#cfe8db;border-color:rgba(255,255,255,0.18);}
     html.light .integrations-strip .logo-pill:hover{color:#ffffff;border-color:rgba(255,255,255,0.35);}
+  
+    /* CARD TEXT FIX: white/light cards inside dark-green sections must set their
+       own text color, or titles with no explicit color inherit the light section
+       color right through the card and become invisible. */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where([class*="card"],[class*="-box"],[class*="-step"],.case-visual,.demo-form-wrap,.problem-vs,.detail-row,.timeline-item){color:var(--text);}
   </style>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Tech Velocity", "legalName": "T3CH VELOCITY, LLC", "url": "https://techvelocity.ai/", "logo": "https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m", "description": "Tech Velocity builds private, custom AI systems for small and mid-sized businesses: workflow automation, AI-powered inboxes, business intelligence, and industry-specific AI.", "email": "hello@techvelocity.ai", "telephone": "+1-833-533-0225", "sameAs": ["https://www.facebook.com/techvelocityai", "https://www.instagram.com/techvelocityai/", "https://www.linkedin.com/company/techvelocityai", "https://www.x.com/techvelocityai"], "memberOf": {"@type": "Organization", "name": "West Orange Chamber of Commerce", "url": "https://www.westorangechamber.com/"}, "areaServed": "US", "knowsAbout": ["custom AI development", "workflow automation", "AI email triage", "business intelligence dashboards", "AI sales training", "commission reconciliation automation"]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Tech Velocity", "url": "https://techvelocity.ai/"}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Do I need technical knowledge to work with you?", "acceptedAnswer": {"@type": "Answer", "text": "Not at all. You tell us what your business does and where the pain is. We handle everything technical. Our clients are business owners, operations leads, and executives, not engineers. If you can describe how your business works, we can build the AI for it."}}, {"@type": "Question", "name": "What makes a custom AI model better than ChatGPT?", "acceptedAnswer": {"@type": "Answer", "text": "Public AI tools like ChatGPT are trained on generic internet data. They do not know your products, your clients, your compliance rules, or how your team actually works. A custom model trained on your specific data gives accurate, consistent outputs that match your exact standards. The difference is a generalist versus a specialist who knows your business inside and out."}}, {"@type": "Question", "name": "How long does it take to build and deploy?", "acceptedAnswer": {"@type": "Answer", "text": "Starter systems are typically live within 2 weeks. Growth packages run 3–5 weeks depending on scope and integrations. Enterprise timelines are scoped during discovery. We always agree on a firm delivery date before work begins - and we hold to it."}}, {"@type": "Question", "name": "Is my business data safe and private?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We sign NDAs before any discovery work begins and never use your data to train models for other clients. All proprietary models are hosted in isolated environments. Your data stays yours, always. That is not a policy. It is how we build."}}, {"@type": "Question", "name": "What industries do you serve?", "acceptedAnswer": {"@type": "Answer", "text": "We work across healthcare, legal, insurance, financial services, engineering, manufacturing, real estate, and professional services. If your business has data and repeatable processes, we can build AI around it. We've delivered for solo consultancies and organizations with hundreds of employees alike."}}, {"@type": "Question", "name": "What happens after the AI is deployed?", "acceptedAnswer": {"@type": "Answer", "text": "Every deployment includes a monitoring period where we track performance, catch edge cases, and tune the model. Support windows are 30–60 days depending on your plan. As your business changes, we offer ongoing retraining and model updates to keep the AI accurate and effective."}}, {"@type": "Question", "name": "What ROI can I realistically expect?", "acceptedAnswer": {"@type": "Answer", "text": "Most clients recoup their investment within the first 60–90 days through time savings alone. Common outcomes include 70–80% reduction in manual processing time, faster client response cycles, and measurable revenue uplift from better lead handling. During your free audit we'll build a personalized ROI estimate using your actual numbers."}}, {"@type": "Question", "name": "Can you integrate with the software I already use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. We build integrations with CRMs (Salesforce, HubSpot), project management tools (Asana, Monday), communication platforms (Slack, Teams), ERPs, and proprietary databases. If your tool has an API - or even just a spreadsheet export - we can connect to it. We design around your existing stack, not the other way around."}}, {"@type": "Question", "name": "Do you train my team to use the AI?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely. Every deployment includes a structured handover and team training session so your people are confident from day one. We provide documentation, workflow guides, and a dedicated support window for questions. You're never left to figure it out alone - we're invested in your team's success, not just the technical delivery."}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Tech Velocity AI Services", "itemListElement": [{"@type": "ListItem", "position": 1, "item": {"@type": "Service", "name": "AI Customer Assistance", "description": "AI trained on a business's products, policies, and FAQs to give instant, accurate customer answers 24/7 without extra headcount.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "AI Customer Assistance"}}, {"@type": "ListItem", "position": 2, "item": {"@type": "Service", "name": "Workflow Automation", "description": "Automated email triage, document routing, data entry, and reporting so teams focus on higher-value work.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "Workflow Automation"}}, {"@type": "ListItem", "position": 3, "item": {"@type": "Service", "name": "Business Intelligence", "description": "Live dashboards with real-time, predictive insights for faster operational decisions.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "Business Intelligence"}}, {"@type": "ListItem", "position": 4, "item": {"@type": "Service", "name": "AI Sales Training", "description": "Role-play and voice-simulation AI that cuts sales onboarding time and increases win rates.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "AI Sales Training"}}, {"@type": "ListItem", "position": 5, "item": {"@type": "Service", "name": "AI-Powered Inbox", "description": "Automatic email sorting, categorization, and routing built for law firms, insurance agencies, and professional service teams.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "AI-Powered Inbox"}}, {"@type": "ListItem", "position": 6, "item": {"@type": "Service", "name": "Industry-Specific AI", "description": "Custom AI for regulated and compliance-heavy industries: clinical assessments, engineering compliance, insurance underwriting.", "provider": {"@type": "Organization", "name": "Tech Velocity"}, "areaServed": "US", "serviceType": "Industry-Specific AI"}}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How Tech Velocity builds a custom AI system", "description": "The three-step process Tech Velocity uses to take a business from discovery to a live, custom AI system.", "step": [{"@type": "HowToStep", "name": "Discovery", "text": "We map your biggest time and revenue leaks in a free 45-minute call. You leave with a clear picture of what to build first and exactly why it matters."}, {"@type": "HowToStep", "name": "Build", "text": "We train a custom AI model on your actual data, built around your exact workflows, compliance rules, and performance goals. No templates, no shortcuts."}, {"@type": "HowToStep", "name": "Deploy", "text": "We plug the AI into your existing tools, train your team, and stay involved until it performs the way it should, then keep improving it as you grow."}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "speakable": {"@type": "SpeakableSpecification", "cssSelector": [".hero h1", ".hero p.sub", ".section-title", ".faq-q-text", ".faq-a-inner"]}, "url": "https://techvelocity.ai/"}</script>
 </head>
 <body>
 <!-- NAV -->
@@ -632,6 +672,7 @@
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
   <div class="hero-grid"></div>
   <div class="hero-inner">
     <!-- LEFT: copy + CTAs -->
@@ -1117,6 +1158,17 @@
   </div>
 </section>
 
+<!-- MID-PAGE CTA STRIP -->
+<div class="mid-cta reveal-fade">
+  <div class="mid-cta-inner">
+    <div class="mid-cta-text">
+      <strong>Not sure which system fits your business?</strong>
+      <span>Get a free 45-minute AI Discovery Audit — no pitch, just a clear plan.</span>
+    </div>
+    <a href="#demo" class="btn-primary">Book an AI Strategy Call →</a>
+  </div>
+</div>
+
 <!-- PACKAGES -->
 <section class="packages-section" id="packages">
   <div class="container">
@@ -1174,7 +1226,10 @@
         <a href="#demo" class="pkg-cta outline">Book an AI Strategy Call →</a>
       </div>
     </div>
-    <p style="text-align:center;color:var(--muted);font-size:0.82rem;margin-top:28px;">Every package starts with a free discovery audit and a fixed quote before you commit. No hidden fees. No lock-in contracts.</p>
+    <div style="text-align:center;margin-top:36px;">
+      <a href="#demo" class="btn-primary">Get My Free AI Discovery Audit →</a>
+      <p style="color:var(--muted);font-size:0.82rem;margin-top:16px;">Every package starts with a free discovery audit and a fixed quote before you commit. No hidden fees. No lock-in contracts.</p>
+    </div>
   </div>
 </section>
 
@@ -1473,6 +1528,12 @@
 <!-- FLOATING BUTTON -->
 <button class="popup-trigger-btn" id="floatBtn" onclick="openPopup('float_button')">Free AI Audit</button>
 <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top" title="Back to top">↑</button>
+
+<!-- MOBILE STICKY CTA BAR -->
+<div id="mobileCtaBar">
+  <button class="mcta-audit" onclick="openPopup('mobile_bar')" aria-label="Free AI Audit">🎯</button>
+  <a href="#demo" class="btn-primary">Book a Strategy Call</a>
+</div>
 
 <!-- POPUP OVERLAY -->
 <div class="popup-overlay" id="popupOverlay" onclick="handleOverlayClick(event)">
