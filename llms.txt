@@ -25,6 +25,7 @@ Contact: hello@techvelocity.ai · +1 833-533-0225 · https://techvelocity.ai/con
 - [Clinical Assessment AI](https://techvelocity.ai/assessment): clinical scoring — 70% faster evaluations at 98% consistency
 - [AIVault Platform](https://techvelocity.ai/aivault): private AI platform
 - [AI Command Center](https://techvelocity.ai/aicallcenter): AI call center operations
+- [SignalTrace](https://techvelocity.ai/signaltrace): clinical AI for movement disorders — spiral drawings scored against the Clinical Rating Scale for Tremor, every session on one longitudinal chart, PHI kept in a local Identity Vault
 
 ## Frequently asked questions
 
