@@ -4,17 +4,34 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17907580617"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','AW-17907580617');</script>
   <meta charset="UTF-8">
-  <script>if(localStorage.getItem('tvTheme')!=='dark')document.documentElement.classList.add('light');</script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>if(localStorage.getItem('tvTheme')==='light')document.documentElement.classList.add('light');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#03070c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>How It Works - Tech Velocity</title>
   <meta name="description" content="See exactly how Tech Velocity builds and deploys custom AI for your business. A proven 3-step process: Discovery, Build, Deploy. From free audit to live AI in weeks, not months.">
+  <link rel="canonical" href="https://techvelocity.ai/how-it-works">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tech Velocity">
+  <meta property="og:url" content="https://techvelocity.ai/how-it-works">
+  <meta property="og:title" content="How It Works - Tech Velocity">
+  <meta property="og:description" content="See exactly how Tech Velocity builds and deploys custom AI for your business. A proven 3-step process: Discovery, Build, Deploy. From free audit to live AI in weeks, not months.">
+  <meta property="og:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How It Works - Tech Velocity">
+  <meta name="twitter:description" content="See exactly how Tech Velocity builds and deploys custom AI for your business. A proven 3-step process: Discovery, Build, Deploy. From free audit to live AI in weeks, not months.">
+  <meta name="twitter:image" content="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png" type="image/png">
+  <link rel="apple-touch-icon" href="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/favicon/72aa41fe-38b5-4123-93fa-1fb8ac8a4fa2/d0ff185c-9200-4dec-a6d4-c67de6a38920.png">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--accent2:#00a87d;--gold:#f5a623;--green:#00e676;--text:#e8f0f8;--muted:#7a9ab5;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
-    html.light{--bg:#f5f8fc;--bg2:#edf2f8;--bg3:#e4ecf5;--card:#ffffff;--border:rgba(12,24,48,0.1);--text:#0c1a2e;--muted:#456280;--accent:#009870;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
+    :root{--bg:#03070c;--bg2:#0a1c33;--bg3:#0d2440;--card:#0a1a2e;--border:rgba(130,190,255,0.10);--accent:#00e5a0;--accent2:#00b380;--gold:#ffb545;--green:#00e676;--text:#eef5fc;--muted:#8fabc7;--font-head:'Inter',sans-serif;--font-body:'Inter',sans-serif;}
+    html.light{--bg:#ffffff;--bg2:#d2e8dd;--bg3:#bcd9cb;--card:#ffffff;--border:rgba(0,152,112,0.15);--text:#0c1a2e;--muted:#456280;--accent:#00795c;--accent2:#007558;--gold:#b8710a;--green:#008a40;}
     html.light body{background:var(--bg);color:var(--text);}
     html.light body::before{opacity:0.05;}
     html.light nav{background:rgba(245,248,252,0.97)!important;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;border-bottom-color:rgba(12,24,48,0.09)!important;}
@@ -28,7 +45,7 @@
     html.light .pipeline-step:not(:last-child)::after{background:var(--bg);}
     html.light .feature-card:hover,html.light .home-card:hover,html.light .tools-card:hover{box-shadow:0 16px 48px rgba(0,0,0,0.09);}
     html.light .faq-q:hover{background:rgba(0,0,0,0.02);}
-    html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
+    html.light footer{background:#ffffff!important;border-top-color:rgba(12,24,48,0.1)!important;}html.light .cta-band{background:linear-gradient(135deg,rgba(0,152,112,0.07),rgba(0,100,80,0.04));}
     html.light .form-group input,html.light .form-group select,html.light .form-group textarea{background:var(--bg2);color:var(--text);border-color:rgba(12,24,48,0.12);}
     html.light #chat-messages{background:var(--bg2);}
     html.light .msg.bot,html.light .message.bot{background:var(--bg3);border-color:var(--border);color:var(--muted);}
@@ -49,14 +66,14 @@
     nav.scrolled{padding:10px 48px;}
     .nav-hidden{transform:translateY(-100%);}
     .logo-img{height:70px;width:auto;}
-    .nav-links{display:flex;gap:36px;list-style:none;}
-    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;transition:color 0.2s;}
+    .nav-links{display:flex;gap:clamp(14px,2vw,36px);list-style:none;}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:0.9rem;font-weight:500;white-space:nowrap;transition:color 0.2s;}
     .nav-links a:hover,.nav-links a.active{color:var(--text);}
     .nav-cta{background:var(--accent)!important;color:#000!important;padding:10px 22px;border-radius:6px;font-weight:600!important;transition:all 0.2s!important;}
     .nav-cta:hover{background:#33ddb0!important;transform:translateY(-1px);}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;justify-self:end;}
     .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;display:block;}
-    .nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:4px;}.nav-sub{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 0;min-width:220px;list-style:none;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.3);}.nav-sub::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}.nav-dropdown:hover>.nav-sub{display:flex;flex-direction:column;animation:subDrop 0.18s ease forwards;}@keyframes subDrop{from{opacity:0;transform:translateX(-50%) translateY(-8px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}.nav-sub li a{display:block;padding:9px 16px;color:var(--muted);font-size:0.84rem;white-space:nowrap;transition:color 0.2s,background 0.2s;}.nav-sub li a:hover{color:var(--text);background:rgba(0,200,150,0.06);}.nav-sub .sub-all a{color:var(--accent);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:12px;}@media(max-width:900px){.nav-sub{display:flex;flex-direction:column;position:static;transform:none;box-shadow:none;border:none;background:none;padding:0 0 0 12px;gap:2px;}.nav-sub::before{display:none;}.nav-sub .sub-all a{border-bottom:none;padding-bottom:9px;}}
+    .nav-dropdown{position:relative;}.nav-dropdown>a{display:flex;align-items:center;gap:4px;}.nav-sub{display:none;position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%);background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:8px 0;min-width:220px;list-style:none;z-index:200;box-shadow:0 8px 32px rgba(0,0,0,0.3);}.nav-sub::before{content:'';position:absolute;top:-10px;left:0;right:0;height:10px;}.nav-dropdown:hover>.nav-sub{display:flex;flex-direction:column;animation:subDrop 0.18s ease forwards;}@keyframes subDrop{from{opacity:0;transform:translateX(-50%) translateY(-8px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}.nav-sub li a{display:block;padding:9px 16px;color:var(--muted);font-size:0.84rem;white-space:nowrap;transition:color 0.2s,background 0.2s;}.nav-sub li a:hover{color:var(--text);background:rgba(0,200,150,0.06);}.nav-sub .sub-all a{color:var(--accent);font-weight:600;border-bottom:1px solid var(--border);padding-bottom:12px;}@media(max-width:1080px){.nav-sub{display:flex;flex-direction:column;position:static;transform:none;box-shadow:none;border:none;background:none;padding:0 0 0 12px;gap:2px;}.nav-sub::before{display:none;}.nav-sub .sub-all a{border-bottom:none;padding-bottom:9px;}}
 
     /* HERO */
     .hero{position:relative;min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:140px 24px 80px;overflow:hidden;}
@@ -91,7 +108,7 @@
     .pipeline-step{flex:1;background:var(--card);border:1px solid var(--border);border-right:none;padding:36px 28px;position:relative;transition:background 0.3s,border-color 0.3s;}
     .pipeline-step:first-child{border-radius:16px 0 0 16px;}
     .pipeline-step:last-child{border-radius:0 16px 16px 0;border-right:1px solid var(--border);}
-    .pipeline-step:hover{background:rgba(0,200,150,0.05);border-color:rgba(0,200,150,0.25);z-index:1;}
+    .pipeline-step:hover{background:linear-gradient(rgba(0,200,150,0.05),rgba(0,200,150,0.05)),var(--card);border-color:rgba(0,200,150,0.25);z-index:1;}
     .pipeline-step:not(:last-child)::after{content:'›';position:absolute;right:-14px;top:50%;transform:translateY(-50%);width:28px;height:28px;background:var(--bg);border:1px solid var(--border);border-radius:50%;color:var(--accent);z-index:2;line-height:28px;text-align:center;font-size:1.1rem;}
     .step-num{font-size:0.68rem;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:14px;}
     .step-icon{display:none;}
@@ -103,7 +120,7 @@
 
     /* STEP DETAIL CARDS */
     .step-details{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .step-detail-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all 0.3s;position:relative;}
+    .step-detail-card{background:var(--card);border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:all 0.3s;position:relative;display:flex;flex-direction:column;}
     .step-detail-card:hover{border-color:rgba(0,200,150,0.3);transform:translateY(-4px);box-shadow:0 20px 60px rgba(0,0,0,0.3);}
     .step-detail-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);opacity:0;transition:opacity 0.3s;}
     .step-detail-card:hover::before{opacity:1;}
@@ -111,7 +128,7 @@
     .step-detail-card:hover .step-img{filter:brightness(0.85) saturate(0.9);}
     .partnership-img{filter:brightness(0.75) saturate(0.85);transition:filter 0.3s;}
     .partnership-img:hover{filter:brightness(0.9) saturate(1);}
-    .step-body{background:var(--card);padding:28px;}
+    .step-body{background:var(--card);padding:28px;flex:1;}
     .step-body-num{font-size:0.68rem;font-weight:700;letter-spacing:2px;color:var(--accent);text-transform:uppercase;margin-bottom:8px;}
     .step-body h3{font-family:var(--font-head);font-size:1.05rem;font-weight:800;margin-bottom:14px;}
     .step-body ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
@@ -120,6 +137,8 @@
 
     /* PARTNERSHIP SECTION */
     .partnership-section{background:var(--bg);}
+    .timeline-section{background:var(--bg2);}
+    .trust-section{background:var(--bg);}
     .partnership-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
     .partnership-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:20px;display:block;border:1px solid var(--border);}
     .partnership-text h6{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--accent);margin-bottom:12px;}
@@ -130,7 +149,69 @@
     .pcheck-icon{width:32px;height:32px;background:rgba(0,200,150,0.1);border:1px solid rgba(0,200,150,0.2);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
     .pcheck-text{font-size:0.9rem;color:var(--muted);line-height:1.65;padding-top:4px;}
     .pcheck-text strong{color:var(--text);display:block;font-family:var(--font-head);font-size:0.88rem;font-weight:700;margin-bottom:2px;}
+    /* BOOK CALL FLOAT */
+    .book-call-float{position:fixed;bottom:20px;right:20px;z-index:498;background:var(--accent);color:#000;border-radius:50px;padding:13px 20px;font-family:var(--font-head);font-weight:700;font-size:0.82rem;display:flex;align-items:center;gap:8px;box-shadow:0 8px 32px rgba(0,200,150,0.35);transition:all 0.25s;text-decoration:none;white-space:nowrap;}
+    .book-call-float:hover{transform:translateY(-2px);box-shadow:0 16px 48px rgba(0,200,150,0.45);}
+    /* ── VISUAL ENHANCEMENTS ── */
+    @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}}
+    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.04);}}
+    .hero-glow{animation:glow-pulse 5s ease-in-out infinite!important;}
+    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.13),transparent);transition:left 0.55s ease;pointer-events:none;z-index:1;}
+    .btn-primary:hover::before{left:150%;}
+    .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
+    #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
+    /* ── SCROLL REVEAL ANIMATIONS ── */
+    .reveal-fade{opacity:0;transform:translateY(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-fade.visible{opacity:1;transform:translateY(0);}
+    .reveal-left{opacity:0;transform:translateX(-32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-left.visible{opacity:1;transform:translateX(0);}
+    .reveal-right{opacity:0;transform:translateX(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal-right.visible{opacity:1;transform:translateX(0);}
+    .rv-d1{transition-delay:0.1s;}.rv-d2{transition-delay:0.18s;}.rv-d3{transition-delay:0.26s;}.rv-d4{transition-delay:0.34s;}.rv-d5{transition-delay:0.42s;}.rv-d6{transition-delay:0.5s;}
+    @media(prefers-reduced-motion:reduce){.reveal-fade,.reveal-left,.reveal-right{opacity:1!important;transform:none!important;transition:none!important;}}  
+    /* ── LIGHT MODE: DARK GREEN CONTRAST SECTIONS (Ramye) ── */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section){background:#062d21;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(h1,h2,h3,h4,blockquote,div,span):not(:where([class*="card"],[class*="-box"],[class*="step-"],[class*="-step"],.problem-vs,.case-visual,.detail-row,.timeline-item,.hover-feature,.tab-badge,.video-wrap,.hipaa-item,.table-wrap,.tl-dot) *){color:#eaf6f0;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(p,li):not(:where([class*="card"],[class*="-box"],[class*="step-"],[class*="-step"],.problem-vs,.case-visual,.detail-row,.timeline-item,.hover-feature,.tab-badge,.video-wrap,.hipaa-item,.table-wrap,.tl-dot) *){color:#b9d6c8;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .section-tag{color:#17d493;border-left-color:#17d493;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .faq-item{border-color:rgba(255,255,255,0.13);}
+    html.light .faq-section .faq-list{border-top-color:rgba(255,255,255,0.13)!important;}
+    html.light .faq-section .faq-cat{color:#cfe8db;border-color:rgba(255,255,255,0.22);}
+    html.light .faq-section .faq-cat:hover{color:#17d493;}
+    html.light .faq-section .faq-cat.active{color:#17d493;border-color:rgba(23,212,147,0.6);background:rgba(23,212,147,0.12);}
+    html.light .faq-section .faq-icon{border-color:rgba(255,255,255,0.22);color:#cfe8db;}
+    html.light .faq-section .faq-q:hover{background:rgba(255,255,255,0.04);}
+    html.light .faq-section .faq-item.open .faq-q-text,html.light .faq-section .faq-q:hover .faq-q-text{color:#17d493;}
+    html.light .faq-section .faq-contact-card{background:#ffffff;border-color:rgba(0,152,112,0.25);}
+    html.light .integrations-strip .logo-pill{color:#cfe8db;border-color:rgba(255,255,255,0.18);}
+    html.light .integrations-strip .logo-pill:hover{color:#ffffff;border-color:rgba(255,255,255,0.35);}
+  
+    /* CARD TEXT FIX: white/light cards inside dark-green sections must set their
+       own text color, or titles with no explicit color inherit the light section
+       color right through the card and become invisible. */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where([class*="card"],[class*="-box"],[class*="-step"],.case-visual,.demo-form-wrap,.problem-vs,.detail-row,.timeline-item,.hover-feature,.tab-badge,.video-wrap,.hipaa-item,.table-wrap,.tl-dot){color:var(--text);}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .tab-badge{color:var(--accent);}
+    /* LIGHT-MODE TEXT TOKENS: inside the dark-green sections, rescope the theme
+       tokens themselves. Rules AND inline color:var(--muted) styles then resolve
+       to readable values; light surfaces (cards, badges, panels) restore them. */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section){--text:#eaf6f0;--muted:#b9d6c8;--accent:#17d493;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where([class*="card"],[class*="-box"],[class*="-step"],.case-visual,.demo-form-wrap,.problem-vs,.detail-row,.timeline-item,.hover-feature,.tab-badge,.video-wrap,.hipaa-item,.table-wrap,.tl-dot){--text:#0c1a2e;--muted:#456280;--accent:#00795c;}
+    /* problem/solution and dual-stream cards carry only a translucent tint, which
+       leaves them dark green -- give them a real surface so their text reads. */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(.ps-card,.stream-card){background:#ffffff;}
+    /* dark panels sitting inside light cards need the light tokens back */
+    html.light :where(.featured-image,.cs-visual,.ai-dash,.dash-chip){--text:#eef5fc;--muted:#b9d6c8;--accent:#2fe0a6;color:#eef5fc;}
+    html.light .stream-card{background:#ffffff;}
+    /* accent-filled chips: dark glyph on the bright fill, not white-on-green */
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) :where(.fq-initials,.author-avatar-initials){color:#04150f;}
+    html.light :where(.integrations-strip,.problem-section,.features-section,.testimonials-section,.faq-section,.overview-section,.results-section,.process-section,.video-section,.trust-section,.timeline-section,.tech-section,.steps-section,.quote-section,.partners-section,.comparison-section,.capabilities-section,.arch-section,.case-studies-section,.deepdive-section,.featured-section,.faq-mini-section,.gcp-section,.hipaa-section,.cap-section,.founder-section,.ps-section) .ps-card.problem .ps-label{color:#c81e1e;}
 
+
+
+  
+
+    /* RESTORED: stats band, timeline, testimonials and footer rules that were
+       dropped from this page's stylesheet during the UI rework. */
     /* STATS BAND */
     .stats-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:60px 24px;position:relative;z-index:1;}
     .stats-band::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
@@ -140,82 +221,33 @@
     .stat-num{font-family:var(--font-head);font-size:2.8rem;font-weight:800;color:var(--accent);white-space:nowrap;line-height:1.1;letter-spacing:-2px;}
     .stat-num em{color:var(--accent);font-style:normal;}
     .stat-label{font-size:0.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:8px;}
-    /* TRUST SECTION */
-    .trust-section{background:var(--bg);border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;}
-    .trust-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
     .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s;}
-    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.5;transition:opacity 0.3s;}
-    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
-    .testimonial-card:hover::before{opacity:1;}
     .stars{color:var(--gold);letter-spacing:2px;font-size:0.85rem;margin-bottom:12px;}
     .testimonial-text{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-bottom:18px;font-style:italic;}
     .testimonial-author{display:flex;align-items:center;gap:10px;}
     .author-avatar-initials{width:40px;height:40px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-head);font-weight:800;font-size:0.75rem;color:#000;flex-shrink:0;}
     .author-name{font-family:var(--font-head);font-weight:700;font-size:0.88rem;}
     .author-role{color:var(--muted);font-size:0.76rem;margin-top:2px;}
-
-    /* TIMELINE */
-    .timeline-section{background:var(--bg);}
     .timeline{display:flex;flex-direction:column;gap:0;position:relative;max-width:760px;}
     .timeline::before{content:'';position:absolute;left:20px;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--accent),transparent);}
     .tl-item{display:flex;gap:32px;padding-bottom:40px;position:relative;}
     .tl-item:last-child{padding-bottom:0;}
-    .tl-dot{width:40px;height:40px;background:var(--card);border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;font-family:var(--font-head);color:var(--accent);flex-shrink:0;position:relative;z-index:1;}
     .tl-content{flex:1;padding-top:8px;}
     .tl-content h3{font-family:var(--font-head);font-size:1rem;font-weight:700;margin-bottom:6px;}
     .tl-content p{color:var(--muted);font-size:0.88rem;line-height:1.65;}
     .tl-week{font-size:0.72rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
-
-    /* CTA BAND */
-    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;}
-    .cta-band h2{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.2rem);font-weight:600;margin-bottom:24px;letter-spacing:-0.8px;}
-    .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.75;}
-
-    /* FOOTER */
-    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
     .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1040px;margin:0 auto 48px;}
     .footer-brand p{color:var(--muted);font-size:0.87rem;line-height:1.7;margin-top:14px;max-width:240px;}
-    .footer-logo{height:56px;width:auto;}
     .footer-col h4{font-family:var(--font-head);font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--text);margin-bottom:18px;}
     .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px;}
     .footer-col ul li a{color:var(--muted);text-decoration:none;font-size:0.87rem;transition:color 0.2s;}
     .footer-col ul li a:hover{color:var(--text);}
     .footer-bottom{max-width:1040px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--border);font-size:0.8rem;color:var(--muted);}
-
-    /* REVEAL */
-    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease;}
-    .reveal.visible{opacity:1;transform:translateY(0);}
     .reveal-delay-1{transition-delay:0.1s;}
     .reveal-delay-2{transition-delay:0.2s;}
-    .reveal-delay-3{transition-delay:0.3s;}
-
-    /* CHATBOT */
-    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
-    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
-    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
-    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
-    #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
-    #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
-    #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
-    #close-chatbot:hover{color:var(--text);}
-    #chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
-    #chat-input-container{display:flex;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg2);gap:8px;}
-    #chat-input{flex-grow:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font-body);outline:none;}
-    #chat-input:focus{border-color:var(--accent);}
-    #chat-send-button{background:var(--accent);color:#000;border:none;border-radius:20px;padding:10px 16px;cursor:pointer;font-size:14px;font-weight:700;}
-    #chatbot-button{background:var(--accent);color:#000;border:none;border-radius:50%;width:56px;height:56px;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform 0.2s;}
-    #chatbot-button:hover{transform:scale(1.1);}
-    .msg{padding:10px 14px;border-radius:12px;max-width:80%;font-size:0.88rem;line-height:1.5;}
-    .msg.user{background:rgba(0,200,150,0.15);border:1px solid rgba(0,200,150,0.2);margin-left:auto;color:var(--text);}
-    .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
-
     /* FLOATING BTN */
     .popup-trigger-btn{position:fixed;bottom:20px;right:20px;z-index:500;background:var(--accent);color:#000;border:none;border-radius:50px;padding:12px 18px;font-family:var(--font-head);font-weight:700;font-size:0.82rem;cursor:pointer;display:flex;align-items:center;gap:7px;box-shadow:0 8px 32px rgba(0,200,150,0.35);transition:all 0.25s;animation:floatPulse 3s ease-in-out infinite;}
     .popup-trigger-btn:hover{transform:translateY(-2px) scale(1.03);}
-    @keyframes floatPulse{0%,100%{box-shadow:0 8px 32px rgba(0,200,150,0.35);}50%{box-shadow:0 8px 48px rgba(0,200,150,0.55);}}
-
-    /* MOBILE */
     @media(max-width:900px){
       nav{padding:16px 24px;display:flex;justify-content:space-between;align-items:center;}
       .nav-links{display:none;}
@@ -246,17 +278,51 @@
       .testimonial-card{padding:20px;}
       .section-sub{margin-bottom:40px!important;}
     }
+  
+    /* testimonial cards need a surface; without one they sat transparent on the
+       section background and their text dropped out. */
+    .testimonial-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px;}
+  
+
+    /* RESTORED (2): chat widget, back-to-top, footer shell and a few rules the UI
+       rework dropped from this page. */
+    .trust-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent);}
+    .testimonial-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent);opacity:0.5;transition:opacity 0.3s;}
+    .testimonial-card:hover::before{opacity:1;}
+    .cta-band p{color:var(--muted);font-size:1rem;max-width:480px;margin:0 auto 40px;line-height:1.75;}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:64px 48px 40px;position:relative;z-index:1;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+    .reveal-delay-3{transition-delay:0.3s;}
+    #chatbot-container{position:fixed;bottom:80px;right:20px;z-index:500;display:flex;flex-direction:column;align-items:flex-end;gap:10px;transition:opacity 0.35s,transform 0.35s;}
+    #chatbot-container.scroll-hidden{opacity:0;pointer-events:none;transform:translateY(8px);}
+    #floatingThemeToggle{background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;transition:transform 0.2s,box-shadow 0.2s;line-height:1;}
+    #floatingThemeToggle:hover{transform:scale(1.1);box-shadow:0 6px 24px rgba(0,200,150,0.3);}
+    #chat-window{display:none;width:350px;height:450px;background:var(--card);border:1px solid rgba(0,200,150,0.2);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,0.5);flex-direction:column;overflow:hidden;margin-bottom:10px;}
+    #chat-header{background:linear-gradient(135deg,rgba(0,200,150,0.2),rgba(0,140,130,0.15));padding:16px 20px;font-family:var(--font-head);font-weight:700;font-size:1rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);}
+    #close-chatbot{background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer;line-height:1;transition:color 0.2s;}
+    #close-chatbot:hover{color:var(--text);}
+    #chat-messages{flex-grow:1;padding:16px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;}
+    #chat-input-container{display:flex;padding:12px 16px;border-top:1px solid var(--border);background:var(--bg2);gap:8px;}
+    #chat-input{flex-grow:1;background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:10px 14px;font-size:14px;color:var(--text);font-family:var(--font-body);outline:none;}
+    #chat-input:focus{border-color:var(--accent);}
+    #chat-send-button{background:var(--accent);color:#000;border:none;border-radius:20px;padding:10px 16px;cursor:pointer;font-size:14px;font-weight:700;}
+    #chatbot-button{background:var(--accent);color:#000;border:none;border-radius:50%;width:56px;height:56px;font-size:22px;cursor:pointer;box-shadow:0 4px 20px rgba(0,200,150,0.4);display:flex;align-items:center;justify-content:center;margin-left:auto;transition:transform 0.2s;}
+    #chatbot-button:hover{transform:scale(1.1);}
+    .msg{padding:10px 14px;border-radius:12px;max-width:80%;font-size:0.88rem;line-height:1.5;}
+    .msg.user{background:rgba(0,200,150,0.15);border:1px solid rgba(0,200,150,0.2);margin-left:auto;color:var(--text);}
     #back-to-top{position:fixed;bottom:20px;left:20px;z-index:499;background:var(--card);color:var(--text);border:1px solid var(--border);border-radius:50%;width:44px;height:44px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(0,0,0,0.2);transition:all 0.3s;opacity:0;pointer-events:none;}
     #back-to-top.visible{opacity:1;pointer-events:auto;}
     #back-to-top:hover{background:var(--accent);color:#000;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,200,150,0.3);}
-    /* ── VISUAL ENHANCEMENTS ── */
-    @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1);}50%{opacity:1;transform:translateX(-50%) scale(1.15);}}
-    @keyframes orbFloat{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-20px) scale(1.04);}}
-    .hero-glow{animation:glow-pulse 5s ease-in-out infinite!important;}
-    .btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.13),transparent);transition:left 0.55s ease;pointer-events:none;z-index:1;}
-    .btn-primary:hover::before{left:150%;}
-    .result-card:hover,.process-step:hover,.benefit-card:hover,.hover-feature:hover,.project-card:hover,.testimonial-card:hover,.home-card:hover,.detail-row:hover{box-shadow:0 20px 60px rgba(0,200,150,0.12),0 0 0 1px rgba(0,200,150,0.1)!important;}
-    #scroll-progress{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--accent),#00e8a8);z-index:9999;width:0%;pointer-events:none;transition:width 0.08s;}
+  
+
+    /* RESTORED (3): base rules that survived only inside @media, so the CTA band,
+       footer logo and timeline dot rendered unstyled at desktop width. */
+    .testimonial-card:hover{border-color:rgba(0,200,150,0.3);box-shadow:0 8px 32px rgba(0,0,0,0.2);}
+    .tl-dot{width:40px;height:40px;background:var(--card);border:2px solid var(--accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.85rem;font-weight:800;font-family:var(--font-head);color:var(--accent);flex-shrink:0;position:relative;z-index:1;}
+    .cta-band{background:linear-gradient(135deg,rgba(0,200,150,0.12),rgba(0,140,130,0.08));border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 24px;text-align:center;position:relative;z-index:1;overflow:hidden;}
+    .cta-band h2{font-family:var(--font-head);font-size:clamp(2rem,3.4vw,3.2rem);font-weight:600;margin-bottom:24px;letter-spacing:-0.8px;}
+    .footer-logo{height:56px;width:auto;}
+    .msg.bot{background:var(--bg2);border:1px solid var(--border);color:var(--muted);}
   </style>
 </head>
 <body>
@@ -265,12 +331,13 @@
 <nav id="navbar">
   <a href="index"><img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo" class="logo-img"></a>
   <ul class="nav-links">
-    <li><a href="index">Home</a></li>
+    <li><a href="home">Home</a></li>
     <li><a href="our-story">Our Story</a></li>
     <li><a href="solutions">Solutions</a></li>
     <li><a href="how-it-works" class="active">How It Works</a></li>
-    <li class="nav-dropdown"><a href="portfolio">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="aicallcenter">AI Command Center</a></li></ul></li>
+    <li class="nav-dropdown"><a href="portfolio">Projects <svg width="10" height="6" viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1l4 4 4-4"/></svg></a><ul class="nav-sub"><li class="sub-all"><a href="portfolio">All Projects</a></li><li><a href="inbox">AI Powered Inbox</a></li><li><a href="reconciliation">Commission Reconciliation</a></li><li><a href="mailer">Email Automation</a></li><li><a href="assist">Engineering Assistant</a></li><li><a href="salestrainer">Sales Training AI</a></li><li><a href="assessment">Clinical Assessment AI</a></li><li><a href="aivault">AIVault Platform</a></li><li><a href="signaltrace">SignalTrace</a></li><li><a href="aicallcenter">AI Command Center</a></li></ul></li>
     <li><a href="contact">Contact</a></li>
+    <li><a href="blog">Resources</a></li>
     <li><a href="contact" class="nav-cta">Free AI Audit →</a></li>
   </ul>
   <button class="hamburger" onclick="toggleMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -529,10 +596,11 @@
       <img src="https://img1.wsimg.com/isteam/ip/0690e33b-189f-4e07-abdb-cafb251917ba/TECH%20VELOCITY%20(80%20x%2080%20px)%20(80%20x%2040%20px-dc04117.png/:/rs=h:175,m" alt="Tech Velocity Logo" class="footer-logo">
       <p>Custom AI built for your data, your workflows, and your business. Private, secure, and delivered fast.</p>
       <div style="display:flex;gap:14px;margin-top:16px;align-items:center;">
-        <a href="https://www.facebook.com/techvelocityai" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-        <a href="https://www.instagram.com/techvelocityai/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><defs><linearGradient id="igh" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igh)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
-        <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-        <a href="https://www.x.com/techvelocityai" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://www.facebook.com/techvelocityai" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="#1877F2" width="22" height="22"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        <a href="https://www.instagram.com/techvelocityai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24" width="22" height="22"><defs><linearGradient id="igh" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:#FD5949"/><stop offset="50%" style="stop-color:#D6249F"/><stop offset="100%" style="stop-color:#285AEB"/></linearGradient></defs><path fill="url(#igh)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="https://www.linkedin.com/company/techvelocityai" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="#0A66C2" width="22" height="22"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+        <a href="https://www.x.com/techvelocityai" target="_blank" rel="noopener noreferrer" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22" style="color:#aaa"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="https://app.vanta.com/techvelocity.ai/trust/hq6177gqiwvmtc6cexerfs" target="_blank" rel="noopener noreferrer" aria-label="Vanta Trust Center" title="Vanta Trust Center" style="display:inline-flex;align-items:center;border-left:1px solid var(--border);padding-left:14px;margin-left:2px;"><img src="img/Vanta.jpeg" alt="Vanta" style="height:22px;width:auto;border-radius:3px;opacity:0.9;display:block;"></a>
       </div>
     </div>
     <div class="footer-col">
@@ -561,11 +629,12 @@
         <li><a href="contact">Book an AI Strategy Call</a></li>
         <li><a href="privacy-policy">Privacy Policy</a></li>
         <li><a href="terms-and-conditions">Terms of Service</a></li>
+        <li><a href="https://app.vanta.com/techvelocity.ai/trust/hq6177gqiwvmtc6cexerfs" target="_blank" rel="noopener noreferrer">TechVelocity Trust Center</a></li>
       </ul>
     </div>
   </div>
   <div class="footer-bottom">
-    <span>© 2025 Tech Velocity, LLC. All Rights Reserved.</span>
+    <span>© 2025 T3CH VELOCITY, LLC. All Rights Reserved.</span>
     <span>Custom AI built for your data, your workflows, and your business. Private, secure, and delivered fast.</span>
   </div>
 </footer>
@@ -607,7 +676,7 @@
     if (links.style.display === 'flex') {
       links.style.display = 'none';
     } else {
-      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:24px 32px;gap:20px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';z-index:99;';
+      const _lm=document.documentElement.classList.contains('light');links.style.cssText='display:flex;flex-direction:column;position:fixed;top:84px;left:0;right:0;max-height:calc(100vh - 84px);overflow-y:auto;background:'+(_lm?'rgba(245,248,252,0.98)':'rgba(6,10,15,0.97)')+';color:'+(_lm?'#0c1a2e':'#e8f0f8')+';padding:20px 24px 36px;gap:18px;border-bottom:1px solid '+(_lm?'rgba(12,24,48,0.1)':'rgba(255,255,255,0.07)')+';box-shadow:0 24px 48px rgba(0,0,0,0.28);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:99;';
       links.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{links.style.display='none';},{once:true});});
     }
   }
@@ -682,7 +751,7 @@
   })();
   // ── THEME TOGGLE ──
   function toggleTheme(){const h=document.documentElement,b=document.getElementById('themeToggle'),f=document.getElementById('floatingThemeToggle');if(h.classList.contains('light')){h.classList.remove('light');if(b)b.textContent='🌙';if(f)f.textContent='🌙';localStorage.setItem('tvTheme','dark');}else{h.classList.add('light');if(b)b.textContent='☀️';if(f)f.textContent='☀️';localStorage.setItem('tvTheme','light');}}
-  (function(){const _i=localStorage.getItem('tvTheme')==='dark'?'🌙':'☀️';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
+  (function(){const _i=localStorage.getItem('tvTheme')==='light'?'☀️':'🌙';const b=document.getElementById('themeToggle');const f=document.getElementById('floatingThemeToggle');if(b)b.textContent=_i;if(f)f.textContent=_i;})();
   (function(){var b=document.getElementById('back-to-top'),t;if(b)window.addEventListener('scroll',function(){if(window.scrollY>300){b.classList.add('visible');clearTimeout(t);t=setTimeout(function(){b.classList.remove('visible');},1200);}else{b.classList.remove('visible');}},{passive:true});})();
   // Scroll progress bar
   (function(){var p=document.createElement('div');p.id='scroll-progress';document.body.prepend(p);window.addEventListener('scroll',function(){var s=document.documentElement.scrollTop,h=document.documentElement.scrollHeight-window.innerHeight;p.style.width=(h>0?(s/h*100):0)+'%';},{passive:true});})();
@@ -690,6 +759,23 @@
   (function(){function fmt(n,sfx){return(Number.isInteger(n)?n:n.toFixed(0))+sfx;}function anim(el){var raw=el.getAttribute('data-cv');if(!raw)return;var num=parseFloat(raw),sfx=el.getAttribute('data-cs')||'';if(!num)return;var s=0;var iv=setInterval(function(){s+=num/(1600/16);if(s>=num){clearInterval(iv);el.textContent=fmt(num,sfx);}else{el.textContent=fmt(Math.floor(s),sfx);}},16);}var obs2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){anim(e.target);obs2.unobserve(e.target);}});},{threshold:0.5});document.querySelectorAll('.result-val,.hero-metric-val,.metric-val,.hero-stat-num,.trust-stat-num').forEach(function(el){var t=el.textContent.trim();var m=t.match(/^([0-9]+)(.*)$/);if(m&&parseInt(m[1])>=2){el.setAttribute('data-cv',m[1]);el.setAttribute('data-cs',m[2]);obs2.observe(el);}});})();
   // Floating orbs
   (function(){var hero=document.querySelector('.project-hero,.portfolio-hero,.hero');if(!hero)return;[{s:220,x:8,y:15,d:7,dl:0},{s:160,x:82,y:55,d:9,dl:2.5},{s:110,x:48,y:75,d:6,dl:4}].forEach(function(o){var el=document.createElement('div');el.style.cssText='position:absolute;width:'+o.s+'px;height:'+o.s+'px;border-radius:50%;left:'+o.x+'%;top:'+o.y+'%;background:radial-gradient(circle,rgba(0,200,150,0.07),transparent 70%);pointer-events:none;animation:orbFloat '+o.d+'s '+o.dl+'s ease-in-out infinite;z-index:0;';hero.appendChild(el);});})();
+
+  // AUTO SCROLL REVEAL
+  (function(){
+    var autoTargets = ['.section-title','.section-sub','.section-tag','.feature-card','.value-card','.home-card','.tools-card','.project-card','.price-card','.result-card','.timeline-item','.step-card','.benefit-card','.process-step','.partner-card','.industries-card','.detail-row'];
+    autoTargets.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el,i){
+        if(!el.classList.contains('reveal-fade')&&!el.classList.contains('reveal-left')&&!el.classList.contains('reveal-right')&&!el.classList.contains('reveal')){
+          el.classList.add('reveal-fade');
+          var d=['rv-d1','rv-d2','rv-d3'];if(i%3>0)el.classList.add(d[(i%3)-1]);
+        }
+      });
+    });
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(en){if(en.isIntersecting){en.target.classList.add('visible');obs.unobserve(en.target);}});},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal,.reveal-fade,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el);});
+    setTimeout(function(){document.querySelectorAll('.reveal,.reveal-fade,.reveal-left,.reveal-right').forEach(function(el){el.classList.add('visible');});},200);
+  })();
 </script>
+<a href="contact" class="book-call-float" aria-label="Book a Strategy Call"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>Book a Call</a>
 </body>
 </html>

@@ -1,12 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#03070c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>OrderStream AI — Inbox Demo</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6;--font:'Inter',sans-serif;}
+    :root{--bg:#03070c;--bg2:#0a1c33;--bg3:#0d2440;--card:#0a1a2e;--border:rgba(130,190,255,0.10);--accent:#00e5a0;--text:#eef5fc;--muted:#8fabc7;--red:#ef4444;--yellow:#f59e0b;--blue:#3b82f6;--font:'Inter',sans-serif;}
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
 
@@ -143,7 +148,19 @@
     .trend-bar:hover{background:var(--accent);}
     .trend-labels{display:flex;gap:4px;margin-top:6px;}
     .trend-label{flex:1;font-size:0.65rem;color:var(--muted);text-align:center;}
-  </style>
+    /* MOBILE RESPONSIVE */
+    .mob-menu-btn{display:none;background:none;border:none;color:var(--text);cursor:pointer;padding:6px;border-radius:6px;flex-shrink:0;}
+    .tab-overflow{overflow-x:auto;}
+    @media(max-width:768px){
+      .topbar{padding:0 14px;gap:10px;}
+      .mob-menu-btn{display:none;}
+      .tabs{gap:4px;overflow-x:auto;padding-bottom:4px;}
+      .tab-btn{padding:8px 12px;font-size:0.75rem;white-space:nowrap;}
+      .content{padding:16px;}
+      .email-list{min-width:0;}
+      .email-row{flex-wrap:wrap;gap:6px;}
+      .inbox-stats{grid-template-columns:repeat(2,1fr)!important;}
+    }  </style>
 </head>
 <body>
 

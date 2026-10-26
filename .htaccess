@@ -21,6 +21,14 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 RewriteCond %{THE_REQUEST} /([^.]+)\.html[\s?] [NC]
 RewriteRule ^ /%1 [R=301,L,NE]
 
+# ── Request Hardening / Bot Rate Abuse ────────
+# Block diagnostic HTTP methods
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)$ [NC]
+RewriteRule .* - [F,L]
+# Block known scanners and scraper bots
+RewriteCond %{HTTP_USER_AGENT} (nikto|sqlmap|masscan|libwww-perl|mj12bot|ahrefsbot|semrushbot|dotbot|petalbot) [NC]
+RewriteRule .* - [F,L]
+
 # ── Security Headers ──────────────────────────
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
@@ -29,6 +37,9 @@ RewriteRule ^ /%1 [R=301,L,NE]
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://wochamber.chambermaster.com https://*.chambermaster.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self' https://storage.googleapis.com; connect-src 'self' https://chat.pnonat.com https://script.google.com https://*.googleusercontent.com https://www.google-analytics.com https://*.google-analytics.com https://stats.g.doubleclick.net https://www.googletagmanager.com https://www.googleadservices.com https://pagead2.googlesyndication.com https://www.google.com https://*.chambermaster.com; frame-src https://www.googletagmanager.com https://td.doubleclick.net; object-src 'none'; base-uri 'self'; form-action 'self' https://script.google.com; upgrade-insecure-requests"
 </IfModule>
 
 # ── Caching ───────────────────────────────────

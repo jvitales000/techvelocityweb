@@ -1,355 +1,979 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TV Realty — AI Command Center Demo</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#060a0f;--bg2:#0c1c2e;--bg3:#10202e;--card:#0d1c2c;--border:rgba(255,255,255,0.07);--accent:#00c896;--text:#e8f0f8;--muted:#7a9ab5;--red:#ef4444;--yellow:#f59e0b;--font:'Inter',sans-serif;}
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-    body{background:var(--bg);color:var(--text);font-family:var(--font);font-size:14px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TV Realty — AI Command Center (6 Screens)</title>
+<link rel="icon" href="logo.png" type="image/png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',system-ui,sans-serif;background:#FAFAFA;color:#1A1A1A}
+:root{--green:#40B39A;--navy:#1B1B1B;--navy-2:#243b55;--gold:#40B39A;--gold-soft:#d4f5ed;--card:#fff;--surface:#F4F3EF;--border:#E5E2DB;--muted:#8A8A8A;--secondary:#4A4A4A;--purple:#7C3AED}
 
-    .topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 24px;display:flex;align-items:center;gap:20px;height:56px;flex-shrink:0;z-index:10;}
-    .topbar-back{color:var(--muted);text-decoration:none;font-size:0.82rem;font-weight:500;display:flex;align-items:center;gap:6px;transition:color 0.2s;}
-    .topbar-back:hover{color:var(--accent);}
-    .topbar-back svg{width:14px;height:14px;}
-    .topbar-divider{width:1px;height:20px;background:var(--border);}
-    .topbar-brand{display:flex;align-items:center;gap:10px;}
-    .topbar-logo{width:28px;height:28px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#000;}
-    .topbar-name{font-weight:700;font-size:0.95rem;}
-    .topbar-badge{font-size:0.7rem;background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);padding:2px 10px;border-radius:100px;font-weight:600;margin-left:auto;}
+/* Platform banner */
+.platform-banner{position:fixed;top:0;left:0;right:0;z-index:101;background:#1A1A1A;color:#fff;padding:6px 20px;font-size:11px;text-align:center;letter-spacing:.03em}
+.platform-banner strong{color:#40B39A}
+.platform-banner span{color:#8A8A8A;margin:0 8px}
 
-    .app-wrap{display:flex;flex:1;overflow:hidden;}
+/* Screen nav */
+.screen-nav{position:fixed;top:28px;left:0;right:0;z-index:100;background:var(--card);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.screen-nav-label{font-size:12px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-right:4px}
+.screen-btn{padding:6px 14px;border-radius:8px;border:1px solid var(--border);background:transparent;font-size:12px;color:var(--secondary);cursor:pointer;font-family:inherit;font-weight:500;transition:all .15s}
+.screen-btn.active{background:var(--green);color:#fff;border-color:var(--green)}
+.screen-btn:hover:not(.active){background:var(--surface)}
+.step-arrow{color:var(--border);font-size:14px}
 
-    .sidebar{width:230px;background:var(--bg2);border-right:1px solid var(--border);display:flex;flex-direction:column;flex-shrink:0;}
-    .sidebar-brand{padding:20px 18px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;}
-    .brand-icon{width:38px;height:38px;background:linear-gradient(135deg,var(--accent),#00e8a8);border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.78rem;color:#000;}
-    .brand-text{font-weight:700;font-size:0.9rem;}
-    .brand-sub{font-size:0.72rem;color:var(--muted);}
-    .sidebar-nav{padding:12px 10px;display:flex;flex-direction:column;gap:2px;flex:1;}
-    .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:0.84rem;font-weight:500;transition:all 0.15s;user-select:none;}
-    .nav-item:hover{background:rgba(255,255,255,0.04);color:var(--text);}
-    .nav-item.active{background:rgba(0,200,150,0.1);color:var(--accent);}
-    .nav-item svg{width:16px;height:16px;flex-shrink:0;}
-    .nav-badge{margin-left:auto;font-size:0.68rem;font-weight:700;background:rgba(0,200,150,0.15);color:var(--accent);padding:1px 7px;border-radius:100px;}
-    .nav-badge-red{background:rgba(239,68,68,0.15);color:#f87171;}
-    .sidebar-footer{padding:16px 18px;border-top:1px solid var(--border);}
-    .agent-pill{display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--bg3);border-radius:10px;border:1px solid var(--border);}
-    .agent-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 6px var(--accent);}
-    .agent-text{font-size:0.78rem;color:var(--muted);}
-    .agent-text strong{color:var(--text);}
+.screen{display:none;padding-top:84px;min-height:100vh}
+.screen#s0{padding-top:84px}
+.screen#s0 .login{margin:0 -1px}
+.screen.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
-    .main{flex:1;overflow-y:auto;padding:28px;}
-    .screen{display:none;}
-    .screen.active{display:block;}
+/* Shared */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:var(--green)}
+.topbar-left{display:flex;align-items:center;gap:12px}
+.logo{display:flex;align-items:center;flex-shrink:0}
+.logo img{height:36px;width:auto;display:block}
+.topbar h1{font-size:15px;font-weight:600;color:#fff}
+.topbar-sub{font-size:11px;color:rgba(255,255,255,.5);margin:2px 0 0}
+.bc{font-size:12px;color:rgba(255,255,255,.45);margin-left:14px}
+.status{display:flex;align-items:center;gap:6px;font-size:12px;color:#fff;padding:5px 12px;border-radius:16px;background:rgba(255,255,255,.1)}
+.status-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.back-btn{font-size:12px;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);border:none;border-radius:8px;padding:6px 14px;cursor:pointer;font-family:inherit}
+.caller-bar{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--card)}
+.caller-info{display:flex;align-items:center;gap:12px}
+.avatar{width:40px;height:40px;border-radius:50%;background:#FEF2F2;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:14px;color:#DC2626}
+.cn{font-size:15px;font-weight:600}
+.cm{font-size:12px;color:var(--muted);margin-top:2px}
+.ctag{padding:4px 10px;border-radius:14px;font-size:11px;font-weight:600}
+.tags{display:flex;gap:6px}
 
-    .page-title{font-size:1.2rem;font-weight:800;letter-spacing:-0.4px;margin-bottom:4px;}
-    .page-sub{font-size:0.82rem;color:var(--muted);margin-bottom:24px;}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 24px;}
-    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
-    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;}
-    .stat-card .sv{font-size:1.8rem;font-weight:800;color:var(--accent);line-height:1;}
-    .stat-card .sl{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;}
-    .grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:16px;}
-    .badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:100px;font-size:0.7rem;font-weight:700;}
-    .badge-green{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);color:var(--accent);}
-    .badge-yellow{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);color:#fbbf24;}
-    .badge-red{background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.25);color:#f87171;}
-    .badge-blue{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);color:#60a5fa;}
-    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;cursor:pointer;border:none;transition:all 0.2s;}
-    .btn-primary{background:var(--accent);color:#000;}
-    .btn-primary:hover{background:#33ddb0;}
-    .btn-ghost{background:transparent;color:var(--muted);border:1px solid var(--border);}
-    .btn-ghost:hover{color:var(--text);}
+/* Stats row */
+.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;padding:18px 24px}
+.stat{background:var(--surface);border-radius:12px;padding:14px 16px;display:flex;align-items:center;gap:12px}
+.stat-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.stat-val{font-size:22px;font-weight:600}
+.stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;margin-top:2px}
+.retention{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:14px}
+.ret-ring{width:48px;height:48px;border-radius:50%;border:4px solid #16A34A;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600;color:#16A34A}
 
-    /* LISTINGS */
-    .listing-table{width:100%;border-collapse:collapse;}
-    .listing-table th{font-size:0.72rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border);}
-    .listing-table td{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.84rem;}
-    .listing-table tr:last-child td{border-bottom:none;}
-    .listing-table tr:hover td{background:rgba(255,255,255,0.02);}
-    .listing-img{width:48px;height:36px;border-radius:6px;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.7rem;color:var(--muted);border:1px solid var(--border);}
-    .listing-addr{font-weight:600;font-size:0.86rem;}
-    .listing-details{font-size:0.76rem;color:var(--muted);margin-top:2px;}
-    .price{font-weight:700;color:var(--text);}
-    .ai-score{display:flex;align-items:center;gap:6px;}
-    .ai-score-bar{width:40px;height:4px;background:var(--bg2);border-radius:100px;overflow:hidden;}
-    .ai-score-fill{height:100%;border-radius:100px;background:var(--accent);}
+/* Controls */
+.controls{display:flex;justify-content:space-between;align-items:center;padding:10px 24px 14px;flex-wrap:wrap;gap:10px}
+.filters{display:flex;gap:5px}
+.fbtn{padding:5px 13px;border-radius:8px;border:1px solid var(--border);background:transparent;font-size:12px;color:var(--secondary);cursor:pointer;font-family:inherit;font-weight:500}
+.fbtn.on{background:var(--green);color:#fff;border-color:var(--green)}
 
-    /* LEADS */
-    .lead-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;display:flex;gap:14px;align-items:flex-start;}
-    .lead-avatar{width:40px;height:40px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.82rem;color:var(--accent);border:1px solid var(--border);flex-shrink:0;}
-    .lead-info{flex:1;min-width:0;}
-    .lead-name{font-weight:700;font-size:0.9rem;}
-    .lead-detail{font-size:0.78rem;color:var(--muted);margin-top:2px;}
-    .lead-ai{font-size:0.78rem;color:var(--muted);margin-top:6px;background:var(--bg2);padding:8px 10px;border-radius:8px;border-left:2px solid var(--accent);}
-    .lead-score{text-align:right;flex-shrink:0;}
-    .lead-score .ls{font-size:1.3rem;font-weight:800;color:var(--accent);line-height:1;}
-    .lead-score .ll{font-size:0.66rem;color:var(--muted);text-transform:uppercase;}
+/* Board */
+.board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;padding:0 24px 32px}
+.col-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.col-dot{width:9px;height:9px;border-radius:50%}
+.col-head h3{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--secondary)}
+.col-count{font-size:11px;font-weight:600;padding:2px 8px;border-radius:12px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:12px 14px;margin-bottom:8px;border-left:3px solid transparent;cursor:pointer;transition:all .15s}
+.card:hover{border-color:#ccc;transform:translateY(-1px)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px}
+.card-who{display:flex;align-items:center;gap:8px}
+.card-icon{font-size:14px}
+.card-name{font-size:13px;font-weight:600}
+.card-phone{font-size:11px;color:var(--muted);margin-top:1px}
+.badge{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600}
+.badge-dot{width:5px;height:5px;border-radius:50%;display:inline-block}
+.card-sum{font-size:12px;color:var(--secondary);line-height:1.5;margin-bottom:8px}
+.card-foot{display:flex;justify-content:space-between;align-items:center}
+.card-tags{display:flex;gap:4px;flex-wrap:wrap}
+.tag{padding:2px 7px;border-radius:5px;font-size:10px;font-weight:600;background:var(--surface);color:var(--secondary)}
+.card-time{font-size:10px;color:var(--muted)}
+.outcome{display:inline-flex;padding:3px 8px;border-radius:12px;font-size:10px;font-weight:600;margin-top:8px}
+.agent-line{display:flex;align-items:center;gap:5px;margin-top:8px;font-size:11px;color:var(--muted)}
+.agent-avi{width:18px;height:18px;border-radius:50%;background:#E6F1FB;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:600;color:#2563EB}
+.claim-btn{margin-top:10px;padding:7px 0;width:100%;border-radius:8px;border:1px solid var(--green);background:transparent;color:var(--green);font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s}
+.claim-btn:hover{background:var(--green);color:#fff}
 
-    /* APPOINTMENTS */
-    .appt-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:center;}
-    .appt-time-block{background:var(--bg2);border-radius:10px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:70px;border:1px solid var(--border);}
-    .appt-hour{font-size:1rem;font-weight:800;line-height:1;}
-    .appt-ampm{font-size:0.68rem;color:var(--muted);}
-    .appt-info{flex:1;}
-    .appt-name{font-weight:700;font-size:0.9rem;}
-    .appt-detail{font-size:0.78rem;color:var(--muted);margin-top:2px;}
-    .appt-actions{display:flex;gap:6px;flex-shrink:0;}
+/* Source pill on cards — NEW for real estate */
+.source-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:600;margin-left:6px}
+.source-hotline{background:#E6F1FB;color:#2563EB}
+.source-website{background:#F5F3FF;color:#7C3AED}
 
-    /* FOLLOW-UPS */
-    .followup-item{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px 18px;display:flex;gap:14px;align-items:center;}
-    .followup-icon{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.9rem;flex-shrink:0;}
-    .icon-email{background:rgba(59,130,246,0.12);border:1px solid rgba(59,130,246,0.25);}
-    .icon-call{background:rgba(0,200,150,0.12);border:1px solid rgba(0,200,150,0.25);}
-    .icon-text{background:rgba(245,158,11,0.12);border:1px solid rgba(245,158,11,0.25);}
-    .followup-info{flex:1;}
-    .followup-lead{font-weight:700;font-size:0.88rem;}
-    .followup-task{font-size:0.78rem;color:var(--muted);margin-top:2px;}
-    .followup-ai{font-size:0.76rem;color:var(--accent);margin-top:4px;}
-    .followup-due{font-size:0.76rem;font-weight:600;flex-shrink:0;text-align:right;}
+.bl-crit{border-left-color:#DC2626}.bl-high{border-left-color:#EA580C}.bl-med{border-left-color:#CA8A04}.bl-low{border-left-color:#16A34A}
+.b-crit{background:#FEF2F2;color:#DC2626;border:1px solid #FECACA}.b-high{background:#FFF7ED;color:#EA580C;border:1px solid #FED7AA}.b-med{background:#FEFCE8;color:#CA8A04;border:1px solid #FEF08A}.b-low{background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0}
 
-    /* REPORTS */
-    .report-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
-    .report-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;text-align:center;}
-    .rs-val{font-size:2rem;font-weight:800;color:var(--accent);line-height:1;}
-    .rs-label{font-size:0.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-top:6px;}
-    .bar-chart{display:flex;flex-direction:column;gap:10px;}
-    .bar-row{display:grid;grid-template-columns:100px 1fr 60px;align-items:center;gap:10px;}
-    .bar-label{font-size:0.78rem;color:var(--muted);}
-    .bar-track{background:var(--bg2);border-radius:100px;height:8px;overflow:hidden;}
-    .bar-fill{height:100%;border-radius:100px;}
-    .bar-val{font-size:0.78rem;font-weight:700;text-align:right;}
+/* 3-panel layout */
+.panel-layout{display:grid;grid-template-columns:270px 1fr 270px;min-height:calc(100vh - 204px)}
+.left-panel{border-right:1px solid var(--border);display:flex;flex-direction:column;background:var(--card)}
+.center-panel{display:flex;flex-direction:column;border-right:1px solid var(--border)}
+.right-panel{display:flex;flex-direction:column;background:var(--card);overflow-y:auto;padding:18px}
 
-    /* SETTINGS */
-    .setting-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.04);}
-    .setting-row:last-child{border-bottom:none;}
-    .setting-label{font-size:0.88rem;font-weight:500;}
-    .setting-desc{font-size:0.76rem;color:var(--muted);margin-top:2px;}
-    .toggle{width:40px;height:22px;background:var(--bg2);border-radius:100px;border:1px solid var(--border);position:relative;cursor:pointer;transition:background 0.2s;flex-shrink:0;}
-    .toggle.on{background:var(--accent);}
-    .toggle::after{content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:var(--muted);transition:left 0.2s;}
-    .toggle.on::after{left:20px;background:#000;}
-  </style>
+/* Phone */
+.phone-precall{padding:24px 20px;display:flex;flex-direction:column;align-items:center;border-bottom:1px solid var(--border)}
+.phone-idle{font-size:12px;color:var(--muted);margin-bottom:6px}
+.phone-num-big{font-size:18px;font-weight:600;margin-bottom:4px}
+.phone-name-sub{font-size:12px;color:var(--secondary);margin-bottom:18px}
+.call-btn{width:68px;height:68px;border-radius:50%;background:#16A34A;border:none;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 0 0 7px rgba(22,163,74,.12);transition:transform .15s}
+.call-btn:hover{transform:scale(1.05)}
+.call-label{font-size:12px;font-weight:600;color:#16A34A;margin-top:10px}
+.phone-active{padding:18px 20px 16px;border-bottom:1px solid var(--border);text-align:center}
+.phone-timer{font-size:28px;font-weight:600;margin:6px 0 4px;letter-spacing:.02em}
+.phone-number{font-size:12px;color:var(--muted);margin-bottom:14px}
+.phone-controls{display:flex;justify-content:center;gap:9px}
+.pbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-direction:column;gap:2px}
+.pbtn-lbl{font-size:7px;color:var(--muted)}
+.pbtn.end{background:#DC2626;border-color:#DC2626;color:#fff}
+
+/* Timeline */
+.timeline{padding:14px 20px;border-bottom:1px solid var(--border)}
+.section-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;font-weight:600;margin-bottom:8px}
+.tl-item{display:flex;gap:10px;padding-bottom:10px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{width:11px;height:11px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.tl-line-wrap{display:flex;flex-direction:column;align-items:center;width:14px;flex-shrink:0}
+.tl-line{width:2px;flex:1;background:var(--border);margin:3px 0}
+.tl-title{font-size:11px;font-weight:600;display:flex;align-items:center;gap:5px}
+.tl-tag{font-size:9px;padding:2px 6px;border-radius:8px;font-weight:600}
+.tl-meta{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* Notes */
+.notes-section{flex:1;display:flex;flex-direction:column;padding:14px 20px;overflow:hidden}
+.rte-toolbar{display:flex;gap:2px;padding:5px 7px;border:1px solid var(--border);border-bottom:none;border-radius:10px 10px 0 0;background:var(--surface)}
+.rte-btn{width:26px;height:24px;border:none;border-radius:4px;background:transparent;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:var(--secondary);font-family:inherit}
+.rte-sep{width:1px;background:var(--border);margin:3px 4px}
+.rte-body{border:1px solid var(--border);border-radius:0 0 10px 10px;padding:10px 12px;flex:1;font-size:11px;line-height:1.7;color:var(--secondary);background:var(--card);overflow-y:auto}
+.rte-body p{margin:0 0 5px}
+.rte-body ul,.rte-body ol{margin:0 0 5px;padding-left:16px}
+.rte-body li{margin-bottom:2px}
+.rte-body strong{font-weight:600;color:#1A1A1A}
+.rte-body.empty{color:var(--muted);font-style:italic}
+.notes-footer{display:flex;justify-content:space-between;align-items:center;margin-top:5px}
+.save-btn{padding:5px 12px;border-radius:8px;border:none;background:var(--green);color:#fff;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit}
+.save-status{font-size:9px;color:var(--muted)}
+
+/* Chat */
+.chat-header{display:flex;justify-content:space-between;align-items:center;padding:10px 18px;border-bottom:1px solid var(--border);background:var(--card)}
+.chat-header h3{font-size:13px;font-weight:500}
+.chat-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--card)}
+.chat-tab{flex:1;padding:10px 0;text-align:center;font-size:11px;font-weight:600;color:var(--muted);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit}
+.chat-tab.on{color:var(--green);border-bottom-color:var(--green)}
+.tab-badge{font-size:9px;padding:2px 6px;border-radius:8px;margin-left:3px;font-weight:600}
+.chat-feed{flex:1;overflow-y:auto;padding:14px 18px;display:flex;flex-direction:column;gap:8px;background:var(--surface)}
+.brow{display:flex;flex-direction:column;max-width:80%}
+.brow.caller{align-self:flex-start}
+.brow.agent{align-self:flex-end;align-items:flex-end}
+.blabel{font-size:9px;font-weight:600;letter-spacing:.03em;margin-bottom:2px;padding:0 4px}
+.blabel.caller{color:var(--purple)}
+.blabel.agent{color:var(--green)}
+.blabel.ai{color:var(--purple)}
+.bubble{padding:9px 13px;font-size:12px;line-height:1.6}
+.bubble.caller{background:var(--card);border:1px solid var(--border);border-radius:2px 12px 12px 12px}
+.bubble.agent{background:var(--green);color:#fff;border-radius:12px 2px 12px 12px}
+.bubble.ai{background:var(--purple);color:#fff;border-radius:12px 2px 12px 12px}
+.bfooter{display:flex;align-items:center;gap:4px;margin-top:2px;padding:0 4px}
+.btime{font-size:9px;color:var(--muted)}
+.sdot{width:5px;height:5px;border-radius:50%;display:inline-block}
+.typing{display:flex;align-items:center;gap:4px;padding:7px 14px;background:var(--card);border:1px solid var(--border);border-radius:2px 12px 12px 12px}
+.typing-dot{width:4px;height:4px;border-radius:50%;background:var(--muted);animation:tdot 1.2s infinite}
+.typing-dot:nth-child(2){animation-delay:.2s}
+.typing-dot:nth-child(3){animation-delay:.4s}
+@keyframes tdot{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+.center-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:28px;text-align:center;border-top:1px solid var(--border);background:var(--card)}
+.center-empty p{font-size:12px;color:var(--muted)}
+.live-dot{display:flex;align-items:center;gap:4px;font-size:10px;color:#DC2626;font-weight:600}
+.live-circle{width:6px;height:6px;border-radius:50%;background:#DC2626;animation:pulse 1.5s infinite}
+
+/* Channel pill (WhatsApp vs Voice) — NEW for real estate */
+.channel-pill{display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:10px;font-size:9px;font-weight:600;margin-left:6px}
+.channel-whatsapp{background:#DCFCE7;color:#15803D}
+.channel-voice{background:#E6F1FB;color:#2563EB}
+
+/* Action bar */
+.action-bar{display:flex;gap:8px;padding:12px 18px;border-top:1px solid var(--border);background:var(--card)}
+.act-btn{flex:1;padding:9px 0;border-radius:8px;font-size:12px;font-weight:600;cursor:pointer;text-align:center;font-family:inherit}
+.act-primary{background:var(--green);color:#fff;border:none}
+.act-secondary{background:transparent;color:var(--secondary);border:1px solid var(--border)}
+
+/* Right panel cards */
+.right-title{font-size:14px;font-weight:600;margin-bottom:12px}
+.sc{background:var(--surface);border-radius:10px;padding:11px 13px;margin-bottom:9px}
+.sc h4{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;font-weight:600}
+.sc-text{font-size:11px;line-height:1.6;color:var(--secondary)}
+.prep-tips{background:var(--surface);border-radius:10px;padding:11px 13px;margin-bottom:9px;border-left:3px solid #CA8A04}
+.prep-tips h4{font-size:10px;color:#CA8A04;text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;font-weight:600}
+.prep-tips ul{margin:0;padding-left:15px;font-size:11px;line-height:1.7;color:var(--secondary)}
+.prep-tips li{margin-bottom:2px}
+.prep-tips strong{font-weight:600;color:#1A1A1A}
+.tags-wrap{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}
+.ai-tag{padding:3px 7px;border-radius:10px;font-size:10px;font-weight:600}
+.dr{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid var(--border)}
+.dr:last-child{border:none}
+.dk{font-size:11px;color:var(--muted)}
+.dv{font-size:11px;font-weight:600}
+.sat{display:flex;align-items:center;gap:8px;margin-top:3px}
+.sat-num{font-size:22px;font-weight:600}
+.sbar{height:5px;border-radius:3px;background:var(--card);overflow:hidden;margin-top:5px}
+.sfill{height:100%;border-radius:3px}
+
+/* Listings panel — NEW for real estate */
+.listings-sc{background:var(--surface);border-radius:10px;padding:11px 13px;margin-bottom:9px}
+.listings-sc h4{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.listings-sc h4 .count{font-size:9px;color:var(--purple);background:#F5F3FF;padding:1px 6px;border-radius:8px}
+.listing-row{display:flex;gap:8px;padding:7px 0;border-bottom:1px solid var(--border);align-items:flex-start}
+.listing-row:last-child{border:none;padding-bottom:0}
+.listing-row:first-child{padding-top:0}
+.listing-thumb{width:36px;height:36px;border-radius:6px;background:linear-gradient(135deg,#E6F1FB,#DBEAFE);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px}
+.listing-info{flex:1;min-width:0}
+.listing-addr{font-size:11px;font-weight:600;color:#1A1A1A;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.listing-meta{font-size:10px;color:var(--muted);margin-top:1px}
+.listing-price{font-size:11px;font-weight:600;color:var(--green);margin-top:2px}
+.listing-note{font-size:9px;color:var(--purple);margin-top:2px;font-style:italic}
+.listings-footer{margin-top:8px;padding-top:8px;border-top:1px dashed var(--border);font-size:10px;color:var(--muted);text-align:center}
+.listings-footer a{color:var(--green);font-weight:600;text-decoration:none}
+
+/* AI tool suggestion — NEW for real estate */
+.tool-sug{background:#F5F3FF;border:1px solid #DDD6FE;border-left:3px solid var(--purple);border-radius:10px;padding:11px 13px;margin-bottom:9px}
+.tool-sug h4{font-size:10px;color:var(--purple);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;font-weight:600;display:flex;align-items:center;gap:5px}
+.tool-sug-text{font-size:11px;line-height:1.6;color:var(--secondary);margin-bottom:8px}
+.tool-sug-text strong{color:#1A1A1A;font-weight:600}
+.tool-sug-btn{padding:5px 10px;border-radius:6px;background:var(--purple);color:#fff;border:none;font-size:10px;font-weight:600;cursor:pointer;font-family:inherit;margin-right:5px}
+.tool-sug-btn.ghost{background:transparent;color:var(--purple);border:1px solid var(--purple)}
+
+/* Login screen */
+.login{padding:0;min-height:calc(100vh - 84px);display:grid;grid-template-columns:1fr 1fr}
+.login-left{background:linear-gradient(135deg,#0a1f1a 0%,#0d2e26 60%,#112e25 100%);position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:center;padding:60px 80px;color:#fff}
+.login-left::before{content:"";position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(245,184,0,.08) 0%,transparent 70%);border-radius:50%}
+.login-left::after{content:"";position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(37,99,235,.06) 0%,transparent 70%);border-radius:50%}
+.brand-lockup{display:flex;align-items:center;gap:14px;margin-bottom:80px;position:relative;z-index:1}
+.brand-mark{width:64px;height:64px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0}
+.brand-name{font-size:18px;font-weight:700;color:#fff;letter-spacing:.01em}
+.brand-tag{font-size:12px;color:#7e8b9d;margin-top:2px;font-weight:400}
+.login-hero{position:relative;z-index:1}
+.login-hero h1{font-size:64px;font-weight:700;line-height:1;margin-bottom:24px;letter-spacing:-.02em}
+.login-hero h1 .gold{color:#40B39A}
+.login-hero p{font-size:16px;line-height:1.6;color:#a7b3c4;max-width:440px;margin-bottom:32px;font-weight:400}
+.login-divider{width:60px;height:2px;background:rgba(255,255,255,.15);margin-bottom:28px}
+.login-features{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+.login-feature{display:flex;align-items:center;gap:14px}
+.login-feature-check{width:24px;height:24px;border-radius:50%;background:rgba(64,179,154,.15);border:1px solid rgba(64,179,154,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--gold);font-size:12px;font-weight:700}
+.login-feature-text{font-size:13px;color:#cdd6e4}
+
+.login-right{background:#FAFAFA;display:flex;align-items:center;justify-content:center;padding:60px 80px}
+.login-form{width:100%;max-width:440px;background:#fff;border-radius:14px;box-shadow:0 1px 3px rgba(0,0,0,.04),0 8px 24px rgba(15,27,45,.05);padding:48px 44px}
+.login-welcome{font-size:32px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.login-sub{font-size:14px;color:var(--muted);margin-bottom:32px}
+.field-label{font-size:11px;font-weight:600;color:var(--secondary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px;display:flex;justify-content:space-between;align-items:center}
+.field-label .show{font-size:11px;color:var(--muted);text-transform:none;letter-spacing:0;font-weight:500;cursor:pointer}
+.field-input{width:100%;padding:14px 16px;border:1px solid var(--border);border-radius:10px;background:#FAFAFA;font-size:14px;font-family:inherit;color:#1A1A1A;margin-bottom:20px;transition:all .15s}
+.field-input:focus{outline:none;border-color:var(--navy);background:#fff}
+.field-input::placeholder{color:#B5B5B5}
+.signin-btn{width:100%;padding:14px;background:#40B39A;color:#fff;border:none;border-radius:10px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:8px;transition:all .15s}
+.signin-btn:hover{background:var(--navy)}
+.login-footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.login-footer-row{display:flex;align-items:center;justify-content:center;gap:6px}
+.login-footer-tv{font-size:11px;color:#B5B5B5}
+.login-footer-tv strong{color:var(--secondary);font-weight:600}
+
+/* Screen 1 info */
+.s1-info{padding:32px 24px;text-align:center;background:var(--surface)}
+.s1-info h2{font-size:20px;font-weight:600;margin-bottom:8px}
+.s1-info p{font-size:14px;color:var(--secondary);line-height:1.6;max-width:560px;margin:0 auto 16px}
+.s1-arrow{display:inline-block;padding:10px 24px;background:var(--green);color:#fff;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;border:none;font-family:inherit}
+
+/* Screen 1 — two funnel entry cards */
+.entry-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:860px;margin:0 auto 20px}
+.entry-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;text-align:left}
+.entry-card.website{border-left:4px solid var(--purple)}
+.entry-card.hotline{border-left:4px solid #2563EB}
+.entry-head{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.entry-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px}
+.entry-icon.website{background:#F5F3FF;color:var(--purple)}
+.entry-icon.hotline{background:#E6F1FB;color:#2563EB}
+.entry-head h3{font-size:14px;font-weight:600}
+.entry-head p{font-size:11px;color:var(--muted);margin-top:2px}
+.entry-body{font-size:12px;line-height:1.6;color:var(--secondary);margin-bottom:10px}
+.entry-chat{max-height:none}
+.entry-chat .brow{margin-bottom:4px}
+.entry-chat .bubble{font-size:11px;padding:7px 10px;line-height:1.5}
+
+/* Behaviour trigger preview — Screen 1 */
+.behaviour-card{background:var(--surface);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.behaviour-row{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--secondary);padding:4px 0}
+.behaviour-row .bk{color:var(--muted)}
+.behaviour-row .bv{font-weight:600}
+.behaviour-trigger{background:#F5F3FF;border:1px solid #DDD6FE;border-radius:8px;padding:8px 12px;margin-top:8px;font-size:11px;color:var(--purple);font-weight:600}
+
+/* Screen 6 boss */
+.boss-actions{display:flex;gap:8px;margin-top:12px}
+.boss-btn{flex:1;padding:8px 0;border-radius:8px;font-size:11px;font-weight:600;cursor:pointer;text-align:center;font-family:inherit;border:none}
+
+/* Extension callout — shown in mock only */
+.ext-note{position:fixed;bottom:14px;right:14px;z-index:99;background:#1A1A1A;color:#fff;padding:10px 14px;border-radius:10px;font-size:11px;max-width:280px;line-height:1.5;box-shadow:0 4px 12px rgba(0,0,0,.2);display:none}
+.ext-note.show{display:block}
+.ext-note strong{color:var(--gold)}
+.ext-note-close{position:absolute;top:4px;right:8px;background:none;border:none;color:#8A8A8A;cursor:pointer;font-size:14px}
+.ext-toggle{position:fixed;bottom:14px;right:14px;z-index:98;background:var(--green);color:#fff;border:none;padding:8px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;box-shadow:0 4px 12px rgba(64,179,154,.35)}
+
+/* ── RESPONSIVE ───────────────────────────────────────────────────────────
+   The desktop layout above 1100px is untouched. These rules only engage on
+   laptop-narrow, tablet and phone widths, where the fixed 3-panel grid,
+   4-column board and 2-up login would otherwise overflow the screen. */
+@media(max-width:1100px){
+  /* the banner + screen switcher wrap onto several rows here; left fixed they
+     would cover the top of every screen, so they join the normal flow instead */
+  .platform-banner,.screen-nav{position:static}
+  .screen,.screen#s0{padding-top:0}
+  .panel-layout{grid-template-columns:1fr;min-height:0}
+  .left-panel,.center-panel{border-right:none;border-bottom:1px solid var(--border)}
+  .right-panel{padding:16px}
+  .board{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats{grid-template-columns:repeat(3,1fr)}
+  .login{grid-template-columns:1fr;min-height:0}
+  .login-left{padding:44px 36px}
+  .login-right{padding:40px 28px}
+  .brand-lockup{margin-bottom:40px}
+  .login-hero h1{font-size:44px}
+}
+@media(max-width:760px){
+  .board{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr);padding:14px 16px}
+  .entry-grid{grid-template-columns:1fr}
+  .topbar{flex-wrap:wrap;gap:8px;padding:12px 16px}
+  .caller-bar{flex-wrap:wrap;gap:10px;padding:12px 16px}
+  .controls{flex-direction:column;align-items:flex-start;padding:10px 16px 14px}
+  .filters{flex-wrap:wrap}
+  .board{padding:0 16px 24px}
+  .bc{display:none}
+  .login-form{padding:32px 24px}
+  .login-left{padding:32px 24px}
+  .login-hero h1{font-size:36px}
+  .login-hero p{font-size:14px}
+  .s1-info{padding:24px 16px}
+}
+@media(max-width:430px){
+  .stats{grid-template-columns:1fr}
+  .chat-tab{font-size:10px;padding:8px 0}
+  .brow{max-width:92%}
+  .phone-controls{gap:6px}
+  .boss-actions{flex-direction:column}
+}
+</style>
 </head>
 <body>
 
-<div class="topbar">
-  <a href="aicallcenter" class="topbar-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> Back to Product Page</a>
-  <div class="topbar-divider"></div>
-  <div class="topbar-brand">
-    <div class="topbar-logo">TV</div>
-    <span class="topbar-name">TV Realty — AI Command Center</span>
-  </div>
-  <span class="topbar-badge">Interactive Demo</span>
+<!-- Platform banner — demonstrates extensibility -->
+<div class="platform-banner">
+<strong>AI Command Center Platform for Real Estate</strong> <span>·</span> Powered by <strong>Tech Velocity</strong>
 </div>
 
-<div class="app-wrap">
-  <div class="sidebar">
-    <div class="sidebar-brand">
-      <div class="brand-icon">TV</div>
-      <div>
-        <div class="brand-text">TV Realty</div>
-        <div class="brand-sub">AI Command Center</div>
-      </div>
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-item active" onclick="showScreen('dashboard',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-        Dashboard
-      </div>
-      <div class="nav-item" onclick="showScreen('listings',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Listings
-        <span class="nav-badge">12</span>
-      </div>
-      <div class="nav-item" onclick="showScreen('leads',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
-        Leads
-        <span class="nav-badge">47</span>
-      </div>
-      <div class="nav-item" onclick="showScreen('appointments',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Appointments
-        <span class="nav-badge">8</span>
-      </div>
-      <div class="nav-item" onclick="showScreen('followups',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
-        Follow-ups
-        <span class="nav-badge nav-badge-red">5</span>
-      </div>
-      <div class="nav-item" onclick="showScreen('reports',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-        Reports
-      </div>
-      <div class="nav-item" onclick="showScreen('settings',this)">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
-        Settings
-      </div>
-    </nav>
-    <div class="sidebar-footer">
-      <div class="agent-pill">
-        <div class="agent-dot"></div>
-        <div class="agent-text"><strong>AI Agent</strong> is active · processing 3 leads</div>
-      </div>
-    </div>
-  </div>
+<!-- Navigation -->
+<div class="screen-nav">
+<span class="screen-nav-label">Screens:</span>
+<button class="screen-btn active" data-screen="0" onclick="go(0)">0. Login</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="1" onclick="go(1)">1. Lead Entry</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="2" onclick="go(2)">2. Dashboard</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="3" onclick="go(3)">3. Pre-call</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="4" onclick="go(4)">4. Active Call</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="5" onclick="go(5)">5. Post-call</button>
+<span class="step-arrow">→</span>
+<button class="screen-btn" data-screen="6" onclick="go(6)">6. Broker Review</button>
+</div>
 
-  <div class="main">
+<!-- SCREEN 0: Login -->
+<div class="screen active" id="s0">
+<div class="login">
+<div class="login-left">
+<div class="brand-lockup">
+<div class="brand-mark" style="background:rgba(64,179,154,.15);border:1px solid rgba(64,179,154,.4);"><img src="logo.png" style="width:44px;height:auto;" alt="TV Realty"></div>
+<div>
+<div class="brand-name">TV Realty</div>
+<div class="brand-tag">Intelligent Real Estate, Powered by AI</div>
+</div>
+</div>
 
-    <!-- DASHBOARD -->
-    <div class="screen active" id="screen-dashboard">
-      <div class="page-title">Good morning, Sarah 👋</div>
-      <div class="page-sub">Your AI agent has processed 14 new leads overnight and scheduled 3 follow-ups automatically.</div>
-      <div class="stats-row">
-        <div class="stat-card"><div class="sv">$4.2M</div><div class="sl">Pipeline Value</div></div>
-        <div class="stat-card"><div class="sv">47</div><div class="sl">Active Leads</div></div>
-        <div class="stat-card"><div class="sv">8</div><div class="sl">Showings This Week</div></div>
-        <div class="stat-card"><div class="sv">3</div><div class="sl">Offers Pending</div></div>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Activity — Today</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(0,200,150,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">✉️</div><div><div style="font-size:0.84rem;font-weight:600;">14 lead emails responded</div><div style="font-size:0.74rem;color:var(--muted);">Avg response: 4 minutes</div></div></div>
-            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(0,200,150,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">📅</div><div><div style="font-size:0.84rem;font-weight:600;">3 showings auto-booked</div><div style="font-size:0.74rem;color:var(--muted);">Based on lead interest score</div></div></div>
-            <div style="display:flex;gap:12px;padding:10px;background:var(--bg2);border-radius:8px;align-items:center;"><div style="width:30px;height:30px;border-radius:50%;background:rgba(245,158,11,0.12);display:flex;align-items:center;justify-content:center;font-size:0.8rem;">⚠️</div><div><div style="font-size:0.84rem;font-weight:600;">5 follow-ups flagged overdue</div><div style="font-size:0.74rem;color:var(--muted);">Action required — review now</div></div></div>
-          </div>
-        </div>
-        <div class="card">
-          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">Hot Leads Today</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:rgba(0,200,150,0.05);border:1px solid rgba(0,200,150,0.15);border-radius:8px;">
-              <div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">MK</div>
-              <div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">Mike & Karen T.</div><div style="font-size:0.74rem;color:var(--muted);">Buyer · $800K budget · Ready now</div></div>
-              <span class="badge badge-green">9.4</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg2);border-radius:8px;">
-              <div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">RP</div>
-              <div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">Rachel P.</div><div style="font-size:0.74rem;color:var(--muted);">Seller · $650K est. value</div></div>
-              <span class="badge badge-green">8.7</span>
-            </div>
-            <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--bg2);border-radius:8px;">
-              <div style="width:32px;height:32px;border-radius:50%;background:var(--bg2);display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:700;color:var(--accent);">DJ</div>
-              <div style="flex:1;"><div style="font-size:0.84rem;font-weight:600;">David J.</div><div style="font-size:0.74rem;color:var(--muted);">Buyer · $1.1M budget · Pre-approved</div></div>
-              <span class="badge badge-yellow">7.2</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="login-hero">
+<h1>AI <span class="gold">Command Center</span></h1>
+<p>Intelligent intake and structured handoffs — so every lead gets the attention it deserves.</p>
+<div class="login-divider"></div>
+</div>
 
-    <!-- LISTINGS -->
-    <div class="screen" id="screen-listings">
-      <div class="page-title">Active Listings</div>
-      <div class="page-sub">AI monitors market activity and suggests price adjustments automatically</div>
-      <div class="card" style="padding:0;overflow:hidden;">
-        <table class="listing-table">
-          <thead><tr><th>Property</th><th>Price</th><th>Status</th><th>Days Listed</th><th>AI Score</th><th>Showing Requests</th><th></th></tr></thead>
-          <tbody>
-            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏠</div><div><div class="listing-addr">142 Maple Ridge Dr.</div><div class="listing-details">4bd · 3ba · 2,800 sqft</div></div></div></td><td class="price">$875,000</td><td><span class="badge badge-green">Active</span></td><td>5</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">9.1</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:91%;"></div></div></div></td><td>7</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
-            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏡</div><div><div class="listing-addr">88 Lakeview Terrace</div><div class="listing-details">3bd · 2ba · 1,950 sqft</div></div></div></td><td class="price">$595,000</td><td><span class="badge badge-yellow">Price Review</span></td><td>28</td><td><div class="ai-score"><span style="font-weight:700;color:#fbbf24;">6.2</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:62%;background:#fbbf24;"></div></div></div></td><td>3</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
-            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏘️</div><div><div class="listing-addr">310 Crestwood Blvd</div><div class="listing-details">5bd · 4ba · 3,600 sqft</div></div></div></td><td class="price">$1,250,000</td><td><span class="badge badge-blue">Offer Received</span></td><td>12</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">8.8</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:88%;"></div></div></div></td><td>12</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
-            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏠</div><div><div class="listing-addr">56 Birchwood Lane</div><div class="listing-details">2bd · 1ba · 1,100 sqft</div></div></div></td><td class="price">$385,000</td><td><span class="badge badge-green">Active</span></td><td>3</td><td><div class="ai-score"><span style="font-weight:700;color:var(--accent);">7.5</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:75%;"></div></div></div></td><td>4</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
-            <tr><td><div style="display:flex;gap:12px;align-items:center;"><div class="listing-img">🏡</div><div><div class="listing-addr">7 Rosewood Court</div><div class="listing-details">4bd · 3ba · 2,200 sqft</div></div></div></td><td class="price">$720,000</td><td><span class="badge badge-red">Expired</span></td><td>62</td><td><div class="ai-score"><span style="font-weight:700;color:#f87171;">3.1</span><div class="ai-score-bar"><div class="ai-score-fill" style="width:31%;background:#f87171;"></div></div></div></td><td>1</td><td><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">View</button></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<div class="login-features">
+<div class="login-feature"><div class="login-feature-check">✓</div><div class="login-feature-text">Scout AI answers calls 24/7 and triages every intake</div></div>
+<div class="login-feature"><div class="login-feature-check">✓</div><div class="login-feature-text">Live sentiment scoring updated per utterance</div></div>
+<div class="login-feature"><div class="login-feature-check">✓</div><div class="login-feature-text">AI-generated talking points before each callback</div></div>
+<div class="login-feature"><div class="login-feature-check">✓</div><div class="login-feature-text">Structured manager-review workflow with rich notes</div></div>
+</div>
+</div>
 
-    <!-- LEADS -->
-    <div class="screen" id="screen-leads">
-      <div class="page-title">Lead Pipeline</div>
-      <div class="page-sub">AI scores and prioritizes every lead based on behavior, budget, and intent signals</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div class="lead-card"><div class="lead-avatar">MK</div><div class="lead-info"><div class="lead-name">Mike &amp; Karen Thornton</div><div class="lead-detail">Buyer · $800K budget · Pre-approved · Looking: 4bd, East side</div><div class="lead-ai">💡 AI: High intent — visited 7 listings, requested 2 showings. Likely to transact in 30 days. Recommend: Call today.</div></div><div class="lead-score"><div class="ls">9.4</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-green">Hot</span></div></div></div>
-        <div class="lead-card"><div class="lead-avatar">RP</div><div class="lead-info"><div class="lead-name">Rachel Patel</div><div class="lead-detail">Seller · $650K est. · 3bd/2ba · Motivated by relocation</div><div class="lead-ai">💡 AI: Responded to 3 follow-up emails. Comparing 2 agents. Send comparative market analysis today.</div></div><div class="lead-score"><div class="ls">8.7</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-green">Hot</span></div></div></div>
-        <div class="lead-card"><div class="lead-avatar">DJ</div><div class="lead-info"><div class="lead-name">David &amp; Jess Nakamura</div><div class="lead-detail">Buyer · $1.1M budget · Pre-approved · Looking: Modern, 4bd+</div><div class="lead-ai">💡 AI: Browsed luxury segment 14 times. No showings yet. Schedule first call — likely to commit after one showing.</div></div><div class="lead-score"><div class="ls">7.2</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-yellow">Warm</span></div></div></div>
-        <div class="lead-card"><div class="lead-avatar">CL</div><div class="lead-info"><div class="lead-name">Chris Lin</div><div class="lead-detail">Buyer · $450K budget · First-time buyer · Flexible on area</div><div class="lead-ai">💡 AI: Opened 4 drip emails, low urgency signals. Place in nurture sequence — check in at 30 days.</div></div><div class="lead-score"><div class="ls">5.1</div><div class="ll">Lead Score</div><div style="margin-top:6px;"><span class="badge badge-blue">Nurture</span></div></div></div>
-      </div>
-    </div>
+<div class="login-right">
+<div class="login-form">
+<h2 class="login-welcome">Welcome back</h2>
+<p class="login-sub">Sign in to the AI Command Center</p>
 
-    <!-- APPOINTMENTS -->
-    <div class="screen" id="screen-appointments">
-      <div class="page-title">Appointments</div>
-      <div class="page-sub">Today's schedule — AI auto-confirms, sends reminders, and preps showing notes</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">9:00</div><div class="appt-ampm">AM</div></div><div class="appt-info"><div class="appt-name">Listing Consultation — Rachel Patel</div><div class="appt-detail">56 Birchwood Lane · AI-prepared CMA ready · Zoom call</div></div><span class="badge badge-green">Confirmed</span><div class="appt-actions"><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">Notes</button></div></div>
-        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">11:30</div><div class="appt-ampm">AM</div></div><div class="appt-info"><div class="appt-name">Property Showing — Thornton Family</div><div class="appt-detail">142 Maple Ridge Dr. · 4bd showing · AI brief: family-focused, mention schools</div></div><span class="badge badge-green">Confirmed</span><div class="appt-actions"><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">Brief</button></div></div>
-        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">2:00</div><div class="appt-ampm">PM</div></div><div class="appt-info"><div class="appt-name">Offer Review — 310 Crestwood Blvd</div><div class="appt-detail">Buyer agent meeting · AI analysis: offer is 3.2% below list · Counter-offer template ready</div></div><span class="badge badge-yellow">Pending</span><div class="appt-actions"><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">Prep</button></div></div>
-        <div class="appt-card"><div class="appt-time-block"><div class="appt-hour">4:30</div><div class="appt-ampm">PM</div></div><div class="appt-info"><div class="appt-name">New Lead Showing — Nakamura</div><div class="appt-detail">310 Crestwood Blvd · First time seeing property · AI brief: modern finishes, home office key</div></div><span class="badge badge-blue">Auto-Booked</span><div class="appt-actions"><button class="btn btn-ghost" style="padding:5px 12px;font-size:0.76rem;">Brief</button></div></div>
-      </div>
-    </div>
+<label class="field-label">Email Address</label>
+<input class="field-input" type="email" placeholder="you@tvrealty.com" />
 
-    <!-- FOLLOW-UPS -->
-    <div class="screen" id="screen-followups">
-      <div class="page-title">Follow-up Queue</div>
-      <div class="page-sub">AI auto-generates follow-up content — review and send with one click</div>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div class="followup-item"><div class="followup-icon icon-email">✉️</div><div class="followup-info"><div class="followup-lead">Mike &amp; Karen Thornton</div><div class="followup-task">Post-showing thank you + listings update email</div><div class="followup-ai">AI Draft ready: "Thanks for visiting Maple Ridge — here are 3 similar properties that just listed…"</div></div><div class="followup-due" style="color:#f87171;">Overdue 1d</div><button class="btn btn-primary" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Send</button></div>
-        <div class="followup-item"><div class="followup-icon icon-call">📞</div><div class="followup-info"><div class="followup-lead">Rachel Patel</div><div class="followup-task">Check-in call — pricing decision follow-up</div><div class="followup-ai">AI note: Rachel compared your CMA to a competitor. Call window: 10am–12pm today.</div></div><div class="followup-due" style="color:#f87171;">Due Today</div><button class="btn btn-ghost" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Call</button></div>
-        <div class="followup-item"><div class="followup-icon icon-text">💬</div><div class="followup-info"><div class="followup-lead">David Nakamura</div><div class="followup-task">Text message — confirm 4:30 PM showing today</div><div class="followup-ai">AI Draft: "Hi David! Just confirming your showing at 310 Crestwood at 4:30 today. See you there! – Sarah"</div></div><div class="followup-due" style="color:var(--accent);">Due 12pm</div><button class="btn btn-primary" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Send</button></div>
-        <div class="followup-item"><div class="followup-icon icon-email">✉️</div><div class="followup-info"><div class="followup-lead">Chris Lin</div><div class="followup-task">Monthly nurture email — new listings in budget</div><div class="followup-ai">AI Draft: "Hi Chris! 4 new listings hit the market in your $400–450K range this week…"</div></div><div class="followup-due" style="color:var(--muted);">Due Tomorrow</div><button class="btn btn-ghost" style="padding:6px 12px;font-size:0.76rem;margin-left:12px;flex-shrink:0;">Review</button></div>
-      </div>
-    </div>
+<label class="field-label">Password
+<span class="show">👁 Show</span>
+</label>
+<input class="field-input" type="password" placeholder="••••••••" />
 
-    <!-- REPORTS -->
-    <div class="screen" id="screen-reports">
-      <div class="page-title">Reports</div>
-      <div class="page-sub">AI-generated performance insights — updated daily</div>
-      <div class="report-grid">
-        <div class="report-stat"><div class="rs-val">$4.2M</div><div class="rs-label">Pipeline Value</div></div>
-        <div class="report-stat"><div class="rs-val">68%</div><div class="rs-label">Lead Response Rate</div></div>
-        <div class="report-stat"><div class="rs-val">4.2min</div><div class="rs-label">Avg AI Response Time</div></div>
-      </div>
-      <div class="grid-2">
-        <div class="card">
-          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">Lead Source Performance</div>
-          <div class="bar-chart">
-            <div class="bar-row"><span class="bar-label">Zillow</span><div class="bar-track"><div class="bar-fill" style="width:80%;background:var(--accent);"></div></div><span class="bar-val" style="color:var(--accent);">18 leads</span></div>
-            <div class="bar-row"><span class="bar-label">Referrals</span><div class="bar-track"><div class="bar-fill" style="width:60%;background:#60a5fa;"></div></div><span class="bar-val" style="color:#60a5fa;">14 leads</span></div>
-            <div class="bar-row"><span class="bar-label">Website</span><div class="bar-track"><div class="bar-fill" style="width:45%;background:var(--accent);"></div></div><span class="bar-val" style="color:var(--accent);">10 leads</span></div>
-            <div class="bar-row"><span class="bar-label">Social</span><div class="bar-track"><div class="bar-fill" style="width:22%;background:var(--muted);"></div></div><span class="bar-val">5 leads</span></div>
-          </div>
-        </div>
-        <div class="card">
-          <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Time Savings</div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">Lead responses automated</span><span style="font-weight:700;color:var(--accent);">14 hrs saved/wk</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">Follow-up emails drafted</span><span style="font-weight:700;color:var(--accent);">8 hrs saved/wk</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:var(--bg2);border-radius:8px;"><span style="font-size:0.82rem;">Showing scheduling</span><span style="font-weight:700;color:var(--accent);">5 hrs saved/wk</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px;background:rgba(0,200,150,0.06);border:1px solid rgba(0,200,150,0.15);border-radius:8px;"><span style="font-size:0.84rem;font-weight:600;">Total weekly savings</span><span style="font-weight:800;color:var(--accent);font-size:1rem;">27 hrs</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
+<button class="signin-btn" onclick="go(1)">Sign in →</button>
 
-    <!-- SETTINGS -->
-    <div class="screen" id="screen-settings">
-      <div class="page-title">Settings</div>
-      <div class="page-sub">Configure your AI agent behavior and notification preferences</div>
-      <div class="card">
-        <div style="font-size:0.82rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px;">AI Agent Settings</div>
-        <div class="setting-row"><div><div class="setting-label">Auto-respond to new leads</div><div class="setting-desc">AI sends personalized reply within 5 minutes of lead submission</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-        <div class="setting-row"><div><div class="setting-label">Auto-schedule showings</div><div class="setting-desc">AI books showings based on lead interest score above 7.0</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-        <div class="setting-row"><div><div class="setting-label">Drip campaign automation</div><div class="setting-desc">Automatically enroll leads into nurture sequences</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-        <div class="setting-row"><div><div class="setting-label">Price alert notifications</div><div class="setting-desc">Notify me when comparable listings change price</div></div><div class="toggle on" onclick="this.classList.toggle('on')"></div></div>
-        <div class="setting-row"><div><div class="setting-label">Market report generation</div><div class="setting-desc">Weekly AI-generated market analysis for your farm area</div></div><div class="toggle" onclick="this.classList.toggle('on')"></div></div>
-      </div>
-    </div>
+<div class="login-footer">
+<div class="login-footer-row">🛡 Protected workspace · TV Realty</div>
+<div class="login-footer-tv">Built &amp; powered by <strong>Tech Velocity</strong> &middot; <a href="https://techvelocity.ai" target="_blank" style="color:#40B39A;font-weight:600;text-decoration:none;">techvelocity.ai</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
-  </div>
+<!-- SCREEN 1: Two funnels — website-triggered + hotline -->
+<div class="screen" id="s1">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><div><h1>TV Realty</h1><p class="topbar-sub">AI lead agent — Scout</p></div></div><div class="status"><span class="status-dot"></span>Scout AI active</div></div>
+<div class="s1-info">
+<h2>Two ways leads come in</h2>
+<p>Scout AI handles the classic hotline call <strong>and</strong> the new website-behaviour funnel. Both flows converge onto the same dashboard — website leads become "real" leads once Scout has engaged them.</p>
+
+<div class="entry-grid">
+<!-- Website-triggered funnel — NEW for real estate -->
+<div class="entry-card website">
+<div class="entry-head"><div class="entry-icon website">🌐</div><div><h3>Website behaviour trigger</h3><p>Net-new funnel · IDX-driven</p></div></div>
+<p class="entry-body"><strong>Raysla</strong> has been browsing listings on tvrealty.com. Her pattern tripped the promotion rule.</p>
+
+<div class="behaviour-card">
+<div class="behaviour-row"><span class="bk">Sessions (7 days)</span><span class="bv">4</span></div>
+<div class="behaviour-row"><span class="bk">Listings viewed</span><span class="bv">11</span></div>
+<div class="behaviour-row"><span class="bk">Repeated area</span><span class="bv">Winter Park · 32789</span></div>
+<div class="behaviour-row"><span class="bk">Repeated filter</span><span class="bv">4 bed · pool</span></div>
+<div class="behaviour-row"><span class="bk">Saved search</span><span class="bv">Yes</span></div>
+</div>
+<div class="behaviour-trigger">✨ Threshold met → promoted to active lead</div>
+
+<div style="margin-top:12px">
+<p style="font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600;margin-bottom:6px">Scout opens via WhatsApp first</p>
+<div class="entry-chat" style="display:flex;flex-direction:column;gap:4px">
+<div class="brow agent" style="align-self:flex-end;align-items:flex-end;max-width:88%"><span class="blabel ai">Scout</span><div class="bubble ai">Hi Raysla 👋 noticed you've been looking at 4-beds in Winter Park. Want me to send a few that match what you're after?</div></div>
+<div class="brow" style="max-width:88%"><span class="blabel caller">Raysla</span><div class="bubble caller">Yes please — something with a pool and good schools.</div></div>
+<div class="brow agent" style="align-self:flex-end;align-items:flex-end;max-width:88%"><span class="blabel ai">Scout</span><div class="bubble ai">Sent 3 options. Can I call in 10 min to go through them?</div></div>
+</div>
+</div>
+</div>
+
+<!-- Hotline funnel — Pensacola pattern -->
+<div class="entry-card hotline">
+<div class="entry-head"><div class="entry-icon hotline">📞</div><div><h3>Hotline intake</h3><p>Pensacola pattern · Voice-first</p></div></div>
+<p class="entry-body"><strong>Marcus</strong> called the TV Realty hotline directly. Scout picks up, qualifies, creates the lead card.</p>
+
+<div style="margin-top:4px;display:flex;flex-direction:column;gap:4px">
+<div class="brow agent" style="align-self:flex-end;align-items:flex-end;max-width:88%"><span class="blabel ai">Scout</span><div class="bubble ai">Hi, thanks for calling TV Realty, this is Scout — how can I help?</div></div>
+<div class="brow" style="max-width:88%"><span class="blabel caller">Marcus</span><div class="bubble caller">I'm relocating to Orlando in July, need to find a home near Lake Nona.</div></div>
+<div class="brow agent" style="align-self:flex-end;align-items:flex-end;max-width:88%"><span class="blabel ai">Scout</span><div class="bubble ai">Got it. What's your price range and how many beds?</div></div>
+<div class="brow" style="max-width:88%"><span class="blabel caller">Marcus</span><div class="bubble caller">Around $900K, 4 beds minimum. Have two kids.</div></div>
+<div class="brow agent" style="align-self:flex-end;align-items:flex-end;max-width:88%"><span class="blabel ai">Scout</span><div class="bubble ai">An agent will call you back shortly. Thank you!</div></div>
+</div>
+</div>
+</div>
+
+<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px">
+<span class="ai-tag" style="background:#F5F3FF;color:#7C3AED">Buyer</span>
+<span class="ai-tag" style="background:#F0FDF4;color:#16A34A">Hot</span>
+<span class="ai-tag" style="background:var(--surface);color:var(--secondary);border:1px solid var(--border)">Winter Park</span>
+<span class="ai-tag" style="background:#FEFCE8;color:#CA8A04">Family buyer</span>
+<span class="ai-tag" style="background:#E6F1FB;color:#2563EB">Pre-approved</span>
+</div>
+<button class="s1-arrow" onclick="go(2)">Both land on the Dashboard →</button>
+</div>
+</div>
+
+<!-- SCREEN 2: Dashboard — same kanban as Pensacola, real-estate slots -->
+<div class="screen" id="s2">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><div><h1>TV Realty</h1><p class="topbar-sub">AI lead dashboard</p></div></div><div class="status"><span class="status-dot"></span>Scout AI active</div></div>
+
+<!-- KPIs — real-estate metrics replacing retention % -->
+<div class="stats">
+<div class="stat"><div class="stat-icon" style="background:#E6F1FB;color:#2563EB">👥</div><div><p class="stat-val">18</p><p class="stat-label">New leads today</p></div></div>
+<div class="stat"><div class="stat-icon" style="background:#F5F3FF;color:#7C3AED">🌐</div><div><p class="stat-val">7</p><p class="stat-label">From website</p></div></div>
+<div class="stat"><div class="stat-icon" style="background:#FEF2F2;color:#DC2626">🔥</div><div><p class="stat-val">5</p><p class="stat-label">Hot · needs call</p></div></div>
+<div class="stat"><div class="stat-icon" style="background:#FEFCE8;color:#CA8A04">🏡</div><div><p class="stat-val">3</p><p class="stat-label">Showings this wk</p></div></div>
+<div class="retention"><div class="ret-ring">34%</div><div><p style="font-size:14px;font-weight:600">Lead → Showing</p><p style="font-size:11px;color:#8A8A8A;margin-top:2px">↑ 8% vs last wk</p></div></div>
+</div>
+
+<div class="controls">
+<div class="filters"><button class="fbtn on">All</button><button class="fbtn">Hot</button><button class="fbtn">Warm</button><button class="fbtn">Nurture</button><button class="fbtn">🌐 Website</button><button class="fbtn">📞 Hotline</button></div>
+<div class="filters"><button class="fbtn on">Board</button><button class="fbtn">List</button></div>
+</div>
+
+<div class="board">
+<!-- Col 1: Awaiting callback -->
+<div><div class="col-head"><div class="col-dot" style="background:#7C3AED"></div><h3>Awaiting callback</h3><span class="col-count" style="background:#F5F3FF;color:#7C3AED">3</span></div>
+
+<div class="card bl-crit" onclick="go(3)" style="cursor:pointer">
+<div class="card-top"><div class="card-who"><span class="card-icon">🔥</span><div><p class="card-name">Raysla Bressam <span class="source-pill source-website">🌐 Web</span></p><p class="card-phone">(407) 555-0188</p></div></div><span class="badge b-crit"><span class="badge-dot" style="background:#DC2626"></span>Hot</span></div>
+<p class="card-sum">Viewed 11 listings · 4-bed Winter Park · saved search · replied on WhatsApp</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Buyer</span><span class="tag">Winter Park</span><span class="tag">Pool</span></div><span class="card-time">12m</span></div>
+<button class="claim-btn" onclick="event.stopPropagation();go(3)">Claim & open →</button>
+</div>
+
+<div class="card bl-high">
+<div class="card-top"><div class="card-who"><span class="card-icon">📞</span><div><p class="card-name">Marcus Thompson <span class="source-pill source-hotline">📞 Hotline</span></p><p class="card-phone">(321) 555-0442</p></div></div><span class="badge b-high"><span class="badge-dot" style="background:#EA580C"></span>Warm</span></div>
+<p class="card-sum">Relocating July · Lake Nona · $900K · 4-bed · family of 4</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Buyer</span><span class="tag">Relocation</span></div><span class="card-time">28m</span></div>
+<button class="claim-btn">Claim & open →</button>
+</div>
+
+<div class="card bl-med">
+<div class="card-top"><div class="card-who"><span class="card-icon">🌐</span><div><p class="card-name">Jennifer Park <span class="source-pill source-website">🌐 Web</span></p><p class="card-phone">(407) 555-0319</p></div></div><span class="badge b-med"><span class="badge-dot" style="background:#CA8A04"></span>Warm</span></div>
+<p class="card-sum">6 listings viewed · Baldwin Park · 3-bed · awaiting WhatsApp reply</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Buyer</span><span class="tag">Baldwin Park</span></div><span class="card-time">44m</span></div>
+</div>
+</div>
+
+<!-- Col 2: In progress -->
+<div><div class="col-head"><div class="col-dot" style="background:#2563EB"></div><h3>In progress</h3><span class="col-count" style="background:#E6F1FB;color:#2563EB">2</span></div>
+
+<div class="card bl-high">
+<div class="card-top"><div class="card-who"><span class="card-icon">🏠</span><div><p class="card-name">David & Sarah Chen <span class="source-pill source-website">🌐 Web</span></p><p class="card-phone">(407) 555-0521</p></div></div><span class="badge b-high"><span class="badge-dot" style="background:#EA580C"></span>Warm</span></div>
+<p class="card-sum">Scheduled 2 showings Sat · Windermere · pre-approved $1.2M</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Buyer</span><span class="tag">Showing</span></div><span class="card-time">2 calls</span></div>
+<div class="agent-line"><div class="agent-avi">AK</div>Allan K. · showing Apr 26</div>
+</div>
+
+<div class="card bl-med">
+<div class="card-top"><div class="card-who"><span class="card-icon">🏡</span><div><p class="card-name">Kevin Walsh <span class="source-pill source-hotline">📞 Hotline</span></p><p class="card-phone">(407) 555-0714</p></div></div><span class="badge b-med"><span class="badge-dot" style="background:#CA8A04"></span>Nurture</span></div>
+<p class="card-sum">Looking for investment property · still shopping · budget flexible</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Investor</span><span class="tag">Multi-family</span></div><span class="card-time">3 calls</span></div>
+<div class="agent-line"><div class="agent-avi">RP</div>Risela P. · follow-up Apr 25</div>
+</div>
+</div>
+
+<!-- Col 3: For review -->
+<div><div class="col-head"><div class="col-dot" style="background:#CA8A04"></div><h3>For review</h3><span class="col-count" style="background:#FEFCE8;color:#CA8A04">2</span></div>
+
+<div class="card bl-med" onclick="go(6)" style="cursor:pointer">
+<div class="card-top"><div class="card-who"><span class="card-icon">✍️</span><div><p class="card-name">Emily Rodriguez <span class="source-pill source-website">🌐 Web</span></p><p class="card-phone">(407) 555-0266</p></div></div><span class="badge b-med"><span class="badge-dot" style="background:#CA8A04"></span>Med</span></div>
+<p class="card-sum">Offer submitted on 4712 Palmer Dr · $825K · awaiting seller response</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Offer</span><span class="tag">College Park</span></div><span class="card-time">2 calls</span></div>
+<div class="outcome" style="background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0">Recommends: Offer made</div>
+<div class="agent-line"><div class="agent-avi">AK</div>Allan K.</div>
+</div>
+
+<div class="card bl-low">
+<div class="card-top"><div class="card-who"><span class="card-icon">🏘️</span><div><p class="card-name">Tom Bradley <span class="source-pill source-hotline">📞 Hotline</span></p><p class="card-phone">(407) 555-0803</p></div></div><span class="badge b-low"><span class="badge-dot" style="background:#16A34A"></span>Low</span></div>
+<p class="card-sum">Inquired about listing agent services · wants pricing consult</p>
+<div class="card-foot"><div class="card-tags"><span class="tag">Seller</span></div><span class="card-time">1 call</span></div>
+<div class="outcome" style="background:#FEFCE8;color:#CA8A04;border:1px solid #FEF08A">Recommends: Nurture</div>
+<div class="agent-line"><div class="agent-avi">SK</div>Sara K.</div>
+</div>
+</div>
+
+<!-- Col 4: Closed -->
+<div><div class="col-head"><div class="col-dot" style="background:#16A34A"></div><h3>Closed</h3><span class="col-count" style="background:#F0FDF4;color:#16A34A">2</span></div>
+
+<div class="card bl-low" style="opacity:.8">
+<div class="card-top"><div class="card-who"><span class="card-icon">🎉</span><div><p class="card-name">Lauren Hayes</p></div></div><span class="badge" style="background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0">Closed · buyer</span></div>
+<p class="card-sum">Closed $695K · Thornton Park · 3-bed · $20,850 commission</p>
+<div class="agent-line"><div class="agent-avi">AK</div>Approved</div>
+</div>
+
+<div class="card" style="opacity:.75;border-left:3px solid #DC2626">
+<div class="card-top"><div class="card-who"><span class="card-icon">😔</span><div><p class="card-name">James Foster</p></div></div><span class="badge" style="background:#FEF2F2;color:#DC2626;border:1px solid #FECACA">Lost</span></div>
+<p class="card-sum">Went with another agent · price positioning disagreement</p>
+<div class="agent-line"><div class="agent-avi">RP</div>Approved</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SCREEN 3: Pre-call — three panels, listings panel added to right -->
+<div class="screen" id="s3">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><h1>TV Realty</h1><span class="bc">/ Dashboard / Raysla Bressam</span></div><button class="back-btn" onclick="go(2)">← Back to board</button></div>
+<div class="caller-bar">
+<div class="caller-info"><div class="avatar" style="background:#F5F3FF;color:#7C3AED">RB</div><div><p class="cn">Raysla Bressam</p><p class="cm">+1 (407) 555-0188 · Buyer · Winter Park</p></div></div>
+<div class="tags"><span class="ctag" style="background:#FEF2F2;color:#DC2626;border:1px solid #FECACA">🔥 Hot</span><span class="ctag" style="background:#F5F3FF;color:#7C3AED;border:1px solid #DDD6FE">🌐 Website lead</span><span class="ctag" style="background:#E6F1FB;color:#2563EB;border:1px solid #BFDBFE">Just claimed</span></div>
+</div>
+
+<div class="panel-layout">
+<div class="left-panel">
+<div class="phone-precall"><p class="phone-idle">Ready to call</p><p class="phone-num-big">+1 (407) 555-0188</p><p class="phone-name-sub">Raysla Bressam</p><button class="call-btn" onclick="go(4)">📞</button><p class="call-label">Start call</p></div>
+
+<div class="timeline">
+<p class="section-label">Lead journey</p>
+<div class="tl-item"><div class="tl-line-wrap"><div class="tl-dot" style="background:#7C3AED"></div><div class="tl-line"></div></div><div><p class="tl-title">Website behaviour <span class="tl-tag" style="background:#F5F3FF;color:#7C3AED">Trigger</span></p><p class="tl-meta">4 sessions · 11 listings · Apr 18–24</p></div></div>
+<div class="tl-item"><div class="tl-line-wrap"><div class="tl-dot" style="background:#15803D"></div><div class="tl-line"></div></div><div><p class="tl-title">Scout — WhatsApp <span class="tl-tag" style="background:#DCFCE7;color:#15803D">AI</span></p><p class="tl-meta">Today · 11:42 AM · engaged</p></div></div>
+<div class="tl-item"><div class="tl-dot" style="background:#7C3AED"></div><div><p class="tl-title">Scout — voice intake <span class="tl-tag" style="background:#F5F3FF;color:#7C3AED">AI</span></p><p class="tl-meta">Today · 12:01 PM · 4m 18s</p></div></div>
+</div>
+
+<div class="notes-section"><p class="section-label">Agent notes</p>
+<div class="rte-toolbar"><button class="rte-btn" style="font-weight:700">B</button><button class="rte-btn" style="font-style:italic">I</button><button class="rte-btn" style="text-decoration:underline">U</button><div class="rte-sep"></div><button class="rte-btn">•</button><button class="rte-btn">1.</button><div class="rte-sep"></div><button class="rte-btn">H1</button><button class="rte-btn">📎</button></div>
+<div class="rte-body empty">Start typing your notes here...</div>
+</div>
+</div>
+
+<div class="center-panel">
+<div class="chat-header"><h3>Scout AI intake transcript</h3><span style="font-size:10px;color:var(--muted)">Today 12:01 PM · Voice after WhatsApp warm-up</span></div>
+<div class="chat-feed">
+<div class="brow agent"><span class="blabel ai">Scout</span><div class="bubble ai">Hi Raysla, great to chat. I saw you've been looking at some beautiful homes in Winter Park — want to tell me a bit more about what you're after?</div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">Yes, we're looking for a 4-bedroom with a pool. Ideally good schools.</div><div class="bfooter"><span class="btime">0:12</span><span class="sdot" style="background:#16A34A"></span></div></div>
+<div class="brow agent"><span class="blabel ai">Scout</span><div class="bubble ai">Great. Are the schools for kids you have now, or planning ahead?</div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">We have two — 7 and 9. My husband's an attorney downtown, I work at Winter Park hospital.</div><div class="bfooter"><span class="btime">0:38</span><span class="sdot" style="background:#16A34A"></span></div></div>
+<div class="brow agent"><span class="blabel ai">Scout</span><div class="bubble ai">Love it — Winter Park's great for that. What's your budget looking like, and do you have financing lined up?</div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">Pre-approved up to $950K. Would love to stay under $850K if possible.</div><div class="bfooter"><span class="btime">1:14</span><span class="sdot" style="background:#16A34A"></span></div></div>
+<div class="brow agent"><span class="blabel ai">Scout</span><div class="bubble ai">Perfect. One of our Winter Park specialists will call you back within the hour to go through a few options. Thank you!</div></div>
+</div>
+<div class="center-empty"><p style="font-size:16px">📞</p><p>Live transcript appears here once you <strong onclick="go(4)" style="color:var(--green);cursor:pointer">start the call</strong></p></div>
+</div>
+
+<div class="right-panel">
+<p class="right-title">Pre-call briefing</p>
+
+<div class="prep-tips"><h4>AI suggested approach</h4>
+<ul>
+<li>Hot buyer — <strong>ready to see homes</strong></li>
+<li>Winter Park preference, $850K sweet spot</li>
+<li>4-bed, pool, good schools (2 kids, 7 & 9)</li>
+<li>Pre-approved $950K — lead is qualified</li>
+<li>Husband attorney · commute to downtown matters</li>
+</ul>
+</div>
+
+<!-- Listings panel — NEW for real estate -->
+<div class="listings-sc">
+<h4>Listings Raysla is engaging with <span class="count">11 viewed</span></h4>
+<div class="listing-row">
+<div class="listing-thumb">🏡</div>
+<div class="listing-info">
+<p class="listing-addr">2840 Summerfield Rd</p>
+<p class="listing-meta">4 bd · 3 ba · 2,840 sqft · Winter Park</p>
+<p class="listing-price">$825,000</p>
+<p class="listing-note">Viewed 4× · saved</p>
+</div>
+</div>
+<div class="listing-row">
+<div class="listing-thumb">🏡</div>
+<div class="listing-info">
+<p class="listing-addr">1315 Via Tuscany</p>
+<p class="listing-meta">4 bd · 3 ba · pool · Winter Park</p>
+<p class="listing-price">$879,000</p>
+<p class="listing-note">Viewed 3× · saved</p>
+</div>
+</div>
+<div class="listing-row">
+<div class="listing-thumb">🏡</div>
+<div class="listing-info">
+<p class="listing-addr">912 Lakeview Ave</p>
+<p class="listing-meta">4 bd · 2.5 ba · pool · Winter Park</p>
+<p class="listing-price">$795,000</p>
+<p class="listing-note">Viewed 2×</p>
+</div>
+</div>
+<div class="listings-footer">+ 8 more viewed · <a href="#">see all</a></div>
+</div>
+
+<!-- Scout's proactive alternative suggestion — the tool-calling moment -->
+<div class="tool-sug">
+<h4>✨ Scout suggests</h4>
+<p class="tool-sug-text">Raysla loved <strong>1315 Via Tuscany</strong>, but it's $29K over her target. <strong>2840 Summerfield</strong> is a closer fit — same area, pool, under budget. Worth leading with on the call.</p>
+<button class="tool-sug-btn">Prep this angle</button>
+<button class="tool-sug-btn ghost">See more alts</button>
+</div>
+
+<div class="sc"><h4>Classification</h4>
+<div class="tags-wrap">
+<span class="ai-tag" style="background:#FEF2F2;color:#DC2626">🔥 Hot buyer</span>
+<span class="ai-tag" style="background:#F0FDF4;color:#16A34A">Pre-approved</span>
+<span class="ai-tag" style="background:#FEFCE8;color:#CA8A04">Family</span>
+<span class="ai-tag" style="background:var(--surface);color:var(--secondary);border:1px solid var(--border)">Winter Park</span>
+</div>
+</div>
+
+<div class="sc"><h4>Buyer profile</h4>
+<div class="dr"><span class="dk">Budget</span><span class="dv">$850K (max $950K)</span></div>
+<div class="dr"><span class="dk">Pre-approved</span><span class="dv" style="color:#16A34A">Yes</span></div>
+<div class="dr"><span class="dk">Beds</span><span class="dv">4+</span></div>
+<div class="dr"><span class="dk">Must-haves</span><span class="dv">Pool · schools</span></div>
+<div class="dr"><span class="dk">Timeline</span><span class="dv">Active</span></div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SCREEN 4: Active call — multi-call tabs with Scout listings tool -->
+<div class="screen" id="s4">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><h1>TV Realty</h1><span class="bc">/ Dashboard / Raysla Bressam</span></div><button class="back-btn" onclick="go(2)">← Back to board</button></div>
+<div class="caller-bar">
+<div class="caller-info"><div class="avatar" style="background:#F5F3FF;color:#7C3AED">RB</div><div><p class="cn">Raysla Bressam</p><p class="cm">+1 (407) 555-0188 · 3 calls · Winter Park buyer</p></div></div>
+<div class="tags"><span class="ctag" style="background:#FEF2F2;color:#DC2626;border:1px solid #FECACA">🔥 Hot</span><span class="ctag" style="background:#E6F1FB;color:#2563EB;border:1px solid #BFDBFE">Claimed by you</span></div>
+</div>
+
+<div class="panel-layout">
+<div class="left-panel">
+<div class="phone-active">
+<div style="margin-bottom:4px"><span style="width:8px;height:8px;border-radius:50%;background:#16A34A;display:inline-block;margin-right:4px;animation:pulse 2s infinite"></span><span style="font-size:12px;font-weight:600;color:#16A34A">Connected</span></div>
+<div class="phone-timer">02:34</div>
+<div class="phone-number">+1 (407) 555-0188</div>
+<div class="phone-controls"><div class="pbtn"><span style="font-size:13px">🔇</span><span class="pbtn-lbl">Mute</span></div><div class="pbtn"><span style="font-size:13px">⏸</span><span class="pbtn-lbl">Hold</span></div><div class="pbtn"><span style="font-size:13px">⇄</span><span class="pbtn-lbl">Transfer</span></div><div class="pbtn end"><span style="font-size:14px">●</span><span class="pbtn-lbl" style="color:rgba(255,255,255,.8)">End</span></div></div>
+</div>
+
+<div class="timeline"><p class="section-label">Lead journey</p>
+<div class="tl-item"><div class="tl-line-wrap"><div class="tl-dot" style="background:#7C3AED"></div><div class="tl-line"></div></div><div><p class="tl-title">Website behaviour <span class="tl-tag" style="background:#F5F3FF;color:#7C3AED">Trigger</span></p><p class="tl-meta">Apr 18–24 · 11 listings viewed</p></div></div>
+<div class="tl-item"><div class="tl-line-wrap"><div class="tl-dot" style="background:#15803D"></div><div class="tl-line"></div></div><div><p class="tl-title">Scout — WhatsApp <span class="tl-tag" style="background:#DCFCE7;color:#15803D">AI</span></p><p class="tl-meta">Apr 24 · 11:42 AM</p></div></div>
+<div class="tl-item"><div class="tl-line-wrap"><div class="tl-dot" style="background:#7C3AED"></div><div class="tl-line"></div></div><div><p class="tl-title">Scout — voice intake <span class="tl-tag" style="background:#F5F3FF;color:#7C3AED">AI</span></p><p class="tl-meta">Apr 24 · 12:01 PM · 4m 18s</p></div></div>
+<div class="tl-item"><div class="tl-dot" style="background:var(--green);box-shadow:0 0 0 3px rgba(64,179,154,.25)"></div><div><p class="tl-title">Call 1 <span class="tl-tag" style="background:#F0FDF4;color:#16A34A">Live</span></p><p class="tl-meta">Now · 2m 34s</p></div></div>
+</div>
+
+<div class="notes-section"><p class="section-label">Agent notes</p>
+<div class="rte-toolbar"><button class="rte-btn" style="font-weight:700">B</button><button class="rte-btn" style="font-style:italic">I</button><button class="rte-btn" style="text-decoration:underline">U</button><div class="rte-sep"></div><button class="rte-btn">•</button><button class="rte-btn">1.</button></div>
+<div class="rte-body">
+<p style="font-size:9px;color:#8A8A8A;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #E5E2DB;padding-bottom:3px;margin-bottom:4px">Live</p>
+<ul><li>Loved 1315 Via Tuscany photos</li><li>Over budget — <strong>pivoted to 2840 Summerfield</strong></li><li>Want Saturday showing</li><li>Kids' school district = 32789 only</li></ul>
+</div>
+<div class="notes-footer"><span class="save-status">Auto-saved 3s ago</span><button class="save-btn">Save</button></div>
+</div>
+</div>
+
+<div class="center-panel">
+<div class="chat-tabs">
+<button class="chat-tab">Website <span class="tab-badge" style="background:#F5F3FF;color:#7C3AED">🌐</span></button>
+<button class="chat-tab">WhatsApp <span class="tab-badge" style="background:#DCFCE7;color:#15803D">Scout</span></button>
+<button class="chat-tab">Scout intake <span class="tab-badge" style="background:#F5F3FF;color:#7C3AED">AI</span></button>
+<button class="chat-tab on">Call 1 <span class="tab-badge" style="background:#F0FDF4;color:#16A34A">Live</span></button>
+</div>
+
+<div class="chat-feed">
+<div class="brow agent"><span class="blabel agent">You</span><div class="bubble agent">Hey Raysla, thanks for your time earlier with Scout. I saw you were eyeing 1315 Via Tuscany — gorgeous home.</div><div class="bfooter" style="justify-content:flex-end"><span class="btime">0:00</span></div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">Yes! That kitchen is incredible. But I think it's a stretch at $879K.</div><div class="bfooter"><span class="btime">0:18</span><span class="sdot" style="background:#CA8A04"></span></div></div>
+<div class="brow agent"><span class="blabel agent">You</span><div class="bubble agent">Totally hear you. Actually — have you looked closely at 2840 Summerfield? Same area, same school zone, also has the pool, and it's under your $850K.</div><div class="bfooter" style="justify-content:flex-end"><span class="btime">0:42</span></div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">Oh that one I saved! The backyard looked smaller though.</div><div class="bfooter"><span class="btime">1:08</span><span class="sdot" style="background:#16A34A"></span></div></div>
+<div class="brow agent"><span class="blabel agent">You</span><div class="bubble agent">Lot's actually bigger than the photos suggest — .34 acres. Want to walk both on Saturday? I can line them up back-to-back.</div><div class="bfooter" style="justify-content:flex-end"><span class="btime">1:31</span></div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="bubble caller">Yes, let's do that. Saturday morning works.</div><div class="bfooter"><span class="btime">2:12</span><span class="sdot" style="background:#16A34A"></span></div></div>
+<div class="brow caller"><span class="blabel caller">Raysla</span><div class="typing"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div></div>
+</div>
+
+<div class="action-bar"><button class="act-btn act-secondary" onclick="go(4)">Schedule showing</button><button class="act-btn act-primary" onclick="go(5)">Submit for review →</button></div>
+</div>
+
+<div class="right-panel">
+<p class="right-title">AI insights</p>
+
+<div class="sc"><h4>Sentiment across touchpoints</h4>
+<div style="display:flex;gap:6px;align-items:flex-end">
+<div style="flex:1;text-align:center"><div style="display:flex;gap:2px;align-items:flex-end;height:22px;justify-content:center"><div style="width:4px;background:#16A34A;border-radius:2px;height:70%"></div></div><p style="font-size:8px;color:#8A8A8A;margin-top:3px">WA</p></div>
+<div style="flex:1;text-align:center"><div style="display:flex;gap:2px;align-items:flex-end;height:22px;justify-content:center"><div style="width:4px;background:#16A34A;border-radius:2px;height:80%"></div></div><p style="font-size:8px;color:#8A8A8A;margin-top:3px">Scout</p></div>
+<div style="flex:1;text-align:center"><div style="display:flex;gap:2px;align-items:flex-end;height:22px;justify-content:center"><div style="width:4px;background:#CA8A04;border-radius:2px;height:60%"></div><div style="width:4px;background:#16A34A;border-radius:2px;height:90%"></div></div><p style="font-size:8px;color:#8A8A8A;margin-top:3px">C1</p></div>
+</div>
+<p style="font-size:10px;color:#16A34A;font-weight:600;margin-top:4px">Trending up — pivoted well</p>
+</div>
+
+<div class="sc"><h4>Intent score</h4>
+<div class="sat"><div class="sat-num" style="color:#16A34A">9.1</div><div><p style="font-size:11px;font-weight:600;color:var(--secondary)">/10</p><p style="font-size:9px;color:var(--muted)">↑ from 7.2</p></div></div>
+<div class="sbar"><div class="sfill" style="width:91%;background:#16A34A"></div></div>
+</div>
+
+<!-- Scout's mid-call tool use — the alternatives engine visible -->
+<div class="tool-sug">
+<h4>✨ Scout · live suggestion</h4>
+<p class="tool-sug-text">Raysla asked about lot size on <strong>2840 Summerfield</strong>. Pulled from IDX: <strong>0.34 acres</strong>, larger than photo comps suggest. Similar lots in 32789 avg 0.28 acres.</p>
+<button class="tool-sug-btn">Use in call</button>
+</div>
+
+<div class="listings-sc">
+<h4>Active focus <span class="count">3</span></h4>
+<div class="listing-row" style="background:#FEF2F2;border-radius:6px;padding:6px 8px">
+<div class="listing-thumb" style="background:linear-gradient(135deg,#FEE2E2,#FECACA)">🔥</div>
+<div class="listing-info">
+<p class="listing-addr">2840 Summerfield Rd</p>
+<p class="listing-meta">Pivoting to this · Sat showing</p>
+<p class="listing-price">$825,000</p>
+</div>
+</div>
+<div class="listing-row">
+<div class="listing-thumb">💕</div>
+<div class="listing-info">
+<p class="listing-addr">1315 Via Tuscany</p>
+<p class="listing-meta">Loved but over budget</p>
+<p class="listing-price">$879,000</p>
+</div>
+</div>
+<div class="listing-row">
+<div class="listing-thumb">👀</div>
+<div class="listing-info">
+<p class="listing-addr">912 Lakeview Ave</p>
+<p class="listing-meta">Backup · not pursued yet</p>
+<p class="listing-price">$795,000</p>
+</div>
+</div>
+</div>
+
+<div class="sc"><h4>AI tags</h4>
+<div class="tags-wrap">
+<span class="ai-tag" style="background:#FEF2F2;color:#DC2626">🔥 Hot</span>
+<span class="ai-tag" style="background:#F0FDF4;color:#16A34A">Price-sensitive</span>
+<span class="ai-tag" style="background:#E6F1FB;color:#2563EB">Saturday showing</span>
+<span class="ai-tag" style="background:#F5F3FF;color:#7C3AED">Pivot success</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SCREEN 5: Post-call submit -->
+<div class="screen" id="s5">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><h1>TV Realty</h1><span class="bc">/ Submit for review</span></div><button class="back-btn" onclick="go(4)">← Back to call</button></div>
+
+<div style="max-width:520px;margin:40px auto;padding:0 24px">
+<h2 style="font-size:20px;font-weight:600;margin-bottom:6px">Submit Raysla Bressam for review</h2>
+<p style="font-size:13px;color:var(--secondary);margin-bottom:24px">Your recommendation and notes will be sent to the broker for final approval.</p>
+
+<div style="background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px">
+<p class="section-label">Your recommendation</p>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 20px">
+<div style="padding:14px;border-radius:10px;background:#F0FDF4;border:2px solid #16A34A;text-align:center;cursor:pointer"><span style="font-size:18px">📅</span><p style="font-size:13px;font-weight:600;color:#16A34A;margin-top:4px">Showing scheduled</p></div>
+<div style="padding:14px;border-radius:10px;background:var(--surface);border:1px solid var(--border);text-align:center;cursor:pointer;opacity:.5"><span style="font-size:18px">✍️</span><p style="font-size:13px;font-weight:600;color:var(--secondary);margin-top:4px">Offer made</p></div>
+<div style="padding:14px;border-radius:10px;background:var(--surface);border:1px solid var(--border);text-align:center;cursor:pointer;opacity:.5"><span style="font-size:18px">↻</span><p style="font-size:13px;font-weight:600;color:var(--secondary);margin-top:4px">Nurture</p></div>
+<div style="padding:14px;border-radius:10px;background:var(--surface);border:1px solid var(--border);text-align:center;cursor:pointer;opacity:.5"><span style="font-size:18px">✕</span><p style="font-size:13px;font-weight:600;color:var(--secondary);margin-top:4px">Lost</p></div>
+</div>
+
+<p class="section-label">Summary for broker</p>
+<div style="background:var(--surface);border-radius:10px;padding:14px;margin:8px 0 20px;font-size:13px;line-height:1.6;color:var(--secondary)">Hot Winter Park buyer, pre-approved $950K. Loved 1315 Via Tuscany ($879K) but over budget. Pivoted to 2840 Summerfield ($825K) — same area, schools, pool, larger lot. Scheduled Saturday 10 AM showing for both properties back-to-back.</div>
+
+<p class="section-label">Showing scheduled</p>
+<div style="background:#F0FDF4;border:1px solid #BBF7D0;border-radius:10px;padding:12px 14px;margin:8px 0 20px">
+<p style="font-size:12px;font-weight:600;color:#15803D;margin-bottom:4px">📅 Saturday Apr 26 · 10:00 AM</p>
+<p style="font-size:11px;color:var(--secondary);margin-bottom:2px">2840 Summerfield Rd → 1315 Via Tuscany</p>
+<p style="font-size:11px;color:var(--muted)">Confirmed via WhatsApp · calendar invite sent</p>
+</div>
+
+<p class="section-label">Attached</p>
+<div style="display:flex;gap:8px;margin:8px 0 20px;flex-wrap:wrap">
+<span style="padding:6px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--secondary)">🌐 Website behaviour log</span>
+<span style="padding:6px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--secondary)">💬 WhatsApp thread</span>
+<span style="padding:6px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--secondary)">📞 Scout + Call 1 transcripts</span>
+<span style="padding:6px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--secondary)">🏡 Listings viewed (11)</span>
+<span style="padding:6px 12px;background:var(--surface);border-radius:8px;font-size:12px;color:var(--secondary)">🤖 AI analysis</span>
+</div>
+
+<button style="width:100%;padding:12px;border-radius:10px;background:var(--green);color:#fff;border:none;font-size:14px;font-weight:600;cursor:pointer;font-family:inherit" onclick="go(6)">Submit for review →</button>
+</div>
+</div>
+</div>
+
+<!-- SCREEN 6: Broker review -->
+<div class="screen" id="s6">
+<div class="topbar"><div class="topbar-left"><div class="logo"><img src="logo.png" alt="TV Realty"></div><h1>TV Realty</h1><span class="bc">/ Broker Review</span></div><button class="back-btn" onclick="go(2)">← Back to board</button></div>
+<div class="caller-bar">
+<div class="caller-info"><div class="avatar" style="background:#F5F3FF;color:#7C3AED">RB</div><div><p class="cn">Raysla Bressam</p><p class="cm">🌐 Website lead · 3 touchpoints · Submitted by Allan K.</p></div></div>
+<div class="tags"><span class="ctag" style="background:#F0FDF4;color:#16A34A;border:1px solid #BBF7D0">Agent recommends: Showing scheduled</span></div>
+</div>
+
+<div class="panel-layout">
+<div class="left-panel" style="padding:18px">
+<p class="right-title">Lead journey</p>
+
+<div class="sc"><h4>🌐 Website behaviour</h4><p class="sc-text">4 sessions over 6 days · 11 listings viewed · concentrated on 4-bed Winter Park homes · saved search · threshold tripped.</p><p style="font-size:10px;color:var(--muted);margin-top:4px">Apr 18–24</p></div>
+
+<div class="sc"><h4>💬 Scout — WhatsApp opener</h4><p class="sc-text">Cold outreach referencing Winter Park 4-beds. Raysla engaged within 8 minutes. Agreed to a voice call.</p><p style="font-size:10px;color:var(--muted);margin-top:4px">Apr 24 · 11:42 AM · 6 msgs</p></div>
+
+<div class="sc"><h4>📞 Scout — voice intake</h4><p class="sc-text">Qualified buyer: family, $850K target ($950K max), pre-approved. Must-haves: 4-bed, pool, 32789 schools.</p><p style="font-size:10px;color:var(--muted);margin-top:4px">Apr 24 · 12:01 PM · 4m 18s</p></div>
+
+<div class="sc" style="border-left:3px solid #16A34A"><h4>📞 Call 1 — Allan K.</h4><p class="sc-text"><strong>Pivoted from 1315 Via Tuscany (over budget) to 2840 Summerfield.</strong> Scheduled Saturday 10 AM double-showing.</p><p style="font-size:10px;color:var(--muted);margin-top:4px">Apr 24 · 2:14 PM · 5m 02s</p></div>
+</div>
+
+<div class="center-panel" style="padding:18px">
+<p class="right-title">Agent notes</p>
+<div style="background:var(--surface);border-radius:10px;padding:14px;font-size:12px;line-height:1.7;color:var(--secondary)">
+<p style="font-size:10px;color:#8A8A8A;text-transform:uppercase;letter-spacing:.04em;border-bottom:1px solid #E5E2DB;padding-bottom:3px;margin-bottom:6px">Call 1 — Apr 24</p>
+<ul style="padding-left:16px;margin:0 0 10px"><li>Loved 1315 Via Tuscany, but $29K over target</li><li>Pivoted to 2840 Summerfield ($825K) — Scout's alt suggestion</li><li>Confirmed lot is .34 acres vs photo perception</li><li>Kids' schools = 32789 only, non-negotiable</li><li><strong>Saturday 10 AM double-showing booked</strong></li></ul>
+</div>
+
+<div style="margin-top:16px">
+<p class="section-label">AI overall summary</p>
+<div style="background:var(--surface);border-radius:10px;padding:14px;font-size:12px;line-height:1.6;color:var(--secondary);margin-top:6px">Website-triggered lead, converted end-to-end in under 3 hours. Scout's listings tool surfaced a price-appropriate alternative mid-conversation, which the agent used to save a deal that was heading toward "out of budget → lost." <strong>Hot buyer · showing booked · pre-approved.</strong></div>
+</div>
+
+<!-- Listings panel on broker review too -->
+<div style="margin-top:16px">
+<p class="section-label">Listings in play</p>
+<div class="listings-sc" style="margin-top:6px">
+<div class="listing-row" style="background:#F0FDF4;border-radius:6px;padding:6px 8px">
+<div class="listing-thumb" style="background:linear-gradient(135deg,#DCFCE7,#BBF7D0)">📅</div>
+<div class="listing-info">
+<p class="listing-addr">2840 Summerfield Rd · Sat 10 AM</p>
+<p class="listing-meta">4 bd · 3 ba · pool · 0.34 ac</p>
+<p class="listing-price">$825,000</p>
+</div>
+</div>
+<div class="listing-row" style="background:#F0FDF4;border-radius:6px;padding:6px 8px;margin-top:4px">
+<div class="listing-thumb" style="background:linear-gradient(135deg,#DCFCE7,#BBF7D0)">📅</div>
+<div class="listing-info">
+<p class="listing-addr">1315 Via Tuscany · Sat 10:45 AM</p>
+<p class="listing-meta">4 bd · 3 ba · pool · stretch</p>
+<p class="listing-price">$879,000</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="right-panel">
+<p class="right-title">Broker decision</p>
+
+<div class="sc"><h4>Agent recommends</h4><div style="display:flex;align-items:center;gap:8px;margin-top:4px"><span style="font-size:18px">📅</span><p style="font-size:16px;font-weight:600;color:#16A34A">Showing scheduled</p></div></div>
+
+<div class="sc"><h4>Intent score</h4><div class="sat"><div class="sat-num" style="color:#16A34A">9.1</div><div><p style="font-size:11px;font-weight:600;color:var(--secondary)">/10</p></div></div></div>
+
+<div class="sc"><h4>AI tags</h4>
+<div class="tags-wrap">
+<span class="ai-tag" style="background:#FEF2F2;color:#DC2626">🔥 Hot</span>
+<span class="ai-tag" style="background:#F0FDF4;color:#16A34A">Pre-approved</span>
+<span class="ai-tag" style="background:#F5F3FF;color:#7C3AED">🌐 Website</span>
+<span class="ai-tag" style="background:#E6F1FB;color:#2563EB">Pivot-saved</span>
+</div>
+</div>
+
+<div class="sc"><h4>Deal economics</h4>
+<div class="dr"><span class="dk">Target price</span><span class="dv">$825K</span></div>
+<div class="dr"><span class="dk">Est. commission (3%)</span><span class="dv" style="color:#16A34A">$24,750</span></div>
+<div class="dr"><span class="dk">Close probability</span><span class="dv" style="color:#16A34A">High</span></div>
+<div class="dr"><span class="dk">Time to lead</span><span class="dv">3h 11m</span></div>
+</div>
+
+<div style="margin-top:14px">
+<p class="section-label" style="margin-bottom:8px">Your decision</p>
+<div class="boss-actions">
+<button class="boss-btn" style="background:#16A34A;color:#fff" onclick="alert('✓ Approved! Card moves to In progress → Saturday showing.')">✓ Approve</button>
+<button class="boss-btn" style="background:var(--surface);color:var(--secondary);border:1px solid var(--border)" onclick="alert('Sent back to agent with comments.')">↩ Send back</button>
+</div>
+<button class="boss-btn" style="width:100%;margin-top:8px;background:transparent;color:var(--muted);border:1px solid var(--border)" onclick="alert('Changed outcome to a different tag.')">Change outcome</button>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Extension-note toast -->
+<button class="ext-toggle" onclick="toggleNote()">ⓘ Extensibility note</button>
+<div class="ext-note" id="extNote">
+<button class="ext-note-close" onclick="toggleNote()">×</button>
+<strong>Same skeleton, different vertical.</strong><br>
+Every real-estate-specific element on this page — KPIs, classification tags, recommendation options, buyer profile fields, listings panel — is fed by a per-vertical config. The Pensacola build is the base; TV Realty is a config on top. Powered by <strong>Tech Velocity</strong>. Medical, legal, etc. slot in the same way.
 </div>
 
 <script>
-  function showScreen(id, el) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-    document.getElementById('screen-' + id).classList.add('active');
-    el.classList.add('active');
-  }
+function go(n){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById('s'+n).classList.add('active');
+document.querySelectorAll('.screen-btn').forEach((b)=>{
+  b.classList.toggle('active', parseInt(b.dataset.screen,10)===n);
+});
+window.scrollTo(0,0);
+}
+function toggleNote(){
+document.getElementById('extNote').classList.toggle('show');
+document.querySelector('.ext-toggle').style.display=document.getElementById('extNote').classList.contains('show')?'none':'block';
+}
 </script>
 </body>
 </html>
